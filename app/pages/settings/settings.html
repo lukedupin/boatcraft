@@ -1,0 +1,34 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <icon menu></icon>
+  </button>
+  <ion-title>Settings</ion-title>
+</ion-navbar>
+
+<ion-content padding class="getting-started">
+
+  <h3>Timer configuration</h3>
+
+  <ion-input fixed-label>
+    <ion-label>Min alert (minutes)</ion-label>
+    <input type="number" [(ngModel)]="minAlert">
+  </ion-input>
+
+  <ion-input fixed-label>
+    <ion-label>Max alert (minutes)</ion-label>
+    <input type="number" [(ngModel)]="maxAlert">
+  </ion-input>
+
+  <ion-input fixed-label>
+    <ion-label>Pre alert (seconds)</ion-label>
+    <input type="number" [(ngModel)]="preAlert">
+  </ion-input>
+
+  <ion-input fixed-label>
+    <ion-label>Loser countdown (seconds)</ion-label>
+    <input type="number" [(ngModel)]="loserCountdown">
+  </ion-input>
+
+  <button (click)="resetTimer()">Reset game timer</button>
+
+</ion-content>
