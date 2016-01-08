@@ -60722,6 +60722,11 @@
 	            this._resetCount = 0;
 	            this._loserCount = 0;
 	            this._timerId = [];
+	            //Play the boat craft alarm
+	            this._soundTheme = new howler_1.Howl({ urls: ['/android_asset/www/sounds/staying.mp3'] });
+	            this._soundCountdown = new howler_1.Howl({ urls: ['/android_asset/www/sounds/jeopardy.mp3'] });
+	            this._soundWarning = new howler_1.Howl({ urls: ['/android_asset/www/sounds/trans.mp3'] });
+	            this._soundWaka = new howler_1.Howl({ urls: ['/android_asset/www/sounds/boing.mp3'] });
 	        }
 	        else
 	            this.storeSettings(Shared.instance);
@@ -60781,7 +60786,7 @@
 	                self._resetCount = 0;
 	                self._loserCount = self.loserCountdown;
 	                self._mode = Shared.LOSER_COUNTDOWN;
-	                self._usrCallback(self._mode, 0);
+	                self._usrCallback(self._mode, self._loserCount);
 	                break;
 	            case Shared.LOSER_COUNTDOWN:
 	                if ((++self._resetCount) >= 5) {
@@ -60824,7 +60829,8 @@
 	    //Timer has elapsed!
 	    Shared.prototype._timerElapsed = function () {
 	        var self = Shared.getSettings();
-	        //Play the boat craft alarm
+	        //Play the sound!
+	        self._soundTheme.play();
 	        //Let the user know whats up
 	        self._mode = Shared.TIMER_ELAPSED;
 	        self._resetCount = 0;
@@ -60835,6 +60841,7 @@
 	        var self = Shared.getSettings();
 	        //Update my count down
 	        if (--self._loserCount <= 0) {
+	            this._soundWaka.play();
 	            //Reset everything back to a known state
 	            self.resetTimer();
 	            //Start my new timer
@@ -60846,17 +60853,17 @@
 	        self._usrCallback(self._mode, self._loserCount);
 	    };
 	    //Play a warning sound
-	    Shared.prototype._playerPreAlert = function () {
-	        //Play a pre alert
+	    Shared.prototype._playPreAlert = function () {
+	        var self = Shared.getSettings();
+	        self._soundWarning.play();
 	    };
 	    //Play a waka sound
 	    Shared.prototype._playWakaWaka = function () {
-	        var sound = new howler_1.Howl({
-	            urls: ['/android_asset/www/sounds/waka.mp3']
-	        }).play();
+	        this._soundWaka.play();
 	    };
 	    //Start the loser countdown
 	    Shared.prototype._startLoserCountdown = function () {
+	        this._soundCountdown.play();
 	        //Add the random timer in
 	        self._timerId.push(setInterval(Shared.instance._loserCountdown, 1000));
 	    };
@@ -62065,7 +62072,11 @@
 	                break;
 	            case shared_1.Shared.TIMER_ELAPSED:
 	                this.headerText = "Boat craft time!!!!!!";
-	                this.buttonText = "Does nothing";
+	                this.buttonText = "Click to start return countdown";
+	                break;
+	            case shared_1.Shared.LOSER_COUNTDOWN:
+	                this.headerText = countdown + ": seconds before game resumes";
+	                this.buttonText = "Click to reset";
 	                break;
 	            default:
 	                console.log("Unknown mode: " + mode);

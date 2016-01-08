@@ -40,7 +40,12 @@ export class CountdownPage
 
       case Shared.TIMER_ELAPSED:
         this.headerText = "Boat craft time!!!!!!";
-        this.buttonText = "Does nothing";
+        this.buttonText = "Click to start return countdown";
+        break;
+
+      case Shared.LOSER_COUNTDOWN:
+        this.headerText = countdown +": seconds before game resumes";
+        this.buttonText = "Click to reset";
         break;
 
       default:

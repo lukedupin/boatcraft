@@ -42,6 +42,12 @@ export class Shared
       this._resetCount = 0;
       this._loserCount = 0;
       this._timerId = [];
+
+      //Play the boat craft alarm
+      this._soundTheme = new Howl({ urls: ['/android_asset/www/sounds/staying.mp3'] });
+      this._soundCountdown = new Howl({ urls: ['/android_asset/www/sounds/jeopardy.mp3'] });
+      this._soundWarning = new Howl({ urls: ['/android_asset/www/sounds/trans.mp3'] });
+      this._soundWaka = new Howl({ urls: ['/android_asset/www/sounds/boing.mp3'] });
     }
     else
       this.storeSettings( Shared.instance );
@@ -111,7 +117,7 @@ export class Shared
         self._resetCount = 0;
         self._loserCount = self.loserCountdown;
         self._mode = Shared.LOSER_COUNTDOWN;
-        self._usrCallback( self._mode, 0 );
+        self._usrCallback( self._mode, self._loserCount );
         break;
 
       case Shared.LOSER_COUNTDOWN:
@@ -171,7 +177,8 @@ export class Shared
   {
     let self = Shared.getSettings();
 
-    //Play the boat craft alarm
+      //Play the sound!
+    self._soundTheme.play();
 
       //Let the user know whats up
     self._mode = Shared.TIMER_ELAPSED;
@@ -187,6 +194,8 @@ export class Shared
       //Update my count down
     if ( --self._loserCount <= 0 )
     {
+      this._soundWaka.play();
+
         //Reset everything back to a known state
       self.resetTimer();
 
@@ -201,22 +210,24 @@ export class Shared
   }
 
   //Play a warning sound
-  _playerPreAlert()
+  _playPreAlert()
   {
-    //Play a pre alert
+    let self = Shared.getSettings();
+
+    self._soundWarning.play();
   }
 
   //Play a waka sound
   _playWakaWaka()
   {
-    var sound = new Howl({
-      urls: ['/android_asset/www/sounds/waka.mp3']
-    }).play();
+    this._soundWaka.play();
   }
 
   //Start the loser countdown
   _startLoserCountdown()
   {
+    this._soundCountdown.play();
+
       //Add the random timer in
     self._timerId.push( setInterval( Shared.instance._loserCountdown, 1000 ));
   }
