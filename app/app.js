@@ -16,12 +16,12 @@ class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Settings', component: SettingsPage },
-      { title: 'Count down page', component: CountdownPage }
+      { title: 'Count down page', component: CountdownPage },
+      { title: 'Settings', component: SettingsPage }
     ];
 
     // make Settings my default page
-    this.rootPage = SettingsPage;
+    this.rootPage = CountdownPage;
   }
 
   initializeApp() {

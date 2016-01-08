@@ -3224,11 +3224,11 @@
 	        this.initializeApp();
 	        // set our app's pages
 	        this.pages = [
-	            { title: 'Settings', component: settings_1.SettingsPage },
-	            { title: 'Count down page', component: countdown_1.CountdownPage }
+	            { title: 'Count down page', component: countdown_1.CountdownPage },
+	            { title: 'Settings', component: settings_1.SettingsPage }
 	        ];
 	        // make Settings my default page
-	        this.rootPage = settings_1.SettingsPage;
+	        this.rootPage = countdown_1.CountdownPage;
 	    }
 	    MyApp.prototype.initializeApp = function () {
 	        this.platform.ready().then(function () {
@@ -60719,14 +60719,20 @@
 	            this._mode = Shared.TIMER_IDLE;
 	            this._func = null;
 	            this._scope = null;
+	            this._easterEgg = 0;
 	            this._resetCount = 0;
 	            this._loserCount = 0;
 	            this._timerId = [];
 	            //Play the boat craft alarm
-	            this._soundTheme = new howler_1.Howl({ urls: ['/android_asset/www/sounds/staying.mp3'] });
-	            this._soundCountdown = new howler_1.Howl({ urls: ['/android_asset/www/sounds/jeopardy.mp3'] });
-	            this._soundWarning = new howler_1.Howl({ urls: ['/android_asset/www/sounds/trans.mp3'] });
-	            this._soundWaka = new howler_1.Howl({ urls: ['/android_asset/www/sounds/boing.mp3'] });
+	            var src = '';
+	            //if ( new Platform().is('android') )
+	            src = '/android_asset/www';
+	            this._soundGamestart = new howler_1.Howl({ urls: [src + '/sounds/mortal.mp3'] });
+	            this._soundTheme = new howler_1.Howl({ urls: [src + '/sounds/theme_small.mp3'] });
+	            this._soundRickRoll = new howler_1.Howl({ urls: [src + '/sounds/rickroll_small.mp3'] });
+	            this._soundCountdown = new howler_1.Howl({ urls: [src + '/sounds/jeopardy.mp3'] });
+	            this._soundWarning = new howler_1.Howl({ urls: [src + '/sounds/trans.mp3'] });
+	            this._soundWaka = new howler_1.Howl({ urls: [src + '/sounds/boing.mp3'] });
 	        }
 	        else
 	            this.storeSettings(Shared.instance);
@@ -60745,8 +60751,8 @@
 	        Shared.instance._scope = scope;
 	    };
 	    //Call the user callback
-	    Shared.prototype._usrCallback = function (mode, param) {
-	        Shared.instance._scope[Shared.instance._func](mode, param);
+	    Shared.prototype._usrCallback = function (mode, param0, param1) {
+	        Shared.instance._scope[Shared.instance._func](mode, param0, param1);
 	    };
 	    //Store settings
 	    Shared.prototype.storeSettings = function (settings) {
@@ -60769,7 +60775,9 @@
 	                self._mode = Shared.TIMER_RUNNING;
 	                self._resetCount = 0;
 	                self._startTimer();
-	                self._usrCallback(self._mode, 0);
+	                self._usrCallback(self._mode, 0, 0);
+	                //Game start sound
+	                self._soundGamestart.play();
 	                break;
 	            case Shared.TIMER_RUNNING:
 	                if ((++self._resetCount) >= 5) {
@@ -60779,24 +60787,23 @@
 	                }
 	                else
 	                    self._playWakaWaka();
-	                self._usrCallback(self._mode, self._resetCount);
+	                self._usrCallback(self._mode, self._resetCount, 0);
 	                break;
 	            case Shared.TIMER_ELAPSED:
 	                self._startLoserCountdown();
 	                self._resetCount = 0;
 	                self._loserCount = self.loserCountdown;
 	                self._mode = Shared.LOSER_COUNTDOWN;
-	                self._usrCallback(self._mode, self._loserCount);
+	                self._usrCallback(self._mode, self._resetCount, self._loserCount);
 	                break;
 	            case Shared.LOSER_COUNTDOWN:
 	                if ((++self._resetCount) >= 5) {
 	                    self._mode = Shared.TIMER_IDLE;
 	                    self._resetCount = 0;
 	                    self.resetTimer();
-	                    self._usrCallback_func(self._mode, 0);
 	                }
-	                else
-	                    self._playWakaWaka();
+	                //Update the call
+	                self._usrCallback(self._mode, self._resetCount, self._loserCount);
 	                break;
 	            default:
 	                console.log("Unknown mode: " + self._mode);
@@ -60806,6 +60813,8 @@
 	    //Reset my timers and put everything back into a normal state
 	    Shared.prototype.resetTimer = function () {
 	        var self = Shared.getSettings();
+	        //Stop all sounds
+	        self._stopAllSounds();
 	        //Reset my mode and timer
 	        self._mode = Shared.TIMER_IDLE;
 	        self._resetCount = 0;
@@ -60820,6 +60829,8 @@
 	        //Get my ticks before this will go off
 	        var tick_span = (self.maxAlert - self.minAlert) * Math.random();
 	        var ticks = (tick_span + self.minAlert) * 60 * 1000;
+	        //Stop all sounds
+	        self._stopAllSounds();
 	        //Add the random timer in
 	        self._timerId.push(setTimeout(Shared.instance._timerElapsed, ticks));
 	        //Do we have a pre warning?
@@ -60830,27 +60841,38 @@
 	    Shared.prototype._timerElapsed = function () {
 	        var self = Shared.getSettings();
 	        //Play the sound!
-	        self._soundTheme.play();
+	        self._stopAllSounds();
+	        if (self._easterEgg >= 2 && Math.random() <= 0.1) {
+	            self._soundRickRoll = new howler_1.Howl({ urls: ['/android_asset/www/sounds/rickroll_small.mp3'] });
+	            self._soundRickRoll.play();
+	        }
+	        else {
+	            self._soundTheme = new howler_1.Howl({ urls: ['/android_asset/www/sounds/theme_small.mp3'] });
+	            self._soundTheme.play();
+	        }
 	        //Let the user know whats up
 	        self._mode = Shared.TIMER_ELAPSED;
 	        self._resetCount = 0;
-	        self._usrCallback(self._mode, 0);
+	        self._usrCallback(self._mode, 0, 0);
 	    };
 	    //Loser countdown
 	    Shared.prototype._loserCountdown = function () {
 	        var self = Shared.getSettings();
 	        //Update my count down
 	        if (--self._loserCount <= 0) {
-	            this._soundWaka.play();
+	            self._playWakaWaka();
 	            //Reset everything back to a known state
 	            self.resetTimer();
 	            //Start my new timer
 	            self._mode = Shared.TIMER_RUNNING;
 	            self._resetCount = 0;
 	            self._startTimer();
+	            //Eggs?
+	            self._easterEgg++;
+	            self._playWakaWaka();
 	        }
 	        //Update what we are doing
-	        self._usrCallback(self._mode, self._loserCount);
+	        self._usrCallback(self._mode, self._resetCount, self._loserCount);
 	    };
 	    //Play a warning sound
 	    Shared.prototype._playPreAlert = function () {
@@ -60859,13 +60881,28 @@
 	    };
 	    //Play a waka sound
 	    Shared.prototype._playWakaWaka = function () {
-	        this._soundWaka.play();
+	        var self = Shared.getSettings();
+	        self._soundWaka = new howler_1.Howl({ urls: ['/android_asset/www/sounds/boing.mp3'] });
+	        self._soundWaka.play();
 	    };
 	    //Start the loser countdown
 	    Shared.prototype._startLoserCountdown = function () {
-	        this._soundCountdown.play();
+	        var self = Shared.getSettings();
+	        self._stopAllSounds();
+	        self._soundCountdown = new howler_1.Howl({ urls: ['/android_asset/www/sounds/jeopardy.mp3'] });
+	        self._soundCountdown.play();
 	        //Add the random timer in
 	        self._timerId.push(setInterval(Shared.instance._loserCountdown, 1000));
+	    };
+	    //Stop all sounds
+	    Shared.prototype._stopAllSounds = function () {
+	        var self = Shared.getSettings();
+	        self._soundGamestart.stop();
+	        self._soundTheme.stop();
+	        self._soundRickRoll.stop();
+	        self._soundCountdown.stop();
+	        self._soundWarning.stop();
+	        self._soundWaka.stop();
 	    };
 	    return Shared;
 	})();
@@ -62060,7 +62097,7 @@
 	    CountdownPage.prototype.userClick = function () {
 	        shared_1.Shared.getSettings().buttonClick();
 	    };
-	    CountdownPage.prototype._callback = function (mode, countdown) {
+	    CountdownPage.prototype._callback = function (mode, reset, countdown) {
 	        switch (mode) {
 	            case shared_1.Shared.TIMER_IDLE:
 	                this.headerText = "Waiting to start game";
@@ -62068,15 +62105,15 @@
 	                break;
 	            case shared_1.Shared.TIMER_RUNNING:
 	                this.headerText = "Timer is running";
-	                this.buttonText = "Click to reset (" + (5 - countdown) + ")";
+	                this.buttonText = "Click to reset (" + (5 - reset) + ")";
 	                break;
 	            case shared_1.Shared.TIMER_ELAPSED:
 	                this.headerText = "Boat craft time!!!!!!";
 	                this.buttonText = "Click to start return countdown";
 	                break;
 	            case shared_1.Shared.LOSER_COUNTDOWN:
-	                this.headerText = countdown + ": seconds before game resumes";
-	                this.buttonText = "Click to reset";
+	                this.headerText = "Seconds remaining before game resumes: " + countdown;
+	                this.buttonText = "Click to reset (" + (5 - reset) + ")";
 	                break;
 	            default:
 	                console.log("Unknown mode: " + mode);

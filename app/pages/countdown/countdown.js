@@ -24,7 +24,7 @@ export class CountdownPage
   }
 
 
-  _callback( mode, countdown )
+  _callback( mode, reset, countdown )
   {
     switch ( mode )
     {
@@ -35,7 +35,7 @@ export class CountdownPage
 
       case Shared.TIMER_RUNNING:
         this.headerText = "Timer is running";
-        this.buttonText = "Click to reset ("+ (5 - countdown) +")";
+        this.buttonText = "Click to reset ("+ (5 - reset) +")";
         break;
 
       case Shared.TIMER_ELAPSED:
@@ -44,8 +44,8 @@ export class CountdownPage
         break;
 
       case Shared.LOSER_COUNTDOWN:
-        this.headerText = countdown +": seconds before game resumes";
-        this.buttonText = "Click to reset";
+        this.headerText = "Seconds remaining before game resumes: "+ countdown;
+        this.buttonText = "Click to reset ("+ (5 - reset) +")";
         break;
 
       default:
