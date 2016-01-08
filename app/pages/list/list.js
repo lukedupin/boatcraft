@@ -1,5 +1,4 @@
 import {IonicApp, Page, NavController, NavParams} from 'ionic/ionic';
-import {ItemDetailsPage} from '../item-details/item-details'
 
 @Page({
   templateUrl: 'build/pages/list/list.html'
@@ -28,9 +27,8 @@ export class ListPage {
 
     console.log('You selected:', item.title);
 
-     this.nav.push(ListPage, {
-     //this.nav.push(ItemDetailsPage, {
-       item: item
-     });
+     // this.nav.push(ItemDetailsPage, {
+     //   item: item
+     // });
   }
 }

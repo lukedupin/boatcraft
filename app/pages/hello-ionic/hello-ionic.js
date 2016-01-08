@@ -7,8 +7,4 @@ export class HelloIonicPage {
   constructor(nav: NavController) {
     this.nav = nav;
   }
-
-  callOnClick() {
-    console.log("you clicked on the button");
-  }
 }

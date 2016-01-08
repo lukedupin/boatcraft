@@ -1054,7 +1054,7 @@
 	//     See the License for the specific language governing permissions and
 	// limitations under the License.
 
-	!function(a,b){b["true"]=a,function(){if(document.documentElement.animate){var a=document.documentElement.animate([],0),b=!0;if(a&&(b=!1,"play|currentTime|pause|reverse|playbackRate|cancel|finish|startTime|playState".split("|").forEach(function(c){void 0===a[c]&&(b=!0)})),!b)return}var c={},d={},e={},f=null;!function(a,b){function c(a){if("number"==typeof a)return a;var b={};for(var c in a)b[c]=a[c];return b}function d(){this._delay=0,this._endDelay=0,this._fill="none",this._iterationStart=0,this._iterations=1,this._duration=0,this._playbackRate=1,this._direction="normal",this._easing="linear"}function e(a,b,c){var e=new d;return b&&(e.fill="both",e.duration="auto"),"number"!=typeof a||isNaN(a)?void 0!==a&&Object.getOwnPropertyNames(a).forEach(function(b){if("auto"!=a[b]){if(("number"==typeof e[b]||"duration"==b)&&("number"!=typeof a[b]||isNaN(a[b])))return;if("fill"==b&&-1==t.indexOf(a[b]))return;if("direction"==b&&-1==u.indexOf(a[b]))return;e[b]=a[b]}}):e.duration=a,e}function f(a){return"number"==typeof a&&(a=isNaN(a)?{duration:0}:{duration:a}),a}function g(b,c){b=a.numericTimingToObject(b);var d=e(b,c);return d._easing=j(d.easing),d}function h(a,b,c,d){return 0>a||a>1||0>c||c>1?C:function(e){function f(a,b,c){return 3*a*(1-c)*(1-c)*c+3*b*(1-c)*c*c+c*c*c}if(0==e||1==e)return e;for(var g=0,h=1;;){var i=(g+h)/2,j=f(a,c,i);if(Math.abs(e-j)<.001)return f(b,d,i);e>j?g=i:h=i}}}function i(a,b){return function(c){if(c>=1)return 1;var d=1/a;return c+=b*d,c-c%d}}function j(a){var b=A.exec(a);if(b)return h.apply(this,b.slice(1).map(Number));var c=B.exec(a);if(c)return i(Number(c[1]),{start:v,middle:w,end:x}[c[2]]);var d=y[a];return d?d:C}function k(a){return Math.abs(l(a)/a.playbackRate)}function l(a){return a.duration*a.iterations}function m(a,b,c){return null==b?D:b<c.delay?E:b>=c.delay+a?F:G}function n(a,b,c,d,e){switch(d){case E:return"backwards"==b||"both"==b?0:null;case G:return c-e;case F:return"forwards"==b||"both"==b?a:null;case D:return null}}function o(a,b,c,d){return(d.playbackRate<0?b-a:b)*d.playbackRate+c}function p(a,b,c,d,e){return c===1/0||c===-(1/0)||c-d==b&&e.iterations&&(e.iterations+e.iterationStart)%1==0?a:c%a}function q(a,b,c,d){return 0===c?0:b==a?d.iterationStart+d.iterations-1:Math.floor(c/a)}function r(a,b,c,d){var e=a%2>=1,f="normal"==d.direction||d.direction==(e?"alternate-reverse":"alternate"),g=f?c:b-c,h=g/b;return b*d.easing(h)}function s(a,b,c){var d=m(a,b,c),e=n(a,c.fill,b,d,c.delay);if(null===e)return null;if(0===a)return d===E?0:1;var f=c.iterationStart*c.duration,g=o(a,e,f,c),h=p(c.duration,l(c),g,f,c),i=q(c.duration,h,g,c);return r(i,c.duration,h,c)/c.duration}var t="backwards|forwards|both|none".split("|"),u="reverse|alternate|alternate-reverse".split("|");d.prototype={_setMember:function(b,c){this["_"+b]=c,this._effect&&(this._effect._timingInput[b]=c,this._effect._timing=a.normalizeTimingInput(a.normalizeTimingInput(this._effect._timingInput)),this._effect.activeDuration=a.calculateActiveDuration(this._effect._timing),this._effect._animation&&this._effect._animation._rebuildUnderlyingAnimation())},get playbackRate(){return this._playbackRate},set delay(a){this._setMember("delay",a)},get delay(){return this._delay},set endDelay(a){this._setMember("endDelay",a)},get endDelay(){return this._endDelay},set fill(a){this._setMember("fill",a)},get fill(){return this._fill},set iterationStart(a){this._setMember("iterationStart",a)},get iterationStart(){return this._iterationStart},set duration(a){this._setMember("duration",a)},get duration(){return this._duration},set direction(a){this._setMember("direction",a)},get direction(){return this._direction},set easing(a){this._setMember("easing",a)},get easing(){return this._easing},set iterations(a){this._setMember("iterations",a)},get iterations(){return this._iterations}};var v=1,w=.5,x=0,y={ease:h(.25,.1,.25,1),"ease-in":h(.42,0,1,1),"ease-out":h(0,0,.58,1),"ease-in-out":h(.42,0,.58,1),"step-start":i(1,v),"step-middle":i(1,w),"step-end":i(1,x)},z="\\s*(-?\\d+\\.?\\d*|-?\\.\\d+)\\s*",A=new RegExp("cubic-bezier\\("+z+","+z+","+z+","+z+"\\)"),B=/steps\(\s*(\d+)\s*,\s*(start|middle|end)\s*\)/,C=function(a){return a},D=0,E=1,F=2,G=3;a.cloneTimingInput=c,a.makeTiming=e,a.numericTimingToObject=f,a.normalizeTimingInput=g,a.calculateActiveDuration=k,a.calculateTimeFraction=s,a.calculatePhase=m,a.toTimingFunction=j}(c,f),function(a,b){function c(a,b){return a in i?i[a][b]||b:b}function d(a,b,d){var e=f[a];if(e){g.style[a]=b;for(var h in e){var i=e[h],j=g.style[i];d[i]=c(i,j)}}else d[a]=c(a,b)}function e(b){function c(){var a=e.length;null==e[a-1].offset&&(e[a-1].offset=1),a>1&&null==e[0].offset&&(e[0].offset=0);for(var b=0,c=e[0].offset,d=1;a>d;d++){var f=e[d].offset;if(null!=f){for(var g=1;d-b>g;g++)e[b+g].offset=c+(f-c)*g/(d-b);b=d,c=f}}}if(!Array.isArray(b)&&null!==b)throw new TypeError("Keyframes must be null or an array of keyframes");if(null==b)return[];for(var e=b.map(function(b){var c={};for(var e in b){var f=b[e];if("offset"==e){if(null!=f&&(f=Number(f),!isFinite(f)))throw new TypeError("keyframe offsets must be numbers.")}else{if("composite"==e)throw{type:DOMException.NOT_SUPPORTED_ERR,name:"NotSupportedError",message:"add compositing is not supported"};f="easing"==e?a.toTimingFunction(f):""+f}d(e,f,c)}return void 0==c.offset&&(c.offset=null),void 0==c.easing&&(c.easing=a.toTimingFunction("linear")),c}),f=!0,g=-(1/0),h=0;h<e.length;h++){var i=e[h].offset;if(null!=i){if(g>i)throw{code:DOMException.INVALID_MODIFICATION_ERR,name:"InvalidModificationError",message:"Keyframes are not loosely sorted by offset. Sort or specify offsets."};g=i}else f=!1}return e=e.filter(function(a){return a.offset>=0&&a.offset<=1}),f||c(),e}var f={background:["backgroundImage","backgroundPosition","backgroundSize","backgroundRepeat","backgroundAttachment","backgroundOrigin","backgroundClip","backgroundColor"],border:["borderTopColor","borderTopStyle","borderTopWidth","borderRightColor","borderRightStyle","borderRightWidth","borderBottomColor","borderBottomStyle","borderBottomWidth","borderLeftColor","borderLeftStyle","borderLeftWidth"],borderBottom:["borderBottomWidth","borderBottomStyle","borderBottomColor"],borderColor:["borderTopColor","borderRightColor","borderBottomColor","borderLeftColor"],borderLeft:["borderLeftWidth","borderLeftStyle","borderLeftColor"],borderRadius:["borderTopLeftRadius","borderTopRightRadius","borderBottomRightRadius","borderBottomLeftRadius"],borderRight:["borderRightWidth","borderRightStyle","borderRightColor"],borderTop:["borderTopWidth","borderTopStyle","borderTopColor"],borderWidth:["borderTopWidth","borderRightWidth","borderBottomWidth","borderLeftWidth"],flex:["flexGrow","flexShrink","flexBasis"],font:["fontFamily","fontSize","fontStyle","fontVariant","fontWeight","lineHeight"],margin:["marginTop","marginRight","marginBottom","marginLeft"],outline:["outlineColor","outlineStyle","outlineWidth"],padding:["paddingTop","paddingRight","paddingBottom","paddingLeft"]},g=document.createElementNS("http://www.w3.org/1999/xhtml","div"),h={thin:"1px",medium:"3px",thick:"5px"},i={borderBottomWidth:h,borderLeftWidth:h,borderRightWidth:h,borderTopWidth:h,fontSize:{"xx-small":"60%","x-small":"75%",small:"89%",medium:"100%",large:"120%","x-large":"150%","xx-large":"200%"},fontWeight:{normal:"400",bold:"700"},outlineWidth:h,textShadow:{none:"0px 0px 0px transparent"},boxShadow:{none:"0px 0px 0px 0px transparent"}};a.normalizeKeyframes=e}(c,f),function(a,b,c){function d(a){for(var b={},c=0;c<a.length;c++)for(var d in a[c])if("offset"!=d&&"easing"!=d&&"composite"!=d){var e={offset:a[c].offset,easing:a[c].easing,value:a[c][d]};b[d]=b[d]||[],b[d].push(e)}for(var f in b){var g=b[f];if(0!=g[0].offset||1!=g[g.length-1].offset)throw{type:DOMException.NOT_SUPPORTED_ERR,name:"NotSupportedError",message:"Partial keyframes are not supported"}}return b}function e(a){var c=[];for(var d in a)for(var e=a[d],f=0;f<e.length-1;f++){var g=e[f].offset,h=e[f+1].offset,i=e[f].value,j=e[f+1].value;g==h&&(1==h?i=j:j=i),c.push({startTime:g,endTime:h,easing:e[f].easing,property:d,interpolation:b.propertyInterpolation(d,i,j)})}return c.sort(function(a,b){return a.startTime-b.startTime}),c}b.convertEffectInput=function(c){var f=a.normalizeKeyframes(c),g=d(f),h=e(g);return function(a,c){null!=c&&h.filter(function(a){return 0>=c&&0==a.startTime||c>=1&&1==a.endTime||c>=a.startTime&&c<=a.endTime}).forEach(function(d){var e=c-d.startTime,f=d.endTime-d.startTime,g=0==f?0:d.easing(e/f);b.apply(a,d.property,d.interpolation(g))})}}}(c,d,f),function(a,b){function c(a,b,c){f[c]=f[c]||[],f[c].push([a,b])}function d(a,b,d){for(var e=0;e<d.length;e++){var f=d[e];c(a,b,f),/-/.test(f)&&c(a,b,f.replace(/-(.)/g,function(a,b){return b.toUpperCase()}))}}function e(b,c,d){if("initial"==c||"initial"==d){var e=b.replace(/-(.)/g,function(a,b){return b.toUpperCase()});"initial"==c&&(c=g[e]),"initial"==d&&(d=g[e])}for(var h=c==d?[]:f[b],i=0;h&&i<h.length;i++){var j=h[i][0](c),k=h[i][0](d);if(void 0!==j&&void 0!==k){var l=h[i][1](j,k);if(l){var m=a.Interpolation.apply(null,l);return function(a){return 0==a?c:1==a?d:m(a)}}}}return a.Interpolation(!1,!0,function(a){return a?d:c})}var f={};a.addPropertiesHandler=d;var g={backgroundColor:"transparent",backgroundPosition:"0% 0%",borderBottomColor:"currentColor",borderBottomLeftRadius:"0px",borderBottomRightRadius:"0px",borderBottomWidth:"3px",borderLeftColor:"currentColor",borderLeftWidth:"3px",borderRightColor:"currentColor",borderRightWidth:"3px",borderSpacing:"2px",borderTopColor:"currentColor",borderTopLeftRadius:"0px",borderTopRightRadius:"0px",borderTopWidth:"3px",bottom:"auto",clip:"rect(0px, 0px, 0px, 0px)",color:"black",fontSize:"100%",fontWeight:"400",height:"auto",left:"auto",letterSpacing:"normal",lineHeight:"120%",marginBottom:"0px",marginLeft:"0px",marginRight:"0px",marginTop:"0px",maxHeight:"none",maxWidth:"none",minHeight:"0px",minWidth:"0px",opacity:"1.0",outlineColor:"invert",outlineOffset:"0px",outlineWidth:"3px",paddingBottom:"0px",paddingLeft:"0px",paddingRight:"0px",paddingTop:"0px",right:"auto",textIndent:"0px",textShadow:"0px 0px 0px transparent",top:"auto",transform:"",verticalAlign:"0px",visibility:"visible",width:"auto",wordSpacing:"normal",zIndex:"auto"};a.propertyInterpolation=e}(d,f),function(a,b,c){function d(b){var c=a.calculateActiveDuration(b),d=function(d){return a.calculateTimeFraction(c,d,b)};return d._totalDuration=b.delay+c+b.endDelay,d._isCurrent=function(d){var e=a.calculatePhase(c,d,b);return e===PhaseActive||e===PhaseBefore},d}b.KeyframeEffect=function(c,e,f){var g,h=d(a.normalizeTimingInput(f)),i=b.convertEffectInput(e),j=function(){i(c,g)};return j._update=function(a){return g=h(a),null!==g},j._clear=function(){i(c,null)},j._hasSameTarget=function(a){return c===a},j._isCurrent=h._isCurrent,j._totalDuration=h._totalDuration,j},b.NullEffect=function(a){var b=function(){a&&(a(),a=null)};return b._update=function(){return null},b._totalDuration=0,b._isCurrent=function(){return!1},b._hasSameTarget=function(){return!1},b}}(c,d,f),function(a,b){a.apply=function(b,c,d){b.style[a.propertyName(c)]=d},a.clear=function(b,c){b.style[a.propertyName(c)]=""}}(d,f),function(a){window.Element.prototype.animate=function(b,c){return a.timeline._play(a.KeyframeEffect(this,b,c))}}(d),function(a,b){function c(a,b,d){if("number"==typeof a&&"number"==typeof b)return a*(1-d)+b*d;if("boolean"==typeof a&&"boolean"==typeof b)return.5>d?a:b;if(a.length==b.length){for(var e=[],f=0;f<a.length;f++)e.push(c(a[f],b[f],d));return e}throw"Mismatched interpolation arguments "+a+":"+b}a.Interpolation=function(a,b,d){return function(e){return d(c(a,b,e))}}}(d,f),function(a,b,c){a.sequenceNumber=0;var d=function(a,b,c){this.target=a,this.currentTime=b,this.timelineTime=c,this.type="finish",this.bubbles=!1,this.cancelable=!1,this.currentTarget=a,this.defaultPrevented=!1,this.eventPhase=Event.AT_TARGET,this.timeStamp=Date.now()};b.Animation=function(b){this._sequenceNumber=a.sequenceNumber++,this._currentTime=0,this._startTime=null,this._paused=!1,this._playbackRate=1,this._inTimeline=!0,this._finishedFlag=!1,this.onfinish=null,this._finishHandlers=[],this._effect=b,this._inEffect=this._effect._update(0),this._idle=!0,this._currentTimePending=!1},b.Animation.prototype={_ensureAlive:function(){this.playbackRate<0&&0===this.currentTime?this._inEffect=this._effect._update(-1):this._inEffect=this._effect._update(this.currentTime),this._inTimeline||!this._inEffect&&this._finishedFlag||(this._inTimeline=!0,b.timeline._animations.push(this))},_tickCurrentTime:function(a,b){a!=this._currentTime&&(this._currentTime=a,this._isFinished&&!b&&(this._currentTime=this._playbackRate>0?this._totalDuration:0),this._ensureAlive())},get currentTime(){return this._idle||this._currentTimePending?null:this._currentTime},set currentTime(a){a=+a,isNaN(a)||(b.restart(),this._paused||null==this._startTime||(this._startTime=this._timeline.currentTime-a/this._playbackRate),this._currentTimePending=!1,this._currentTime!=a&&(this._tickCurrentTime(a,!0),b.invalidateEffects()))},get startTime(){return this._startTime},set startTime(a){a=+a,isNaN(a)||this._paused||this._idle||(this._startTime=a,this._tickCurrentTime((this._timeline.currentTime-this._startTime)*this.playbackRate),b.invalidateEffects())},get playbackRate(){return this._playbackRate},set playbackRate(a){if(a!=this._playbackRate){var b=this.currentTime;this._playbackRate=a,this._startTime=null,"paused"!=this.playState&&"idle"!=this.playState&&this.play(),null!=b&&(this.currentTime=b)}},get _isFinished(){return!this._idle&&(this._playbackRate>0&&this._currentTime>=this._totalDuration||this._playbackRate<0&&this._currentTime<=0)},get _totalDuration(){return this._effect._totalDuration},get playState(){return this._idle?"idle":null==this._startTime&&!this._paused&&0!=this.playbackRate||this._currentTimePending?"pending":this._paused?"paused":this._isFinished?"finished":"running"},play:function(){this._paused=!1,(this._isFinished||this._idle)&&(this._currentTime=this._playbackRate>0?0:this._totalDuration,this._startTime=null,b.invalidateEffects()),this._finishedFlag=!1,b.restart(),this._idle=!1,this._ensureAlive()},pause:function(){this._isFinished||this._paused||this._idle||(this._currentTimePending=!0),this._startTime=null,this._paused=!0},finish:function(){this._idle||(this.currentTime=this._playbackRate>0?this._totalDuration:0,this._startTime=this._totalDuration-this.currentTime,this._currentTimePending=!1)},cancel:function(){this._inEffect&&(this._inEffect=!1,this._idle=!0,this.currentTime=0,this._startTime=null,this._effect._update(null),b.invalidateEffects(),b.restart())},reverse:function(){this.playbackRate*=-1,this.play()},addEventListener:function(a,b){"function"==typeof b&&"finish"==a&&this._finishHandlers.push(b)},removeEventListener:function(a,b){if("finish"==a){var c=this._finishHandlers.indexOf(b);c>=0&&this._finishHandlers.splice(c,1)}},_fireEvents:function(a){var b=this._isFinished;if((b||this._idle)&&!this._finishedFlag){var c=new d(this,this._currentTime,a),e=this._finishHandlers.concat(this.onfinish?[this.onfinish]:[]);e.forEach(function(a){a.call(c.target,c)})}this._finishedFlag=b},_tick:function(a){return this._idle||this._paused||(null==this._startTime?this.startTime=a-this._currentTime/this.playbackRate:this._isFinished||this._tickCurrentTime((a-this._startTime)*this.playbackRate)),this._currentTimePending=!1,this._fireEvents(a),!this._idle&&(this._inEffect||!this._finishedFlag)}}}(c,d,f),function(a,b,c){function d(a){a||(a=Date.now());var b=j;j=[],a<t.currentTime&&(a=t.currentTime),h(a),b.forEach(function(b){b[1](a)}),p&&h(a),g(),m=void 0}function e(a,b){return a._sequenceNumber-b._sequenceNumber}function f(){this._animations=[],this.currentTime=window.performance&&performance.now?performance.now():0}function g(){q.forEach(function(a){a()}),q.length=0}function h(a){o=!1;var c=b.timeline;c.currentTime=a,c._animations.sort(e),n=!1;var d=c._animations;c._animations=[];var f=[],g=[];d=d.filter(function(b){return b._inTimeline=b._tick(a),b._inEffect?g.push(b._effect):f.push(b._effect),b._isFinished||b._paused||b._idle||(n=!0),b._inTimeline}),q.push.apply(q,f),q.push.apply(q,g),c._animations.push.apply(c._animations,d),p=!1,n&&requestAnimationFrame(function(){})}var i=window.requestAnimationFrame,j=[],k=0;window.requestAnimationFrame=function(a){var b=k++;return 0==j.length&&i(d),j.push([b,a]),b},window.cancelAnimationFrame=function(a){j.forEach(function(b){b[0]==a&&(b[1]=function(){})})},f.prototype={_play:function(c){c._timing=a.normalizeTimingInput(c.timing);var d=new b.Animation(c);return d._idle=!1,d._timeline=this,this._animations.push(d),b.restart(),b.invalidateEffects(),d}};var l,m=void 0,l=function(){return void 0==m&&(m=performance.now()),m},n=!1,o=!1;b.restart=function(){return n||(n=!0,requestAnimationFrame(function(){}),o=!0),o};var p=!1;b.invalidateEffects=function(){p=!0};var q=[],r=1e3/60,s=window.getComputedStyle;Object.defineProperty(window,"getComputedStyle",{configurable:!0,enumerable:!0,value:function(){if(p){var a=l();a-t.currentTime>0&&(t.currentTime+=r*(Math.floor((a-t.currentTime)/r)+1)),h(t.currentTime)}return g(),s.apply(this,arguments)}});var t=new f;b.timeline=t}(c,d,f),function(a){function b(a,b){var c=a.exec(b);return c?(c=a.ignoreCase?c[0].toLowerCase():c[0],[c,b.substr(c.length)]):void 0}function c(a,b){b=b.replace(/^\s*/,"");var c=a(b);return c?[c[0],c[1].replace(/^\s*/,"")]:void 0}function d(a,d,e){a=c.bind(null,a);for(var f=[];;){var g=a(e);if(!g)return[f,e];if(f.push(g[0]),e=g[1],g=b(d,e),!g||""==g[1])return[f,e];e=g[1]}}function e(a,b){for(var c=0,d=0;d<b.length&&(!/\s|,/.test(b[d])||0!=c);d++)if("("==b[d])c++;else if(")"==b[d]&&(c--,0==c&&d++,0>=c))break;var e=a(b.substr(0,d));return void 0==e?void 0:[e,b.substr(d)]}function f(a,b){for(var c=a,d=b;c&&d;)c>d?c%=d:d%=c;return c=a*b/(c+d)}function g(a){return function(b){var c=a(b);return c&&(c[0]=void 0),c}}function h(a,b){return function(c){var d=a(c);return d?d:[b,c]}}function i(b,c){for(var d=[],e=0;e<b.length;e++){var f=a.consumeTrimmed(b[e],c);if(!f||""==f[0])return;void 0!==f[0]&&d.push(f[0]),c=f[1]}return""==c?d:void 0}function j(a,b,c,d,e){for(var g=[],h=[],i=[],j=f(d.length,e.length),k=0;j>k;k++){var l=b(d[k%d.length],e[k%e.length]);if(!l)return;g.push(l[0]),h.push(l[1]),i.push(l[2])}return[g,h,function(b){var d=b.map(function(a,b){return i[b](a)}).join(c);return a?a(d):d}]}function k(a,b,c){for(var d=[],e=[],f=[],g=0,h=0;h<c.length;h++)if("function"==typeof c[h]){var i=c[h](a[g],b[g++]);d.push(i[0]),e.push(i[1]),f.push(i[2])}else!function(a){d.push(!1),e.push(!1),f.push(function(){return c[a]})}(h);return[d,e,function(a){for(var b="",c=0;c<a.length;c++)b+=f[c](a[c]);return b}]}a.consumeToken=b,a.consumeTrimmed=c,a.consumeRepeated=d,a.consumeParenthesised=e,a.ignore=g,a.optional=h,a.consumeList=i,a.mergeNestedRepeated=j.bind(null,null),a.mergeWrappedNestedRepeated=j,a.mergeList=k}(d),function(a){function b(b){function c(b){var c=a.consumeToken(/^inset/i,b);if(c)return d.inset=!0,c;var c=a.consumeLengthOrPercent(b);if(c)return d.lengths.push(c[0]),c;var c=a.consumeColor(b);return c?(d.color=c[0],c):void 0}var d={inset:!1,lengths:[],color:null},e=a.consumeRepeated(c,/^/,b);return e&&e[0].length?[d,e[1]]:void 0}function c(c){var d=a.consumeRepeated(b,/^,/,c);return d&&""==d[1]?d[0]:void 0}function d(b,c){for(;b.lengths.length<Math.max(b.lengths.length,c.lengths.length);)b.lengths.push({px:0});for(;c.lengths.length<Math.max(b.lengths.length,c.lengths.length);)c.lengths.push({px:0});if(b.inset==c.inset&&!!b.color==!!c.color){for(var d,e=[],f=[[],0],g=[[],0],h=0;h<b.lengths.length;h++){var i=a.mergeDimensions(b.lengths[h],c.lengths[h],2==h);f[0].push(i[0]),g[0].push(i[1]),e.push(i[2])}if(b.color&&c.color){var j=a.mergeColors(b.color,c.color);f[1]=j[0],g[1]=j[1],d=j[2]}return[f,g,function(a){for(var c=b.inset?"inset ":" ",f=0;f<e.length;f++)c+=e[f](a[0][f])+" ";return d&&(c+=d(a[1])),c}]}}function e(b,c,d,e){function f(a){return{inset:a,color:[0,0,0,0],lengths:[{px:0},{px:0},{px:0},{px:0}]}}for(var g=[],h=[],i=0;i<d.length||i<e.length;i++){var j=d[i]||f(e[i].inset),k=e[i]||f(d[i].inset);g.push(j),h.push(k)}return a.mergeNestedRepeated(b,c,g,h)}var f=e.bind(null,d,", ");a.addPropertiesHandler(c,f,["box-shadow","text-shadow"])}(d),function(a,b){function c(a){return a.toFixed(3).replace(".000","")}function d(a,b,c){return Math.min(b,Math.max(a,c))}function e(a){return/^\s*[-+]?(\d*\.)?\d+\s*$/.test(a)?Number(a):void 0}function f(a,b){return[a,b,c]}function g(a,b){return 0!=a?i(0,1/0)(a,b):void 0}function h(a,b){return[a,b,function(a){return Math.round(d(1,1/0,a))}]}function i(a,b){return function(e,f){return[e,f,function(e){return c(d(a,b,e))}]}}function j(a,b){return[a,b,Math.round]}a.clamp=d,a.addPropertiesHandler(e,i(0,1/0),["border-image-width","line-height"]),a.addPropertiesHandler(e,i(0,1),["opacity","shape-image-threshold"]),a.addPropertiesHandler(e,g,["flex-grow","flex-shrink"]),a.addPropertiesHandler(e,h,["orphans","widows"]),a.addPropertiesHandler(e,j,["z-index"]),a.parseNumber=e,a.mergeNumbers=f,a.numberToString=c}(d,f),function(a,b){function c(a,b){return"visible"==a||"visible"==b?[0,1,function(c){return 0>=c?a:c>=1?b:"visible"}]:void 0}a.addPropertiesHandler(String,c,["visibility"])}(d),function(a,b){function c(a){a=a.trim(),f.fillStyle="#000",f.fillStyle=a;var b=f.fillStyle;if(f.fillStyle="#fff",f.fillStyle=a,b==f.fillStyle){f.fillRect(0,0,1,1);var c=f.getImageData(0,0,1,1).data;f.clearRect(0,0,1,1);var d=c[3]/255;return[c[0]*d,c[1]*d,c[2]*d,d]}}function d(b,c){return[b,c,function(b){function c(a){return Math.max(0,Math.min(255,a))}if(b[3])for(var d=0;3>d;d++)b[d]=Math.round(c(b[d]/b[3]));return b[3]=a.numberToString(a.clamp(0,1,b[3])),"rgba("+b.join(",")+")"}]}var e=document.createElementNS("http://www.w3.org/1999/xhtml","canvas");e.width=e.height=1;var f=e.getContext("2d");a.addPropertiesHandler(c,d,["background-color","border-bottom-color","border-left-color","border-right-color","border-top-color","color","outline-color","text-decoration-color"]),a.consumeColor=a.consumeParenthesised.bind(null,c),a.mergeColors=d}(d,f),function(a,b){function c(a,b){if(b=b.trim().toLowerCase(),"0"==b&&"px".search(a)>=0)return{px:0};if(/^[^(]*$|^calc/.test(b)){b=b.replace(/calc\(/g,"(");var c={};b=b.replace(a,function(a){return c[a]=null,"U"+a});for(var d="U("+a.source+")",e=b.replace(/[-+]?(\d*\.)?\d+/g,"N").replace(new RegExp("N"+d,"g"),"D").replace(/\s[+-]\s/g,"O").replace(/\s/g,""),f=[/N\*(D)/g,/(N|D)[*/]N/g,/(N|D)O\1/g,/\((N|D)\)/g],g=0;g<f.length;)f[g].test(e)?(e=e.replace(f[g],"$1"),g=0):g++;if("D"==e){for(var h in c){var i=eval(b.replace(new RegExp("U"+h,"g"),"").replace(new RegExp(d,"g"),"*0"));if(!isFinite(i))return;c[h]=i}return c}}}function d(a,b){return e(a,b,!0)}function e(b,c,d){var e,f=[];for(e in b)f.push(e);for(e in c)f.indexOf(e)<0&&f.push(e);return b=f.map(function(a){return b[a]||0}),c=f.map(function(a){return c[a]||0}),[b,c,function(b){var c=b.map(function(c,e){return 1==b.length&&d&&(c=Math.max(c,0)),a.numberToString(c)+f[e]}).join(" + ");return b.length>1?"calc("+c+")":c}]}var f="px|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc",g=c.bind(null,new RegExp(f,"g")),h=c.bind(null,new RegExp(f+"|%","g")),i=c.bind(null,/deg|rad|grad|turn/g);a.parseLength=g,a.parseLengthOrPercent=h,a.consumeLengthOrPercent=a.consumeParenthesised.bind(null,h),a.parseAngle=i,a.mergeDimensions=e;var j=a.consumeParenthesised.bind(null,g),k=a.consumeRepeated.bind(void 0,j,/^/),l=a.consumeRepeated.bind(void 0,k,/^,/);a.consumeSizePairList=l;var m=function(a){var b=l(a);return b&&""==b[1]?b[0]:void 0},n=a.mergeNestedRepeated.bind(void 0,d," "),o=a.mergeNestedRepeated.bind(void 0,n,",");a.mergeNonNegativeSizePair=n,a.addPropertiesHandler(m,o,["background-size"]),a.addPropertiesHandler(h,d,["border-bottom-width","border-image-width","border-left-width","border-right-width","border-top-width","flex-basis","font-size","height","line-height","max-height","max-width","outline-width","width"]),a.addPropertiesHandler(h,e,["border-bottom-left-radius","border-bottom-right-radius","border-top-left-radius","border-top-right-radius","bottom","left","letter-spacing","margin-bottom","margin-left","margin-right","margin-top","min-height","min-width","outline-offset","padding-bottom","padding-left","padding-right","padding-top","perspective","right","shape-margin","text-indent","top","vertical-align","word-spacing"])}(d,f),function(a,b){function c(b){return a.consumeLengthOrPercent(b)||a.consumeToken(/^auto/,b)}function d(b){var d=a.consumeList([a.ignore(a.consumeToken.bind(null,/^rect/)),a.ignore(a.consumeToken.bind(null,/^\(/)),a.consumeRepeated.bind(null,c,/^,/),a.ignore(a.consumeToken.bind(null,/^\)/))],b);return d&&4==d[0].length?d[0]:void 0}function e(b,c){return"auto"==b||"auto"==c?[!0,!1,function(d){var e=d?b:c;if("auto"==e)return"auto";var f=a.mergeDimensions(e,e);return f[2](f[0])}]:a.mergeDimensions(b,c)}function f(a){return"rect("+a+")"}var g=a.mergeWrappedNestedRepeated.bind(null,f,e,", ");a.parseBox=d,a.mergeBoxes=g,a.addPropertiesHandler(d,g,["clip"])}(d,f),function(a,b){function c(a){return function(b){var c=0;return a.map(function(a){return a===k?b[c++]:a})}}function d(a){return a}function e(b){if(b=b.toLowerCase().trim(),"none"==b)return[];for(var c,d=/\s*(\w+)\(([^)]*)\)/g,e=[],f=0;c=d.exec(b);){if(c.index!=f)return;f=c.index+c[0].length;var g=c[1],h=n[g];if(!h)return;var i=c[2].split(","),j=h[0];if(j.length<i.length)return;for(var k=[],o=0;o<j.length;o++){var p,q=i[o],r=j[o];if(p=q?{A:function(b){return"0"==b.trim()?m:a.parseAngle(b)},N:a.parseNumber,T:a.parseLengthOrPercent,L:a.parseLength}[r.toUpperCase()](q):{a:m,n:k[0],t:l}[r],void 0===p)return;k.push(p)}if(e.push({t:g,d:k}),d.lastIndex==b.length)return e}}function f(a){return a.toFixed(6).replace(".000000","")}function g(b,c){if(b.decompositionPair!==c){b.decompositionPair=c;var d=a.makeMatrixDecomposition(b)}if(c.decompositionPair!==b){c.decompositionPair=b;var e=a.makeMatrixDecomposition(c)}return null==d[0]||null==e[0]?[[!1],[!0],function(a){return a?c[0].d:b[0].d}]:(d[0].push(0),e[0].push(1),[d,e,function(b){var c=a.quat(d[0][3],e[0][3],b[5]),g=a.composeMatrix(b[0],b[1],b[2],c,b[4]),h=g.map(f).join(",");return h}])}function h(a){return a.replace(/[xy]/,"")}function i(a){return a.replace(/(x|y|z|3d)?$/,"3d")}function j(b,c){var d=a.makeMatrixDecomposition&&!0,e=!1;if(!b.length||!c.length){b.length||(e=!0,b=c,c=[]);for(var f=0;f<b.length;f++){var j=b[f].t,k=b[f].d,l="scale"==j.substr(0,5)?1:0;c.push({t:j,d:k.map(function(a){if("number"==typeof a)return l;var b={};for(var c in a)b[c]=l;return b})})}}var m=function(a,b){return"perspective"==a&&"perspective"==b||("matrix"==a||"matrix3d"==a)&&("matrix"==b||"matrix3d"==b)},o=[],p=[],q=[];if(b.length!=c.length){if(!d)return;var r=g(b,c);o=[r[0]],p=[r[1]],q=[["matrix",[r[2]]]]}else for(var f=0;f<b.length;f++){var j,s=b[f].t,t=c[f].t,u=b[f].d,v=c[f].d,w=n[s],x=n[t];if(m(s,t)){if(!d)return;var r=g([b[f]],[c[f]]);o.push(r[0]),p.push(r[1]),q.push(["matrix",[r[2]]])}else{if(s==t)j=s;else if(w[2]&&x[2]&&h(s)==h(t))j=h(s),u=w[2](u),v=x[2](v);else{if(!w[1]||!x[1]||i(s)!=i(t)){if(!d)return;var r=g(b,c);o=[r[0]],p=[r[1]],q=[["matrix",[r[2]]]];break}j=i(s),u=w[1](u),v=x[1](v)}for(var y=[],z=[],A=[],B=0;B<u.length;B++){var C="number"==typeof u[B]?a.mergeNumbers:a.mergeDimensions,r=C(u[B],v[B]);y[B]=r[0],z[B]=r[1],A.push(r[2])}o.push(y),p.push(z),q.push([j,A])}}if(e){var D=o;o=p,p=D}return[o,p,function(a){return a.map(function(a,b){var c=a.map(function(a,c){return q[b][1][c](a)}).join(",");return"matrix"==q[b][0]&&16==c.split(",").length&&(q[b][0]="matrix3d"),q[b][0]+"("+c+")"}).join(" ")}]}var k=null,l={px:0},m={deg:0},n={matrix:["NNNNNN",[k,k,0,0,k,k,0,0,0,0,1,0,k,k,0,1],d],matrix3d:["NNNNNNNNNNNNNNNN",d],rotate:["A"],rotatex:["A"],rotatey:["A"],rotatez:["A"],rotate3d:["NNNA"],perspective:["L"],scale:["Nn",c([k,k,1]),d],scalex:["N",c([k,1,1]),c([k,1])],scaley:["N",c([1,k,1]),c([1,k])],scalez:["N",c([1,1,k])],scale3d:["NNN",d],skew:["Aa",null,d],skewx:["A",null,c([k,m])],skewy:["A",null,c([m,k])],translate:["Tt",c([k,k,l]),d],translatex:["T",c([k,l,l]),c([k,l])],translatey:["T",c([l,k,l]),c([l,k])],translatez:["L",c([l,l,k])],translate3d:["TTL",d]};a.addPropertiesHandler(e,j,["transform"])}(d,f),function(a,b){function c(a,b){b.concat([a]).forEach(function(b){b in document.documentElement.style&&(d[a]=b)})}var d={};c("transform",["webkitTransform","msTransform"]),c("transformOrigin",["webkitTransformOrigin"]),c("perspective",["webkitPerspective"]),c("perspectiveOrigin",["webkitPerspectiveOrigin"]),a.propertyName=function(a){return d[a]||a}}(d,f)}()}({},function(){return this}());
+	!function(a,b){!function(){var a=0;if(window.requestAnimationFrame||(window.requestAnimationFrame=function(b,c){var d=Date.now(),e=Math.max(0,16-(d-a)),f=window.setTimeout(function(){b(d+e)},e);return a=d+e,f}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(a){clearTimeout(a)}),document.documentElement.animate){var b=document.documentElement.animate([],0),c=!0;if(b&&(c=!1,"play|currentTime|pause|reverse|playbackRate|cancel|finish|startTime|playState".split("|").forEach(function(a){void 0===b[a]&&(c=!0)})),!c)return}var d={},e={},f={},g=null;!function(a,b){function c(a){if("number"==typeof a)return a;var b={};for(var c in a)b[c]=a[c];return b}function d(){this._delay=0,this._endDelay=0,this._fill="none",this._iterationStart=0,this._iterations=1,this._duration=0,this._playbackRate=1,this._direction="normal",this._easing="linear"}function e(a,b,c){var e=new d;return b&&(e.fill="both",e.duration="auto"),"number"!=typeof a||isNaN(a)?void 0!==a&&Object.getOwnPropertyNames(a).forEach(function(b){if("auto"!=a[b]){if(("number"==typeof e[b]||"duration"==b)&&("number"!=typeof a[b]||isNaN(a[b])))return;if("fill"==b&&-1==t.indexOf(a[b]))return;if("direction"==b&&-1==u.indexOf(a[b]))return;e[b]=a[b]}}):e.duration=a,e}function f(a){return"number"==typeof a&&(a=isNaN(a)?{duration:0}:{duration:a}),a}function g(b,c){b=a.numericTimingToObject(b);var d=e(b,c);return d._easing=j(d.easing),d}function h(a,b,c,d){return 0>a||a>1||0>c||c>1?C:function(e){function f(a,b,c){return 3*a*(1-c)*(1-c)*c+3*b*(1-c)*c*c+c*c*c}if(0==e||1==e)return e;for(var g=0,h=1;;){var i=(g+h)/2,j=f(a,c,i);if(Math.abs(e-j)<.001)return f(b,d,i);e>j?g=i:h=i}}}function i(a,b){return function(c){if(c>=1)return 1;var d=1/a;return c+=b*d,c-c%d}}function j(a){var b=A.exec(a);if(b)return h.apply(this,b.slice(1).map(Number));var c=B.exec(a);if(c)return i(Number(c[1]),{start:v,middle:w,end:x}[c[2]]);var d=y[a];return d?d:C}function k(a){return Math.abs(l(a)/a.playbackRate)}function l(a){return a.duration*a.iterations}function m(a,b,c){return null==b?D:b<c.delay?E:b>=c.delay+a?F:G}function n(a,b,c,d,e){switch(d){case E:return"backwards"==b||"both"==b?0:null;case G:return c-e;case F:return"forwards"==b||"both"==b?a:null;case D:return null}}function o(a,b,c,d){return(d.playbackRate<0?b-a:b)*d.playbackRate+c}function p(a,b,c,d,e){return c===1/0||c===-(1/0)||c-d==b&&e.iterations&&(e.iterations+e.iterationStart)%1==0?a:c%a}function q(a,b,c,d){return 0===c?0:b==a?d.iterationStart+d.iterations-1:Math.floor(c/a)}function r(a,b,c,d){var e=a%2>=1,f="normal"==d.direction||d.direction==(e?"alternate-reverse":"alternate"),g=f?c:b-c,h=g/b;return b*d.easing(h)}function s(a,b,c){var d=m(a,b,c),e=n(a,c.fill,b,d,c.delay);if(null===e)return null;if(0===a)return d===E?0:1;var f=c.iterationStart*c.duration,g=o(a,e,f,c),h=p(c.duration,l(c),g,f,c),i=q(c.duration,h,g,c);return r(i,c.duration,h,c)/c.duration}var t="backwards|forwards|both|none".split("|"),u="reverse|alternate|alternate-reverse".split("|");d.prototype={_setMember:function(b,c){this["_"+b]=c,this._effect&&(this._effect._timingInput[b]=c,this._effect._timing=a.normalizeTimingInput(a.normalizeTimingInput(this._effect._timingInput)),this._effect.activeDuration=a.calculateActiveDuration(this._effect._timing),this._effect._animation&&this._effect._animation._rebuildUnderlyingAnimation())},get playbackRate(){return this._playbackRate},set delay(a){this._setMember("delay",a)},get delay(){return this._delay},set endDelay(a){this._setMember("endDelay",a)},get endDelay(){return this._endDelay},set fill(a){this._setMember("fill",a)},get fill(){return this._fill},set iterationStart(a){this._setMember("iterationStart",a)},get iterationStart(){return this._iterationStart},set duration(a){this._setMember("duration",a)},get duration(){return this._duration},set direction(a){this._setMember("direction",a)},get direction(){return this._direction},set easing(a){this._setMember("easing",a)},get easing(){return this._easing},set iterations(a){this._setMember("iterations",a)},get iterations(){return this._iterations}};var v=1,w=.5,x=0,y={ease:h(.25,.1,.25,1),"ease-in":h(.42,0,1,1),"ease-out":h(0,0,.58,1),"ease-in-out":h(.42,0,.58,1),"step-start":i(1,v),"step-middle":i(1,w),"step-end":i(1,x)},z="\\s*(-?\\d+\\.?\\d*|-?\\.\\d+)\\s*",A=new RegExp("cubic-bezier\\("+z+","+z+","+z+","+z+"\\)"),B=/steps\(\s*(\d+)\s*,\s*(start|middle|end)\s*\)/,C=function(a){return a},D=0,E=1,F=2,G=3;a.cloneTimingInput=c,a.makeTiming=e,a.numericTimingToObject=f,a.normalizeTimingInput=g,a.calculateActiveDuration=k,a.calculateTimeFraction=s,a.calculatePhase=m,a.toTimingFunction=j}(d,g),function(a,b){function c(a,b){return a in i?i[a][b]||b:b}function d(a,b,d){var e=f[a];if(e){g.style[a]=b;for(var h in e){var i=e[h],j=g.style[i];d[i]=c(i,j)}}else d[a]=c(a,b)}function e(b){function c(){var a=e.length;null==e[a-1].offset&&(e[a-1].offset=1),a>1&&null==e[0].offset&&(e[0].offset=0);for(var b=0,c=e[0].offset,d=1;a>d;d++){var f=e[d].offset;if(null!=f){for(var g=1;d-b>g;g++)e[b+g].offset=c+(f-c)*g/(d-b);b=d,c=f}}}if(!Array.isArray(b)&&null!==b)throw new TypeError("Keyframes must be null or an array of keyframes");if(null==b)return[];for(var e=b.map(function(b){var c={};for(var e in b){var f=b[e];if("offset"==e){if(null!=f&&(f=Number(f),!isFinite(f)))throw new TypeError("keyframe offsets must be numbers.")}else{if("composite"==e)throw{type:DOMException.NOT_SUPPORTED_ERR,name:"NotSupportedError",message:"add compositing is not supported"};f="easing"==e?a.toTimingFunction(f):""+f}d(e,f,c)}return void 0==c.offset&&(c.offset=null),void 0==c.easing&&(c.easing=a.toTimingFunction("linear")),c}),f=!0,g=-(1/0),h=0;h<e.length;h++){var i=e[h].offset;if(null!=i){if(g>i)throw{code:DOMException.INVALID_MODIFICATION_ERR,name:"InvalidModificationError",message:"Keyframes are not loosely sorted by offset. Sort or specify offsets."};g=i}else f=!1}return e=e.filter(function(a){return a.offset>=0&&a.offset<=1}),f||c(),e}var f={background:["backgroundImage","backgroundPosition","backgroundSize","backgroundRepeat","backgroundAttachment","backgroundOrigin","backgroundClip","backgroundColor"],border:["borderTopColor","borderTopStyle","borderTopWidth","borderRightColor","borderRightStyle","borderRightWidth","borderBottomColor","borderBottomStyle","borderBottomWidth","borderLeftColor","borderLeftStyle","borderLeftWidth"],borderBottom:["borderBottomWidth","borderBottomStyle","borderBottomColor"],borderColor:["borderTopColor","borderRightColor","borderBottomColor","borderLeftColor"],borderLeft:["borderLeftWidth","borderLeftStyle","borderLeftColor"],borderRadius:["borderTopLeftRadius","borderTopRightRadius","borderBottomRightRadius","borderBottomLeftRadius"],borderRight:["borderRightWidth","borderRightStyle","borderRightColor"],borderTop:["borderTopWidth","borderTopStyle","borderTopColor"],borderWidth:["borderTopWidth","borderRightWidth","borderBottomWidth","borderLeftWidth"],flex:["flexGrow","flexShrink","flexBasis"],font:["fontFamily","fontSize","fontStyle","fontVariant","fontWeight","lineHeight"],margin:["marginTop","marginRight","marginBottom","marginLeft"],outline:["outlineColor","outlineStyle","outlineWidth"],padding:["paddingTop","paddingRight","paddingBottom","paddingLeft"]},g=document.createElementNS("http://www.w3.org/1999/xhtml","div"),h={thin:"1px",medium:"3px",thick:"5px"},i={borderBottomWidth:h,borderLeftWidth:h,borderRightWidth:h,borderTopWidth:h,fontSize:{"xx-small":"60%","x-small":"75%",small:"89%",medium:"100%",large:"120%","x-large":"150%","xx-large":"200%"},fontWeight:{normal:"400",bold:"700"},outlineWidth:h,textShadow:{none:"0px 0px 0px transparent"},boxShadow:{none:"0px 0px 0px 0px transparent"}};a.normalizeKeyframes=e}(d,g),function(a,b,c){function d(a){for(var b={},c=0;c<a.length;c++)for(var d in a[c])if("offset"!=d&&"easing"!=d&&"composite"!=d){var e={offset:a[c].offset,easing:a[c].easing,value:a[c][d]};b[d]=b[d]||[],b[d].push(e)}for(var f in b){var g=b[f];if(0!=g[0].offset||1!=g[g.length-1].offset)throw{type:DOMException.NOT_SUPPORTED_ERR,name:"NotSupportedError",message:"Partial keyframes are not supported"}}return b}function e(a){var c=[];for(var d in a)for(var e=a[d],f=0;f<e.length-1;f++){var g=e[f].offset,h=e[f+1].offset,i=e[f].value,j=e[f+1].value;g==h&&(1==h?i=j:j=i),c.push({startTime:g,endTime:h,easing:e[f].easing,property:d,interpolation:b.propertyInterpolation(d,i,j)})}return c.sort(function(a,b){return a.startTime-b.startTime}),c}b.convertEffectInput=function(c){var f=a.normalizeKeyframes(c),g=d(f),h=e(g);return function(a,c){null!=c&&h.filter(function(a){return 0>=c&&0==a.startTime||c>=1&&1==a.endTime||c>=a.startTime&&c<=a.endTime}).forEach(function(d){var e=c-d.startTime,f=d.endTime-d.startTime,g=0==f?0:d.easing(e/f);b.apply(a,d.property,d.interpolation(g))})}}}(d,e,g),function(a,b){function c(a,b,c){f[c]=f[c]||[],f[c].push([a,b])}function d(a,b,d){for(var e=0;e<d.length;e++){var f=d[e];c(a,b,f),/-/.test(f)&&c(a,b,f.replace(/-(.)/g,function(a,b){return b.toUpperCase()}))}}function e(b,c,d){if("initial"==c||"initial"==d){var e=b.replace(/-(.)/g,function(a,b){return b.toUpperCase()});"initial"==c&&(c=g[e]),"initial"==d&&(d=g[e])}for(var h=c==d?[]:f[b],i=0;h&&i<h.length;i++){var j=h[i][0](c),k=h[i][0](d);if(void 0!==j&&void 0!==k){var l=h[i][1](j,k);if(l){var m=a.Interpolation.apply(null,l);return function(a){return 0==a?c:1==a?d:m(a)}}}}return a.Interpolation(!1,!0,function(a){return a?d:c})}var f={};a.addPropertiesHandler=d;var g={backgroundColor:"transparent",backgroundPosition:"0% 0%",borderBottomColor:"currentColor",borderBottomLeftRadius:"0px",borderBottomRightRadius:"0px",borderBottomWidth:"3px",borderLeftColor:"currentColor",borderLeftWidth:"3px",borderRightColor:"currentColor",borderRightWidth:"3px",borderSpacing:"2px",borderTopColor:"currentColor",borderTopLeftRadius:"0px",borderTopRightRadius:"0px",borderTopWidth:"3px",bottom:"auto",clip:"rect(0px, 0px, 0px, 0px)",color:"black",fontSize:"100%",fontWeight:"400",height:"auto",left:"auto",letterSpacing:"normal",lineHeight:"120%",marginBottom:"0px",marginLeft:"0px",marginRight:"0px",marginTop:"0px",maxHeight:"none",maxWidth:"none",minHeight:"0px",minWidth:"0px",opacity:"1.0",outlineColor:"invert",outlineOffset:"0px",outlineWidth:"3px",paddingBottom:"0px",paddingLeft:"0px",paddingRight:"0px",paddingTop:"0px",right:"auto",textIndent:"0px",textShadow:"0px 0px 0px transparent",top:"auto",transform:"",verticalAlign:"0px",visibility:"visible",width:"auto",wordSpacing:"normal",zIndex:"auto"};a.propertyInterpolation=e}(e,g),function(a,b,c){function d(b){var c=a.calculateActiveDuration(b),d=function(d){return a.calculateTimeFraction(c,d,b)};return d._totalDuration=b.delay+c+b.endDelay,d._isCurrent=function(d){var e=a.calculatePhase(c,d,b);return e===PhaseActive||e===PhaseBefore},d}b.KeyframeEffect=function(c,e,f){var g,h=d(a.normalizeTimingInput(f)),i=b.convertEffectInput(e),j=function(){i(c,g)};return j._update=function(a){return g=h(a),null!==g},j._clear=function(){i(c,null)},j._hasSameTarget=function(a){return c===a},j._isCurrent=h._isCurrent,j._totalDuration=h._totalDuration,j},b.NullEffect=function(a){var b=function(){a&&(a(),a=null)};return b._update=function(){return null},b._totalDuration=0,b._isCurrent=function(){return!1},b._hasSameTarget=function(){return!1},b}}(d,e,g),function(a,b){a.apply=function(b,c,d){b.style[a.propertyName(c)]=d},a.clear=function(b,c){b.style[a.propertyName(c)]=""}}(e,g),function(a){window.Element.prototype.animate=function(b,c){return a.timeline._play(a.KeyframeEffect(this,b,c))}}(e),function(a,b){function c(a,b,d){if("number"==typeof a&&"number"==typeof b)return a*(1-d)+b*d;if("boolean"==typeof a&&"boolean"==typeof b)return.5>d?a:b;if(a.length==b.length){for(var e=[],f=0;f<a.length;f++)e.push(c(a[f],b[f],d));return e}throw"Mismatched interpolation arguments "+a+":"+b}a.Interpolation=function(a,b,d){return function(e){return d(c(a,b,e))}}}(e,g),function(a,b,c){a.sequenceNumber=0;var d=function(a,b,c){this.target=a,this.currentTime=b,this.timelineTime=c,this.type="finish",this.bubbles=!1,this.cancelable=!1,this.currentTarget=a,this.defaultPrevented=!1,this.eventPhase=Event.AT_TARGET,this.timeStamp=Date.now()};b.Animation=function(b){this._sequenceNumber=a.sequenceNumber++,this._currentTime=0,this._startTime=null,this._paused=!1,this._playbackRate=1,this._inTimeline=!0,this._finishedFlag=!1,this.onfinish=null,this._finishHandlers=[],this._effect=b,this._inEffect=this._effect._update(0),this._idle=!0,this._currentTimePending=!1},b.Animation.prototype={_ensureAlive:function(){this.playbackRate<0&&0===this.currentTime?this._inEffect=this._effect._update(-1):this._inEffect=this._effect._update(this.currentTime),this._inTimeline||!this._inEffect&&this._finishedFlag||(this._inTimeline=!0,b.timeline._animations.push(this))},_tickCurrentTime:function(a,b){a!=this._currentTime&&(this._currentTime=a,this._isFinished&&!b&&(this._currentTime=this._playbackRate>0?this._totalDuration:0),this._ensureAlive())},get currentTime(){return this._idle||this._currentTimePending?null:this._currentTime},set currentTime(a){a=+a,isNaN(a)||(b.restart(),this._paused||null==this._startTime||(this._startTime=this._timeline.currentTime-a/this._playbackRate),this._currentTimePending=!1,this._currentTime!=a&&(this._tickCurrentTime(a,!0),b.invalidateEffects()))},get startTime(){return this._startTime},set startTime(a){a=+a,isNaN(a)||this._paused||this._idle||(this._startTime=a,this._tickCurrentTime((this._timeline.currentTime-this._startTime)*this.playbackRate),b.invalidateEffects())},get playbackRate(){return this._playbackRate},set playbackRate(a){if(a!=this._playbackRate){var b=this.currentTime;this._playbackRate=a,this._startTime=null,"paused"!=this.playState&&"idle"!=this.playState&&this.play(),null!=b&&(this.currentTime=b)}},get _isFinished(){return!this._idle&&(this._playbackRate>0&&this._currentTime>=this._totalDuration||this._playbackRate<0&&this._currentTime<=0)},get _totalDuration(){return this._effect._totalDuration},get playState(){return this._idle?"idle":null==this._startTime&&!this._paused&&0!=this.playbackRate||this._currentTimePending?"pending":this._paused?"paused":this._isFinished?"finished":"running"},play:function(){this._paused=!1,(this._isFinished||this._idle)&&(this._currentTime=this._playbackRate>0?0:this._totalDuration,this._startTime=null,b.invalidateEffects()),this._finishedFlag=!1,b.restart(),this._idle=!1,this._ensureAlive()},pause:function(){this._isFinished||this._paused||this._idle||(this._currentTimePending=!0),this._startTime=null,this._paused=!0},finish:function(){this._idle||(this.currentTime=this._playbackRate>0?this._totalDuration:0,this._startTime=this._totalDuration-this.currentTime,this._currentTimePending=!1)},cancel:function(){this._inEffect&&(this._inEffect=!1,this._idle=!0,this.currentTime=0,this._startTime=null,this._effect._update(null),b.invalidateEffects(),b.restart())},reverse:function(){this.playbackRate*=-1,this.play()},addEventListener:function(a,b){"function"==typeof b&&"finish"==a&&this._finishHandlers.push(b)},removeEventListener:function(a,b){if("finish"==a){var c=this._finishHandlers.indexOf(b);c>=0&&this._finishHandlers.splice(c,1)}},_fireEvents:function(a){var b=this._isFinished;if((b||this._idle)&&!this._finishedFlag){var c=new d(this,this._currentTime,a),e=this._finishHandlers.concat(this.onfinish?[this.onfinish]:[]);e.forEach(function(a){a.call(c.target,c)})}this._finishedFlag=b},_tick:function(a){return this._idle||this._paused||(null==this._startTime?this.startTime=a-this._currentTime/this.playbackRate:this._isFinished||this._tickCurrentTime((a-this._startTime)*this.playbackRate)),this._currentTimePending=!1,this._fireEvents(a),!this._idle&&(this._inEffect||!this._finishedFlag)}}}(d,e,g),function(a,b,c){function d(a){a||(a=Date.now());var b=j;j=[],a<t.currentTime&&(a=t.currentTime),h(a),b.forEach(function(b){b[1](a)}),p&&h(a),g(),m=void 0}function e(a,b){return a._sequenceNumber-b._sequenceNumber}function f(){this._animations=[],this.currentTime=window.performance&&performance.now?performance.now():0}function g(){q.forEach(function(a){a()}),q.length=0}function h(a){o=!1;var c=b.timeline;c.currentTime=a,c._animations.sort(e),n=!1;var d=c._animations;c._animations=[];var f=[],g=[];d=d.filter(function(b){return b._inTimeline=b._tick(a),b._inEffect?g.push(b._effect):f.push(b._effect),b._isFinished||b._paused||b._idle||(n=!0),b._inTimeline}),q.push.apply(q,f),q.push.apply(q,g),c._animations.push.apply(c._animations,d),p=!1,n&&requestAnimationFrame(function(){})}var i=window.requestAnimationFrame,j=[],k=0;window.requestAnimationFrame=function(a){var b=k++;return 0==j.length&&i(d),j.push([b,a]),b},window.cancelAnimationFrame=function(a){j.forEach(function(b){b[0]==a&&(b[1]=function(){})})},f.prototype={_play:function(c){c._timing=a.normalizeTimingInput(c.timing);var d=new b.Animation(c);return d._idle=!1,d._timeline=this,this._animations.push(d),b.restart(),b.invalidateEffects(),d}};var l,m=void 0,l=function(){return void 0==m&&(m=performance.now()),m},n=!1,o=!1;b.restart=function(){return n||(n=!0,requestAnimationFrame(function(){}),o=!0),o};var p=!1;b.invalidateEffects=function(){p=!0};var q=[],r=1e3/60,s=window.getComputedStyle;Object.defineProperty(window,"getComputedStyle",{configurable:!0,enumerable:!0,value:function(){if(p){var a=l();a-t.currentTime>0&&(t.currentTime+=r*(Math.floor((a-t.currentTime)/r)+1)),h(t.currentTime)}return g(),s.apply(this,arguments)}});var t=new f;b.timeline=t}(d,e,g),function(a){function b(a,b){var c=a.exec(b);return c?(c=a.ignoreCase?c[0].toLowerCase():c[0],[c,b.substr(c.length)]):void 0}function c(a,b){b=b.replace(/^\s*/,"");var c=a(b);return c?[c[0],c[1].replace(/^\s*/,"")]:void 0}function d(a,d,e){a=c.bind(null,a);for(var f=[];;){var g=a(e);if(!g)return[f,e];if(f.push(g[0]),e=g[1],g=b(d,e),!g||""==g[1])return[f,e];e=g[1]}}function e(a,b){for(var c=0,d=0;d<b.length&&(!/\s|,/.test(b[d])||0!=c);d++)if("("==b[d])c++;else if(")"==b[d]&&(c--,0==c&&d++,0>=c))break;var e=a(b.substr(0,d));return void 0==e?void 0:[e,b.substr(d)]}function f(a,b){for(var c=a,d=b;c&&d;)c>d?c%=d:d%=c;return c=a*b/(c+d)}function g(a){return function(b){var c=a(b);return c&&(c[0]=void 0),c}}function h(a,b){return function(c){var d=a(c);return d?d:[b,c]}}function i(b,c){for(var d=[],e=0;e<b.length;e++){var f=a.consumeTrimmed(b[e],c);if(!f||""==f[0])return;void 0!==f[0]&&d.push(f[0]),c=f[1]}return""==c?d:void 0}function j(a,b,c,d,e){for(var g=[],h=[],i=[],j=f(d.length,e.length),k=0;j>k;k++){var l=b(d[k%d.length],e[k%e.length]);if(!l)return;g.push(l[0]),h.push(l[1]),i.push(l[2])}return[g,h,function(b){var d=b.map(function(a,b){return i[b](a)}).join(c);return a?a(d):d}]}function k(a,b,c){for(var d=[],e=[],f=[],g=0,h=0;h<c.length;h++)if("function"==typeof c[h]){var i=c[h](a[g],b[g++]);d.push(i[0]),e.push(i[1]),f.push(i[2])}else!function(a){d.push(!1),e.push(!1),f.push(function(){return c[a]})}(h);return[d,e,function(a){for(var b="",c=0;c<a.length;c++)b+=f[c](a[c]);return b}]}a.consumeToken=b,a.consumeTrimmed=c,a.consumeRepeated=d,a.consumeParenthesised=e,a.ignore=g,a.optional=h,a.consumeList=i,a.mergeNestedRepeated=j.bind(null,null),a.mergeWrappedNestedRepeated=j,a.mergeList=k}(e),function(a){function b(b){function c(b){var c=a.consumeToken(/^inset/i,b);if(c)return d.inset=!0,c;var c=a.consumeLengthOrPercent(b);if(c)return d.lengths.push(c[0]),c;var c=a.consumeColor(b);return c?(d.color=c[0],c):void 0}var d={inset:!1,lengths:[],color:null},e=a.consumeRepeated(c,/^/,b);return e&&e[0].length?[d,e[1]]:void 0}function c(c){var d=a.consumeRepeated(b,/^,/,c);return d&&""==d[1]?d[0]:void 0}function d(b,c){for(;b.lengths.length<Math.max(b.lengths.length,c.lengths.length);)b.lengths.push({px:0});for(;c.lengths.length<Math.max(b.lengths.length,c.lengths.length);)c.lengths.push({px:0});if(b.inset==c.inset&&!!b.color==!!c.color){for(var d,e=[],f=[[],0],g=[[],0],h=0;h<b.lengths.length;h++){var i=a.mergeDimensions(b.lengths[h],c.lengths[h],2==h);f[0].push(i[0]),g[0].push(i[1]),e.push(i[2])}if(b.color&&c.color){var j=a.mergeColors(b.color,c.color);f[1]=j[0],g[1]=j[1],d=j[2]}return[f,g,function(a){for(var c=b.inset?"inset ":" ",f=0;f<e.length;f++)c+=e[f](a[0][f])+" ";return d&&(c+=d(a[1])),c}]}}function e(b,c,d,e){function f(a){return{inset:a,color:[0,0,0,0],lengths:[{px:0},{px:0},{px:0},{px:0}]}}for(var g=[],h=[],i=0;i<d.length||i<e.length;i++){var j=d[i]||f(e[i].inset),k=e[i]||f(d[i].inset);g.push(j),h.push(k)}return a.mergeNestedRepeated(b,c,g,h)}var f=e.bind(null,d,", ");a.addPropertiesHandler(c,f,["box-shadow","text-shadow"])}(e),function(a,b){function c(a){return a.toFixed(3).replace(".000","")}function d(a,b,c){return Math.min(b,Math.max(a,c))}function e(a){return/^\s*[-+]?(\d*\.)?\d+\s*$/.test(a)?Number(a):void 0}function f(a,b){return[a,b,c]}function g(a,b){return 0!=a?i(0,1/0)(a,b):void 0}function h(a,b){return[a,b,function(a){return Math.round(d(1,1/0,a))}]}function i(a,b){return function(e,f){return[e,f,function(e){return c(d(a,b,e))}]}}function j(a,b){return[a,b,Math.round]}a.clamp=d,a.addPropertiesHandler(e,i(0,1/0),["border-image-width","line-height"]),a.addPropertiesHandler(e,i(0,1),["opacity","shape-image-threshold"]),a.addPropertiesHandler(e,g,["flex-grow","flex-shrink"]),a.addPropertiesHandler(e,h,["orphans","widows"]),a.addPropertiesHandler(e,j,["z-index"]),a.parseNumber=e,a.mergeNumbers=f,a.numberToString=c}(e,g),function(a,b){function c(a,b){return"visible"==a||"visible"==b?[0,1,function(c){return 0>=c?a:c>=1?b:"visible"}]:void 0}a.addPropertiesHandler(String,c,["visibility"])}(e),function(a,b){function c(a){a=a.trim(),f.fillStyle="#000",f.fillStyle=a;var b=f.fillStyle;if(f.fillStyle="#fff",f.fillStyle=a,b==f.fillStyle){f.fillRect(0,0,1,1);var c=f.getImageData(0,0,1,1).data;f.clearRect(0,0,1,1);var d=c[3]/255;return[c[0]*d,c[1]*d,c[2]*d,d]}}function d(b,c){return[b,c,function(b){function c(a){return Math.max(0,Math.min(255,a))}if(b[3])for(var d=0;3>d;d++)b[d]=Math.round(c(b[d]/b[3]));return b[3]=a.numberToString(a.clamp(0,1,b[3])),"rgba("+b.join(",")+")"}]}var e=document.createElementNS("http://www.w3.org/1999/xhtml","canvas");e.width=e.height=1;var f=e.getContext("2d");a.addPropertiesHandler(c,d,["background-color","border-bottom-color","border-left-color","border-right-color","border-top-color","color","outline-color","text-decoration-color"]),a.consumeColor=a.consumeParenthesised.bind(null,c),a.mergeColors=d}(e,g),function(a,b){function c(a,b){if(b=b.trim().toLowerCase(),"0"==b&&"px".search(a)>=0)return{px:0};if(/^[^(]*$|^calc/.test(b)){b=b.replace(/calc\(/g,"(");var c={};b=b.replace(a,function(a){return c[a]=null,"U"+a});for(var d="U("+a.source+")",e=b.replace(/[-+]?(\d*\.)?\d+/g,"N").replace(new RegExp("N"+d,"g"),"D").replace(/\s[+-]\s/g,"O").replace(/\s/g,""),f=[/N\*(D)/g,/(N|D)[*\/]N/g,/(N|D)O\1/g,/\((N|D)\)/g],g=0;g<f.length;)f[g].test(e)?(e=e.replace(f[g],"$1"),g=0):g++;if("D"==e){for(var h in c){var i=eval(b.replace(new RegExp("U"+h,"g"),"").replace(new RegExp(d,"g"),"*0"));if(!isFinite(i))return;c[h]=i}return c}}}function d(a,b){return e(a,b,!0)}function e(b,c,d){var e,f=[];for(e in b)f.push(e);for(e in c)f.indexOf(e)<0&&f.push(e);return b=f.map(function(a){return b[a]||0}),c=f.map(function(a){return c[a]||0}),[b,c,function(b){var c=b.map(function(c,e){return 1==b.length&&d&&(c=Math.max(c,0)),a.numberToString(c)+f[e]}).join(" + ");return b.length>1?"calc("+c+")":c}]}var f="px|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc",g=c.bind(null,new RegExp(f,"g")),h=c.bind(null,new RegExp(f+"|%","g")),i=c.bind(null,/deg|rad|grad|turn/g);a.parseLength=g,a.parseLengthOrPercent=h,a.consumeLengthOrPercent=a.consumeParenthesised.bind(null,h),a.parseAngle=i,a.mergeDimensions=e;var j=a.consumeParenthesised.bind(null,g),k=a.consumeRepeated.bind(void 0,j,/^/),l=a.consumeRepeated.bind(void 0,k,/^,/);a.consumeSizePairList=l;var m=function(a){var b=l(a);return b&&""==b[1]?b[0]:void 0},n=a.mergeNestedRepeated.bind(void 0,d," "),o=a.mergeNestedRepeated.bind(void 0,n,",");a.mergeNonNegativeSizePair=n,a.addPropertiesHandler(m,o,["background-size"]),a.addPropertiesHandler(h,d,["border-bottom-width","border-image-width","border-left-width","border-right-width","border-top-width","flex-basis","font-size","height","line-height","max-height","max-width","outline-width","width"]),a.addPropertiesHandler(h,e,["border-bottom-left-radius","border-bottom-right-radius","border-top-left-radius","border-top-right-radius","bottom","left","letter-spacing","margin-bottom","margin-left","margin-right","margin-top","min-height","min-width","outline-offset","padding-bottom","padding-left","padding-right","padding-top","perspective","right","shape-margin","text-indent","top","vertical-align","word-spacing"])}(e,g),function(a,b){function c(b){return a.consumeLengthOrPercent(b)||a.consumeToken(/^auto/,b)}function d(b){var d=a.consumeList([a.ignore(a.consumeToken.bind(null,/^rect/)),a.ignore(a.consumeToken.bind(null,/^\(/)),a.consumeRepeated.bind(null,c,/^,/),a.ignore(a.consumeToken.bind(null,/^\)/))],b);return d&&4==d[0].length?d[0]:void 0}function e(b,c){return"auto"==b||"auto"==c?[!0,!1,function(d){var e=d?b:c;if("auto"==e)return"auto";var f=a.mergeDimensions(e,e);return f[2](f[0])}]:a.mergeDimensions(b,c)}function f(a){return"rect("+a+")"}var g=a.mergeWrappedNestedRepeated.bind(null,f,e,", ");a.parseBox=d,a.mergeBoxes=g,a.addPropertiesHandler(d,g,["clip"])}(e,g),function(a,b){function c(a){return function(b){var c=0;return a.map(function(a){return a===k?b[c++]:a})}}function d(a){return a}function e(b){if(b=b.toLowerCase().trim(),"none"==b)return[];for(var c,d=/\s*(\w+)\(([^)]*)\)/g,e=[],f=0;c=d.exec(b);){if(c.index!=f)return;f=c.index+c[0].length;var g=c[1],h=n[g];if(!h)return;var i=c[2].split(","),j=h[0];if(j.length<i.length)return;for(var k=[],o=0;o<j.length;o++){var p,q=i[o],r=j[o];if(p=q?{A:function(b){return"0"==b.trim()?m:a.parseAngle(b)},N:a.parseNumber,T:a.parseLengthOrPercent,L:a.parseLength}[r.toUpperCase()](q):{a:m,n:k[0],t:l}[r],void 0===p)return;k.push(p)}if(e.push({t:g,d:k}),d.lastIndex==b.length)return e}}function f(a){return a.toFixed(6).replace(".000000","")}function g(b,c){if(b.decompositionPair!==c){b.decompositionPair=c;var d=a.makeMatrixDecomposition(b)}if(c.decompositionPair!==b){c.decompositionPair=b;var e=a.makeMatrixDecomposition(c)}return null==d[0]||null==e[0]?[[!1],[!0],function(a){return a?c[0].d:b[0].d}]:(d[0].push(0),e[0].push(1),[d,e,function(b){var c=a.quat(d[0][3],e[0][3],b[5]),g=a.composeMatrix(b[0],b[1],b[2],c,b[4]),h=g.map(f).join(",");return h}])}function h(a){return a.replace(/[xy]/,"")}function i(a){return a.replace(/(x|y|z|3d)?$/,"3d")}function j(b,c){var d=a.makeMatrixDecomposition&&!0,e=!1;if(!b.length||!c.length){b.length||(e=!0,b=c,c=[]);for(var f=0;f<b.length;f++){var j=b[f].t,k=b[f].d,l="scale"==j.substr(0,5)?1:0;c.push({t:j,d:k.map(function(a){if("number"==typeof a)return l;var b={};for(var c in a)b[c]=l;return b})})}}var m=function(a,b){return"perspective"==a&&"perspective"==b||("matrix"==a||"matrix3d"==a)&&("matrix"==b||"matrix3d"==b)},o=[],p=[],q=[];if(b.length!=c.length){if(!d)return;var r=g(b,c);o=[r[0]],p=[r[1]],q=[["matrix",[r[2]]]]}else for(var f=0;f<b.length;f++){var j,s=b[f].t,t=c[f].t,u=b[f].d,v=c[f].d,w=n[s],x=n[t];if(m(s,t)){if(!d)return;var r=g([b[f]],[c[f]]);o.push(r[0]),p.push(r[1]),q.push(["matrix",[r[2]]])}else{if(s==t)j=s;else if(w[2]&&x[2]&&h(s)==h(t))j=h(s),u=w[2](u),v=x[2](v);else{if(!w[1]||!x[1]||i(s)!=i(t)){if(!d)return;var r=g(b,c);o=[r[0]],p=[r[1]],q=[["matrix",[r[2]]]];break}j=i(s),u=w[1](u),v=x[1](v)}for(var y=[],z=[],A=[],B=0;B<u.length;B++){var C="number"==typeof u[B]?a.mergeNumbers:a.mergeDimensions,r=C(u[B],v[B]);y[B]=r[0],z[B]=r[1],A.push(r[2])}o.push(y),p.push(z),q.push([j,A])}}if(e){var D=o;o=p,p=D}return[o,p,function(a){return a.map(function(a,b){var c=a.map(function(a,c){return q[b][1][c](a)}).join(",");return"matrix"==q[b][0]&&16==c.split(",").length&&(q[b][0]="matrix3d"),q[b][0]+"("+c+")"}).join(" ")}]}var k=null,l={px:0},m={deg:0},n={matrix:["NNNNNN",[k,k,0,0,k,k,0,0,0,0,1,0,k,k,0,1],d],matrix3d:["NNNNNNNNNNNNNNNN",d],rotate:["A"],rotatex:["A"],rotatey:["A"],rotatez:["A"],rotate3d:["NNNA"],perspective:["L"],scale:["Nn",c([k,k,1]),d],scalex:["N",c([k,1,1]),c([k,1])],scaley:["N",c([1,k,1]),c([1,k])],scalez:["N",c([1,1,k])],scale3d:["NNN",d],skew:["Aa",null,d],skewx:["A",null,c([k,m])],skewy:["A",null,c([m,k])],translate:["Tt",c([k,k,l]),d],translatex:["T",c([k,l,l]),c([k,l])],translatey:["T",c([l,k,l]),c([l,k])],translatez:["L",c([l,l,k])],translate3d:["TTL",d]};a.addPropertiesHandler(e,j,["transform"])}(e,g),function(a,b){function c(a,b){b.concat([a]).forEach(function(b){b in document.documentElement.style&&(d[a]=b)})}var d={};c("transform",["webkitTransform","msTransform"]),c("transformOrigin",["webkitTransformOrigin"]),c("perspective",["webkitPerspective"]),c("perspectiveOrigin",["webkitPerspectiveOrigin"]),a.propertyName=function(a){return d[a]||a}}(e,g)}(),b["true"]=a}({},function(){return this}());
 	//# sourceMappingURL=web-animations.min.js.map
 
 /***/ },
@@ -3204,76 +3204,70 @@
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _dec, _class;
-
-	var _ionic = __webpack_require__(6);
-
-	var _settings = __webpack_require__(351);
-
-	var _countdown = __webpack_require__(354);
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var MyApp = (_dec = (0, _ionic.App)({
-	  templateUrl: 'build/app.html'
-	}), _dec(_class = (function () {
-	  function MyApp(app, platform) {
-	    _classCallCheck(this, MyApp);
-
-	    // set up our app
-	    this.app = app;
-	    this.platform = platform;
-	    this.initializeApp();
-
-	    // set our app's pages
-	    this.pages = [{ title: 'Settings', component: _settings.SettingsPage }, { title: 'Count down page', component: _countdown.CountdownPage }];
-
-	    // make Settings my default page
-	    this.rootPage = _settings.SettingsPage;
-	  }
-
-	  _createClass(MyApp, [{
-	    key: 'initializeApp',
-	    value: function initializeApp() {
-	      this.platform.ready().then(function () {
-	        console.log('Platform ready');
-
-	        // The platform is now ready. Note: if this callback fails to fire, follow
-	        // the Troubleshooting guide for a number of possible solutions:
-	        //
-	        // Okay, so the platform is ready and our plugins are available.
-	        // Here you can do any higher level native things you might need.
-	        //
-	        // First, let's hide the keyboard accessory bar (only works natively) since
-	        // that's a better default:
-	        //
-	        //
-	        // For example, we might change the StatusBar color. This one below is
-	        // good for light backgrounds and dark text;
-	        if (typeof StatusBar !== 'undefined') {
-	          StatusBar.styleDefault();
-	        }
-	      });
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var settings_1 = __webpack_require__(350);
+	var countdown_1 = __webpack_require__(353);
+	var MyApp = (function () {
+	    function MyApp(app, platform) {
+	        // set up our app
+	        this.app = app;
+	        this.platform = platform;
+	        this.initializeApp();
+	        // set our app's pages
+	        this.pages = [
+	            { title: 'Settings', component: settings_1.SettingsPage },
+	            { title: 'Count down page', component: countdown_1.CountdownPage }
+	        ];
+	        // make Settings my default page
+	        this.rootPage = settings_1.SettingsPage;
 	    }
-	  }, {
-	    key: 'openPage',
-	    value: function openPage(page) {
-	      // close the menu when clicking a link from the menu
-	      this.app.getComponent('leftMenu').close();
-	      // navigate to the new page if it is not the current page
-	      var nav = this.app.getComponent('nav');
-	      nav.setRoot(page.component);
-	      //this.rootPage = page.component;
-	    }
-	  }]);
+	    MyApp.prototype.initializeApp = function () {
+	        this.platform.ready().then(function () {
+	            console.log('Platform ready');
+	            // The platform is now ready. Note: if this callback fails to fire, follow
+	            // the Troubleshooting guide for a number of possible solutions:
+	            //
+	            // Okay, so the platform is ready and our plugins are available.
+	            // Here you can do any higher level native things you might need.
+	            //
+	            // First, let's hide the keyboard accessory bar (only works natively) since
+	            // that's a better default:
+	            //
+	            //
+	            // For example, we might change the StatusBar color. This one below is
+	            // good for light backgrounds and dark text;
+	            if (typeof StatusBar !== 'undefined') {
+	                StatusBar.styleDefault();
+	            }
+	        });
+	    };
+	    MyApp.prototype.openPage = function (page) {
+	        // close the menu when clicking a link from the menu
+	        this.app.getComponent('leftMenu').close();
+	        // navigate to the new page if it is not the current page
+	        var nav = this.app.getComponent('nav');
+	        nav.setRoot(page.component);
+	        //this.rootPage = page.component;
+	    };
+	    MyApp = __decorate([
+	        ionic_1.App({
+	            templateUrl: 'build/app.html'
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _b) || Object])
+	    ], MyApp);
+	    return MyApp;
+	    var _a, _b;
+	})();
 
-	  return MyApp;
-	})()) || _class);
-	Reflect.defineMetadata('design:paramtypes', [_ionic.IonicApp, _ionic.Platform], MyApp);
 
 /***/ },
 /* 6 */
@@ -3284,25 +3278,25 @@
 	}
 	__export(__webpack_require__(7));
 	__export(__webpack_require__(270));
-	__export(__webpack_require__(302));
-	__export(__webpack_require__(319));
-	__export(__webpack_require__(337));
-	__export(__webpack_require__(338));
-	__export(__webpack_require__(339));
+	__export(__webpack_require__(285));
+	__export(__webpack_require__(315));
+	__export(__webpack_require__(333));
+	__export(__webpack_require__(334));
+	__export(__webpack_require__(335));
 	__export(__webpack_require__(271));
-	__export(__webpack_require__(341));
+	__export(__webpack_require__(340));
 	__export(__webpack_require__(274));
-	__export(__webpack_require__(295));
-	__export(__webpack_require__(278));
-	__export(__webpack_require__(281));
-	__export(__webpack_require__(297));
-	__export(__webpack_require__(345));
+	__export(__webpack_require__(277));
+	__export(__webpack_require__(276));
+	__export(__webpack_require__(284));
+	__export(__webpack_require__(279));
+	__export(__webpack_require__(344));
 	// these modules don't export anything
+	__webpack_require__(345);
 	__webpack_require__(346);
 	__webpack_require__(347);
 	__webpack_require__(348);
 	__webpack_require__(349);
-	__webpack_require__(350);
 
 /***/ },
 /* 7 */
@@ -3314,18 +3308,14 @@
 	var app_1 = __webpack_require__(165);
 	var config_1 = __webpack_require__(270);
 	var platform_1 = __webpack_require__(271);
-	var overlay_controller_1 = __webpack_require__(275);
-	var form_1 = __webpack_require__(277);
-	var keyboard_1 = __webpack_require__(278);
-	var action_sheet_1 = __webpack_require__(279);
-	var modal_1 = __webpack_require__(292);
-	var popup_1 = __webpack_require__(293);
-	var events_1 = __webpack_require__(295);
-	var nav_registry_1 = __webpack_require__(296);
-	var translate_1 = __webpack_require__(297);
+	var form_1 = __webpack_require__(275);
+	var keyboard_1 = __webpack_require__(276);
+	var events_1 = __webpack_require__(277);
+	var nav_registry_1 = __webpack_require__(278);
+	var translate_1 = __webpack_require__(279);
 	var click_block_1 = __webpack_require__(274);
-	var feature_detect_1 = __webpack_require__(298);
-	var tap_click_1 = __webpack_require__(299);
+	var feature_detect_1 = __webpack_require__(280);
+	var tap_click_1 = __webpack_require__(281);
 	var dom_1 = __webpack_require__(273);
 	/**
 	 * @private
@@ -3361,10 +3351,6 @@
 	        tap_click_1.TapClick,
 	        form_1.Form,
 	        keyboard_1.Keyboard,
-	        overlay_controller_1.OverlayController,
-	        action_sheet_1.ActionSheet,
-	        modal_1.Modal,
-	        popup_1.Popup,
 	        translate_1.Translate,
 	        router_1.ROUTER_PROVIDERS,
 	        core_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy }),
@@ -3386,6 +3372,11 @@
 	    // set the mode class name
 	    // ios/md
 	    bodyEle.classList.add(mode);
+	    // right-to-left language direction
+	    if (document.dir === 'rtl') {
+	        platform.setIsRTL(true);
+	        bodyEle.classList.add('rtl');
+	    }
 	    var versions = platform.versions();
 	    platform.platforms().forEach(function (platformName) {
 	        // platform-ios
@@ -27279,10 +27270,12 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -27298,18 +27291,18 @@
 	 * components see the [IdRef API reference](../id/IdRef/).
 	 */
 	var IonicApp = (function () {
-	    function IonicApp(config, clickBlock, zone) {
-	        this._config = config;
-	        this._zone = zone;
+	    function IonicApp(_config, _clickBlock, _zone) {
+	        this._config = _config;
+	        this._clickBlock = _clickBlock;
+	        this._zone = _zone;
 	        this._titleSrv = new browser_1.Title();
 	        this._title = '';
 	        this._disTime = 0;
-	        this._clickBlock = clickBlock;
+	        this._scrollTime = 0;
 	        // Our component registry map
 	        this.components = {};
 	    }
 	    /**
-	     * @private
 	     * Sets the document title.
 	     * @param {string} val  Value to set the document title to.
 	     */
@@ -27352,6 +27345,20 @@
 	     */
 	    IonicApp.prototype.isEnabled = function () {
 	        return (this._disTime < Date.now());
+	    };
+	    /**
+	     * @private
+	     */
+	    IonicApp.prototype.setScrolling = function () {
+	        this._scrollTime = Date.now();
+	    };
+	    /**
+	     * @private
+	     * Boolean if the app is actively scrolling or not.
+	     * @return {bool}
+	     */
+	    IonicApp.prototype.isScrolling = function () {
+	        return (this._scrollTime + 64 > Date.now());
 	    };
 	    /**
 	     * @private
@@ -39937,8 +39944,8 @@
 	 * | activator                  | highlight              | ripple                    |
 	 * | actionSheetEnter           | action-sheet-slide-in  | action-sheet-md-slide-in  |
 	 * | actionSheetLeave           | action-sheet-slide-out | action-sheet-md-slide-out |
-	 * | actionSheetCancelIcon      |                        | ion-md-close              |
-	 * | actionSheetDestructiveIcon |                        | ion-md-trash              |
+	 * | alertEnter                 | alert-pop-in           | alert-md-pop-in           |
+	 * | alertLeave                 | alert-pop-out          | alert-md-pop-out          |
 	 * | backButtonText             | Back                   |                           |
 	 * | backButtonIcon             | ion-ios-arrow-back     | ion-md-arrow-back         |
 	 * | iconMode                   | ios                    | md                        |
@@ -39947,9 +39954,7 @@
 	 * | modalLeave                 | modal-slide-out        | modal-md-slide-out        |
 	 * | pageTransition             | ios-transition         | md-transition             |
 	 * | pageTransitionDelay        | 16                     | 120                       |
-	 * | popupEnter                 | popup-pop-in           | popup-md-pop-in           |
-	 * | popupLeave                 | popup-pop-out          | popup-md-pop-out          |
-	 * | tabbarPlacement            | bottom                 | true                      |
+	 * | tabbarPlacement            | bottom                 | top                       |
 	 * | tabbarHighlight            |                        | top                       |
 	 * | tabSubPage                 |                        | true                      |
 	 *
@@ -40028,6 +40033,9 @@
 	     */
 	    Config.prototype.get = function (key) {
 	        if (!util_1.isDefined(this._c[key])) {
+	            if (!util_1.isDefined(key)) {
+	                throw 'config key is not defined';
+	            }
 	            // if the value was already set this will all be skipped
 	            // if there was no user config then it'll check each of
 	            // the user config's platforms, which already contains
@@ -40039,8 +40047,8 @@
 	            var platformValue = undefined;
 	            var platformModeValue = undefined;
 	            var configObj = null;
-	            if (this._platform) {
-	                var queryStringValue = this._platform.query('ionic' + key.toLowerCase());
+	            if (this.platform) {
+	                var queryStringValue = this.platform.query('ionic' + key.toLowerCase());
 	                if (util_1.isDefined(queryStringValue)) {
 	                    return this._c[key] = (queryStringValue === 'true' ? true : queryStringValue === 'false' ? false : queryStringValue);
 	                }
@@ -40048,7 +40056,7 @@
 	                // loop though each of the active platforms
 	                // array of active platforms, which also knows the hierarchy,
 	                // with the last one the most important
-	                var activePlatformKeys = this._platform.platforms();
+	                var activePlatformKeys = this.platform.platforms();
 	                // loop through all of the active platforms we're on
 	                for (var i = 0, l = activePlatformKeys.length; i < l; i++) {
 	                    // get user defined platform values
@@ -40098,7 +40106,7 @@
 	        // or it was from the default platform configs
 	        // in that order
 	        if (util_1.isFunction(this._c[key])) {
-	            return this._c[key](this._platform);
+	            return this._c[key](this.platform);
 	        }
 	        return this._c[key];
 	    };
@@ -40106,7 +40114,7 @@
 	     * @private
 	     */
 	    Config.prototype.setPlatform = function (platform) {
-	        this._platform = platform;
+	        this.platform = platform;
 	    };
 	    Config.setModeConfig = function (mode, config) {
 	        modeConfigs[mode] = config;
@@ -40150,6 +40158,7 @@
 	        if (platforms === void 0) { platforms = []; }
 	        this._platforms = platforms;
 	        this._versions = {};
+	        this._isRTL = false;
 	        this._onResizes = [];
 	        this._readyPromise = new Promise(function (res) { _this._readyResolve = res; });
 	    }
@@ -40259,8 +40268,6 @@
 	    };
 	    /**
 	     * @private
-	     * @param {TODO} config  TODO
-	     * @returns {TODO} TODO
 	     */
 	    Platform.prototype.prepareReady = function (config) {
 	        var self = this;
@@ -40276,6 +40283,20 @@
 	            // use the default dom ready
 	            dom_1.ready(resolve);
 	        }
+	    };
+	    /**
+	     * Returns if this app is using right-to-left language direction or not.
+	     * http://www.w3.org/International/questions/qa-html-dir
+	     * @returns {boolean}
+	     */
+	    Platform.prototype.isRTL = function () {
+	        return this._isRTL;
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.setIsRTL = function (val) {
+	        this._isRTL = val;
 	    };
 	    // Methods meant to be overridden by the engine
 	    // **********************************************
@@ -40393,7 +40414,6 @@
 	    // **********************************************
 	    /**
 	     * @private
-	     * @param {TODO} platformConfig  TODO
 	     */
 	    Platform.register = function (platformConfig) {
 	        platformRegistry[platformConfig.name] = platformConfig;
@@ -40406,19 +40426,18 @@
 	    };
 	    /**
 	     * @private
-	     * @param {TODO} platformName  TODO
-	     * @returns {string} TODO
 	     */
 	    Platform.get = function (platformName) {
 	        return platformRegistry[platformName] || {};
 	    };
+	    /**
+	     * @private
+	     */
 	    Platform.setDefault = function (platformName) {
 	        platformDefault = platformName;
 	    };
 	    /**
 	     * @private
-	     * @param {TODO} queryValue  TODO
-	     * @returns {boolean} TODO
 	     */
 	    Platform.prototype.testQuery = function (queryValue, queryTestValue) {
 	        var valueSplit = queryValue.toLowerCase().split(';');
@@ -40426,8 +40445,6 @@
 	    };
 	    /**
 	     * @private
-	     * @param {TODO} userAgentExpression  TODO
-	     * @returns {boolean} TODO
 	     */
 	    Platform.prototype.testUserAgent = function (userAgentExpression) {
 	        var rgx = new RegExp(userAgentExpression, 'i');
@@ -40435,8 +40452,6 @@
 	    };
 	    /**
 	     * @private
-	     * @param {TODO} navigatorPlatformExpression  TODO
-	     * @returns {boolean} TODO
 	     */
 	    Platform.prototype.testNavigatorPlatform = function (navigatorPlatformExpression) {
 	        var rgx = new RegExp(navigatorPlatformExpression, 'i');
@@ -40444,8 +40459,6 @@
 	    };
 	    /**
 	     * @private
-	     * @param {TODO} userAgentExpression  TODO
-	     * @returns {Object} TODO
 	     */
 	    Platform.prototype.matchUserAgentVersion = function (userAgentExpression) {
 	        if (this._ua && userAgentExpression) {
@@ -40460,9 +40473,6 @@
 	    };
 	    /**
 	     * @private
-	     * @param {TODO} queryValue  TODO
-	     * @param {TODO} userAgentExpression  TODO
-	     * @returns {boolean} TODO
 	     */
 	    Platform.prototype.isPlatform = function (queryTestValue, userAgentExpression) {
 	        if (!userAgentExpression) {
@@ -40476,7 +40486,6 @@
 	    };
 	    /**
 	     * @private
-	     * @param {TODO} config  TODO
 	     */
 	    Platform.prototype.load = function (platformOverride) {
 	        var rootPlatformNode = null;
@@ -40547,11 +40556,12 @@
 	                platformNode = platformNode.child();
 	            }
 	        }
+	        if (this._platforms.indexOf('mobile') > -1 && this._platforms.indexOf('cordova') === -1) {
+	            this._platforms.push('mobileweb');
+	        }
 	    };
 	    /**
 	     * @private
-	     * @param {TODO} platformName  TODO
-	     * @returns {TODO} TODO
 	     */
 	    Platform.prototype.matchPlatform = function (platformName) {
 	        // build a PlatformNode and assign config data to it
@@ -40885,37 +40895,17 @@
 /* 273 */
 /***/ function(module, exports) {
 
-	var nativeRaf = window.requestAnimationFrame ||
-	    window.webkitRequestAnimationFrame ||
-	    window.mozRequestAnimationFrame;
-	var nativeCancelRaf = window.cancelAnimationFrame ||
-	    window.webkitCancelAnimationFrame ||
-	    window.webkitCancelRequestAnimationFrame;
-	function raf(callback) {
-	    //console.log('raf', callback.toString().replace(/\s/g, '').replace('function', '').substring(0, 50));
-	    //console.log('raf, isRootZone()', zone.isRootZone(), '$id', zone.$id);
-	    _raf(callback);
-	}
-	exports.raf = raf;
-	var _raf = nativeRaf || function (callback) {
-	    var timeCurrent = (new Date()).getTime(), timeDelta;
-	    /* Dynamically set delay on a per-tick basis to match 60fps. */
-	    /* Technique by Erik Moller. MIT license: https://gist.github.com/paulirish/1579671 */
-	    timeDelta = Math.max(0, 16 - (timeCurrent - timeLast));
-	    timeLast = timeCurrent + timeDelta;
-	    return setTimeout(function () { callback(timeCurrent + timeDelta); }, timeDelta);
-	};
-	exports.rafCancel = nativeRaf ? nativeCancelRaf : function (id) {
-	    return window.cancelTimeout(id);
-	};
+	// requestAnimationFrame is polyfilled for old Android
+	// within the web-animations polyfill
+	exports.raf = window.requestAnimationFrame;
 	function rafFrames(framesToWait, callback) {
 	    framesToWait = Math.ceil(framesToWait);
 	    if (framesToWait < 2) {
-	        raf(callback);
+	        exports.raf(callback);
 	    }
 	    else {
 	        setTimeout(function () {
-	            raf(callback);
+	            exports.raf(callback);
 	        }, (framesToWait - 1) * 17);
 	    }
 	}
@@ -41271,84 +41261,13 @@
 /* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var util_1 = __webpack_require__(276);
-	/**
-	 * @private
-	 */
-	var OverlayController = (function () {
-	    function OverlayController() {
-	    }
-	    OverlayController.prototype.open = function (componentType, params, opts) {
-	        var _this = this;
-	        if (params === void 0) { params = {}; }
-	        if (opts === void 0) { opts = {}; }
-	        if (!this.nav) {
-	            console.error('<ion-overlay></ion-overlay> required in root template (app.html) to use: ' + opts.pageType);
-	            return Promise.reject();
-	        }
-	        var resolve, reject;
-	        var promise = new Promise(function (res, rej) { resolve = res; reject = rej; });
-	        opts.animation = opts.enterAnimation;
-	        opts.animateFirst = true;
-	        this.nav.push(componentType, params, opts).then(function (viewCtrl) {
-	            if (viewCtrl && viewCtrl.instance) {
-	                var self = _this;
-	                function escape(ev) {
-	                    if (ev.keyCode == 27 && self.nav.last() === viewCtrl) {
-	                        viewCtrl.instance.close();
-	                    }
-	                }
-	                viewCtrl.instance.close = function (data, closeOpts) {
-	                    if (closeOpts === void 0) { closeOpts = {}; }
-	                    util_1.extend(opts, closeOpts);
-	                    opts.animation = opts.leaveAnimation;
-	                    viewCtrl.instance.onClose && viewCtrl.instance.onClose(data);
-	                    _this.nav.pop(opts);
-	                    document.removeEventListener('keyup', escape, true);
-	                };
-	                document.addEventListener('keyup', escape, true);
-	                resolve(viewCtrl.instance);
-	            }
-	            else {
-	                reject();
-	            }
-	        }, function (rejectReason) {
-	            console.error(rejectReason);
-	        });
-	        return promise;
-	    };
-	    OverlayController.prototype.getByType = function (overlayType) {
-	        var overlay = this.nav.getByType(overlayType);
-	        return overlay && overlay.instance;
-	    };
-	    OverlayController.prototype.getByHandle = function (handle, overlayType) {
-	        var overlay = this.nav.getByHandle(handle);
-	        return overlay && overlay.instance;
-	    };
-	    return OverlayController;
-	})();
-	exports.OverlayController = OverlayController;
-
-/***/ },
-/* 276 */
-/***/ function(module, exports, __webpack_require__) {
-
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	var domUtil = __webpack_require__(273);
-	exports.dom = domUtil;
-	__export(__webpack_require__(272));
-
-/***/ },
-/* 277 */
-/***/ function(module, exports, __webpack_require__) {
-
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -41433,21 +41352,23 @@
 	exports.Form = Form;
 
 /***/ },
-/* 278 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
 	var config_1 = __webpack_require__(270);
-	var form_1 = __webpack_require__(277);
+	var form_1 = __webpack_require__(275);
 	var dom_1 = __webpack_require__(273);
 	/**
 	 * @name Keyboard
@@ -41620,7 +41541,577 @@
 	var KEYBOARD_CLOSE_POLLING = 150;
 
 /***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	/**
+	 * Events is a pub/sub style event system for sending and responding to application-level
+	 * events across your app.
+	 * @usage
+	 * ```ts
+	 * // first page (publish an event when a user is created)
+	 * function createUser(user) {
+	 *   console.log('User created!')
+	 *   events.publish('user:created', user);
+	 * }
+	 *
+	 * // second page (listen for the user created event)
+	 * events.subscribe('user:created', (user) => {
+	 *   console.log('Welcome', user);
+	 * });
+	 *
+	 * ```
+	 */
+	var Events = (function () {
+	    function Events() {
+	        this.channels = [];
+	    }
+	    /**
+	     * Subscribe to an event topic. Events that get posted to that topic
+	     * will trigger the provided handler.
+	     *
+	     * @param topic the topic to subscribe to
+	     * @param handler the event handler
+	     */
+	    Events.prototype.subscribe = function (topic) {
+	        var _this = this;
+	        var handlers = [];
+	        for (var _i = 1; _i < arguments.length; _i++) {
+	            handlers[_i - 1] = arguments[_i];
+	        }
+	        if (!this.channels[topic]) {
+	            this.channels[topic] = [];
+	        }
+	        handlers.forEach(function (handler) {
+	            _this.channels[topic].push(handler);
+	        });
+	    };
+	    /**
+	     * Unsubscribe from the given topic. Your handler will
+	     * no longer receive events published to this topic.
+	     *
+	     * @param topic the topic to unsubscribe from
+	     * @param handler the event handler
+	     *
+	     * @return true if a handler was removed
+	     */
+	    Events.prototype.unsubscribe = function (topic, handler) {
+	        var t = this.channels[topic];
+	        if (!t) {
+	            // Wasn't found, wasn't removed
+	            return false;
+	        }
+	        if (!handler) {
+	            // Remove all handlers for this topic
+	            delete this.channels[topic];
+	            return true;
+	        }
+	        // We need to find and remove a specific handler
+	        var i = t.indexOf(handler);
+	        if (i < 0) {
+	            // Wasn't found, wasn't removed
+	            return false;
+	        }
+	        t.splice(i, 1);
+	        // If the channel is empty now, remove it from the channel map
+	        if (!t.length) {
+	            delete this.channels[topic];
+	        }
+	        return true;
+	    };
+	    /**
+	     * Publish an event to the given topic.
+	     *
+	     * @param topic the topic to publish to
+	     * @param eventData the data to send as the event
+	     */
+	    Events.prototype.publish = function (topic) {
+	        var args = [];
+	        for (var _i = 1; _i < arguments.length; _i++) {
+	            args[_i - 1] = arguments[_i];
+	        }
+	        var t = this.channels[topic];
+	        if (!t) {
+	            return null;
+	        }
+	        var responses = [];
+	        t.forEach(function (handler) {
+	            responses.push(handler(args));
+	        });
+	        return responses;
+	    };
+	    Events = __decorate([
+	        core_1.Injectable(), 
+	        __metadata('design:paramtypes', [])
+	    ], Events);
+	    return Events;
+	})();
+	exports.Events = Events;
+
+/***/ },
+/* 278 */
+/***/ function(module, exports) {
+
+	/**
+	 * @private
+	 * Map of possible pages that can be navigated to using an Ionic NavController
+	 */
+	var NavRegistry = (function () {
+	    function NavRegistry(pages) {
+	        if (pages === void 0) { pages = []; }
+	        this._pages = new Map(pages.map(function (page) { return [page.name, page]; }));
+	    }
+	    NavRegistry.prototype.get = function (pageName) {
+	        return this._pages.get(pageName);
+	    };
+	    NavRegistry.prototype.set = function (page) {
+	        this._pages.set(page.name, page);
+	    };
+	    return NavRegistry;
+	})();
+	exports.NavRegistry = NavRegistry;
+
+/***/ },
 /* 279 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	/**
+	 * @private
+	 * Provide multi-language and i18n support in your app. Translate works by
+	 * mapping full strings to language translated ones. That means that you don't need
+	 * to provide strings for your default language, just new languages.
+	 *
+	 * @usage
+	 * ```js
+	 * Translate.translations({
+	 *   'de': {
+	 *     'Welcome to MyApp': 'Willkommen auf'
+	 *   }
+	 * })
+	 *
+	 * Changing the default language:
+	 *
+	 * Translate.setLanguage('de');
+	 * ```
+	 *
+	 * Usage in a template:
+	 *
+	 * ```js
+	 * <span>{{ 'Welcome to MyApp' | translate }}
+	 * ```
+	 */
+	var Translate = (function () {
+	    function Translate() {
+	        this._transMap = {};
+	    }
+	    Translate.prototype.translations = function (lang, map) {
+	        this._transMap[lang] = map;
+	    };
+	    Translate.prototype.setLanguage = function (lang) {
+	        this._language = lang;
+	    };
+	    Translate.prototype.getTranslations = function (lang) {
+	        return this._transMap[lang];
+	    };
+	    Translate.prototype.translate = function (key, lang) {
+	        // If the language isn't specified and we have no overridden one, return the string passed.
+	        if (!lang && !this._language) {
+	            return key;
+	        }
+	        var setLanguage = lang || this._language;
+	        var map = this.getTranslations(setLanguage);
+	        if (!map) {
+	            console.warn('I18N: No translation for key', key, 'using language', setLanguage);
+	            return '';
+	        }
+	        return this._getTranslation(map, key);
+	    };
+	    Translate.prototype._getTranslation = function (map, key) {
+	        return map && map[key] || '';
+	    };
+	    Translate = __decorate([
+	        core_1.Injectable(), 
+	        __metadata('design:paramtypes', [])
+	    ], Translate);
+	    return Translate;
+	})();
+	exports.Translate = Translate;
+
+/***/ },
+/* 280 */
+/***/ function(module, exports) {
+
+	var FeatureDetect = (function () {
+	    function FeatureDetect() {
+	    }
+	    FeatureDetect.prototype.run = function (window, document) {
+	        this._results = {};
+	        for (var name in featureDetects) {
+	            this._results[name] = featureDetects[name](window, document, document.body);
+	        }
+	    };
+	    FeatureDetect.prototype.has = function (featureName) {
+	        return !!this._results[featureName];
+	    };
+	    FeatureDetect.add = function (name, fn) {
+	        featureDetects[name] = fn;
+	    };
+	    return FeatureDetect;
+	})();
+	exports.FeatureDetect = FeatureDetect;
+	var featureDetects = {};
+	// FeatureDetect.add('sticky', function(window, document) {
+	//   // css position sticky
+	//   let ele = document.createElement('div');
+	//   ele.style.cssText = 'position:-webkit-sticky;position:sticky';
+	//   return ele.style.position.indexOf('sticky') > -1;
+	// });
+	FeatureDetect.add('hairlines', function (window, document, body) {
+	    /**
+	    * Hairline Shim
+	    * Add the "hairline" CSS class name to the body tag
+	    * if the browser supports subpixels.
+	    */
+	    var canDo = false;
+	    if (window.devicePixelRatio >= 2) {
+	        var hairlineEle = document.createElement('div');
+	        hairlineEle.style.border = '.5px solid transparent';
+	        body.appendChild(hairlineEle);
+	        if (hairlineEle.offsetHeight === 1) {
+	            body.classList.add('hairlines');
+	            canDo = true;
+	        }
+	        body.removeChild(hairlineEle);
+	    }
+	    return canDo;
+	});
+
+/***/ },
+/* 281 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var app_1 = __webpack_require__(165);
+	var config_1 = __webpack_require__(270);
+	var dom_1 = __webpack_require__(273);
+	var activator_1 = __webpack_require__(282);
+	var ripple_1 = __webpack_require__(283);
+	/**
+	 * @private
+	 */
+	var TapClick = (function () {
+	    function TapClick(app, config, zone) {
+	        var self = this;
+	        self.app = app;
+	        self.zone = zone;
+	        self.lastTouch = 0;
+	        self.disableClick = 0;
+	        self.lastActivated = 0;
+	        if (config.get('activator') == 'ripple') {
+	            self.activator = new ripple_1.RippleActivator(app, config, zone);
+	        }
+	        else if (config.get('activator') == 'highlight') {
+	            self.activator = new activator_1.Activator(app, config, zone);
+	        }
+	        self.usePolyfill = (config.get('tapPolyfill') === true);
+	        zone.runOutsideAngular(function () {
+	            addListener('click', self.click.bind(self), true);
+	            addListener('touchstart', self.touchStart.bind(self));
+	            addListener('touchend', self.touchEnd.bind(self));
+	            addListener('touchcancel', self.pointerCancel.bind(self));
+	            addListener('mousedown', self.mouseDown.bind(self), true);
+	            addListener('mouseup', self.mouseUp.bind(self), true);
+	        });
+	        self.pointerMove = function (ev) {
+	            if (dom_1.hasPointerMoved(POINTER_MOVE_UNTIL_CANCEL, self.startCoord, dom_1.pointerCoord(ev))) {
+	                self.pointerCancel(ev);
+	            }
+	        };
+	    }
+	    TapClick.prototype.touchStart = function (ev) {
+	        this.lastTouch = Date.now();
+	        this.pointerStart(ev);
+	    };
+	    TapClick.prototype.touchEnd = function (ev) {
+	        this.lastTouch = Date.now();
+	        if (this.usePolyfill && this.startCoord && this.app.isEnabled()) {
+	            // only dispatch mouse click events from a touchend event
+	            // when tapPolyfill config is true, and the startCoordand endCoord
+	            // are not too far off from each other
+	            var endCoord = dom_1.pointerCoord(ev);
+	            if (!dom_1.hasPointerMoved(POINTER_TOLERANCE, this.startCoord, endCoord)) {
+	                // prevent native mouse click events for XX amount of time
+	                this.disableClick = this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT;
+	                if (this.app.isScrolling()) {
+	                    // do not fire off a click event while the app was scrolling
+	                    console.debug('click from touch prevented by scrolling ' + Date.now());
+	                }
+	                else {
+	                    // dispatch a mouse click event
+	                    console.debug('create click from touch ' + Date.now());
+	                    var clickEvent = document.createEvent('MouseEvents');
+	                    clickEvent.initMouseEvent('click', true, true, window, 1, 0, 0, endCoord.x, endCoord.y, false, false, false, false, 0, null);
+	                    clickEvent.isIonicTap = true;
+	                    ev.target.dispatchEvent(clickEvent);
+	                }
+	            }
+	        }
+	        this.pointerEnd(ev);
+	    };
+	    TapClick.prototype.mouseDown = function (ev) {
+	        if (this.isDisabledNativeClick()) {
+	            console.debug('mouseDown prevent ' + ev.target.tagName + ' ' + Date.now());
+	            // does not prevent default on purpose
+	            // so native blur events from inputs can happen
+	            ev.stopPropagation();
+	        }
+	        else if (this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT < Date.now()) {
+	            this.pointerStart(ev);
+	        }
+	    };
+	    TapClick.prototype.mouseUp = function (ev) {
+	        if (this.isDisabledNativeClick()) {
+	            console.debug('mouseUp prevent ' + ev.target.tagName + ' ' + Date.now());
+	            ev.preventDefault();
+	            ev.stopPropagation();
+	        }
+	        if (this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT < Date.now()) {
+	            this.pointerEnd(ev);
+	        }
+	    };
+	    TapClick.prototype.pointerStart = function (ev) {
+	        var activatableEle = getActivatableTarget(ev.target);
+	        if (activatableEle) {
+	            this.startCoord = dom_1.pointerCoord(ev);
+	            var now = Date.now();
+	            if (this.lastActivated + 150 < now) {
+	                this.activator && this.activator.downAction(ev, activatableEle, this.startCoord.x, this.startCoord.y);
+	                this.lastActivated = now;
+	            }
+	            this.moveListeners(true);
+	        }
+	        else {
+	            this.startCoord = null;
+	        }
+	    };
+	    TapClick.prototype.pointerEnd = function (ev) {
+	        this.moveListeners(false);
+	        this.activator && this.activator.upAction();
+	    };
+	    TapClick.prototype.pointerCancel = function (ev) {
+	        console.debug('pointerCancel from ' + ev.type + ' ' + Date.now());
+	        this.activator && this.activator.clearState();
+	        this.moveListeners(false);
+	    };
+	    TapClick.prototype.moveListeners = function (shouldAdd) {
+	        removeListener(this.usePolyfill ? 'touchmove' : 'mousemove', this.pointerMove);
+	        //this.zone.runOutsideAngular(() => {
+	        if (shouldAdd) {
+	            addListener(this.usePolyfill ? 'touchmove' : 'mousemove', this.pointerMove);
+	        }
+	        else {
+	        }
+	        //});
+	    };
+	    TapClick.prototype.click = function (ev) {
+	        var preventReason = null;
+	        if (!this.app.isEnabled()) {
+	            preventReason = 'appDisabled';
+	        }
+	        else if (!ev.isIonicTap && this.isDisabledNativeClick()) {
+	            preventReason = 'nativeClick';
+	        }
+	        if (preventReason !== null) {
+	            console.debug('click prevent ' + preventReason + ' ' + Date.now());
+	            ev.preventDefault();
+	            ev.stopPropagation();
+	        }
+	    };
+	    TapClick.prototype.isDisabledNativeClick = function () {
+	        return this.disableClick > Date.now();
+	    };
+	    TapClick = __decorate([
+	        core_1.Injectable(), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object])
+	    ], TapClick);
+	    return TapClick;
+	    var _a, _b, _c;
+	})();
+	exports.TapClick = TapClick;
+	function getActivatableTarget(ele) {
+	    var targetEle = ele;
+	    for (var x = 0; x < 4; x++) {
+	        if (!targetEle)
+	            break;
+	        if (isActivatable(targetEle))
+	            return targetEle;
+	        targetEle = targetEle.parentElement;
+	    }
+	    return null;
+	}
+	/**
+	 * @private
+	 */
+	function isActivatable(ele) {
+	    if (ACTIVATABLE_ELEMENTS.test(ele.tagName)) {
+	        return true;
+	    }
+	    var attributes = ele.attributes;
+	    for (var i = 0, l = attributes.length; i < l; i++) {
+	        if (ACTIVATABLE_ATTRIBUTES.test(attributes[i].name)) {
+	            return true;
+	        }
+	    }
+	    return false;
+	}
+	exports.isActivatable = isActivatable;
+	function addListener(type, listener, useCapture) {
+	    document.addEventListener(type, listener, useCapture);
+	}
+	function removeListener(type, listener) {
+	    document.removeEventListener(type, listener);
+	}
+	var ACTIVATABLE_ELEMENTS = /^(A|BUTTON)$/;
+	var ACTIVATABLE_ATTRIBUTES = /tappable|button/i;
+	var POINTER_TOLERANCE = 4;
+	var POINTER_MOVE_UNTIL_CANCEL = 10;
+	var DISABLE_NATIVE_CLICK_AMOUNT = 2500;
+
+/***/ },
+/* 282 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var dom_1 = __webpack_require__(273);
+	var Activator = (function () {
+	    function Activator(app, config, zone) {
+	        this.app = app;
+	        this.zone = zone;
+	        this.queue = [];
+	        this.active = [];
+	        this.clearStateDefers = 5;
+	        this.clearAttempt = 0;
+	        this.activatedClass = config.get('activatedClass') || 'activated';
+	        this.x = 0;
+	        this.y = 0;
+	    }
+	    Activator.prototype.downAction = function (ev, activatableEle, pointerX, pointerY, callback) {
+	        // the user just pressed down
+	        var self = this;
+	        if (self.disableActivated(ev))
+	            return false;
+	        // remember where they pressed
+	        self.x = pointerX;
+	        self.y = pointerY;
+	        // queue to have this element activated
+	        self.queue.push(activatableEle);
+	        function activateCss() {
+	            var activatableEle;
+	            for (var i = 0; i < self.queue.length; i++) {
+	                activatableEle = self.queue[i];
+	                if (activatableEle && activatableEle.parentNode) {
+	                    self.active.push(activatableEle);
+	                    activatableEle.classList.add(self.activatedClass);
+	                }
+	            }
+	            self.queue = [];
+	        }
+	        this.zone.runOutsideAngular(function () {
+	            dom_1.rafFrames(2, activateCss);
+	        });
+	        return true;
+	    };
+	    Activator.prototype.upAction = function () {
+	        // the user was pressing down, then just let up
+	        var self = this;
+	        function activateUp() {
+	            self.clearState();
+	        }
+	        this.zone.runOutsideAngular(function () {
+	            dom_1.rafFrames(self.clearStateDefers, activateUp);
+	        });
+	    };
+	    Activator.prototype.clearState = function () {
+	        // all states should return to normal
+	        var _this = this;
+	        if (!this.app.isEnabled()) {
+	            // the app is actively disabled, so don't bother deactivating anything.
+	            // this makes it easier on the GPU so it doesn't have to redraw any
+	            // buttons during a transition. This will retry in XX milliseconds.
+	            setTimeout(function () {
+	                _this.clearState();
+	            }, 600);
+	        }
+	        else {
+	            // not actively transitioning, good to deactivate any elements
+	            this.deactivate();
+	        }
+	    };
+	    Activator.prototype.deactivate = function () {
+	        // remove the active class from all active elements
+	        var self = this;
+	        self.queue = [];
+	        function deactivate() {
+	            for (var i = 0; i < self.active.length; i++) {
+	                self.active[i].classList.remove(self.activatedClass);
+	            }
+	            self.active = [];
+	        }
+	        dom_1.rafFrames(2, deactivate);
+	    };
+	    Activator.prototype.disableActivated = function (ev) {
+	        if (ev.defaultPrevented)
+	            return true;
+	        var targetEle = ev.target;
+	        for (var x = 0; x < 4; x++) {
+	            if (!targetEle)
+	                break;
+	            if (targetEle.hasAttribute('disable-activated'))
+	                return true;
+	            targetEle = targetEle.parentElement;
+	        }
+	        return false;
+	    };
+	    return Activator;
+	})();
+	exports.Activator = Activator;
+
+/***/ },
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -41628,366 +42119,122 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(169);
-	var overlay_controller_1 = __webpack_require__(275);
-	var config_1 = __webpack_require__(270);
-	var icon_1 = __webpack_require__(280);
-	var animation_1 = __webpack_require__(281);
-	var nav_controller_1 = __webpack_require__(282);
-	var util_1 = __webpack_require__(272);
-	var ActionSheetCmp = (function () {
-	    function ActionSheetCmp(params, renderer) {
-	        this.d = params.data;
-	        if (this.d.cssClass) {
-	            renderer.setElementClass(elementRef, this.d.cssClass, true);
-	        }
+	var activator_1 = __webpack_require__(282);
+	var animation_1 = __webpack_require__(284);
+	var dom_1 = __webpack_require__(273);
+	var RippleActivator = (function (_super) {
+	    __extends(RippleActivator, _super);
+	    function RippleActivator(app, config, zone) {
+	        _super.call(this, app, config, zone);
+	        this.expands = {};
+	        this.fades = {};
+	        this.expandSpeed = null;
 	    }
-	    ActionSheetCmp.prototype.cancel = function () {
-	        this.d.cancel && this.d.cancel();
-	        return this.close();
-	    };
-	    ActionSheetCmp.prototype.destructive = function () {
-	        if (this.d.destructiveButtonClicked()) {
-	            return this.close();
+	    RippleActivator.prototype.downAction = function (ev, activatableEle, pointerX, pointerY) {
+	        var _this = this;
+	        if (_super.prototype.downAction.call(this, ev, activatableEle, pointerX, pointerY)) {
+	            // create a new ripple element
+	            this.expandSpeed = EXPAND_DOWN_PLAYBACK_RATE;
+	            this.zone.runOutsideAngular(function () {
+	                dom_1.raf(function () {
+	                    var clientRect = activatableEle.getBoundingClientRect();
+	                    dom_1.raf(function () {
+	                        _this.createRipple(activatableEle, pointerX, pointerY, clientRect);
+	                    });
+	                });
+	            });
 	        }
 	    };
-	    ActionSheetCmp.prototype.buttonClicked = function (index) {
-	        if (this.d.buttonClicked(index)) {
-	            return this.close();
+	    RippleActivator.prototype.createRipple = function (activatableEle, pointerX, pointerY, clientRect) {
+	        var _this = this;
+	        var clientPointerX = (pointerX - clientRect.left);
+	        var clientPointerY = (pointerY - clientRect.top);
+	        var x = Math.max(Math.abs(clientRect.width - clientPointerX), clientPointerX) * 2;
+	        var y = Math.max(Math.abs(clientRect.height - clientPointerY), clientPointerY) * 2;
+	        var diameter = Math.max(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)), 64);
+	        var radius = Math.sqrt(clientRect.width + clientRect.height);
+	        var duration = (1000 * Math.sqrt(radius / TOUCH_DOWN_ACCEL) + 0.5);
+	        var rippleEle = document.createElement('md-ripple');
+	        var rippleId = Date.now();
+	        var eleStyle = rippleEle.style;
+	        eleStyle.width = eleStyle.height = diameter + 'px';
+	        eleStyle.marginTop = eleStyle.marginLeft = -(diameter / 2) + 'px';
+	        eleStyle.left = clientPointerX + 'px';
+	        eleStyle.top = clientPointerY + 'px';
+	        activatableEle.appendChild(rippleEle);
+	        // create the animation for the fade out, but don't start it yet
+	        this.fades[rippleId] = new animation_1.Animation(rippleEle, { renderDelay: 0 });
+	        this.fades[rippleId]
+	            .fadeOut()
+	            .duration(FADE_OUT_DURATION)
+	            .playbackRate(1)
+	            .onFinish(function () {
+	            dom_1.raf(function () {
+	                _this.fades[rippleId].dispose(true);
+	                delete _this.fades[rippleId];
+	            });
+	        });
+	        // expand the circle from the users starting point
+	        // start slow, and when they let up, then speed up the animation
+	        this.expands[rippleId] = new animation_1.Animation(rippleEle, { renderDelay: 0 });
+	        this.expands[rippleId]
+	            .fromTo('scale', '0.001', '1')
+	            .duration(duration)
+	            .playbackRate(this.expandSpeed)
+	            .onFinish(function () {
+	            _this.expands[rippleId].dispose();
+	            delete _this.expands[rippleId];
+	            _this.next();
+	        })
+	            .play();
+	    };
+	    RippleActivator.prototype.upAction = function () {
+	        var _this = this;
+	        this.deactivate();
+	        this.expandSpeed = 1;
+	        this.zone.runOutsideAngular(function () {
+	            dom_1.rafFrames(4, function () {
+	                _this.next();
+	            });
+	        });
+	    };
+	    RippleActivator.prototype.next = function () {
+	        var now = Date.now();
+	        var rippleId;
+	        for (rippleId in this.expands) {
+	            if (parseInt(rippleId, 10) + 4000 < now) {
+	                this.expands[rippleId].dispose(true);
+	                delete this.expands[rippleId];
+	            }
+	            else if (this.expands[rippleId].playbackRate() === EXPAND_DOWN_PLAYBACK_RATE) {
+	                this.expands[rippleId].playbackRate(EXPAND_OUT_PLAYBACK_RATE);
+	            }
+	        }
+	        for (rippleId in this.fades) {
+	            if (parseInt(rippleId, 10) + 4000 < now) {
+	                this.fades[rippleId].dispose(true);
+	                delete this.fades[rippleId];
+	            }
+	            else if (!this.fades[rippleId].isPlaying) {
+	                this.fades[rippleId].isPlaying = true;
+	                this.fades[rippleId].play();
+	            }
 	        }
 	    };
-	    ActionSheetCmp = __decorate([
-	        core_1.Component({
-	            selector: 'ion-action-sheet',
-	            template: '<div (click)="cancel()" tappable disable-activated class="backdrop"></div>' +
-	                '<div class="action-sheet-wrapper">' +
-	                '<div class="action-sheet-container">' +
-	                '<div class="action-sheet-group action-sheet-options">' +
-	                '<div class="action-sheet-title" *ngIf="d.titleText">{{d.titleText}}</div>' +
-	                '<button (click)="buttonClicked(i)" *ngFor="#b of d.buttons; #i=index" class="action-sheet-button action-sheet-option disable-hover">' +
-	                '<icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></icon> ' +
-	                '{{b.text}}' +
-	                '</button>' +
-	                '<button *ngIf="d.destructiveText" (click)="destructive()" class="action-sheet-button action-sheet-destructive disable-hover">' +
-	                '<icon [name]="d.destructiveIcon" *ngIf="d.destructiveIcon" class="action-sheet-icon"></icon> ' +
-	                '{{d.destructiveText}}' +
-	                '</button>' +
-	                '</div>' +
-	                '<div class="action-sheet-group" *ngIf="d.cancelText">' +
-	                '<button (click)="cancel()" class="action-sheet-button action-sheet-cancel disable-hover">' +
-	                '<icon [name]="d.cancelIcon" *ngIf="d.cancelIcon" class="action-sheet-icon"></icon> ' +
-	                '{{d.cancelText}}' +
-	                '</button>' +
-	                '</div>' +
-	                '</div>' +
-	                '</div>',
-	            host: {
-	                'role': 'dialog'
-	            },
-	            directives: [common_1.NgFor, common_1.NgIf, icon_1.Icon]
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof nav_controller_1.NavParams !== 'undefined' && nav_controller_1.NavParams) === 'function' && _a) || Object, (typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object])
-	    ], ActionSheetCmp);
-	    return ActionSheetCmp;
-	    var _a, _b;
-	})();
-	/**
-	 * @name ActionSheet
-	 * @description
-	 * The Action Sheet is a slide-up pane that lets the user choose from a set of options. Dangerous options are made obvious.
-	 * There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.
-	 *
-	 * @usage
-	 * ```ts
-	 * openMenu() {
-	 *
-	 *   this.actionSheet.open({
-	 *     buttons: [
-	 *       { text: 'Share This' },
-	 *       { text: 'Move' }
-	 *     ],
-	 *     destructiveText: 'Delete',
-	 *     titleText: 'Modify your album',
-	 *     cancelText: 'Cancel',
-	 *     cancel: function() {
-	 *       console.log('Canceled');
-	 *     },
-	 *     destructiveButtonClicked: () => {
-	 *       console.log('Destructive clicked');
-	 *     },
-	 *     buttonClicked: function(index) {
-	 *       console.log('Button clicked', index);
-	 *       if(index == 1) { return false; }
-	 *       return true;
-	 *     }
-	 *
-	 *   }).then(actionSheetRef => {
-	 *     this.actionSheetRef = actionSheetRef;
-	 *   });
-	 *
-	 * }
-	 * ```
-	 *
-	 * @demo /docs/v2/demos/action-sheet/
-	 * @see {@link /docs/v2/components#action-sheets ActionSheet Component Docs}
-	 */
-	var ActionSheet = (function () {
-	    function ActionSheet(ctrl, config) {
-	        this.ctrl = ctrl;
-	        this.config = config;
-	    }
-	    /**
-	     * Create and open a new Action Sheet. This is the
-	     * public API, and most often you will only use ActionSheet.open()
-	     *
-	     * @param {Object} [opts={}]  An object containing optional settings.
-	     *  - `[Object]` `buttons` Which buttons to show.  Each button is an object with a `text` field.
-	     *  - `{string}` `titleText` The title to show on the action sheet.
-	     *  - `{string=}` `cancelText` the text for a 'cancel' button on the action sheet.
-	     *  - `{string=}` `destructiveText` The text for a 'danger' on the action sheet.
-	     *  - `{function=}` `cancel` Called if the cancel button is pressed, the backdrop is tapped or
-	     *     the hardware back button is pressed.
-	     *  - `{function=}` `buttonClicked` Called when one of the non-destructive buttons is clicked,
-	     *     with the index of the button that was clicked and the button object. Return true to close
-	     *     the action sheet, or false to keep it opened.
-	     *  - `{function=}` `destructiveButtonClicked` Called when the destructive button is clicked.
-	     *     Return true to close the action sheet, or false to keep it opened.
-	     *  - `{String}` `enterAnimation` The class used to animate an actionSheet that is entering.
-	     *  - `{String}` `leaveAnimation` The class used to animate an actionSheet that is leaving.
-	     * @return {Promise} Promise that resolves when the action sheet is open.
-	     */
-	    ActionSheet.prototype.open = function (opts) {
-	        if (opts === void 0) { opts = {}; }
-	        opts = util_1.extend({
-	            pageType: OVERLAY_TYPE,
-	            enterAnimation: this.config.get('actionSheetEnter'),
-	            leaveAnimation: this.config.get('actionSheetLeave'),
-	            cancelIcon: this.config.get('actionSheetCancelIcon'),
-	            destructiveIcon: this.config.get('actionSheetDestructiveIcon')
-	        }, opts);
-	        return this.ctrl.open(ActionSheetCmp, opts, opts);
+	    RippleActivator.prototype.clearState = function () {
+	        this.deactivate();
+	        this.next();
 	    };
-	    /**
-	     * Retrieves an actionSheet instance.
-	     *
-	     * @param {String} [handle]  The handle used to open the instance to be retrieved.
-	     * @returns {ActionSheet} An actionSheet instance.
-	     */
-	    ActionSheet.prototype.get = function (handle) {
-	        if (handle) {
-	            return this.ctrl.getByHandle(handle);
-	        }
-	        return this.ctrl.getByType(OVERLAY_TYPE);
-	    };
-	    ActionSheet = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof overlay_controller_1.OverlayController !== 'undefined' && overlay_controller_1.OverlayController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object])
-	    ], ActionSheet);
-	    return ActionSheet;
-	    var _a, _b;
-	})();
-	exports.ActionSheet = ActionSheet;
-	var OVERLAY_TYPE = 'action-sheet';
-	var ActionSheetSlideIn = (function (_super) {
-	    __extends(ActionSheetSlideIn, _super);
-	    function ActionSheetSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = enteringView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
-	        backdrop.fromTo('opacity', 0.01, 0.4);
-	        wrapper.fromTo('translateY', '100%', '0%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add([backdrop, wrapper]);
-	    }
-	    return ActionSheetSlideIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('action-sheet-slide-in', ActionSheetSlideIn);
-	var ActionSheetSlideOut = (function (_super) {
-	    __extends(ActionSheetSlideOut, _super);
-	    function ActionSheetSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = leavingView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
-	        backdrop.fromTo('opacity', 0.4, 0);
-	        wrapper.fromTo('translateY', '0%', '100%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(300).add([backdrop, wrapper]);
-	    }
-	    return ActionSheetSlideOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('action-sheet-slide-out', ActionSheetSlideOut);
-	var ActionSheetMdSlideIn = (function (_super) {
-	    __extends(ActionSheetMdSlideIn, _super);
-	    function ActionSheetMdSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = enteringView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
-	        backdrop.fromTo('opacity', 0.01, 0.26);
-	        wrapper.fromTo('translateY', '100%', '0%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add([backdrop, wrapper]);
-	    }
-	    return ActionSheetMdSlideIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('action-sheet-md-slide-in', ActionSheetMdSlideIn);
-	var ActionSheetMdSlideOut = (function (_super) {
-	    __extends(ActionSheetMdSlideOut, _super);
-	    function ActionSheetMdSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = leavingView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
-	        backdrop.fromTo('opacity', 0.26, 0);
-	        wrapper.fromTo('translateY', '0%', '100%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add([backdrop, wrapper]);
-	    }
-	    return ActionSheetMdSlideOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
+	    return RippleActivator;
+	})(activator_1.Activator);
+	exports.RippleActivator = RippleActivator;
+	var TOUCH_DOWN_ACCEL = 512;
+	var EXPAND_DOWN_PLAYBACK_RATE = 0.35;
+	var EXPAND_OUT_PLAYBACK_RATE = 3;
+	var FADE_OUT_DURATION = 700;
 
 /***/ },
-/* 280 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var config_1 = __webpack_require__(270);
-	/**
-	 * @name Icon
-	 * @description
-	 * Icons can be used on their own, or inside of a number of Ionic components. For a full list of available icons,
-	 * check out the [Ionicons resource docs](../../../../resources/ionicons).
-	 *
-	 * @usage
-	 * ```html
-	 * <!-- use the appropriate home icon for ios and md -->
-	 * <icon home></icon>
-	 *
-	 * <!-- explicity set the icon for each platform -->
-	 * <icon ios="ion-ios-home" md="ion-md-home"></icon>
-	 * ```
-	 *
-	 * @property {boolean} [isActive] - Whether or not the icon is active. Icons that are not active will use an outlined version of the icon.
-	 * If there is not an outlined version for the particular icon, it will use the default (full) version.
-	 * @property {string} [ios] - Explicitly set the icon to use on iOS.
-	 * @property {string} [md] - Explicitly set the icon to use on Android.
-	 * @see {@link /docs/v2/components#icons Icon Component Docs}
-	 *
-	 */
-	var Icon = (function () {
-	    function Icon(_elementRef, config, _renderer) {
-	        this._elementRef = _elementRef;
-	        this._renderer = _renderer;
-	        this.config = config;
-	        this.mode = config.get('iconMode');
-	    }
-	    /**
-	     * @private
-	     */
-	    Icon.prototype.ngOnInit = function () {
-	        var ele = this._elementRef.nativeElement;
-	        if (this.mode == 'ios' && this.ios) {
-	            this.name = this.ios;
-	        }
-	        else if (this.mode == 'md' && this.md) {
-	            this.name = this.md;
-	        }
-	        else if (!this.name) {
-	            // looping through native dom attributes, eww
-	            // https://github.com/angular/angular/issues/1818
-	            for (var i = 0, l = ele.attributes.length; i < l; i++) {
-	                if (ele.attributes[i].value === '' && /_|item-|isActive|large|small|class/.test(ele.attributes[i].name) !== true) {
-	                    this.name = ele.attributes[i].name;
-	                    break;
-	                }
-	            }
-	        }
-	        if (!this.name)
-	            return;
-	        if (!(/^ion-/.test(this.name))) {
-	            // not an exact icon being used
-	            // add mode specific prefix
-	            this.name = 'ion-' + this.mode + '-' + this.name;
-	        }
-	        this.update();
-	    };
-	    Object.defineProperty(Icon.prototype, "isActive", {
-	        get: function () {
-	            return (this._isActive === undefined || this._isActive === true || this._isActive === 'true');
-	        },
-	        /**
-	         * @private
-	         */
-	        set: function (val) {
-	            this._isActive = val;
-	            this.update();
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /**
-	     * @private
-	     */
-	    Icon.prototype.update = function () {
-	        if (this.name && this.mode == 'ios') {
-	            if (this.isActive) {
-	                if (/-outline/.test(this.name)) {
-	                    this.name = this.name.replace('-outline', '');
-	                }
-	            }
-	            else if (!(/-outline/.test(this.name))) {
-	                this.name += '-outline';
-	            }
-	        }
-	        if (this._name !== this.name) {
-	            if (this._name) {
-	                this._renderer.setElementClass(this._elementRef, this._name, false);
-	            }
-	            this._name = this.name;
-	            this._renderer.setElementClass(this._elementRef, this.name, true);
-	            this._renderer.setElementAttribute(this._elementRef, 'aria-label', this.name.replace('ion-', '').replace('ios-', '').replace('md-', '').replace('-', ' '));
-	        }
-	    };
-	    Icon = __decorate([
-	        core_1.Directive({
-	            selector: 'icon',
-	            inputs: [
-	                'name',
-	                'ios',
-	                'md',
-	                'isActive'
-	            ],
-	            host: {
-	                'role': 'img'
-	            }
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
-	    ], Icon);
-	    return Icon;
-	    var _a, _b, _c;
-	})();
-	exports.Icon = Icon;
-
-/***/ },
-/* 281 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var dom_1 = __webpack_require__(273);
@@ -42626,9 +42873,6 @@
 	            transforms.push('translateZ(0px)');
 	            ele.style[dom_1.CSS.transform] = transforms.join(' ');
 	        }
-	        else {
-	            ele.style[dom_1.CSS.transform] = 'translateZ(0px)';
-	        }
 	    }
 	}
 	function roundValue(val) {
@@ -42775,7 +43019,203 @@
 	}
 
 /***/ },
-/* 282 */
+/* 285 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var common_1 = __webpack_require__(169);
+	var overlay_1 = __webpack_require__(286);
+	var menu_1 = __webpack_require__(287);
+	var menu_toggle_1 = __webpack_require__(296);
+	var menu_close_1 = __webpack_require__(305);
+	var button_1 = __webpack_require__(304);
+	var blur_1 = __webpack_require__(306);
+	var content_1 = __webpack_require__(307);
+	var scroll_1 = __webpack_require__(309);
+	var pull_to_refresh_1 = __webpack_require__(310);
+	var slides_1 = __webpack_require__(311);
+	var tabs_1 = __webpack_require__(313);
+	var tab_1 = __webpack_require__(316);
+	var list_1 = __webpack_require__(317);
+	var item_1 = __webpack_require__(320);
+	var item_sliding_1 = __webpack_require__(321);
+	var toolbar_1 = __webpack_require__(303);
+	var icon_1 = __webpack_require__(302);
+	var checkbox_1 = __webpack_require__(322);
+	var toggle_1 = __webpack_require__(323);
+	var text_input_1 = __webpack_require__(324);
+	var label_1 = __webpack_require__(325);
+	var segment_1 = __webpack_require__(326);
+	var radio_1 = __webpack_require__(327);
+	var searchbar_1 = __webpack_require__(328);
+	var nav_1 = __webpack_require__(329);
+	var nav_push_1 = __webpack_require__(330);
+	var nav_router_1 = __webpack_require__(331);
+	var navbar_1 = __webpack_require__(301);
+	var id_1 = __webpack_require__(314);
+	var show_hide_when_1 = __webpack_require__(332);
+	/**
+	 * @name IONIC_DIRECTIVES
+	 * @private
+	 * @description
+	 * The core Ionic directives as well as Angular's CORE_DIRECTIVES and
+	 * FORM_DIRECTIVES.  Automatically available in every [@Page](../Page/) template.
+	 *
+	 * **Angular**
+	 * - CORE_DIRECTIVES
+	 * - FORM_DIRECTIVES
+	 *
+	 * **Content**
+	 * -  Menu
+	 * -  MenuToggle
+	 * -  MenuClose
+	 *
+	 * -  Button
+	 * -  Blur
+	 * -  Content
+	 * -  Scroll
+	 * -  Refresher
+	 *
+	 * **Lists**
+	 * -  List
+	 * -  ListHeader
+	 * -  Item
+	 * -  ItemSliding
+	 *
+	 * **Slides**
+	 * -  Slides
+	 * -  Slide
+	 * -  SlideLazy
+	 *
+	 * **Tabs**
+	 * -  Tabs
+	 * -  Tab
+	 *
+	 * **Toolbar**
+	 * -  Toolbar
+	 * -  ToolbarTitle
+	 * -  ToolbarItem
+	 *
+	 * **Media**
+	 * -  Icon
+	 *
+	 * **Forms**
+	 * -  Searchbar
+	 * -  Segment
+	 * -  SegmentButton
+	 * -  Checkbox
+	 * -  RadioGroup
+	 * -  RadioButton
+	 * -  Toggle
+	 * -  TextInput
+	 * -  TextInputElement
+	 * -  Label
+	 *
+	 * **Nav**
+	 * -  Nav
+	 * -  NavbarTemplate
+	 * -  Navbar
+	 * -  NavPush
+	 * -  NavPop
+	 * -  NavRouter
+	 * -  IdRef
+	 *
+	 * -  ShowWhen
+	 * -  HideWhen
+	 */
+	exports.IONIC_DIRECTIVES = [
+	    // Angular
+	    common_1.CORE_DIRECTIVES,
+	    common_1.FORM_DIRECTIVES,
+	    // Content
+	    overlay_1.OverlayNav,
+	    menu_1.Menu,
+	    menu_toggle_1.MenuToggle,
+	    menu_close_1.MenuClose,
+	    button_1.Button,
+	    blur_1.Blur,
+	    content_1.Content,
+	    scroll_1.Scroll,
+	    pull_to_refresh_1.Refresher,
+	    // Lists
+	    list_1.List,
+	    list_1.ListHeader,
+	    item_1.Item,
+	    item_sliding_1.ItemSliding,
+	    // Slides
+	    slides_1.Slides,
+	    slides_1.Slide,
+	    slides_1.SlideLazy,
+	    // Tabs
+	    tabs_1.Tabs,
+	    tab_1.Tab,
+	    // Toolbar
+	    toolbar_1.Toolbar,
+	    toolbar_1.ToolbarTitle,
+	    toolbar_1.ToolbarItem,
+	    // Media
+	    icon_1.Icon,
+	    // Forms
+	    searchbar_1.Searchbar,
+	    searchbar_1.SearchbarInput,
+	    segment_1.Segment,
+	    segment_1.SegmentButton,
+	    checkbox_1.Checkbox,
+	    radio_1.RadioGroup,
+	    radio_1.RadioButton,
+	    toggle_1.Toggle,
+	    text_input_1.TextInput,
+	    text_input_1.TextInputElement,
+	    label_1.Label,
+	    // Nav
+	    nav_1.Nav,
+	    navbar_1.NavbarTemplate,
+	    navbar_1.Navbar,
+	    nav_push_1.NavPush,
+	    nav_push_1.NavPop,
+	    nav_router_1.NavRouter,
+	    id_1.IdRef,
+	    show_hide_when_1.ShowWhen,
+	    show_hide_when_1.HideWhen
+	];
+
+/***/ },
+/* 286 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	/**
+	 * @private
+	 */
+	var OverlayNav = (function () {
+	    function OverlayNav() {
+	        // deprecated warning
+	        console.warn('<ion-overlay> is no longer needed and can be safely removed.');
+	        console.warn('https://github.com/driftyco/ionic2/blob/master/CHANGELOG.md#overlay-refactor');
+	        console.warn('See the v2 docs for an update on how overlays work.');
+	    }
+	    OverlayNav = __decorate([
+	        core_1.Directive({
+	            selector: 'ion-overlay'
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], OverlayNav);
+	    return OverlayNav;
+	})();
+	exports.OverlayNav = OverlayNav;
+
+/***/ },
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -42783,1375 +43223,445 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
 	var core_1 = __webpack_require__(8);
-	var instrumentation_1 = __webpack_require__(283);
-	var ion_1 = __webpack_require__(284);
-	var view_controller_1 = __webpack_require__(285);
-	var animation_1 = __webpack_require__(281);
-	var swipe_back_1 = __webpack_require__(286);
-	var util_1 = __webpack_require__(272);
-	var dom_1 = __webpack_require__(273);
+	var ion_1 = __webpack_require__(288);
+	var app_1 = __webpack_require__(165);
+	var config_1 = __webpack_require__(270);
+	var platform_1 = __webpack_require__(271);
+	var keyboard_1 = __webpack_require__(276);
+	var gestures = __webpack_require__(289);
 	/**
-	 * _For examples on the basic usage of NavController, check out the
-	 * [Navigation section](../../../../components/#navigation) of the Component
-	 * docs._
+	 * @name Menu
+	 * @description
+	 * _For basic Menu usage, see the [Menu section](../../../../components/#menus)
+	 * of the Component docs._
 	 *
-	 * NavController is the base class for navigation controller components like
-	 * [`Nav`](../Nav/) and [`Tab`](../../Tabs/Tab/). You use navigation controllers
-	 * to navigate to [pages](#creating_pages) in your app. At a basic level, a
-	 * navigation controller is an array of pages representing a particular history
-	 * (of a Tab for example). This array can be manipulated to navigate throughout
-	 * an app by pushing and popping pages or inserting and removing them at
-	 * arbitrary locations in history.
+	 * Menu is a side-menu navigation that can be dragged out or toggled to show.
 	 *
-	 * The current page is the last one in the array, or the top of the stack if we
-	 * think of it that way.  [Pushing](#push) a new page onto the top of the
-	 * navigation stack causes the new page to be animated in, while [popping](#pop)
-	 * the current page will navigate to the previous page in the stack.
+	 * @usage
+	 * In order to use Menu, you must specify a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables)
+	 * to the content element that Menu should listen on for drag events, using the `content` property:
 	 *
-	 * Unless you are using a directive like [NavPush](../NavPush/), or need a
-	 * specific NavController, most times you will inject and use a reference to the
-	 * nearest NavController to manipulate the navigation stack.
+	 * ```html
+	 * <ion-menu [content]="mycontent">
+	 *   <ion-content>
+	 *     <ion-list>
+	 *     ...
+	 *     </ion-list>
+	 *   </ion-content>
+	 * </ion-menu>
 	 *
-	 * <h3 id="injecting_nav_controller">Injecting NavController</h3>
-	 * Injecting NavController will always get you an instance of the nearest
-	 * NavController, regardless of whether it is a Tab or a Nav.
-	 *
-	 * Behind the scenes, when Ionic instantiates a new NavController, it creates an
-	 * injector with NavController bound to that instance (usually either a Nav or
-	 * Tab) and adds the injector to its own providers.  For more information on
-	 * providers and dependency injection, see [Providers and DI]().
-	 *
-	 * Instead, you can inject NavController and know that it is the correct
-	 * navigation controller for most situations (for more advanced situations, see
-	 * [Menu](../../Menu/Menu/) and [Tab](../../Tab/Tab/)).
-	 *
-	 * ```ts
-	 *  class MyComponent {
-	 *    constructor(nav: NavController) {
-	 *      this.nav = nav;
-	 *    }
-	 *  }
+	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
 	 * ```
 	 *
-	 * <h2 id="creating_pages">Page creation</h2>
-	 * _For more information on the `@Page` decorator see the [@Page API
-	 * reference](../../../decorators/Page/)._
+	 * By default, Menus are on the left, but this can be overriden with the `side`
+	 * property:
+	 * ```html
+	 * <ion-menu [content]="mycontent" side="right"></ion-menu>
+	 * ```
 	 *
-	 * Pages are created when they are added to the navigation stack.  For methods
-	 * like [push()](#push), the NavController takes any component class that is
-	 * decorated with `@Page` as its first argument.  The NavController then
-	 * compiles that component, adds it to the app and animates it into view.
+	 * Menus can optionally be given an `id` attribute which allows the app to
+	 * to get ahold of menu references. If no `id` is given then the menu
+	 * automatically receives an `id` created from the side it is on, such as
+	 * `leftMenu` or `rightMenu`. When using more than one menu it is always
+	 * recommended to give each menu a unique `id`. Additionally menuToggle and
+	 * menuClose directives should be given menu id values of their respective
+	 * menu.
 	 *
-	 * By default, pages are cached and left in the DOM if they are navigated away
-	 * from but still in the navigation stack (the exiting page on a `push()` for
-	 * example).  They are destroyed when removed from the navigation stack (on
-	 * [pop()](#pop) or [setRoot()](#setRoot)).
+	 * Menu supports two display styles: overlay, and reveal. Overlay
+	 * is the traditional Android drawer style, and Reveal is the traditional iOS
+	 * style. By default, Menu will adjust to the correct style for the platform,
+	 * but this can be overriden using the `type` property:
+	 * ```html
+	 * <ion-menu [content]="mycontent" type="overlay"></ion-menu>
+	 * ```
 	 *
-	 *
-	 * <h2 id="Lifecycle">Lifecycle events</h2>
-	 * Lifecycle events are fired during various stages of navigation.  They can be
-	 * defined in any `@Page` decorated component class.
+	 * To programatically interact with the menu, you first get the menu component.
 	 *
 	 * ```ts
 	 * @Page({
-	 *   template: 'Hello World'
-	 * })
-	 * class HelloWorld {
-	 *   onPageLoaded() {
-	 *     console.log("I'm alive!");
-	 *   }
-	 *   onPageWillLeave() {
-	 *     console.log("Looks like I'm about to leave :(");
-	 *   }
+	 * `<ion-menu [content]="mycontent" id="leftMenu"></ion-menu>
+	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>`
+	 * )}
+	 * export class MyClass{
+	 *  constructor(app: IonicApp){
+	 *    this.app = app;
+	 *    this.menu;
+	 *  }
+	 *
+	 *  // Wait until the page is ready
+	 *  ngAfterViewInit(){
+	 *    this.menu = this.app.getComponent('leftMenu');
+	 *  }
+	 *
+	 *  // Open the menu programatically
+	 *  openMenu(){
+	 *    this.menu.open();
+	 *  }
+	 *
 	 * }
 	 * ```
 	 *
+	 * If you want to use any of the APIs down below, make sure to grabe the menu component by it's ID
 	 *
+	 * @demo /docs/v2/demos/menu/
 	 *
-	 * - `onPageLoaded` - Runs when the page has loaded. This event only happens once per page being created and added to the DOM. If a page leaves but is cached, then this event will not fire again on a subsequent viewing. The `onPageLoaded` event is good place to put your setup code for the page.
-	 * - `onPageWillEnter` - Runs when the page is about to enter and become the active page.
-	 * - `onPageDidEnter` - Runs when the page has fully entered and is now the active page. This event will fire, whether it was the first load or a cached page.
-	 * - `onPageWillLeave` - Runs when the page is about to leave and no longer be the active page.
-	 * - `onPageDidLeave` - Runs when the page has finished leaving and is no longer the active page.
-	 * - `onPageWillUnload` - Runs when the page is about to be destroyed and have its elements removed.
-	 * - `onPageDidUnload` - Runs after the page has been destroyed and its elements have been removed.
-	 *
+	 * @see {@link /docs/v2/components#menus Menu Component Docs}
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+	 * @see {@link ../../nav/Nav Nav API Docs}
+	 *
 	 */
-	var NavController = (function (_super) {
-	    __extends(NavController, _super);
-	    function NavController(parentnavCtrl, app, config, keyboard, elementRef, anchorName, compiler, viewManager, zone, renderer, cd) {
+	var Menu = (function (_super) {
+	    __extends(Menu, _super);
+	    function Menu(elementRef, config, app, platform, keyboard, zone) {
 	        _super.call(this, elementRef, config);
-	        this.parent = parentnavCtrl;
 	        this.app = app;
-	        this.config = config;
+	        this.platform = platform;
 	        this.keyboard = keyboard;
-	        this._anchorName = anchorName;
-	        this._compiler = compiler;
-	        this._viewManager = viewManager;
-	        this._zone = zone;
-	        this._renderer = renderer;
-	        this._cd = cd;
-	        this._views = [];
-	        this._trnsTime = 0;
-	        this._trnsDelay = config.get('pageTransitionDelay');
-	        this._sbTrans = null;
-	        this._sbEnabled = config.get('swipeBackEnabled') || false;
-	        this._sbThreshold = config.get('swipeBackThreshold') || 40;
-	        this.initZIndex = 10;
-	        this.id = ++ctrlIds;
-	        this._ids = -1;
-	        // build a new injector for child ViewControllers to use
-	        this.providers = core_1.Injector.resolve([
-	            core_1.provide(NavController, { useValue: this })
-	        ]);
+	        this.zone = zone;
+	        this.opening = new core_1.EventEmitter('opening');
+	        this.isOpen = false;
+	        this._preventTime = 0;
+	        this.isEnabled = true;
 	    }
 	    /**
-	     * Boolean if the nav controller is actively transitioning or not.
-	     * @private
-	     * @return {bool}
-	     */
-	    NavController.prototype.isTransitioning = function () {
-	        return (this._trnsTime > Date.now());
-	    };
-	    /**
-	     * Boolean if the nav controller is actively transitioning or not.
-	     * @private
-	     * @return {bool}
-	     */
-	    NavController.prototype.setTransitioning = function (isTransitioning, fallback) {
-	        if (fallback === void 0) { fallback = 700; }
-	        this._trnsTime = (isTransitioning ? Date.now() + fallback : 0);
-	    };
-	    /**
-	     * Push is how we can pass components and navigate to them. We push the component we want to navigate to on to the navigation stack.
-	     *
-	     * ```typescript
-	     * class MyClass{
-	     *    constructor(nav:NavController){
-	     *      this.nav = nav;
-	     *    }
-	     *
-	     *    pushPage(){
-	     *      this.nav.push(SecondView);
-	     *    }
-	     * }
-	     * ```
-	     *
-	     * We can also pass along parameters to the next view, such as data that we have on the current view. This is a similar concept to to V1 apps with `$stateParams`.
-	     *
-	     * ```typescript
-	     * class MyClass{
-	     *    constructor(nav:NavController){
-	     *      this.nav = nav;
-	     *    }
-	     *
-	     *    pushPage(user){
-	     *      this.nav.push(SecondView,{
-	     *       // user is an object we have in our view
-	     *       // typically this comes from an ngFor or some array
-	     *       // here we can create an object with a property of
-	     *       // paramUser, and set it's value to the user object we passed in
-	     *       paramUser: user
-	     *      });
-	     *    }
-	     * }
-	     * ```
-	     *
-	     * We'll look at how we can access that data in the `SecondView` in the navParam docs
-	     *
-	     * We can also pass any options to the transtion from that same method
-	     *
-	     * ```typescript
-	     * class MyClass{
-	     *    constructor(nav:NavController){
-	     *      this.nav = nav;
-	     *    }
-	     *
-	     *    pushPage(user){
-	     *      this.nav.push(SecondView,{
-	     *       // user is an object we have in our view
-	     *       // typically this comes from an ngFor or some array
-	     *       // here we can create an object with a property of
-	     *       // paramUser, and set it's value to the user object we passed in
-	     *       paramUser: user
-	     *      },{
-	     *       // here we can configure things like the animations direction or
-	     *       // or if the view should animate at all.
-	     *       direction: back
-	     *      });
-	     *    }
-	     * }
-	     * ```
-	     * @param {Any} component The name of the component you want to push on the navigation stack
-	     * @param {Object} [params={}] Any nav-params you want to pass along to the next view
-	     * @param {Object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {Promise} Returns a promise when the transition is completed
-	     */
-	    NavController.prototype.push = function (componentType, params, opts, callback) {
-	        if (params === void 0) { params = {}; }
-	        if (opts === void 0) { opts = {}; }
-	        if (!componentType) {
-	            var errMsg = 'invalid componentType to push';
-	            console.error(errMsg);
-	            return Promise.reject(errMsg);
-	        }
-	        if (typeof componentType !== 'function') {
-	            throw 'Loading component must be a component class, not "' + componentType.toString() + '"';
-	        }
-	        if (this.isTransitioning()) {
-	            return Promise.reject('nav controller actively transitioning');
-	        }
-	        this.setTransitioning(true, 500);
-	        var promise = null;
-	        if (!callback) {
-	            promise = new Promise(function (res) { callback = res; });
-	        }
-	        // do not animate if this is the first in the stack
-	        if (!this._views.length && !opts.animateFirst) {
-	            opts.animate = false;
-	        }
-	        // default the direction to "forward"
-	        opts.direction = opts.direction || 'forward';
-	        // the active view is going to be the leaving one (if one exists)
-	        var leavingView = this.getActive() || new view_controller_1.ViewController();
-	        leavingView.shouldCache = (util_1.isBoolean(opts.cacheLeavingView) ? opts.cacheLeavingView : true);
-	        leavingView.shouldDestroy = !leavingView.shouldCache;
-	        if (leavingView.shouldDestroy) {
-	            leavingView.willUnload();
-	        }
-	        // create a new ViewController
-	        var enteringView = new view_controller_1.ViewController(this, componentType, params);
-	        enteringView.shouldDestroy = false;
-	        enteringView.shouldCache = false;
-	        enteringView.pageType = opts.pageType;
-	        enteringView.handle = opts.handle || null;
-	        // add the view to the stack
-	        this._add(enteringView);
-	        if (this.router) {
-	            // notify router of the state change
-	            this.router.stateChange('push', enteringView, params);
-	        }
-	        // start the transition
-	        this._transition(enteringView, leavingView, opts, callback);
-	        return promise;
-	    };
-	    /**
-	     * If you wanted to navigate back from a current view, you can use the back-button or programatically call `pop()`
-	     * Similar to `push()`, you can pass animation options.
-	     *
-	     * ```typescript
-	     * class SecondView{
-	     *    constructor(nav:NavController){
-	     *      this.nav = nav;
-	     *    }
-	     *    goBack(){
-	     *      this.nav.pop();
-	     *    }
-	     * }
-	     * ```
-	     *
-	     * @param {Object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {Promise} Returns a promise when the transition is completed
-	     */
-	    NavController.prototype.pop = function (opts) {
-	        if (opts === void 0) { opts = {}; }
-	        if (!opts.animateFirst && !this.canGoBack()) {
-	            return Promise.reject('pop cannot go back');
-	        }
-	        if (this.isTransitioning()) {
-	            return Promise.reject('nav controller actively transitioning');
-	        }
-	        this.setTransitioning(true, 500);
-	        var resolve = null;
-	        var promise = new Promise(function (res) { resolve = res; });
-	        // default the direction to "back"
-	        opts.direction = opts.direction || 'back';
-	        // get the active view and set that it is staged to be leaving
-	        // was probably the one popped from the stack
-	        var leavingView = this.getActive() || new view_controller_1.ViewController();
-	        leavingView.shouldCache = (util_1.isBoolean(opts.cacheLeavingView) ? opts.cacheLeavingView : false);
-	        leavingView.shouldDestroy = !leavingView.shouldCache;
-	        if (leavingView.shouldDestroy) {
-	            leavingView.willUnload();
-	        }
-	        // the entering view is now the new last view
-	        // Note: we might not have an entering view if this is the
-	        // only view on the history stack.
-	        var enteringView = this.getPrevious(leavingView);
-	        if (this.router) {
-	            // notify router of the state change
-	            this.router.stateChange('pop', enteringView);
-	        }
-	        // start the transition
-	        this._transition(enteringView, leavingView, opts, resolve);
-	        return promise;
-	    };
-	    /**
-	     * @private
-	     * Pop to a specific view in the history stack
-	     * @param view {ViewController} to pop to
-	     * @param {Object} [opts={}] Any options you want to use pass to transtion
-	     */
-	    NavController.prototype.popTo = function (viewCtrl, opts) {
-	        if (opts === void 0) { opts = {}; }
-	        // Get the target index of the view to pop to
-	        var viewIndex = this._views.indexOf(viewCtrl);
-	        var targetIndex = viewIndex + 1;
-	        // Don't pop to the view if it wasn't found, or the target is beyond the view list
-	        if (viewIndex < 0 || targetIndex > this._views.length - 1) {
-	            return Promise.resolve();
-	        }
-	        // ensure the entering view is shown
-	        this._cachePage(viewCtrl, true);
-	        var resolve = null;
-	        var promise = new Promise(function (res) { resolve = res; });
-	        opts.direction = opts.direction || 'back';
-	        var leavingView = this.getActive() || new view_controller_1.ViewController();
-	        // get the views to auto remove without having to do a transiton for each
-	        // the last view (the currently active one) will do a normal transition out
-	        if (this._views.length > 1) {
-	            var autoRemoveItems = this._views.slice(targetIndex, this._views.length);
-	            var popView;
-	            for (var i = 0; i < autoRemoveItems.length; i++) {
-	                popView = autoRemoveItems[i];
-	                popView.shouldDestroy = true;
-	                popView.shouldCache = false;
-	                popView.willUnload();
-	                // only the leaving view should be shown, all others hide
-	                this._cachePage(popView, (popView === leavingView));
-	            }
-	        }
-	        if (this.router) {
-	            this.router.stateChange('pop', viewCtrl);
-	        }
-	        this._transition(viewCtrl, leavingView, opts, resolve);
-	        return promise;
-	    };
-	    /**
-	     * Similar to `pop()`, this method let's you navigate back to the root of the stack, no matter how many views that is
-	     * @param {Object} [opts={}] Any options you want to use pass to transtion
-	     */
-	    NavController.prototype.popToRoot = function (opts) {
-	        if (opts === void 0) { opts = {}; }
-	        return this.popTo(this.first(), opts);
-	    };
-	    /**
-	     * Inserts a view into the nav stack at the specified index.
-	     * This is useful if you need to add a view at any point in your navigation stack
-	     *
-	     * ```typescript
-	     * export class Detail {
-	     *    constructor(nav: NavController) {
-	     *      this.nav = nav;
-	     *    }
-	     *    insertView(){
-	     *      this.nav.insert(1,Info)
-	     *    }
-	     *  }
-	     * ```
-	     *
-	     * This will insert the `Info` view into the second slot of our navigation stack
-	     *
-	     * @param {Number} index The index where you want to insert the view
-	     * @param {Any} component The name of the component you want to insert into the nav stack
-	     * @returns {Promise} Returns a promise when the view has been inserted into the navigation stack
-	     */
-	    NavController.prototype.insert = function (index, componentType, params, opts) {
-	        if (params === void 0) { params = {}; }
-	        if (opts === void 0) { opts = {}; }
-	        if (!componentType || index < 0) {
-	            return Promise.reject('invalid insert');
-	        }
-	        // push it onto the end
-	        if (index >= this._views.length) {
-	            return this.push(componentType, params, opts);
-	        }
-	        // create new ViewController, but don't render yet
-	        var viewCtrl = new view_controller_1.ViewController(this, componentType, params);
-	        viewCtrl.state = CACHED_STATE;
-	        viewCtrl.shouldDestroy = false;
-	        viewCtrl.shouldCache = false;
-	        this._incId(viewCtrl);
-	        this._views.splice(index, 0, viewCtrl);
-	        this._cleanup();
-	        return Promise.resolve();
-	    };
-	    /**
-	     * Removes a view from the nav stack at the specified index.
-	     *
-	     * ```typescript
-	     * export class Detail {
-	     *    constructor(nav: NavController) {
-	     *      this.nav = nav;
-	     *    }
-	     *    removeView(){
-	     *      this.nav.remove(1)
-	     *    }
-	     *  }
-	     * ```
-	     *
-	     * @param {Number} index Remove the view from the nav stack at that index
-	     * @param {Object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {Promise} Returns a promise when the view has been removed
-	     */
-	    NavController.prototype.remove = function (index, opts) {
-	        if (opts === void 0) { opts = {}; }
-	        if (index < 0 || index >= this._views.length) {
-	            return Promise.reject("index out of range");
-	        }
-	        var viewToRemove = this._views[index];
-	        if (this.isActive(viewToRemove)) {
-	            return this.pop(opts);
-	        }
-	        viewToRemove.shouldDestroy = true;
-	        this._cleanup();
-	        return Promise.resolve();
-	    };
-	    /**
 	     * @private
 	     */
-	    NavController.prototype.setViews = function (components, opts) {
-	        if (opts === void 0) { opts = {}; }
-	        console.warn('setViews() deprecated, use setPages() instead');
-	        return this.setPages(components, opts);
-	    };
-	    /**
-	     * You can set the views of the current navigation stack and navigate to the last view past
-	     *
-	     *
-	     *```typescript
-	     * import {Page, NavController} from 'ionic/ionic'
-	     * import {Detail} from '../detail/detail'
-	     * import {Info} from '../info/info'
-	     *
-	     *  export class Home {
-	     *    constructor(nav: NavController) {
-	     *      this.nav = nav;
-	     *    }
-	     *    setPages() {
-	     *      this.nav.setPages([List,Detail, Info]);
-	     *    }
-	     *  }
-	     *```
-	     *
-	     *
-	     *In this example, we're giving the current nav stack an array of pages. Then the navigation stack will navigate to the last view in the array and remove the orignal view you came from.
-	     *
-	     *By default, animations are disabled, but they can be enabled by passing options to the navigation controller
-	     *
-	     *
-	     *```typescript
-	     * import {Page, NavController} from 'ionic/ionic'
-	     * import {Detail} from '../detail/detail'
-	     * import {Info} from '../info/info'
-	     *
-	     *  export class Home {
-	     *    constructor(nav: NavController) {
-	     *      this.nav = nav;
-	     *    }
-	     *    setPages() {
-	     *      this.nav.setPages([List,Detail, Info],{
-	     *        animate: true
-	     *      });
-	     *    }
-	     *  }
-	     *```
-	     *
-	     *
-	     *You can also pass any navigation params to the individual pages in the array.
-	     *
-	     *
-	     *```typescript
-	     * import {Page, NavController} from 'ionic/ionic'
-	     * import {Detail} from '../detail/detail'
-	     * import {Info} from '../info/info'
-	     *
-	     *  export class Home {
-	     *    constructor(nav: NavController) {
-	     *      this.nav = nav;
-	     *    }
-	     *    setPages() {
-	     *      this.nav.setPages([{
-	     *        componentType: List,
-	     *        params: {id: 43}
-	     *      }, {
-	     *        componentType: Detail,
-	     *        params: {id: 45}
-	     *      },{
-	     *        componentType: Info,
-	     *        params: {id: 5}
-	     *      }]);
-	     *    }
-	     *  }
-	     *```
-	     *
-	     * @param {Array} component an arry of components to load in the stack
-	     * @param {Object} [opts={}] Any options you want to use pass
-	     * @returns {Promise} Returns a promise when the pages are set
-	     */
-	    NavController.prototype.setPages = function (components, opts) {
-	        if (opts === void 0) { opts = {}; }
-	        if (!components || !components.length) {
-	            return Promise.resolve();
+	    Menu.prototype.ngOnInit = function () {
+	        _super.prototype.ngOnInit.call(this);
+	        var self = this;
+	        var content = self.content;
+	        self._cntEle = (content instanceof Node) ? content : content && content.getNativeElement && content.getNativeElement();
+	        if (!self._cntEle) {
+	            return console.error('Menu: must have a [content] element to listen for drag events on. Example:\n\n<ion-menu [content]="content"></ion-menu>\n\n<ion-nav #content></ion-nav>');
 	        }
-	        var leavingView = this.getActive() || new view_controller_1.ViewController();
-	        // if animate has not been set then default to false
-	        opts.animate = opts.animate || false;
-	        // ensure leaving views are not cached, and should be destroyed
-	        opts.cacheLeavingView = false;
-	        // get the views to auto remove without having to do a transiton for each
-	        // the last view (the currently active one) will do a normal transition out
-	        if (this._views.length > 1) {
-	            var autoRemoveItems = this._views.slice(0, this._views.length - 1);
-	            var popView;
-	            for (var i = 0; i < autoRemoveItems.length; i++) {
-	                popView = autoRemoveItems[i];
-	                popView.shouldDestroy = true;
-	                popView.shouldCache = false;
-	                popView.willUnload();
-	                if (opts.animate) {
-	                    // only the leaving view should be shown, all others hide
-	                    this._cachePage(popView, (popView === leavingView));
-	                }
-	            }
+	        if (self.side !== 'left' && self.side !== 'right') {
+	            self.side = 'left';
 	        }
-	        var componentObj = null;
-	        var componentType = null;
-	        var viewCtrl = null;
-	        // create the ViewControllers that go before the new active ViewController
-	        // in the stack, but the previous views shouldn't render yet
-	        if (components.length > 1) {
-	            var newBeforeItems = components.slice(0, components.length - 1);
-	            for (var j = 0; j < newBeforeItems.length; j++) {
-	                componentObj = newBeforeItems[j];
-	                if (componentObj) {
-	                    // could be an object with a componentType property, or it is a componentType
-	                    componentType = componentObj.componentType || componentObj;
-	                    viewCtrl = new view_controller_1.ViewController(this, componentType, componentObj.params);
-	                    viewCtrl.state = CACHED_STATE;
-	                    viewCtrl.shouldDestroy = false;
-	                    viewCtrl.shouldCache = false;
-	                    // add the item to the stack
-	                    this._add(viewCtrl);
-	                }
+	        if (!self.id) {
+	            // Auto register
+	            self.id = self.side + 'Menu';
+	            if (self.app.getComponent(self.id)) {
+	                // id already exists, make sure this one is unique
+	                self.id += (++menuIds);
 	            }
+	            self.app.register(self.id, self);
 	        }
-	        // get the component that will become the active item
-	        // it'll be the last one in the given components array
-	        componentObj = components[components.length - 1];
-	        componentType = componentObj.componentType || componentObj;
-	        // transition the leaving and entering
-	        return this.push(componentType, componentObj.params, opts);
-	    };
-	    /**
-	     * Set the root for the current navigation stack
-	     * @param {Component} The name of the component you want to push on the navigation stack
-	     * @param {Object} [params={}] Any nav-params you want to pass along to the next view
-	     * @param {Object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {Promise} Returns a promise when done
-	     */
-	    NavController.prototype.setRoot = function (componentType, params, opts) {
-	        if (params === void 0) { params = {}; }
-	        if (opts === void 0) { opts = {}; }
-	        return this.setPages([{
-	                componentType: componentType,
-	                params: params
-	            }], opts);
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._transition = function (enteringView, leavingView, opts, done) {
-	        if (enteringView === leavingView) {
-	            // if the entering view and leaving view are the same thing don't continue
-	            return done(enteringView);
-	        }
-	        if (!opts.animation) {
-	            opts.animation = this.config.get('pageTransition');
-	        }
-	        if (this.config.get('animate') === false) {
-	            opts.animate = false;
-	        }
-	        if (!enteringView) {
-	            // if no entering view then create a bogus one
-	            // already consider this bogus one loaded
-	            enteringView = new view_controller_1.ViewController();
-	            enteringView.loaded();
-	        }
-	        var wtfScope = instrumentation_1.wtfStartTimeRange('ionic.NavController#_transition ' + enteringView.name);
-	        /* Async steps to complete a transition
-	          1. _render: compile the view and render it in the DOM. Load page if it hasn't loaded already. When done call postRender
-	          2. _postRender: Run willEnter/willLeave, then wait a frame (change detection happens), then call beginTransition
-	          3. _beforeTrans: Create the transition's animation, play the animation, wait for it to end
-	          4. _afterTrans: Run didEnter/didLeave, call _transComplete()
-	          5. _transComplete: Cleanup, remove cache views, then call the final callback
-	        */
-	        // begin the multiple async process of transitioning to the entering view
-	        this._render(enteringView, leavingView, opts, function () {
-	            instrumentation_1.wtfEndTimeRange(wtfScope);
-	            done(enteringView);
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._render = function (enteringView, leavingView, opts, done) {
-	        // compile/load the view into the DOM
-	        var _this = this;
-	        if (enteringView.shouldDestroy) {
-	            // about to be destroyed, shouldn't continue
-	            done();
-	        }
-	        else if (enteringView.isLoaded()) {
-	            // already compiled this view, do not load again and continue
-	            this._postRender(enteringView, leavingView, opts, done);
-	        }
-	        else {
-	            // view has not been compiled/loaded yet
-	            // continue once the view has finished compiling
-	            // DOM WRITE
-	            this.loadPage(enteringView, null, opts, function () {
-	                if (enteringView.onReady) {
-	                    // this entering view needs to wait for it to be ready
-	                    // this is used by Tabs to wait for the first page of
-	                    // the first selected tab to be loaded
-	                    enteringView.onReady(function () {
-	                        enteringView.loaded();
-	                        _this._postRender(enteringView, leavingView, opts, done);
-	                    });
-	                }
-	                else {
-	                    enteringView.loaded();
-	                    _this._postRender(enteringView, leavingView, opts, done);
-	                }
-	            });
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._postRender = function (enteringView, leavingView, opts, done) {
-	        var _this = this;
-	        var wtfScope = instrumentation_1.wtfStartTimeRange('ionic.NavController#_postRender ' + enteringView.name);
-	        // called after _render has completed and the view is compiled/loaded
-	        if (enteringView.shouldDestroy) {
-	            // view already marked as a view that will be destroyed, don't continue
-	            instrumentation_1.wtfEndTimeRange(wtfScope);
-	            done();
-	        }
-	        else if (!opts.preload) {
-	            // the enteringView will become the active view, and is not being preloaded
-	            // call each view's lifecycle events
-	            // POSSIBLE DOM READ THEN DOM WRITE
-	            enteringView.willEnter();
-	            leavingView.willLeave();
-	            // set the correct zIndex for the entering and leaving views
-	            // DOM WRITE
-	            this._setZIndex(enteringView, leavingView, opts.direction);
-	            // make sure the entering and leaving views are showing
-	            // and all others are hidden, but don't remove the leaving view yet
-	            // DOM WRITE
-	            this._cleanup(enteringView, leavingView, true);
-	            // lifecycle events may have updated some data
-	            // wait one frame and allow the raf to do a change detection
-	            // before kicking off the transition and showing the new view
-	            dom_1.raf(function () {
-	                instrumentation_1.wtfEndTimeRange(wtfScope);
-	                _this._beforeTrans(enteringView, leavingView, opts, done);
-	            });
-	        }
-	        else {
-	            // this view is being preloaded, don't call lifecycle events
-	            // transition does not need to animate
-	            opts.animate = false;
-	            instrumentation_1.wtfEndTimeRange(wtfScope);
-	            this._beforeTrans(enteringView, leavingView, opts, done);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._beforeTrans = function (enteringView, leavingView, opts, done) {
-	        var _this = this;
-	        var wtfScope = instrumentation_1.wtfStartTimeRange('ionic.NavController#_beforeTrans ' + enteringView.name);
-	        // called after one raf from postRender()
-	        // create the transitions animation, play the animation
-	        // when the transition ends call wait for it to end
-	        // everything during the transition should runOutsideAngular
-	        this._zone.runOutsideAngular(function () {
-	            // ensure the entering view is not destroyed or cached
-	            enteringView.shouldDestroy = false;
-	            enteringView.shouldCache = false;
-	            // set that the new view pushed on the stack is staged to be entering/leaving
-	            // staged state is important for the transition to find the correct view
-	            enteringView.state = STAGED_ENTERING_STATE;
-	            leavingView.state = STAGED_LEAVING_STATE;
-	            // init the transition animation
-	            opts.renderDelay = opts.transitionDelay || self._trnsDelay;
-	            var transAnimation = animation_1.Animation.createTransition(enteringView, leavingView, opts);
-	            if (opts.animate === false) {
-	                // force it to not animate the elements, just apply the "to" styles
-	                transAnimation.clearDuration();
-	                transAnimation.duration(0);
+	        self._initGesture();
+	        self._initType(self.type);
+	        self._cntEle.classList.add('menu-content');
+	        self._cntEle.classList.add('menu-content-' + self.type);
+	        self.onContentClick = function (ev) {
+	            if (self.isEnabled) {
+	                ev.preventDefault();
+	                ev.stopPropagation();
+	                self.close();
 	            }
-	            var duration = transAnimation.duration();
-	            var enableApp = (duration < 64);
-	            // block any clicks during the transition and provide a
-	            // fallback to remove the clickblock if something goes wrong
-	            _this.app.setEnabled(enableApp, duration);
-	            _this.setTransitioning(!enableApp, duration);
-	            if (opts.pageType) {
-	                transAnimation.before.addClass(opts.pageType);
-	            }
-	            instrumentation_1.wtfEndTimeRange(wtfScope);
-	            // start the transition
-	            transAnimation.play(function () {
-	                // transition animation has ended
-	                // dispose the animation and it's element references
-	                transAnimation.dispose();
-	                _this._afterTrans(enteringView, leavingView, opts, done);
-	            });
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._afterTrans = function (enteringView, leavingView, opts, done) {
-	        var _this = this;
-	        var wtfScope = instrumentation_1.wtfStartTimeRange('ionic.NavController#_afterTrans ' + enteringView.name);
-	        // transition has completed, update each view's state
-	        // place back into the zone, run didEnter/didLeave
-	        // call the final callback when done
-	        enteringView.state = ACTIVE_STATE;
-	        leavingView.state = CACHED_STATE;
-	        // run inside of the zone again
-	        this._zone.run(function () {
-	            if (!opts.preload) {
-	                enteringView.didEnter();
-	                leavingView.didLeave();
-	            }
-	            if (_this.keyboard.isOpen()) {
-	                // the keyboard is still open!
-	                // no problem, let's just close for them
-	                _this.keyboard.close();
-	                _this.keyboard.onClose(function () {
-	                    // keyboard has finished closing, transition complete
-	                    _this._transComplete();
-	                    instrumentation_1.wtfEndTimeRange(wtfScope);
-	                    done();
-	                }, 32);
-	            }
-	            else {
-	                // all good, transition complete
-	                _this._transComplete();
-	                instrumentation_1.wtfEndTimeRange(wtfScope);
-	                done();
-	            }
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._transComplete = function () {
-	        var wtfScope = instrumentation_1.wtfCreateScope('ionic.NavController#_transComplete')();
-	        this._views.forEach(function (view) {
-	            if (view) {
-	                if (view.shouldDestroy) {
-	                    view.didUnload();
-	                }
-	                else if (view.state === CACHED_STATE && view.shouldCache) {
-	                    view.shouldCache = false;
-	                }
-	            }
-	        });
-	        // allow clicks again, but still set an enable time
-	        // meaning nothing with this view controller can happen for XXms
-	        this.app.setEnabled(true);
-	        this.setTransitioning(false);
-	        this._sbComplete();
-	        this._cleanup();
-	        instrumentation_1.wtfLeave(wtfScope);
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.loadPage = function (viewCtrl, navbarContainerRef, opts, done) {
-	        var _this = this;
-	        var wtfTimeRangeScope = instrumentation_1.wtfStartTimeRange('ionic.NavController#loadPage ' + viewCtrl.name);
-	        // guts of DynamicComponentLoader#loadIntoLocation
-	        this._compiler.compileInHost(viewCtrl.componentType).then(function (hostProtoViewRef) {
-	            var wtfScope = instrumentation_1.wtfCreateScope('ionic.NavController#loadPage_After_Compile')();
-	            var providers = _this.providers.concat(core_1.Injector.resolve([
-	                core_1.provide(view_controller_1.ViewController, { useValue: viewCtrl }),
-	                core_1.provide(NavParams, { useValue: viewCtrl.params })
-	            ]));
-	            var location = _this.elementRef;
-	            if (_this._anchorName) {
-	                location = _this._viewManager.getNamedElementInComponentView(location, _this._anchorName);
-	            }
-	            var viewContainer = _this._viewManager.getViewContainer(location);
-	            var hostViewRef = viewContainer.createHostView(hostProtoViewRef, viewContainer.length, providers);
-	            var pageElementRef = _this._viewManager.getHostElement(hostViewRef);
-	            var component = _this._viewManager.getComponent(pageElementRef);
-	            // auto-add page css className created from component JS class name
-	            var cssClassName = util_1.pascalCaseToDashCase(viewCtrl.componentType.name);
-	            _this._renderer.setElementClass(pageElementRef, cssClassName, true);
-	            viewCtrl.addDestroy(function () {
-	                // ensure the element is cleaned up for when the view pool reuses this element
-	                _this._renderer.setElementAttribute(pageElementRef, 'class', null);
-	                _this._renderer.setElementAttribute(pageElementRef, 'style', null);
-	                // remove the page from its container
-	                var index = viewContainer.indexOf(hostViewRef);
-	                if (index !== -1) {
-	                    viewContainer.remove(index);
-	                }
-	            });
-	            // a new ComponentRef has been created
-	            // set the ComponentRef's instance to this ViewController
-	            viewCtrl.setInstance(component);
-	            // remember the ElementRef to the ion-page elementRef that was just created
-	            viewCtrl.setPageRef(pageElementRef);
-	            if (!navbarContainerRef) {
-	                navbarContainerRef = viewCtrl.getNavbarViewRef();
-	            }
-	            var navbarTemplateRef = viewCtrl.getNavbarTemplateRef();
-	            if (navbarContainerRef && navbarTemplateRef) {
-	                var navbarView = navbarContainerRef.createEmbeddedView(navbarTemplateRef);
-	                viewCtrl.addDestroy(function () {
-	                    var index = navbarContainerRef.indexOf(navbarView);
-	                    if (index > -1) {
-	                        navbarContainerRef.remove(index);
-	                    }
-	                });
-	            }
-	            opts.postLoad && opts.postLoad(viewCtrl);
-	            if (_this._views.length === 1) {
-	                _this._zone.runOutsideAngular(function () {
-	                    dom_1.rafFrames(38, function () {
-	                        _this._renderer.setElementClass(_this.elementRef, 'has-views', true);
-	                    });
-	                });
-	            }
-	            instrumentation_1.wtfEndTimeRange(wtfTimeRangeScope);
-	            instrumentation_1.wtfLeave(wtfScope);
-	            done(viewCtrl);
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._setZIndex = function (enteringView, leavingView, direction) {
-	        var enteringPageRef = enteringView && enteringView.pageRef();
-	        if (enteringPageRef) {
-	            if (!leavingView || !leavingView.isLoaded()) {
-	                enteringView.zIndex = this.initZIndex;
-	            }
-	            else if (direction === 'back') {
-	                // moving back
-	                enteringView.zIndex = leavingView.zIndex - 1;
-	            }
-	            else {
-	                // moving forward
-	                enteringView.zIndex = leavingView.zIndex + 1;
-	            }
-	            if (enteringView.zIndex !== enteringView._zIndex) {
-	                this._renderer.setElementStyle(enteringPageRef, 'z-index', enteringView.zIndex);
-	                enteringView._zIndex = enteringView.zIndex;
-	            }
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._cachePage = function (viewCtrl, shouldShow) {
-	        // using hidden element attribute to display:none and not render views
-	        // renderAttr of '' means the hidden attribute will be added
-	        // renderAttr of null means the hidden attribute will be removed
-	        // doing checks to make sure we only make an update to the element when needed
-	        if (shouldShow && viewCtrl._hdnAttr === '' ||
-	            !shouldShow && viewCtrl._hdnAttr !== '') {
-	            viewCtrl._hdnAttr = (shouldShow ? null : '');
-	            this._renderer.setElementAttribute(viewCtrl.pageRef(), 'hidden', viewCtrl._hdnAttr);
-	            var navbarRef = viewCtrl.navbarRef();
-	            if (navbarRef) {
-	                this._renderer.setElementAttribute(navbarRef, 'hidden', viewCtrl._hdnAttr);
-	            }
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._cleanup = function (activeView, previousView, skipDestroy) {
-	        var _this = this;
-	        // the active page, and the previous page, should be rendered in dom and ready to go
-	        // all others, like a cached page 2 back, should be display: none and not rendered
-	        var destroys = [];
-	        activeView = activeView || this.getActive();
-	        previousView = previousView || this.getPrevious(activeView);
-	        this._views.forEach(function (view) {
-	            if (view) {
-	                if (view.shouldDestroy && !skipDestroy) {
-	                    destroys.push(view);
-	                }
-	                else if (view.isLoaded()) {
-	                    var shouldShow = (view === activeView) || (view === previousView);
-	                    _this._cachePage(view, shouldShow);
-	                }
-	            }
-	        });
-	        // all pages being destroyed should be removed from the list of pages
-	        // and completely removed from the dom
-	        destroys.forEach(function (view) {
-	            _this._remove(view);
-	            view.destroy();
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.swipeBackStart = function () {
-	        var _this = this;
-	        return;
-	        if (!this.app.isEnabled() || !this.canSwipeBack()) {
-	            return;
-	        }
-	        // disables the app during the transition
-	        this.app.setEnabled(false);
-	        this.setTransitioning(true);
-	        // default the direction to "back"
-	        var opts = {
-	            direction: 'back'
 	        };
-	        // get the active view and set that it is staged to be leaving
-	        // was probably the one popped from the stack
-	        var leavingView = this.getActive() || new view_controller_1.ViewController();
-	        leavingView.shouldDestroy = true;
-	        leavingView.shouldCache = false;
-	        leavingView.willLeave();
-	        leavingView.willUnload();
-	        // the entering view is now the new last view
-	        var enteringView = this.getPrevious(leavingView);
-	        enteringView.shouldDestroy = false;
-	        enteringView.shouldCache = false;
-	        enteringView.willEnter();
-	        // wait for the new view to complete setup
-	        this._render(enteringView, {}, function () {
-	            _this._zone.runOutsideAngular(function () {
-	                // set that the new view pushed on the stack is staged to be entering/leaving
-	                // staged state is important for the transition to find the correct view
-	                enteringView.state = STAGED_ENTERING_STATE;
-	                leavingView.state = STAGED_LEAVING_STATE;
-	                // init the swipe back transition animation
-	                _this._sbTrans = Transition.create(_this, opts);
-	                _this._sbTrans.easing('linear').progressStart();
-	            });
+	    };
+	    /**
+	     * @private
+	     */
+	    Menu.prototype._initGesture = function () {
+	        var _this = this;
+	        this.zone.runOutsideAngular(function () {
+	            switch (_this.side) {
+	                case 'right':
+	                    _this._gesture = new gestures.RightMenuGesture(_this);
+	                    break;
+	                case 'left':
+	                    _this._gesture = new gestures.LeftMenuGesture(_this);
+	                    break;
+	            }
+	            _this._targetGesture = new gestures.TargetGesture(_this);
 	        });
 	    };
 	    /**
 	     * @private
 	     */
-	    NavController.prototype.swipeBackProgress = function (value) {
-	        return;
-	        if (this._sbTrans) {
-	            // continue to disable the app while actively dragging
-	            this.app.setEnabled(false, 4000);
-	            this.setTransitioning(true, 4000);
-	            // set the transition animation's progress
-	            this._sbTrans.progress(value);
+	    Menu.prototype._initType = function (type) {
+	        type = type && type.trim().toLowerCase();
+	        if (!type) {
+	            type = this.config.get('menuType');
+	        }
+	        this.type = type;
+	    };
+	    /**
+	     * @private
+	     */
+	    Menu.prototype._getType = function () {
+	        if (!this._type) {
+	            this._type = new menuTypes[this.type](this);
+	            if (this.config.get('animate') === false) {
+	                this._type.open.duration(33);
+	                this._type.close.duration(33);
+	            }
+	        }
+	        return this._type;
+	    };
+	    /**
+	     * Sets the state of the Menu to open or not.
+	     * @param {boolean} isOpen  If the Menu is open or not.
+	     * @return {Promise} returns a promise once set
+	     */
+	    Menu.prototype.setOpen = function (shouldOpen) {
+	        var _this = this;
+	        // _isPrevented is used to prevent unwanted opening/closing after swiping open/close
+	        // or swiping open the menu while pressing down on the menuToggle button
+	        if (shouldOpen === this.isOpen || this._isPrevented()) {
+	            return Promise.resolve();
+	        }
+	        this._before();
+	        return this._getType().setOpen(shouldOpen).then(function () {
+	            _this._after(shouldOpen);
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    Menu.prototype.setProgressStart = function () {
+	        // user started swiping the menu open/close
+	        if (this._isPrevented() || !this.isEnabled)
+	            return;
+	        this._before();
+	        this._getType().setProgressStart(this.isOpen);
+	    };
+	    /**
+	     * @private
+	     */
+	    Menu.prototype.setProgess = function (value) {
+	        // user actively dragging the menu
+	        if (this.isEnabled) {
+	            this._prevent();
+	            this._getType().setProgess(value);
+	            this.opening.next(value);
 	        }
 	    };
 	    /**
 	     * @private
 	     */
-	    NavController.prototype.swipeBackEnd = function (completeSwipeBack, rate) {
+	    Menu.prototype.setProgressEnd = function (shouldComplete) {
 	        var _this = this;
-	        return;
-	        if (!this._sbTrans)
-	            return;
-	        // disables the app during the transition
-	        this.app.setEnabled(false);
-	        this.setTransitioning(true);
-	        this._sbTrans.progressEnd(completeSwipeBack, rate).then(function () {
-	            _this._zone.run(function () {
-	                // find the views that were entering and leaving
-	                var enteringView = _this._getStagedEntering();
-	                var leavingView = _this._getStagedLeaving();
-	                if (enteringView && leavingView) {
-	                    // finish up the animation
-	                    if (completeSwipeBack) {
-	                        // swipe back has completed navigating back
-	                        // update each view's state
-	                        enteringView.state = ACTIVE_STATE;
-	                        leavingView.state = CACHED_STATE;
-	                        enteringView.didEnter();
-	                        leavingView.didLeave();
-	                        if (_this.router) {
-	                            // notify router of the pop state change
-	                            _this.router.stateChange('pop', enteringView);
-	                        }
-	                    }
-	                    else {
-	                        // cancelled the swipe back, they didn't end up going back
-	                        // return views to their original state
-	                        leavingView.state = ACTIVE_STATE;
-	                        enteringView.state = CACHED_STATE;
-	                        leavingView.willEnter();
-	                        leavingView.didEnter();
-	                        enteringView.didLeave();
-	                        leavingView.shouldDestroy = false;
-	                        enteringView.shouldDestroy = false;
-	                    }
-	                }
-	                // empty out and dispose the swipe back transition animation
-	                _this._sbTrans && _this._sbTrans.dispose();
-	                _this._sbTrans = null;
-	                // all done!
-	                _this._transComplete();
+	        // user has finished dragging the menu
+	        if (this.isEnabled) {
+	            this._prevent();
+	            this._getType().setProgressEnd(shouldComplete).then(function (isOpen) {
+	                _this._after(isOpen);
 	            });
-	        });
+	        }
 	    };
 	    /**
 	     * @private
 	     */
-	    NavController.prototype._sbComplete = function () {
-	        return;
-	        if (this.canSwipeBack()) {
-	            // it is possible to swipe back
-	            if (this.sbGesture) {
-	                // this is already an active gesture, don't create another one
+	    Menu.prototype._before = function () {
+	        // this places the menu into the correct location before it animates in
+	        // this css class doesn't actually kick off any animations
+	        if (this.isEnabled) {
+	            this.getNativeElement().classList.add('show-menu');
+	            this.getBackdropElement().classList.add('show-backdrop');
+	            this._prevent();
+	            this.keyboard.close();
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Menu.prototype._after = function (isOpen) {
+	        // keep opening/closing the menu disabled for a touch more yet
+	        // only add listeners/css if it's enabled and isOpen
+	        // and only remove listeners/css if it's not open
+	        if ((this.isEnabled && isOpen) || !isOpen) {
+	            this._prevent();
+	            this.isOpen = isOpen;
+	            this._cntEle.classList[isOpen ? 'add' : 'remove']('menu-content-open');
+	            this._cntEle.removeEventListener('click', this.onContentClick);
+	            if (isOpen) {
+	                this._cntEle.addEventListener('click', this.onContentClick);
+	            }
+	            else {
+	                this.getNativeElement().classList.remove('show-menu');
+	                this.getBackdropElement().classList.remove('show-backdrop');
+	            }
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Menu.prototype._prevent = function () {
+	        // used to prevent unwanted opening/closing after swiping open/close
+	        // or swiping open the menu while pressing down on the menuToggle
+	        this._preventTime = Date.now() + 20;
+	    };
+	    /**
+	     * @private
+	     */
+	    Menu.prototype._isPrevented = function () {
+	        return this._preventTime > Date.now();
+	    };
+	    /**
+	     * Progamatically open the Menu
+	     * @return {Promise} returns a promise when the menu is fully opened
+	     */
+	    Menu.prototype.open = function () {
+	        return this.setOpen(true);
+	    };
+	    /**
+	     * Progamatically close the Menu
+	     * @return {Promise} returns a promise when the menu is fully closed
+	     */
+	    Menu.prototype.close = function () {
+	        return this.setOpen(false);
+	    };
+	    /**
+	     * Toggle the menu. If it's closed, it will open, and if opened, it will close
+	     * @return {Promise} returns a promise when the menu has been toggled
+	     */
+	    Menu.prototype.toggle = function () {
+	        return this.setOpen(!this.isOpen);
+	    };
+	    /**
+	     * Used to enable or disable a menu. For example, there could be multiple
+	     * left menus, but only one of them should be able to be dragged open.
+	     * @param {boolean} shouldEnable  True if it should be enabled, false if not.
+	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
+	     */
+	    Menu.prototype.enable = function (shouldEnable) {
+	        this.isEnabled = shouldEnable;
+	        if (!shouldEnable) {
+	            this.close();
+	        }
+	        return this;
+	    };
+	    /**
+	     * @private
+	     */
+	    Menu.prototype.getMenuElement = function () {
+	        return this.getNativeElement();
+	    };
+	    /**
+	     * @private
+	     */
+	    Menu.prototype.getContentElement = function () {
+	        return this._cntEle;
+	    };
+	    /**
+	     * @private
+	     */
+	    Menu.prototype.getBackdropElement = function () {
+	        return this.backdrop.elementRef.nativeElement;
+	    };
+	    /**
+	     * @private
+	     */
+	    Menu.register = function (name, cls) {
+	        menuTypes[name] = cls;
+	    };
+	    /**
+	     * @private
+	     */
+	    Menu.prototype.ngOnDestroy = function () {
+	        this.app.unregister(this.id);
+	        this._gesture && this._gesture.destroy();
+	        this._targetGesture && this._targetGesture.destroy();
+	        this._type && this._type.ngOnDestroy();
+	        this._cntEle = null;
+	    };
+	    Menu.getById = function (app, menuId) {
+	        var menu = null;
+	        if (menuId) {
+	            menu = app.getComponent(menuId);
+	            if (!menu) {
+	                console.error('Menu with id "' + menuId + '" cannot be found for menuToggle');
 	                return;
 	            }
-	            var opts = {
-	                edge: 'left',
-	                threshold: this._sbThreshold
-	            };
-	            this.sbGesture = new swipe_back_1.SwipeBackGesture(this.getNativeElement(), opts, this);
-	            console.debug('SwipeBackGesture listen');
-	            this.sbGesture.listen();
 	        }
-	        else if (this.sbGesture) {
-	            // it is not possible to swipe back and there is an
-	            // active sbGesture, so unlisten it
-	            console.debug('SwipeBackGesture unlisten');
-	            this.sbGesture.unlisten();
-	            this.sbGesture = null;
-	        }
-	    };
-	    /**
-	     * Check to see if swipe-to-go-back is enabled
-	     * @param {boolean=} isSwipeBackEnabled Set whether or not swipe-to-go-back is enabled
-	     * @returns {boolean} Whether swipe-to-go-back is enabled
-	     */
-	    NavController.prototype.isSwipeBackEnabled = function (val) {
-	        if (arguments.length) {
-	            this._sbEnabled = !!val;
-	        }
-	        return this._sbEnabled;
-	    };
-	    /**
-	     * If it's possible to use swipe back or not. If it's not possible
-	     * to go back, or swipe back is not enable then this will return false.
-	     * If it is possible to go back, and swipe back is enabled, then this
-	     * will return true.
-	     * @returns {boolean} Whether you can swipe to go back
-	     */
-	    NavController.prototype.canSwipeBack = function () {
-	        return (this._sbEnabled && this.canGoBack());
-	    };
-	    /**
-	     * Returns `true` if there's a valid previous page that we can pop back to.
-	     * Otherwise returns false.
-	     * @returns {boolean} Whether there is a page to go back to
-	     */
-	    NavController.prototype.canGoBack = function () {
-	        var activeView = this.getActive();
-	        if (activeView) {
-	            return activeView.enableBack();
-	        }
-	        return false;
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.navbarViewContainer = function (nbContainer) {
-	        if (nbContainer) {
-	            this._nbContainer = nbContainer;
-	        }
-	        if (this._nbContainer) {
-	            return this._nbContainer;
-	        }
-	        if (this.parent) {
-	            return this.parent.navbarViewContainer();
-	        }
-	    };
-	    /**
-	     * @private
-	     * @returns {TODO} TODO
-	     */
-	    NavController.prototype.anchorElementRef = function () {
-	        if (arguments.length) {
-	            this._anchorER = arguments[0];
-	        }
-	        return this._anchorER;
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._add = function (viewCtrl) {
-	        this._incId(viewCtrl);
-	        this._views.push(viewCtrl);
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._incId = function (viewCtrl) {
-	        viewCtrl.id = this.id + '-' + (++this._ids);
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._remove = function (viewOrIndex) {
-	        util_1.array.remove(this._views, viewOrIndex);
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._getStagedEntering = function () {
-	        for (var i = 0, ii = this._views.length; i < ii; i++) {
-	            if (this._views[i].state === STAGED_ENTERING_STATE) {
-	                return this._views[i];
+	        else {
+	            menu = app.getComponent('leftMenu');
+	            if (!menu) {
+	                menu = app.getComponent('rightMenu');
+	            }
+	            if (!menu) {
+	                console.error('Menu with id "leftMenu" or "rightMenu" cannot be found for menuToggle');
+	                return;
 	            }
 	        }
-	        return null;
+	        return menu;
 	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._getStagedLeaving = function () {
-	        for (var i = 0, ii = this._views.length; i < ii; i++) {
-	            if (this._views[i].state === STAGED_LEAVING_STATE) {
-	                return this._views[i];
-	            }
-	        }
-	        return null;
-	    };
-	    /**
-	     * @private
-	     * @returns {Component} TODO
-	     */
-	    NavController.prototype.getActive = function () {
-	        for (var i = this._views.length - 1; i >= 0; i--) {
-	            if (this._views[i].state === ACTIVE_STATE && !this._views[i].shouldDestroy) {
-	                return this._views[i];
-	            }
-	        }
-	        return null;
-	    };
-	    /**
-	     * @param {Index} The index of the page you want to get
-	     * @returns {Component} Returns the component that matches the index given
-	     */
-	    NavController.prototype.getByIndex = function (index) {
-	        if (index < this._views.length && index > -1) {
-	            return this._views[index];
-	        }
-	        return null;
-	    };
-	    /**
-	     * @private
-	     * @param {Handle} The handle of the page you want to get
-	     * @returns {Component} Returns the component that matches the handle given
-	     */
-	    NavController.prototype.getByHandle = function (handle) {
-	        for (var i = 0, ii = this._views.length; i < ii; i++) {
-	            if (this._views[i].handle === handle) {
-	                return this._views[i];
-	            }
-	        }
-	        return null;
-	    };
-	    /**
-	     * @private
-	     * @param {TODO} pageType  TODO
-	     * @returns {TODO} TODO
-	     */
-	    NavController.prototype.getByType = function (pageType) {
-	        for (var i = 0, ii = this._views.length; i < ii; i++) {
-	            if (this._views[i].pageType === pageType) {
-	                return this._views[i];
-	            }
-	        }
-	        return null;
-	    };
-	    /**
-	     * @private
-	     * @param {TODO} view  TODO
-	     * @returns {TODO} TODO
-	     */
-	    NavController.prototype.getPrevious = function (viewCtrl) {
-	        if (viewCtrl) {
-	            var viewIndex = this._views.indexOf(viewCtrl);
-	            for (var i = viewIndex - 1; i >= 0; i--) {
-	                if (!this._views[i].shouldDestroy) {
-	                    return this._views[i];
-	                }
-	            }
-	        }
-	        return null;
-	    };
-	    /**
-	     * First page in this nav controller's stack. This would not return a page which is about to be destroyed.
-	     * @returns {Component} Returns the first component page in the current stack
-	     */
-	    NavController.prototype.first = function () {
-	        for (var i = 0, l = this._views.length; i < l; i++) {
-	            if (!this._views[i].shouldDestroy) {
-	                return this._views[i];
-	            }
-	        }
-	        return null;
-	    };
-	    /**
-	     * Last page in this nav controller's stack. This would not return a page which is about to be destroyed.
-	     * @returns {Component} Returns the last component page in the current stack
-	     */
-	    NavController.prototype.last = function () {
-	        for (var i = this._views.length - 1; i >= 0; i--) {
-	            if (!this._views[i].shouldDestroy) {
-	                return this._views[i];
-	            }
-	        }
-	        return null;
-	    };
-	    /**
-	     * @private
-	     * @param {TODO} view  TODO
-	     * @returns {TODO} TODO
-	     */
-	    NavController.prototype.indexOf = function (viewCtrl) {
-	        return this._views.indexOf(viewCtrl);
-	    };
-	    /**
-	     * Number of sibling views in the nav controller. This does
-	     * not include views which are about to be destroyed.
-	     * @returns {Number} The number of views in stack, including the current view
-	     */
-	    NavController.prototype.length = function () {
-	        var len = 0;
-	        for (var i = 0, l = this._views.length; i < l; i++) {
-	            if (!this._views[i].shouldDestroy) {
-	                len++;
-	            }
-	        }
-	        return len;
-	    };
-	    /**
-	     * @private
-	     * @param {TODO} view  TODO
-	     * @returns {boolean}
-	     */
-	    NavController.prototype.isActive = function (viewCtrl) {
-	        return !!(viewCtrl && viewCtrl.state === ACTIVE_STATE);
-	    };
-	    Object.defineProperty(NavController.prototype, "rootNav", {
-	        /**
-	         * Returns the root NavController.
-	         * @returns {NavController}
-	         */
-	        get: function () {
-	            var nav = this;
-	            while (nav.parent) {
-	                nav = nav.parent;
-	            }
-	            return nav;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /**
-	     * @private
-	     * @param {TODO} router  TODO
-	     */
-	    NavController.prototype.registerRouter = function (router) {
-	        this.router = router;
-	    };
-	    return NavController;
+	    Menu = __decorate([
+	        core_1.Component({
+	            selector: 'ion-menu',
+	            inputs: [
+	                'content',
+	                'id',
+	                'side',
+	                'type'
+	            ],
+	            defaultInputs: {
+	                'side': 'left',
+	                'menuType': 'reveal'
+	            },
+	            outputs: ['opening'],
+	            host: {
+	                'role': 'navigation',
+	                '[attr.side]': 'side',
+	                '[attr.type]': 'type'
+	            },
+	            template: '<ng-content></ng-content><div tappable disable-activated class="backdrop"></div>',
+	            directives: [core_1.forwardRef(function () { return MenuBackdrop; })]
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _c) || Object, (typeof (_d = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _d) || Object, (typeof (_e = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _e) || Object, (typeof (_f = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _f) || Object])
+	    ], Menu);
+	    return Menu;
+	    var _a, _b, _c, _d, _e, _f;
 	})(ion_1.Ion);
-	exports.NavController = NavController;
-	var ACTIVE_STATE = 1;
-	var CACHED_STATE = 2;
-	var STAGED_ENTERING_STATE = 3;
-	var STAGED_LEAVING_STATE = 4;
-	var ctrlIds = -1;
-	/**
-	 * @name NavParams
-	 * @description
-	 * NavParams are an object that exists on a page and can contain data for that particular view.
-	 * Similar to how data was pass to a view in V1 with `$stateParams`, NavParams offer a much more flexible
-	 * option with a simple `get` method.
-	 *
-	 * @usage
-	 * ```ts
-	 * export class MyClass{
-	 *  constructor(params: NavParams){
-	 *    this.params = params;
-	 *    // userParams is an object we have in our nav-parameters
-	 *    this.params.get('userParams');
-	 *  }
-	 * }
-	 * ```
-	 * @demo /docs/v2/demos/nav-params/
-	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
-	 * @see {@link ../NavController/ NavController API Docs}
-	 * @see {@link ../Nav/ Nav API Docs}
-	 * @see {@link ../NavPush/ NavPush API Docs}
-	 */
-	var NavParams = (function () {
-	    /**
-	     * @private
-	     * @param {TODO} data  TODO
-	     */
-	    function NavParams(data) {
-	        this.data = data || {};
+	exports.Menu = Menu;
+	var menuTypes = {};
+	var menuIds = 0;
+	var MenuBackdrop = (function () {
+	    function MenuBackdrop(menu, elementRef) {
+	        this.menu = menu;
+	        this.elementRef = elementRef;
+	        menu.backdrop = this;
 	    }
 	    /**
-	     * Get the value of a nav-parameter for the current view
-	     *
-	     * ```ts
-	     * export class MyClass{
-	     *  constructor(params: NavParams){
-	     *    this.params = params;
-	     *    // userParams is an object we have in our nav-parameters
-	     *    this.params.get('userParams');
-	     *  }
-	     * }
-	     * ```
-	     *
-	     *
-	     * @param {string} parameter Which param you want to look up
+	     * @private
 	     */
-	    NavParams.prototype.get = function (param) {
-	        return this.data[param];
+	    MenuBackdrop.prototype.clicked = function (ev) {
+	        console.debug('backdrop clicked');
+	        ev.preventDefault();
+	        ev.stopPropagation();
+	        this.menu.close();
 	    };
-	    return NavParams;
+	    MenuBackdrop = __decorate([
+	        core_1.Directive({
+	            selector: '.backdrop',
+	            host: {
+	                '(click)': 'clicked($event)'
+	            }
+	        }),
+	        __param(0, core_1.Host()), 
+	        __metadata('design:paramtypes', [Menu, (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
+	    ], MenuBackdrop);
+	    return MenuBackdrop;
+	    var _a;
 	})();
-	exports.NavParams = NavParams;
 
 /***/ },
-/* 283 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';var profile_1 = __webpack_require__(51);
-	exports.wtfCreateScope = profile_1.wtfCreateScope;
-	exports.wtfLeave = profile_1.wtfLeave;
-	exports.wtfStartTimeRange = profile_1.wtfStartTimeRange;
-	exports.wtfEndTimeRange = profile_1.wtfEndTimeRange;
-
-
-/***/ },
-/* 284 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var dom = __webpack_require__(273);
@@ -44213,363 +43723,7 @@
 	exports.Ion = Ion;
 
 /***/ },
-/* 285 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var nav_controller_1 = __webpack_require__(282);
-	/**
-	 * @name ViewController
-	 * @description
-	 * Access various features and information about the current view
-	 * @usage
-	 *  ```ts
-	 *  import {Page, ViewController} from 'ionic/ionic';
-	 *  @Page....
-	 *  export class MyPage{
-	 *   constructor(viewCtrl: ViewController){
-	 *     this.viewCtrl = viewCtrl;
-	 *   }
-	 *  }
-	 *  ```
-	 */
-	var ViewController = (function () {
-	    function ViewController(navCtrl, componentType, params) {
-	        if (params === void 0) { params = {}; }
-	        this.navCtrl = navCtrl;
-	        this.componentType = componentType;
-	        this.params = new nav_controller_1.NavParams(params);
-	        this.instance = {};
-	        this.state = 0;
-	        this._destroys = [];
-	        this._loaded = false;
-	    }
-	    /**
-	     * Check to see if you can go back in the navigation stack
-	     * @param {boolean} Check whether or not you can go back from this page
-	     * @returns {boolean} Returns if it's possible to go back from this Page.
-	     */
-	    ViewController.prototype.enableBack = function () {
-	        // update if it's possible to go back from this nav item
-	        if (this.navCtrl) {
-	            var previousItem = this.navCtrl.getPrevious(this);
-	            // the previous view may exist, but if it's about to be destroyed
-	            // it shouldn't be able to go back to
-	            return !!(previousItem && !previousItem.shouldDestroy);
-	        }
-	        return false;
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.setInstance = function (instance) {
-	        this.instance = instance;
-	    };
-	    Object.defineProperty(ViewController.prototype, "name", {
-	        /**
-	         * @private
-	         */
-	        get: function () {
-	            return this.componentType ? this.componentType.name : '';
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(ViewController.prototype, "index", {
-	        /**
-	         * You can find out the index of the current view is in the current navigation stack
-	         *
-	         * ```typescript
-	         *  export class Page1 {
-	         *    constructor(view: ViewController){
-	         *      this.view = view;
-	         *      // Just log out the index
-	         *      console.log(this.view.index);
-	         *    }
-	         *  }
-	         * ```
-	         *
-	         * @returns {Number} Returns the index of this page within its NavController.
-	         */
-	        get: function () {
-	            return (this.navCtrl ? this.navCtrl.indexOf(this) : -1);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /**
-	     * @returns {boolean} Returns if this Page is the root page of the NavController.
-	     */
-	    ViewController.prototype.isRoot = function () {
-	        return (this.index === 0);
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.addDestroy = function (destroyFn) {
-	        this._destroys.push(destroyFn);
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.destroy = function () {
-	        for (var i = 0; i < this._destroys.length; i++) {
-	            this._destroys[i]();
-	        }
-	        this._destroys = [];
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.setNavbarTemplateRef = function (templateRef) {
-	        this._nbTmpRef = templateRef;
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.getNavbarTemplateRef = function () {
-	        return this._nbTmpRef;
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.getNavbarViewRef = function () {
-	        return this._nbVwRef;
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.setNavbarViewRef = function (viewContainerRef) {
-	        this._nbVwRef = viewContainerRef;
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.setPageRef = function (elementRef) {
-	        this._pgRef = elementRef;
-	    };
-	    /**
-	     * @private
-	     * @returns {ElementRef} Returns the Page's ElementRef
-	     */
-	    ViewController.prototype.pageRef = function () {
-	        return this._pgRef;
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.setContentRef = function (elementRef) {
-	        this._cntRef = elementRef;
-	    };
-	    /**
-	     * @private
-	     * @returns {ElementRef} Returns the Page's Content ElementRef
-	     */
-	    ViewController.prototype.contentRef = function () {
-	        return this._cntRef;
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.setContent = function (directive) {
-	        this._cntDir = directive;
-	    };
-	    /**
-	     * @private
-	     * @returns {Component} Returns the Page's Content component reference.
-	     */
-	    ViewController.prototype.getContent = function () {
-	        return this._cntDir;
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.setNavbar = function (directive) {
-	        this._nbDir = directive;
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.getNavbar = function () {
-	        return this._nbDir;
-	    };
-	    /**
-	     * You can find out of the current view has a Navbar or not. Be sure to wrap this in an `onPageWillEnter` method in order to make sure the view has rendered fully.
-	     *
-	     * ```typescript
-	     * export class Page1 {
-	     *  constructor(view: ViewController) {
-	     *    this.view = view
-	     *  }
-	     *  onPageWillEnter(){
-	     *    console.log('Do we have a Navbar?', this.view.hasNavbar());
-	     *  }
-	     *}
-	     * ```
-	     *
-	     * @returns {boolean} Returns a boolean if this Page has a navbar or not.
-	     */
-	    ViewController.prototype.hasNavbar = function () {
-	        return !!this.getNavbar();
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.navbarRef = function () {
-	        var navbar = this.getNavbar();
-	        return navbar && navbar.getElementRef();
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.titleRef = function () {
-	        var navbar = this.getNavbar();
-	        return navbar && navbar.getTitleRef();
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.navbarItemRefs = function () {
-	        var navbar = this.getNavbar();
-	        return navbar && navbar.getItemRefs();
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.backBtnRef = function () {
-	        var navbar = this.getNavbar();
-	        return navbar && navbar.getBackButtonRef();
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.backBtnTextRef = function () {
-	        var navbar = this.getNavbar();
-	        return navbar && navbar.getBackButtonTextRef();
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.navbarBgRef = function () {
-	        var navbar = this.getNavbar();
-	        return navbar && navbar.getBackgroundRef();
-	    };
-	    /**
-	     * You can change the text of the back button on a view-by-view basis.
-	     *
-	     * ```ts
-	     * export class MyClass{
-	     *  constructor(viewCtrl: ViewController){
-	     *    this.viewCtrl = viewCtrl
-	     *  }
-	     *  onPageWillEnter() {
-	     *    this.viewCtrl.setBackButtonText('Previous');
-	     *  }
-	     * }
-	     * ```
-	     * Make sure you use the view events when calling this method, otherwise the back-button will not have been created
-	     *
-	     * @param {string} backButtonText Set the back button text.
-	     */
-	    ViewController.prototype.setBackButtonText = function (val) {
-	        var navbar = this.getNavbar();
-	        if (navbar) {
-	            navbar.bbText = val;
-	        }
-	    };
-	    /**
-	     * Set if the back button for the current view is visible or not. Be sure to wrap this in `onPageWillEnter` to make sure the has been compleltly rendered.
-	     * @param {boolean} Set if this Page's back button should show or not.
-	     */
-	    ViewController.prototype.showBackButton = function (shouldShow) {
-	        var navbar = this.getNavbar();
-	        if (navbar) {
-	            navbar.hideBackButton = !shouldShow;
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.isLoaded = function () {
-	        return this._loaded;
-	    };
-	    /**
-	     * @private
-	     * The view has loaded. This event only happens once per view being
-	     * created. If a view leaves but is cached, then this will not
-	     * fire again on a subsequent viewing. This method is a good place
-	     * to put your setup code for the view; however, it is not the
-	     * recommended method to use when a view becomes active.
-	     */
-	    ViewController.prototype.loaded = function () {
-	        this._loaded = true;
-	        if (!this.shouldDestroy) {
-	            ctrlFn(this, 'onPageLoaded');
-	        }
-	    };
-	    /**
-	     * @private
-	     * The view is about to enter and become the active view.
-	     */
-	    ViewController.prototype.willEnter = function () {
-	        if (!this.shouldDestroy) {
-	            ctrlFn(this, 'onPageWillEnter');
-	        }
-	    };
-	    /**
-	     * @private
-	     * The view has fully entered and is now the active view. This
-	     * will fire, whether it was the first load or loaded from the cache.
-	     */
-	    ViewController.prototype.didEnter = function () {
-	        var navbar = this.getNavbar();
-	        navbar && navbar.didEnter();
-	        ctrlFn(this, 'onPageDidEnter');
-	    };
-	    /**
-	     * @private
-	     * The view has is about to leave and no longer be the active view.
-	     */
-	    ViewController.prototype.willLeave = function () {
-	        ctrlFn(this, 'onPageWillLeave');
-	    };
-	    /**
-	     * @private
-	     * The view has finished leaving and is no longer the active view. This
-	     * will fire, whether it is cached or unloaded.
-	     */
-	    ViewController.prototype.didLeave = function () {
-	        ctrlFn(this, 'onPageDidLeave');
-	    };
-	    /**
-	     * @private
-	     * The view is about to be destroyed and have its elements removed.
-	     */
-	    ViewController.prototype.willUnload = function () {
-	        ctrlFn(this, 'onPageWillUnload');
-	    };
-	    /**
-	     * @private
-	     * The view has been destroyed and its elements have been removed.
-	     */
-	    ViewController.prototype.didUnload = function () {
-	        ctrlFn(this, 'onPageDidUnload');
-	    };
-	    return ViewController;
-	})();
-	exports.ViewController = ViewController;
-	function ctrlFn(viewCtrl, fnName) {
-	    if (viewCtrl.instance && viewCtrl.instance[fnName]) {
-	        try {
-	            viewCtrl.instance[fnName]();
-	        }
-	        catch (e) {
-	            console.error(fnName + ': ' + e.message);
-	        }
-	    }
-	}
-
-/***/ },
-/* 286 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -44577,34 +43731,90 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var slide_edge_gesture_1 = __webpack_require__(287);
-	var SwipeBackGesture = (function (_super) {
-	    __extends(SwipeBackGesture, _super);
-	    function SwipeBackGesture(element, opts, navCtrl) {
-	        if (opts === void 0) { opts = {}; }
-	        _super.call(this, element, opts);
-	        // Can check corners through use of eg 'left top'
-	        this.edges = opts.edge.split(' ');
-	        this.threshold = opts.threshold;
-	        this.navCtrl = navCtrl;
+	var slide_edge_gesture_1 = __webpack_require__(290);
+	var util = __webpack_require__(294);
+	var MenuContentGesture = (function (_super) {
+	    __extends(MenuContentGesture, _super);
+	    function MenuContentGesture(menu, targetEl, options) {
+	        if (options === void 0) { options = {}; }
+	        _super.call(this, targetEl, util.extend({
+	            direction: (menu.side === 'left' || menu.side === 'right') ? 'x' : 'y',
+	            edge: menu.side,
+	            threshold: 75
+	        }, options));
+	        this.menu = menu;
+	        this.listen();
 	    }
-	    SwipeBackGesture.prototype.onSlideStart = function () {
-	        this.navCtrl.swipeBackStart();
+	    MenuContentGesture.prototype.canStart = function (ev) {
+	        return this.menu.isOpen && this.menu.isEnabled ? true : _super.prototype.canStart.call(this, ev);
 	    };
-	    SwipeBackGesture.prototype.onSlide = function (slide, ev) {
-	        this.navCtrl.swipeBackProgress(slide.distance / slide.max);
+	    // Set CSS, then wait one frame for it to apply before sliding starts
+	    MenuContentGesture.prototype.onSlideBeforeStart = function (slide, ev) {
+	        this.menu.setProgressStart();
 	    };
-	    SwipeBackGesture.prototype.onSlideEnd = function (slide, ev) {
+	    MenuContentGesture.prototype.onSlide = function (slide, ev) {
+	        this.menu.setProgess(slide.distance / slide.max);
+	    };
+	    MenuContentGesture.prototype.onSlideEnd = function (slide, ev) {
 	        var shouldComplete = (Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
-	        // TODO: calculate a better playback rate depending on velocity and distance
-	        this.navCtrl.swipeBackEnd(shouldComplete, 1);
+	        this.menu.setProgressEnd(shouldComplete);
 	    };
-	    return SwipeBackGesture;
+	    MenuContentGesture.prototype.getElementStartPos = function (slide, ev) {
+	        return this.menu.isOpen ? slide.max : slide.min;
+	    };
+	    MenuContentGesture.prototype.getSlideBoundaries = function () {
+	        return {
+	            min: 0,
+	            max: this.menu.width()
+	        };
+	    };
+	    return MenuContentGesture;
 	})(slide_edge_gesture_1.SlideEdgeGesture);
-	exports.SwipeBackGesture = SwipeBackGesture;
+	exports.MenuContentGesture = MenuContentGesture;
+	/**
+	 * Support dragging the target menu as well as the content.
+	 */
+	var TargetGesture = (function (_super) {
+	    __extends(TargetGesture, _super);
+	    function TargetGesture(menu) {
+	        _super.call(this, menu, menu.getNativeElement(), {
+	            threshold: 0
+	        });
+	    }
+	    return TargetGesture;
+	})(MenuContentGesture);
+	exports.TargetGesture = TargetGesture;
+	var LeftMenuGesture = (function (_super) {
+	    __extends(LeftMenuGesture, _super);
+	    function LeftMenuGesture(menu) {
+	        _super.call(this, menu, menu.getContentElement());
+	    }
+	    return LeftMenuGesture;
+	})(MenuContentGesture);
+	exports.LeftMenuGesture = LeftMenuGesture;
+	var RightMenuGesture = (function (_super) {
+	    __extends(RightMenuGesture, _super);
+	    function RightMenuGesture(menu) {
+	        _super.call(this, menu, menu.getContentElement());
+	    }
+	    RightMenuGesture.prototype.onSlide = function (slide, ev) {
+	        this.menu.setProgess(slide.distance / slide.min);
+	    };
+	    RightMenuGesture.prototype.getElementStartPos = function (slide, ev) {
+	        return this.menu.isOpen ? slide.min : slide.max;
+	    };
+	    RightMenuGesture.prototype.getSlideBoundaries = function () {
+	        return {
+	            min: -this.menu.width(),
+	            max: 0
+	        };
+	    };
+	    return RightMenuGesture;
+	})(MenuContentGesture);
+	exports.RightMenuGesture = RightMenuGesture;
 
 /***/ },
-/* 287 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -44612,7 +43822,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var slide_gesture_1 = __webpack_require__(288);
+	var slide_gesture_1 = __webpack_require__(291);
 	var util_1 = __webpack_require__(272);
 	var dom_1 = __webpack_require__(273);
 	var SlideEdgeGesture = (function (_super) {
@@ -44654,7 +43864,7 @@
 	exports.SlideEdgeGesture = SlideEdgeGesture;
 
 /***/ },
-/* 288 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -44662,8 +43872,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var drag_gesture_1 = __webpack_require__(289);
-	var util = __webpack_require__(276);
+	var drag_gesture_1 = __webpack_require__(292);
+	var util = __webpack_require__(294);
 	var SlideGesture = (function (_super) {
 	    __extends(SlideGesture, _super);
 	    function SlideGesture(element, opts) {
@@ -44733,7 +43943,7 @@
 	exports.SlideGesture = SlideGesture;
 
 /***/ },
-/* 289 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -44741,8 +43951,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var gesture_1 = __webpack_require__(290);
-	var util = __webpack_require__(276);
+	var gesture_1 = __webpack_require__(293);
+	var util = __webpack_require__(294);
 	var DragGesture = (function (_super) {
 	    __extends(DragGesture, _super);
 	    function DragGesture(element, opts) {
@@ -44781,11 +43991,11 @@
 	exports.DragGesture = DragGesture;
 
 /***/ },
-/* 290 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var util = __webpack_require__(276);
-	var hammer_1 = __webpack_require__(291);
+	var util = __webpack_require__(294);
+	var hammer_1 = __webpack_require__(295);
 	/**
 	 * A gesture recognizer class.
 	 *
@@ -44843,7 +44053,18 @@
 	exports.Gesture = Gesture;
 
 /***/ },
-/* 291 */
+/* 294 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	var domUtil = __webpack_require__(273);
+	exports.dom = domUtil;
+	__export(__webpack_require__(272));
+
+/***/ },
+/* 295 */
 /***/ function(module, exports) {
 
 	/*! Hammer.JS - v2.0.4 - 2014-09-28
@@ -46996,2213 +46217,16 @@
 	window.Hammer = Hammer;
 
 /***/ },
-/* 292 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var overlay_controller_1 = __webpack_require__(275);
-	var config_1 = __webpack_require__(270);
-	var animation_1 = __webpack_require__(281);
-	var util_1 = __webpack_require__(276);
-	/**
-	 * @name Modal
-	 * @description
-	 * The Modal is a content pane that can go over the user's current page.
-	 * Usually used for making a choice or editing an item. A modal can be opened
-	 * similar to how {@link /docs/v2/api/components/nav/NavController/#push NavController.push}  works,
-	 * where it is passed a Page component, along with optional Page params,
-	 * and options for presenting the modal.
-	 *
-	 * @usage
-	 * ```ts
-	 * class MyApp {
-	 *
-	 *  constructor(modal: Modal) {
-	 *    this.modal = modal;
-	 *  }
-	 *
-	 *  openContactModal() {
-	 *    this.modal.open(ContactUs);
-	 *  }
-	 *
-	 *  openProfileModal() {
-	 *    this.modal.open(Profile, { userId: 8675309 }, {
-	 *      enterAnimation: 'my-fade-in',
-	 *      leaveAnimation: 'my-fade-out',
-	 *      handle: 'profile-modal'
-	 *    });
-	 *  }
-	 *
-	 * }
-	 * ```
-	 * @demo /docs/v2/demos/modal/
-	 * @see {@link /docs/v2/components#modals Modal Component Docs}
-	 */
-	var Modal = (function () {
-	    function Modal(ctrl, config) {
-	        this.ctrl = ctrl;
-	        this.config = config;
-	    }
-	    /**
-	     * Opens a new modal using the page component is was pass as the first
-	     * argument. This is similar to how NavController's `push` method works.
-	     * Currently you must have `<ion-overlay>` in the `@App` component's template
-	     * for the modal to work correctly. (This is something that will
-	     * be hopefully be removed in the near future.)
-	     *
-	     * @param pageComponent  The Page component to load in the modal.
-	     * @param {Object} [params={}]  Optional data which can be passed to the page
-	     * component, which can be read from the constructor's `NavParams`.
-	     * @param {Object} [opts={}]  Additional options for this one modal instance of.
-	     * Options include `enterAnimation` and `leaveAnimation`, which
-	     * allows customization of which animation to use.
-	     * @returns {Promise} Returns a promise which resolves when the modal has
-	     * loaded and its entering animation has completed. The resolved promise's
-	     * value is the instance of the newly created modal.
-	     */
-	    Modal.prototype.open = function (pageComponent, params, opts) {
-	        if (params === void 0) { params = {}; }
-	        if (opts === void 0) { opts = {}; }
-	        opts = util_1.extend({
-	            pageType: OVERLAY_TYPE,
-	            enterAnimation: this.config.get('modalEnter'),
-	            leaveAnimation: this.config.get('modalLeave'),
-	        }, opts);
-	        return this.ctrl.open(pageComponent, params, opts);
-	    };
-	    /**
-	     * Get the instance of a modal. This is usually helpful to getting ahold of a
-	     * certain modal, from anywhere within the app, and closing it. By calling
-	     * just `get()` without a `handle` argument, it'll return the active modal
-	     * on top (it is possible to have multipe modals opened at the same time).
-	     * If getting just the active modal isn't enough, when creating
-	     * a modal, it's options can be given a `handle`, which is simply a string-based
-	     * name for the modal instance. You can later get a reference to that modal's
-	     * instance by calling this method with the same handle name.
-	     * @param  [handle]  Optional string name given in the modal's options when it was opened.
-	     * @returns Returns the instance of the modal if it is found, otherwise `null`.
-	     */
-	    Modal.prototype.get = function (handle) {
-	        if (handle) {
-	            return this.ctrl.getByHandle(handle);
-	        }
-	        return this.ctrl.getByType(OVERLAY_TYPE);
-	    };
-	    Modal = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof overlay_controller_1.OverlayController !== 'undefined' && overlay_controller_1.OverlayController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object])
-	    ], Modal);
-	    return Modal;
-	    var _a, _b;
-	})();
-	exports.Modal = Modal;
-	var OVERLAY_TYPE = 'modal';
-	/**
-	 * Animations for modals
-	 */
-	var ModalSlideIn = (function (_super) {
-	    __extends(ModalSlideIn, _super);
-	    function ModalSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, enteringView.pageRef(), opts);
-	        this
-	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
-	            .duration(400)
-	            .fromTo('translateY', '100%', '0%')
-	            .before.addClass('show-page');
-	    }
-	    return ModalSlideIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('modal-slide-in', ModalSlideIn);
-	var ModalSlideOut = (function (_super) {
-	    __extends(ModalSlideOut, _super);
-	    function ModalSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, leavingView.pageRef(), opts);
-	        this
-	            .easing('ease-out')
-	            .duration(250)
-	            .fromTo('translateY', '0%', '100%');
-	    }
-	    return ModalSlideOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('modal-slide-out', ModalSlideOut);
-	var ModalMDSlideIn = (function (_super) {
-	    __extends(ModalMDSlideIn, _super);
-	    function ModalMDSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, enteringView.pageRef(), opts);
-	        this
-	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
-	            .duration(280)
-	            .fromTo('translateY', '40px', '0px')
-	            .fadeIn()
-	            .before.addClass('show-page');
-	    }
-	    return ModalMDSlideIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('modal-md-slide-in', ModalMDSlideIn);
-	var ModalMDSlideOut = (function (_super) {
-	    __extends(ModalMDSlideOut, _super);
-	    function ModalMDSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, leavingView.pageRef(), opts);
-	        this
-	            .duration(200)
-	            .easing('cubic-bezier(0.47,0,0.745,0.715)')
-	            .fromTo('translateY', '0px', '40px')
-	            .fadeOut();
-	    }
-	    return ModalMDSlideOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('modal-md-slide-out', ModalMDSlideOut);
-
-/***/ },
-/* 293 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(169);
-	var overlay_controller_1 = __webpack_require__(275);
-	var config_1 = __webpack_require__(270);
-	var animation_1 = __webpack_require__(281);
-	var nav_controller_1 = __webpack_require__(282);
-	var button_1 = __webpack_require__(294);
-	var util_1 = __webpack_require__(272);
-	/**
-	 * @name Popup
-	 * @description
-	 * The Ionic Popup service allows the creation of popup windows that require the user to respond in order to continue.
-	 *
-	 * The popup service has support for more flexible versions of the built in `alert()`, `prompt()`, and `confirm()` functions that users are used to, in addition to allowing popups with completely custom content and look.
-	 *
-	 * @usage
-	 * ```ts
-	 * class myApp {
-	 *
-	 *   constructor(popup: Popup) {
-	 *     this.popup = popup;
-	 *   }
-	 *
-	 *   doAlert() {
-	 *     this.popup.alert({
-	 *       title: "New Friend!",
-	 *       template: "Your friend, Obi wan Kenobi, just accepted your friend request!",
-	 *       cssClass: 'my-alert'
-	 *     }).then(() => {
-	 *       console.log('Alert closed');
-	 *     });
-	 *   }
-	 *
-	 *   doPrompt() {
-	 *     this.popup.prompt({
-	 *       title: "New Album",
-	 *       template: "Enter a name for this new album you're so keen on adding",
-	 *       inputPlaceholder: "Title",
-	 *       okText: "Save",
-	 *       okType: "secondary"
-	 *     }).then((name) => {
-	 *       console.log('Name entered:', name);
-	 *     }, () => {
-	 *       console.error('Prompt closed');
-	 *     });
-	 *   }
-	 *
-	 *   doConfirm() {
-	 *     this.popup.confirm({
-	 *       title: "Use this lightsaber?",
-	 *       subTitle: "You can't exchange lightsabers",
-	 *       template: "Do you agree to use this lightsaber to do good across the intergalactic galaxy?",
-	 *       cancelText: "Disagree",
-	 *       okText: "Agree"
-	 *     }).then((result, ev) => {
-	 *       console.log('Confirmed!', result);
-	 *     }, () => {
-	 *       console.error('Not confirmed!');
-	 *     });
-	 *   }
-	 * }
-	 * ```
-	 * @demo /docs/v2/demos/popup/
-	 * @see {@link /docs/v2/components#popups Popup Component Docs}
-	 */
-	var Popup = (function () {
-	    function Popup(ctrl, config) {
-	        this.ctrl = ctrl;
-	        this.config = config;
-	    }
-	    /**
-	     * @private
-	     * @param {TODO} opts  TODO
-	     * @returns {object} A promise
-	     */
-	    Popup.prototype.open = function (opts) {
-	        var _this = this;
-	        return new Promise(function (resolve, reject) {
-	            opts.promiseResolve = resolve;
-	            opts.promiseReject = reject;
-	            opts = util_1.extend({
-	                pageType: OVERLAY_TYPE,
-	                enterAnimation: _this.config.get('popupEnter'),
-	                leaveAnimation: _this.config.get('popupLeave')
-	            }, opts);
-	            return _this.ctrl.open(PopupCmp, opts, opts);
-	        });
-	    };
-	    /**
-	     * Show a simple alert popup with a message and one button
-	     * that the user can tap to close the popup.
-	     * @param {object} opts The options for showing the alert, of the form:
-	     *  - `{String}` `title` The title of the popup.
-	     *  - `{String}` `cssClass`  (optional). The custom CSS class name.
-	     *  - `{String}` `subTitle`  (optional). The sub-title of the popup.
-	     *  - `{String}` `template`  (optional). The html template to place in the popup body.
-	     *  - `{String}` `okText` (default: 'OK'). The text of the OK button.
-	     * @returns {object} A promise which is resolved when the popup is closed.
-	     */
-	    Popup.prototype.alert = function (opts) {
-	        if (opts === void 0) { opts = {}; }
-	        if (typeof opts === 'string') {
-	            opts = {
-	                title: opts
-	            };
-	        }
-	        var button = {
-	            text: opts.okText || 'OK',
-	            type: opts.okType || '',
-	            onTap: function (event, popupRef) {
-	                // Allow it to close
-	                //resolve();
-	            }
-	        };
-	        opts = util_1.extend({
-	            showPrompt: false,
-	            cancel: function () {
-	                //reject();
-	            },
-	            buttons: [
-	                button
-	            ]
-	        }, opts);
-	        return this.open(opts);
-	    };
-	    /**
-	     * Show a simple confirm popup with a message, Cancel and OK button.
-	     *
-	     * Resolves the promise with true if the user presses the OK button, and false if the user presses the Cancel button.
-	     *
-	     * @param {object} opts The options for showing the confirm, of the form:
-	     *  - `{String}` `title` The title of the popup.
-	     *  - `{String}` `cssClass`  (optional). The custom CSS class name.
-	     *  - `{String}` `subTitle`  (optional). The sub-title of the popup.
-	     *  - `{String}` `template`  (optional). The html template to place in the popup body.
-	     *  - `{String}` `okText` (default: 'OK'). The text of the OK button.
-	     *  - `{String}` `cancelText` (default: 'Cancel'). The text of the OK button.
-	     * @returns {object} A promise which is resolved when the popup is closed.
-	     */
-	    Popup.prototype.confirm = function (opts) {
-	        if (opts === void 0) { opts = {}; }
-	        if (typeof opts === 'string') {
-	            opts = {
-	                title: opts
-	            };
-	        }
-	        var okButton = {
-	            text: opts.okText || 'OK',
-	            type: opts.okType || '',
-	            onTap: function (event, popupRef) {
-	                // Allow it to close
-	            }
-	        };
-	        var cancelButton = {
-	            text: opts.cancelText || 'Cancel',
-	            type: opts.cancelType || '',
-	            isCancel: true,
-	            onTap: function (event, popupRef) {
-	                // Allow it to close
-	            }
-	        };
-	        opts = util_1.extend({
-	            showPrompt: false,
-	            cancel: function () {
-	            },
-	            buttons: [
-	                cancelButton, okButton
-	            ]
-	        }, opts);
-	        return this.open(opts);
-	    };
-	    /**
-	     * Show a simple prompt popup with a message, input, Cancel and OK button.
-	     *
-	     * Resolves the promise with the value of the input if the user presses OK, and with undefined if the user presses Cancel.
-	     *
-	     * @param {object} opts The options for showing the prompt, of the form:
-	     *  - `{String}` `title` The title of the popup.
-	     *  - `{String}` `cssClass`  (optional). The custom CSS class name.
-	     *  - `{String}` `subTitle`  (optional). The sub-title of the popup.
-	     *  - `{String}` `template`  (optional). The html template to place in the popup body.
-	     *  - `{String}` `inputType` (default: 'text'). The type of input to use.
-	     *  - `{String} `inputPlaceholder` (default: ''). A placeholder to use for the input.
-	     *  - `{String}` `okText` (default: 'OK'). The text of the OK button.
-	     *  - `{String}` `cancelText` (default: 'Cancel'). The text of the OK button.
-	     * @returns {object} A promise which is resolved when the popup is closed.
-	     */
-	    Popup.prototype.prompt = function (opts) {
-	        if (opts === void 0) { opts = {}; }
-	        if (typeof opts === 'string') {
-	            opts = {
-	                title: opts
-	            };
-	        }
-	        var okButton = {
-	            text: opts.okText || 'OK',
-	            type: opts.okType || '',
-	            onTap: function (event, popupRef) {
-	                // Allow it to close
-	            }
-	        };
-	        var cancelButton = {
-	            text: opts.cancelText || 'Cancel',
-	            type: opts.cancelType || '',
-	            isCancel: true,
-	            onTap: function (event, popupRef) {
-	                // Allow it to close
-	            }
-	        };
-	        opts = util_1.extend({
-	            showPrompt: true,
-	            promptPlaceholder: '',
-	            cancel: function () {
-	            },
-	            buttons: [
-	                cancelButton, okButton
-	            ]
-	        }, opts);
-	        return this.open(opts);
-	    };
-	    /**
-	     * @private
-	     * @param {TODO} handle  TODO
-	     * @returns {TODO} TODO
-	     */
-	    Popup.prototype.get = function (handle) {
-	        if (handle) {
-	            return this.ctrl.getByHandle(handle);
-	        }
-	        return this.ctrl.getByType(OVERLAY_TYPE);
-	    };
-	    Popup = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof overlay_controller_1.OverlayController !== 'undefined' && overlay_controller_1.OverlayController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object])
-	    ], Popup);
-	    return Popup;
-	    var _a, _b;
-	})();
-	exports.Popup = Popup;
-	var OVERLAY_TYPE = 'popup';
-	// TODO add button type to button: [type]="button.type"
-	var PopupCmp = (function () {
-	    function PopupCmp(elementRef, params, renderer) {
-	        this.elementRef = elementRef;
-	        this.d = params.data;
-	        if (this.d.cssClass) {
-	            renderer.setElementClass(elementRef, this.d.cssClass, true);
-	        }
-	    }
-	    PopupCmp.prototype.ngOnInit = function () {
-	        var _this = this;
-	        setTimeout(function () {
-	            // TODO: make more better, no DOM BS
-	            _this.promptInput = _this.elementRef.nativeElement.querySelector('input');
-	            if (_this.promptInput) {
-	                _this.promptInput.value = '';
-	            }
-	        });
-	    };
-	    PopupCmp.prototype.buttonTapped = function (button, ev) {
-	        var promptValue = this.promptInput && this.promptInput.value;
-	        var retVal = button.onTap && button.onTap(ev, this, {
-	            promptValue: promptValue
-	        });
-	        // If the event.preventDefault() wasn't called, close
-	        if (!ev.defaultPrevented) {
-	            // If this is a cancel button, reject the promise
-	            if (button.isCancel) {
-	                this.d.promiseReject();
-	            }
-	            else {
-	                // Resolve with the prompt value
-	                this.d.promiseResolve(promptValue);
-	            }
-	            return this.close();
-	        }
-	    };
-	    PopupCmp.prototype.cancel = function (ev) {
-	        this.d.cancel && this.d.cancel(event);
-	        if (!ev.defaultPrevented) {
-	            this.d.promiseReject();
-	            return this.close();
-	        }
-	    };
-	    PopupCmp = __decorate([
-	        core_1.Component({
-	            selector: 'ion-popup',
-	            template: '<div (click)="cancel($event)" tappable disable-activated class="backdrop"></div>' +
-	                '<div class="popup-wrapper">' +
-	                '<div class="popup-head">' +
-	                '<h2 class="popup-title" [innerHTML]="d.title" *ngIf="d.title"></h2>' +
-	                '<h3 class="popup-sub-title" [innerHTML]="d.subTitle" *ngIf="d.subTitle"></h3>' +
-	                '</div>' +
-	                '<div class="popup-body">' +
-	                '<div [innerHTML]="d.template" *ngIf="d.template"></div>' +
-	                '<input type="{{d.inputType || \'text\'}}" placeholder="{{d.inputPlaceholder}}" *ngIf="d.showPrompt" class="prompt-input">' +
-	                '</div>' +
-	                '<div class="popup-buttons" *ngIf="d.buttons.length">' +
-	                '<button clear *ngFor="#btn of d.buttons" (click)="buttonTapped(btn, $event)" [innerHTML]="btn.text" class="popup-button"></button>' +
-	                '</div>' +
-	                '</div>',
-	            host: {
-	                'role': 'dialog'
-	            },
-	            directives: [common_1.FORM_DIRECTIVES, common_1.NgClass, common_1.NgIf, common_1.NgFor, button_1.Button]
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof nav_controller_1.NavParams !== 'undefined' && nav_controller_1.NavParams) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
-	    ], PopupCmp);
-	    return PopupCmp;
-	    var _a, _b, _c;
-	})();
-	/**
-	 * Animations for popups
-	 */
-	var PopupPopIn = (function (_super) {
-	    __extends(PopupPopIn, _super);
-	    function PopupPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = enteringView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.popup-wrapper'));
-	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
-	        backdrop.fromTo('opacity', '0.01', '0.3');
-	        this
-	            .easing('ease-in-out')
-	            .duration(200)
-	            .add(backdrop, wrapper);
-	    }
-	    return PopupPopIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('popup-pop-in', PopupPopIn);
-	var PopupPopOut = (function (_super) {
-	    __extends(PopupPopOut, _super);
-	    function PopupPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = leavingView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.popup-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
-	        backdrop.fromTo('opacity', '0.3', '0');
-	        this
-	            .easing('ease-in-out')
-	            .duration(200)
-	            .add(backdrop, wrapper);
-	    }
-	    return PopupPopOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('popup-pop-out', PopupPopOut);
-	var PopupMdPopIn = (function (_super) {
-	    __extends(PopupMdPopIn, _super);
-	    function PopupMdPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = enteringView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.popup-wrapper'));
-	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
-	        backdrop.fromTo('opacity', '0.01', '0.5');
-	        this
-	            .easing('ease-in-out')
-	            .duration(200)
-	            .add(backdrop, wrapper);
-	    }
-	    return PopupMdPopIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('popup-md-pop-in', PopupMdPopIn);
-	var PopupMdPopOut = (function (_super) {
-	    __extends(PopupMdPopOut, _super);
-	    function PopupMdPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = leavingView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.popup-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
-	        backdrop.fromTo('opacity', '0.5', '0');
-	        this
-	            .easing('ease-in-out')
-	            .duration(200)
-	            .add(backdrop, wrapper);
-	    }
-	    return PopupMdPopOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('popup-md-pop-out', PopupMdPopOut);
-
-/***/ },
-/* 294 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var config_1 = __webpack_require__(270);
-	/**
-	  * @name Button
-	  * @module ionic
-	  * @property [outline] - for an unfilled outline button
-	  * @property [clear] - for a transparent button that only shows text and icons
-	  * @property [round] - for a button with rounded corners
-	  * @property [block] - for a block button that fills it's parent container
-	  * @property [full] - for a full width button
-	  * @property [small] - sets button size to small
-	  * @property [large] - sets button size to large
-	  * @property [disabled] - disables the button
-	  * @property [fab] - for a floating action button
-	  * @property [fab-left] - position a fab button to the left
-	  * @property [fab-right] - position a fab button to the right
-	  * @property [fab-center] - position a fab button towards the center
-	  * @property [fab-top] - position a fab button towards the top
-	  * @property [fab-bottom] - position a fab button towards the bottom
-	  * @property [color] - Dynamically set which color attribute this button should use.
-	  * @description
-	  * Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.
-	  * @demo /docs/v2/demos/buttons/
-	  * @see {@link /docs/v2/components#buttons Button Component Docs}
-
-	 */
-	var Button = (function () {
-	    function Button(config, _elementRef, _renderer) {
-	        this._elementRef = _elementRef;
-	        this._renderer = _renderer;
-	        this._role = 'button'; // bar-button/item-button
-	        this._size = null; // large/small
-	        this._style = 'default'; // outline/clear/solid
-	        this._shape = null; // round/fab
-	        this._display = null; // block/full
-	        this._lastColor = null;
-	        this._colors = []; // primary/secondary
-	        this._icon = null; // left/right/only
-	        this._disabled = false; // disabled
-	        var element = _elementRef.nativeElement;
-	        if (config.get('hoverCSS') === false) {
-	            _renderer.setElementClass(_elementRef, 'disable-hover', true);
-	        }
-	        if (element.hasAttribute('ion-item')) {
-	            // no need to put on these classes for an ion-item
-	            this._role = null;
-	            return;
-	        }
-	        if (element.hasAttribute('disabled')) {
-	            this._disabled = true;
-	        }
-	        this._readAttrs(element);
-	        this._readIcon(element);
-	    }
-	    /**
-	     * @private
-	     */
-	    Button.prototype.ngAfterContentInit = function () {
-	        this._lastColor = this.color;
-	        if (this.color) {
-	            this._colors = [this.color];
-	        }
-	        this._assignCss(true);
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.prototype.ngAfterContentChecked = function () {
-	        if (this._lastColor !== this.color) {
-	            this._assignCss(false);
-	            this._lastColor = this.color;
-	            this._colors = [this.color];
-	            this._assignCss(true);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.prototype.setRole = function (val) {
-	        this._role = val;
-	    };
-	    Button.prototype._readIcon = function (element) {
-	        // figure out if and where the icon lives in the button
-	        var childNodes = element.childNodes;
-	        var childNode;
-	        var nodes = [];
-	        for (var i = 0, l = childNodes.length; i < l; i++) {
-	            childNode = childNodes[i];
-	            if (childNode.nodeType === 3) {
-	                // text node
-	                if (childNode.textContent.trim() !== '') {
-	                    nodes.push(TEXT);
-	                }
-	            }
-	            else if (childNode.nodeType === 1) {
-	                if (childNode.nodeName === 'ICON') {
-	                    // icon element node
-	                    nodes.push(ICON);
-	                }
-	                else {
-	                    // element other than an <icon>
-	                    nodes.push(TEXT);
-	                }
-	            }
-	        }
-	        if (nodes.length > 1) {
-	            if (nodes[0] === ICON && nodes[1] === TEXT) {
-	                this._icon = 'icon-left';
-	            }
-	            else if (nodes[0] === TEXT && nodes[1] === ICON) {
-	                this._icon = 'icon-right';
-	            }
-	        }
-	        else if (nodes.length === 1 && nodes[0] === ICON) {
-	            this._icon = 'icon-only';
-	        }
-	    };
-	    Button.prototype._readAttrs = function (element) {
-	        var elementAttrs = element.attributes;
-	        var attrName;
-	        for (var i = 0, l = elementAttrs.length; i < l; i++) {
-	            if (elementAttrs[i].value !== '')
-	                continue;
-	            attrName = elementAttrs[i].name;
-	            if (BUTTON_STYLE_ATTRS.indexOf(attrName) > -1) {
-	                this._style = attrName;
-	            }
-	            else if (BUTTON_DISPLAY_ATTRS.indexOf(attrName) > -1) {
-	                this._display = attrName;
-	            }
-	            else if (BUTTON_SHAPE_ATTRS.indexOf(attrName) > -1) {
-	                this._shape = attrName;
-	            }
-	            else if (BUTTON_SIZE_ATTRS.indexOf(attrName) > -1) {
-	                this._size = attrName;
-	            }
-	            else if (!(IGNORE_ATTRS.test(attrName))) {
-	                this._colors.push(attrName);
-	            }
-	        }
-	    };
-	    Button.prototype._assignCss = function (assignCssClass) {
-	        var _this = this;
-	        var role = this._role;
-	        if (role) {
-	            this._renderer.setElementClass(this._elementRef, role, assignCssClass); // button
-	            this._setClass(this._style, assignCssClass); // button-clear
-	            this._setClass(this._shape, assignCssClass); // button-round
-	            this._setClass(this._display, assignCssClass); // button-full
-	            this._setClass(this._size, assignCssClass); // button-small
-	            this._setClass(this._icon, assignCssClass); // button-icon-left
-	            var colorStyle = (this._style !== 'default' ? this._style + '-' : '');
-	            this._colors.forEach(function (colorName) {
-	                _this._setClass(colorStyle + colorName, assignCssClass); // button-secondary, button-clear-secondary
-	            });
-	        }
-	    };
-	    Button.prototype._setClass = function (type, assignCssClass) {
-	        if (type) {
-	            this._renderer.setElementClass(this._elementRef, this._role + '-' + type, assignCssClass);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.setRoles = function (contentButtonChildren, role) {
-	        var buttons = contentButtonChildren.toArray();
-	        buttons.forEach(function (button) {
-	            button.setRole(role);
-	        });
-	    };
-	    Button = __decorate([
-	        core_1.Directive({
-	            selector: 'button,[button]',
-	            inputs: ['color']
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
-	    ], Button);
-	    return Button;
-	    var _a, _b, _c;
-	})();
-	exports.Button = Button;
-	var BUTTON_SIZE_ATTRS = ['large', 'small'];
-	var BUTTON_STYLE_ATTRS = ['clear', 'outline', 'solid'];
-	var BUTTON_SHAPE_ATTRS = ['round', 'fab'];
-	var BUTTON_DISPLAY_ATTRS = ['block', 'full'];
-	var IGNORE_ATTRS = /_ng|button|left|right/;
-	var TEXT = 1;
-	var ICON = 2;
-
-/***/ },
-/* 295 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	/**
-	 * Events is a pub/sub style event system for sending and responding to application-level
-	 * events across your app.
-	 * @usage
-	 * ```ts
-	 * // first page (publish an event when a user is created)
-	 * function createUser(user) {
-	 *   console.log('User created!')
-	 *   events.publish('user:created', user);
-	 * }
-	 *
-	 * // second page (listen for the user created event)
-	 * events.subscribe('user:created', (user) => {
-	 *   console.log('Welcome', user);
-	 * });
-	 *
-	 * ```
-	 */
-	var Events = (function () {
-	    function Events() {
-	        this.channels = [];
-	    }
-	    /**
-	     * Subscribe to an event topic. Events that get posted to that topic
-	     * will trigger the provided handler.
-	     *
-	     * @param topic the topic to subscribe to
-	     * @param handler the event handler
-	     */
-	    Events.prototype.subscribe = function (topic) {
-	        var _this = this;
-	        var handlers = [];
-	        for (var _i = 1; _i < arguments.length; _i++) {
-	            handlers[_i - 1] = arguments[_i];
-	        }
-	        if (!this.channels[topic]) {
-	            this.channels[topic] = [];
-	        }
-	        handlers.forEach(function (handler) {
-	            _this.channels[topic].push(handler);
-	        });
-	    };
-	    /**
-	     * Unsubscribe from the given topic. Your handler will
-	     * no longer receive events published to this topic.
-	     *
-	     * @param topic the topic to unsubscribe from
-	     * @param handler the event handler
-	     *
-	     * @return true if a handler was removed
-	     */
-	    Events.prototype.unsubscribe = function (topic, handler) {
-	        var t = this.channels[topic];
-	        if (!t) {
-	            // Wasn't found, wasn't removed
-	            return false;
-	        }
-	        if (!handler) {
-	            // Remove all handlers for this topic
-	            delete this.channels[topic];
-	            return true;
-	        }
-	        // We need to find and remove a specific handler
-	        var i = t.indexOf(handler);
-	        if (i < 0) {
-	            // Wasn't found, wasn't removed
-	            return false;
-	        }
-	        t.splice(i, 1);
-	        // If the channel is empty now, remove it from the channel map
-	        if (!t.length) {
-	            delete this.channels[topic];
-	        }
-	        return true;
-	    };
-	    /**
-	     * Publish an event to the given topic.
-	     *
-	     * @param topic the topic to publish to
-	     * @param eventData the data to send as the event
-	     */
-	    Events.prototype.publish = function (topic) {
-	        var args = [];
-	        for (var _i = 1; _i < arguments.length; _i++) {
-	            args[_i - 1] = arguments[_i];
-	        }
-	        var t = this.channels[topic];
-	        if (!t) {
-	            return null;
-	        }
-	        var responses = [];
-	        t.forEach(function (handler) {
-	            responses.push(handler(args));
-	        });
-	        return responses;
-	    };
-	    Events = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [])
-	    ], Events);
-	    return Events;
-	})();
-	exports.Events = Events;
-
-/***/ },
 /* 296 */
-/***/ function(module, exports) {
-
-	/**
-	 * @private
-	 * Map of possible pages that can be navigated to using an Ionic NavController
-	 */
-	var NavRegistry = (function () {
-	    function NavRegistry(pages) {
-	        if (pages === void 0) { pages = []; }
-	        this._pages = new Map(pages.map(function (page) { return [page.name, page]; }));
-	    }
-	    NavRegistry.prototype.get = function (pageName) {
-	        return this._pages.get(pageName);
-	    };
-	    NavRegistry.prototype.set = function (page) {
-	        this._pages.set(page.name, page);
-	    };
-	    return NavRegistry;
-	})();
-	exports.NavRegistry = NavRegistry;
-
-/***/ },
-/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	/**
-	 * @private
-	 * Provide multi-language and i18n support in your app. Translate works by
-	 * mapping full strings to language translated ones. That means that you don't need
-	 * to provide strings for your default language, just new languages.
-	 *
-	 * @usage
-	 * ```js
-	 * Translate.translations({
-	 *   'de': {
-	 *     'Welcome to MyApp': 'Willkommen auf'
-	 *   }
-	 * })
-	 *
-	 * Changing the default language:
-	 *
-	 * Translate.setLanguage('de');
-	 * ```
-	 *
-	 * Usage in a template:
-	 *
-	 * ```js
-	 * <span>{{ 'Welcome to MyApp' | translate }}
-	 * ```
-	 */
-	var Translate = (function () {
-	    function Translate() {
-	        this._transMap = {};
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
 	    }
-	    Translate.prototype.translations = function (lang, map) {
-	        this._transMap[lang] = map;
-	    };
-	    Translate.prototype.setLanguage = function (lang) {
-	        this._language = lang;
-	    };
-	    Translate.prototype.getTranslations = function (lang) {
-	        return this._transMap[lang];
-	    };
-	    Translate.prototype.translate = function (key, lang) {
-	        // If the language isn't specified and we have no overridden one, return the string passed.
-	        if (!lang && !this._language) {
-	            return key;
-	        }
-	        var setLanguage = lang || this._language;
-	        var map = this.getTranslations(setLanguage);
-	        if (!map) {
-	            console.warn('I18N: No translation for key', key, 'using language', setLanguage);
-	            return '';
-	        }
-	        return this._getTranslation(map, key);
-	    };
-	    Translate.prototype._getTranslation = function (map, key) {
-	        return map && map[key] || '';
-	    };
-	    Translate = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [])
-	    ], Translate);
-	    return Translate;
-	})();
-	exports.Translate = Translate;
-
-/***/ },
-/* 298 */
-/***/ function(module, exports) {
-
-	var FeatureDetect = (function () {
-	    function FeatureDetect() {
-	    }
-	    FeatureDetect.prototype.run = function (window, document) {
-	        this._results = {};
-	        for (var name in featureDetects) {
-	            this._results[name] = featureDetects[name](window, document, document.body);
-	        }
-	    };
-	    FeatureDetect.prototype.has = function (featureName) {
-	        return !!this._results[featureName];
-	    };
-	    FeatureDetect.add = function (name, fn) {
-	        featureDetects[name] = fn;
-	    };
-	    return FeatureDetect;
-	})();
-	exports.FeatureDetect = FeatureDetect;
-	var featureDetects = {};
-	// FeatureDetect.add('sticky', function(window, document) {
-	//   // css position sticky
-	//   let ele = document.createElement('div');
-	//   ele.style.cssText = 'position:-webkit-sticky;position:sticky';
-	//   return ele.style.position.indexOf('sticky') > -1;
-	// });
-	FeatureDetect.add('hairlines', function (window, document, body) {
-	    /**
-	    * Hairline Shim
-	    * Add the "hairline" CSS class name to the body tag
-	    * if the browser supports subpixels.
-	    */
-	    var canDo = false;
-	    if (window.devicePixelRatio >= 2) {
-	        var hairlineEle = document.createElement('div');
-	        hairlineEle.style.border = '.5px solid transparent';
-	        body.appendChild(hairlineEle);
-	        if (hairlineEle.offsetHeight === 1) {
-	            body.classList.add('hairlines');
-	            canDo = true;
-	        }
-	        body.removeChild(hairlineEle);
-	    }
-	    return canDo;
-	});
-
-/***/ },
-/* 299 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var app_1 = __webpack_require__(165);
-	var config_1 = __webpack_require__(270);
-	var dom_1 = __webpack_require__(273);
-	var activator_1 = __webpack_require__(300);
-	var ripple_1 = __webpack_require__(301);
-	/**
-	 * @private
-	 */
-	var TapClick = (function () {
-	    function TapClick(app, config, zone) {
-	        var self = this;
-	        self.app = app;
-	        self.zone = zone;
-	        self.lastTouch = 0;
-	        self.disableClick = 0;
-	        self.lastActivated = 0;
-	        if (config.get('activator') == 'ripple') {
-	            self.activator = new ripple_1.RippleActivator(app, config, zone);
-	        }
-	        else if (config.get('activator') == 'highlight') {
-	            self.activator = new activator_1.Activator(app, config, zone);
-	        }
-	        self.usePolyfill = (config.get('tapPolyfill') === true);
-	        zone.runOutsideAngular(function () {
-	            addListener('click', self.click.bind(self), true);
-	            addListener('touchstart', self.touchStart.bind(self));
-	            addListener('touchend', self.touchEnd.bind(self));
-	            addListener('touchcancel', self.pointerCancel.bind(self));
-	            addListener('mousedown', self.mouseDown.bind(self), true);
-	            addListener('mouseup', self.mouseUp.bind(self), true);
-	        });
-	        self.pointerMove = function (ev) {
-	            if (dom_1.hasPointerMoved(POINTER_MOVE_UNTIL_CANCEL, self.startCoord, dom_1.pointerCoord(ev))) {
-	                self.pointerCancel(ev);
-	            }
-	        };
-	    }
-	    TapClick.prototype.touchStart = function (ev) {
-	        this.lastTouch = Date.now();
-	        this.pointerStart(ev);
-	    };
-	    TapClick.prototype.touchEnd = function (ev) {
-	        this.lastTouch = Date.now();
-	        if (this.usePolyfill && this.startCoord && this.app.isEnabled()) {
-	            var endCoord = dom_1.pointerCoord(ev);
-	            if (!dom_1.hasPointerMoved(POINTER_TOLERANCE, this.startCoord, endCoord)) {
-	                console.debug('create click from touch ' + Date.now());
-	                // prevent native mouse click events for XX amount of time
-	                this.disableClick = this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT;
-	                // manually dispatch the mouse click event
-	                var clickEvent = document.createEvent('MouseEvents');
-	                clickEvent.initMouseEvent('click', true, true, window, 1, 0, 0, endCoord.x, endCoord.y, false, false, false, false, 0, null);
-	                clickEvent.isIonicTap = true;
-	                ev.target.dispatchEvent(clickEvent);
-	            }
-	        }
-	        this.pointerEnd(ev);
-	    };
-	    TapClick.prototype.mouseDown = function (ev) {
-	        if (this.isDisabledNativeClick()) {
-	            console.debug('mouseDown prevent ' + ev.target.tagName + ' ' + Date.now());
-	            // does not prevent default on purpose
-	            // so native blur events from inputs can happen
-	            ev.stopPropagation();
-	        }
-	        else if (this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT < Date.now()) {
-	            this.pointerStart(ev);
-	        }
-	    };
-	    TapClick.prototype.mouseUp = function (ev) {
-	        if (this.isDisabledNativeClick()) {
-	            console.debug('mouseUp prevent ' + ev.target.tagName + ' ' + Date.now());
-	            ev.preventDefault();
-	            ev.stopPropagation();
-	        }
-	        if (this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT < Date.now()) {
-	            this.pointerEnd(ev);
-	        }
-	    };
-	    TapClick.prototype.pointerStart = function (ev) {
-	        var activatableEle = getActivatableTarget(ev.target);
-	        if (activatableEle) {
-	            this.startCoord = dom_1.pointerCoord(ev);
-	            var now = Date.now();
-	            if (this.lastActivated + 150 < now) {
-	                this.activator && this.activator.downAction(ev, activatableEle, this.startCoord.x, this.startCoord.y);
-	                this.lastActivated = now;
-	            }
-	            this.moveListeners(true);
-	        }
-	        else {
-	            this.startCoord = null;
-	        }
-	    };
-	    TapClick.prototype.pointerEnd = function (ev) {
-	        this.moveListeners(false);
-	        this.activator && this.activator.upAction();
-	    };
-	    TapClick.prototype.pointerCancel = function (ev) {
-	        console.debug('pointerCancel from ' + ev.type + ' ' + Date.now());
-	        this.activator && this.activator.clearState();
-	        this.moveListeners(false);
-	    };
-	    TapClick.prototype.moveListeners = function (shouldAdd) {
-	        removeListener(this.usePolyfill ? 'touchmove' : 'mousemove', this.pointerMove);
-	        //this.zone.runOutsideAngular(() => {
-	        if (shouldAdd) {
-	            addListener(this.usePolyfill ? 'touchmove' : 'mousemove', this.pointerMove);
-	        }
-	        else {
-	        }
-	        //});
-	    };
-	    TapClick.prototype.click = function (ev) {
-	        var preventReason = null;
-	        if (!this.app.isEnabled()) {
-	            preventReason = 'appDisabled';
-	        }
-	        else if (!ev.isIonicTap && this.isDisabledNativeClick()) {
-	            preventReason = 'nativeClick';
-	        }
-	        if (preventReason !== null) {
-	            console.debug('click prevent ' + preventReason + ' ' + Date.now());
-	            ev.preventDefault();
-	            ev.stopPropagation();
-	        }
-	    };
-	    TapClick.prototype.isDisabledNativeClick = function () {
-	        return this.disableClick > Date.now();
-	    };
-	    TapClick = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object])
-	    ], TapClick);
-	    return TapClick;
-	    var _a, _b, _c;
-	})();
-	exports.TapClick = TapClick;
-	function getActivatableTarget(ele) {
-	    var targetEle = ele;
-	    for (var x = 0; x < 4; x++) {
-	        if (!targetEle)
-	            break;
-	        if (isActivatable(targetEle))
-	            return targetEle;
-	        targetEle = targetEle.parentElement;
-	    }
-	    return null;
-	}
-	/**
-	 * @private
-	 */
-	function isActivatable(ele) {
-	    if (ACTIVATABLE_ELEMENTS.test(ele.tagName)) {
-	        return true;
-	    }
-	    var attributes = ele.attributes;
-	    for (var i = 0, l = attributes.length; i < l; i++) {
-	        if (ACTIVATABLE_ATTRIBUTES.test(attributes[i].name)) {
-	            return true;
-	        }
-	    }
-	    return false;
-	}
-	exports.isActivatable = isActivatable;
-	function addListener(type, listener, useCapture) {
-	    document.addEventListener(type, listener, useCapture);
-	}
-	function removeListener(type, listener) {
-	    document.removeEventListener(type, listener);
-	}
-	var ACTIVATABLE_ELEMENTS = /^(A|BUTTON)$/;
-	var ACTIVATABLE_ATTRIBUTES = /tappable|button/i;
-	var POINTER_TOLERANCE = 4;
-	var POINTER_MOVE_UNTIL_CANCEL = 10;
-	var DISABLE_NATIVE_CLICK_AMOUNT = 2500;
-
-/***/ },
-/* 300 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var dom_1 = __webpack_require__(273);
-	var Activator = (function () {
-	    function Activator(app, config, zone) {
-	        this.app = app;
-	        this.zone = zone;
-	        this.queue = [];
-	        this.active = [];
-	        this.clearStateDefers = 5;
-	        this.clearAttempt = 0;
-	        this.activatedClass = config.get('activatedClass') || 'activated';
-	        this.x = 0;
-	        this.y = 0;
-	    }
-	    Activator.prototype.downAction = function (ev, activatableEle, pointerX, pointerY, callback) {
-	        // the user just pressed down
-	        var self = this;
-	        if (self.disableActivated(ev))
-	            return false;
-	        // remember where they pressed
-	        self.x = pointerX;
-	        self.y = pointerY;
-	        // queue to have this element activated
-	        self.queue.push(activatableEle);
-	        function activateCss() {
-	            var activatableEle;
-	            for (var i = 0; i < self.queue.length; i++) {
-	                activatableEle = self.queue[i];
-	                if (activatableEle && activatableEle.parentNode) {
-	                    self.active.push(activatableEle);
-	                    activatableEle.classList.add(self.activatedClass);
-	                }
-	            }
-	            self.queue = [];
-	        }
-	        this.zone.runOutsideAngular(function () {
-	            dom_1.rafFrames(2, activateCss);
-	        });
-	        return true;
-	    };
-	    Activator.prototype.upAction = function () {
-	        // the user was pressing down, then just let up
-	        var self = this;
-	        function activateUp() {
-	            self.clearState();
-	        }
-	        this.zone.runOutsideAngular(function () {
-	            dom_1.rafFrames(self.clearStateDefers, activateUp);
-	        });
-	    };
-	    Activator.prototype.clearState = function () {
-	        // all states should return to normal
-	        var _this = this;
-	        if (!this.app.isEnabled()) {
-	            // the app is actively disabled, so don't bother deactivating anything.
-	            // this makes it easier on the GPU so it doesn't have to redraw any
-	            // buttons during a transition. This will retry in XX milliseconds.
-	            setTimeout(function () {
-	                _this.clearState();
-	            }, 600);
-	        }
-	        else {
-	            // not actively transitioning, good to deactivate any elements
-	            this.deactivate();
-	        }
-	    };
-	    Activator.prototype.deactivate = function () {
-	        // remove the active class from all active elements
-	        var self = this;
-	        self.queue = [];
-	        function deactivate() {
-	            for (var i = 0; i < self.active.length; i++) {
-	                self.active[i].classList.remove(self.activatedClass);
-	            }
-	            self.active = [];
-	        }
-	        dom_1.rafFrames(2, deactivate);
-	    };
-	    Activator.prototype.disableActivated = function (ev) {
-	        if (ev.defaultPrevented)
-	            return true;
-	        var targetEle = ev.target;
-	        for (var x = 0; x < 4; x++) {
-	            if (!targetEle)
-	                break;
-	            if (targetEle.hasAttribute('disable-activated'))
-	                return true;
-	            targetEle = targetEle.parentElement;
-	        }
-	        return false;
-	    };
-	    return Activator;
-	})();
-	exports.Activator = Activator;
-
-/***/ },
-/* 301 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var activator_1 = __webpack_require__(300);
-	var animation_1 = __webpack_require__(281);
-	var dom_1 = __webpack_require__(273);
-	var RippleActivator = (function (_super) {
-	    __extends(RippleActivator, _super);
-	    function RippleActivator(app, config, zone) {
-	        _super.call(this, app, config, zone);
-	        this.expands = {};
-	        this.fades = {};
-	        this.expandSpeed = null;
-	    }
-	    RippleActivator.prototype.downAction = function (ev, activatableEle, pointerX, pointerY) {
-	        var _this = this;
-	        if (_super.prototype.downAction.call(this, ev, activatableEle, pointerX, pointerY)) {
-	            // create a new ripple element
-	            this.expandSpeed = EXPAND_DOWN_PLAYBACK_RATE;
-	            this.zone.runOutsideAngular(function () {
-	                dom_1.raf(function () {
-	                    var clientRect = activatableEle.getBoundingClientRect();
-	                    dom_1.raf(function () {
-	                        _this.createRipple(activatableEle, pointerX, pointerY, clientRect);
-	                    });
-	                });
-	            });
-	        }
-	    };
-	    RippleActivator.prototype.createRipple = function (activatableEle, pointerX, pointerY, clientRect) {
-	        var _this = this;
-	        var clientPointerX = (pointerX - clientRect.left);
-	        var clientPointerY = (pointerY - clientRect.top);
-	        var x = Math.max(Math.abs(clientRect.width - clientPointerX), clientPointerX) * 2;
-	        var y = Math.max(Math.abs(clientRect.height - clientPointerY), clientPointerY) * 2;
-	        var diameter = Math.max(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)), 64);
-	        var radius = Math.sqrt(clientRect.width + clientRect.height);
-	        var duration = (1000 * Math.sqrt(radius / TOUCH_DOWN_ACCEL) + 0.5);
-	        var rippleEle = document.createElement('md-ripple');
-	        var rippleId = Date.now();
-	        var eleStyle = rippleEle.style;
-	        eleStyle.width = eleStyle.height = diameter + 'px';
-	        eleStyle.marginTop = eleStyle.marginLeft = -(diameter / 2) + 'px';
-	        eleStyle.left = clientPointerX + 'px';
-	        eleStyle.top = clientPointerY + 'px';
-	        activatableEle.appendChild(rippleEle);
-	        // create the animation for the fade out, but don't start it yet
-	        this.fades[rippleId] = new animation_1.Animation(rippleEle, { renderDelay: 0 });
-	        this.fades[rippleId]
-	            .fadeOut()
-	            .duration(FADE_OUT_DURATION)
-	            .playbackRate(1)
-	            .onFinish(function () {
-	            dom_1.raf(function () {
-	                _this.fades[rippleId].dispose(true);
-	                delete _this.fades[rippleId];
-	            });
-	        });
-	        // expand the circle from the users starting point
-	        // start slow, and when they let up, then speed up the animation
-	        this.expands[rippleId] = new animation_1.Animation(rippleEle, { renderDelay: 0 });
-	        this.expands[rippleId]
-	            .fromTo('scale', '0.001', '1')
-	            .duration(duration)
-	            .playbackRate(this.expandSpeed)
-	            .onFinish(function () {
-	            _this.expands[rippleId].dispose();
-	            delete _this.expands[rippleId];
-	            _this.next();
-	        })
-	            .play();
-	    };
-	    RippleActivator.prototype.upAction = function () {
-	        var _this = this;
-	        this.deactivate();
-	        this.expandSpeed = 1;
-	        this.zone.runOutsideAngular(function () {
-	            dom_1.rafFrames(4, function () {
-	                _this.next();
-	            });
-	        });
-	    };
-	    RippleActivator.prototype.next = function () {
-	        var now = Date.now();
-	        var rippleId;
-	        for (rippleId in this.expands) {
-	            if (parseInt(rippleId, 10) + 4000 < now) {
-	                this.expands[rippleId].dispose(true);
-	                delete this.expands[rippleId];
-	            }
-	            else if (this.expands[rippleId].playbackRate() === EXPAND_DOWN_PLAYBACK_RATE) {
-	                this.expands[rippleId].playbackRate(EXPAND_OUT_PLAYBACK_RATE);
-	            }
-	        }
-	        for (rippleId in this.fades) {
-	            if (parseInt(rippleId, 10) + 4000 < now) {
-	                this.fades[rippleId].dispose(true);
-	                delete this.fades[rippleId];
-	            }
-	            else if (!this.fades[rippleId].isPlaying) {
-	                this.fades[rippleId].isPlaying = true;
-	                this.fades[rippleId].play();
-	            }
-	        }
-	    };
-	    RippleActivator.prototype.clearState = function () {
-	        this.deactivate();
-	        this.next();
-	    };
-	    return RippleActivator;
-	})(activator_1.Activator);
-	exports.RippleActivator = RippleActivator;
-	var TOUCH_DOWN_ACCEL = 512;
-	var EXPAND_DOWN_PLAYBACK_RATE = 0.35;
-	var EXPAND_OUT_PLAYBACK_RATE = 3;
-	var FADE_OUT_DURATION = 700;
-
-/***/ },
-/* 302 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var common_1 = __webpack_require__(169);
-	var overlay_1 = __webpack_require__(303);
-	var menu_1 = __webpack_require__(304);
-	var menu_toggle_1 = __webpack_require__(306);
-	var menu_close_1 = __webpack_require__(309);
-	var button_1 = __webpack_require__(294);
-	var blur_1 = __webpack_require__(310);
-	var content_1 = __webpack_require__(311);
-	var scroll_1 = __webpack_require__(313);
-	var pull_to_refresh_1 = __webpack_require__(314);
-	var slides_1 = __webpack_require__(315);
-	var tabs_1 = __webpack_require__(317);
-	var tab_1 = __webpack_require__(320);
-	var list_1 = __webpack_require__(321);
-	var item_1 = __webpack_require__(324);
-	var item_sliding_1 = __webpack_require__(325);
-	var toolbar_1 = __webpack_require__(308);
-	var icon_1 = __webpack_require__(280);
-	var checkbox_1 = __webpack_require__(326);
-	var toggle_1 = __webpack_require__(327);
-	var text_input_1 = __webpack_require__(328);
-	var label_1 = __webpack_require__(329);
-	var segment_1 = __webpack_require__(330);
-	var radio_1 = __webpack_require__(331);
-	var searchbar_1 = __webpack_require__(332);
-	var nav_1 = __webpack_require__(333);
-	var nav_push_1 = __webpack_require__(334);
-	var nav_router_1 = __webpack_require__(335);
-	var navbar_1 = __webpack_require__(307);
-	var id_1 = __webpack_require__(318);
-	var show_hide_when_1 = __webpack_require__(336);
-	/**
-	 * @name IONIC_DIRECTIVES
-	 * @private
-	 * @description
-	 * The core Ionic directives as well as Angular's CORE_DIRECTIVES and
-	 * FORM_DIRECTIVES.  Automatically available in every [@Page](../Page/) template.
-	 *
-	 * **Angular**
-	 * - CORE_DIRECTIVES
-	 * - FORM_DIRECTIVES
-	 *
-	 * **Content**
-	 * -  OverlayNav
-	 * -  Menu
-	 * -  MenuToggle
-	 * -  MenuClose
-	 *
-	 * -  Button
-	 * -  Blur
-	 * -  Content
-	 * -  Scroll
-	 * -  Refresher
-	 *
-	 * **Lists**
-	 * -  List
-	 * -  ListHeader
-	 * -  Item
-	 * -  ItemSliding
-	 *
-	 * **Slides**
-	 * -  Slides
-	 * -  Slide
-	 * -  SlideLazy
-	 *
-	 * **Tabs**
-	 * -  Tabs
-	 * -  Tab
-	 *
-	 * **Toolbar**
-	 * -  Toolbar
-	 * -  ToolbarTitle
-	 * -  ToolbarItem
-	 *
-	 * **Media**
-	 * -  Icon
-	 *
-	 * **Forms**
-	 * -  Searchbar
-	 * -  Segment
-	 * -  SegmentButton
-	 * -  Checkbox
-	 * -  RadioGroup
-	 * -  RadioButton
-	 * -  Toggle
-	 * -  TextInput
-	 * -  TextInputElement
-	 * -  Label
-	 *
-	 * **Nav**
-	 * -  Nav
-	 * -  NavbarTemplate
-	 * -  Navbar
-	 * -  NavPush
-	 * -  NavPop
-	 * -  NavRouter
-	 * -  IdRef
-	 *
-	 * -  ShowWhen
-	 * -  HideWhen
-	 */
-	exports.IONIC_DIRECTIVES = [
-	    // Angular
-	    common_1.CORE_DIRECTIVES,
-	    common_1.FORM_DIRECTIVES,
-	    // Content
-	    overlay_1.OverlayNav,
-	    menu_1.Menu,
-	    menu_toggle_1.MenuToggle,
-	    menu_close_1.MenuClose,
-	    button_1.Button,
-	    blur_1.Blur,
-	    content_1.Content,
-	    scroll_1.Scroll,
-	    pull_to_refresh_1.Refresher,
-	    // Lists
-	    list_1.List,
-	    list_1.ListHeader,
-	    item_1.Item,
-	    item_sliding_1.ItemSliding,
-	    // Slides
-	    slides_1.Slides,
-	    slides_1.Slide,
-	    slides_1.SlideLazy,
-	    // Tabs
-	    tabs_1.Tabs,
-	    tab_1.Tab,
-	    // Toolbar
-	    toolbar_1.Toolbar,
-	    toolbar_1.ToolbarTitle,
-	    toolbar_1.ToolbarItem,
-	    // Media
-	    icon_1.Icon,
-	    // Forms
-	    searchbar_1.Searchbar,
-	    searchbar_1.SearchbarInput,
-	    segment_1.Segment,
-	    segment_1.SegmentButton,
-	    checkbox_1.Checkbox,
-	    radio_1.RadioGroup,
-	    radio_1.RadioButton,
-	    toggle_1.Toggle,
-	    text_input_1.TextInput,
-	    text_input_1.TextInputElement,
-	    label_1.Label,
-	    // Nav
-	    nav_1.Nav,
-	    navbar_1.NavbarTemplate,
-	    navbar_1.Navbar,
-	    nav_push_1.NavPush,
-	    nav_push_1.NavPop,
-	    nav_router_1.NavRouter,
-	    id_1.IdRef,
-	    show_hide_when_1.ShowWhen,
-	    show_hide_when_1.HideWhen
-	];
-
-/***/ },
-/* 303 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var app_1 = __webpack_require__(165);
-	var config_1 = __webpack_require__(270);
-	var keyboard_1 = __webpack_require__(278);
-	var overlay_controller_1 = __webpack_require__(275);
-	var nav_controller_1 = __webpack_require__(282);
-	/**
-	 * @private
-	 */
-	var OverlayNav = (function (_super) {
-	    __extends(OverlayNav, _super);
-	    function OverlayNav(overlayCtrl, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer, cd) {
-	        _super.call(this, null, app, config, keyboard, elementRef, null, compiler, viewManager, zone, renderer, cd);
-	        if (overlayCtrl.anchor) {
-	            throw ('An app should only have one <ion-overlay></ion-overlay>');
-	        }
-	        this.initZIndex = 1000;
-	        overlayCtrl.nav = this;
-	    }
-	    OverlayNav = __decorate([
-	        core_1.Component({
-	            selector: 'ion-overlay',
-	            template: ''
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof overlay_controller_1.OverlayController !== 'undefined' && overlay_controller_1.OverlayController) === 'function' && _a) || Object, (typeof (_b = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _d) || Object, (typeof (_e = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Compiler !== 'undefined' && core_1.Compiler) === 'function' && _f) || Object, (typeof (_g = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _g) || Object, (typeof (_h = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _h) || Object, (typeof (_j = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _j) || Object, (typeof (_k = typeof core_1.ChangeDetectorRef !== 'undefined' && core_1.ChangeDetectorRef) === 'function' && _k) || Object])
-	    ], OverlayNav);
-	    return OverlayNav;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
-	})(nav_controller_1.NavController);
-	exports.OverlayNav = OverlayNav;
-
-/***/ },
-/* 304 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var __param = (this && this.__param) || function (paramIndex, decorator) {
-	    return function (target, key) { decorator(target, key, paramIndex); }
-	};
-	var core_1 = __webpack_require__(8);
-	var ion_1 = __webpack_require__(284);
-	var app_1 = __webpack_require__(165);
-	var config_1 = __webpack_require__(270);
-	var platform_1 = __webpack_require__(271);
-	var keyboard_1 = __webpack_require__(278);
-	var gestures = __webpack_require__(305);
-	/**
-	 * @name Menu
-	 * @description
-	 * _For basic Menu usage, see the [Menu section](../../../../components/#menus)
-	 * of the Component docs._
-	 *
-	 * Menu is a side-menu navigation that can be dragged out or toggled to show.
-	 *
-	 * @usage
-	 * In order to use Menu, you must specify a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables)
-	 * to the content element that Menu should listen on for drag events, using the `content` property:
-	 *
-	 * ```html
-	 * <ion-menu [content]="mycontent">
-	 *   <ion-content>
-	 *     <ion-list>
-	 *     ...
-	 *     </ion-list>
-	 *   </ion-content>
-	 * </ion-menu>
-	 *
-	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
-	 * ```
-	 *
-	 * By default, Menus are on the left, but this can be overriden with the `side`
-	 * property:
-	 * ```html
-	 * <ion-menu [content]="mycontent" side="right"></ion-menu>
-	 * ```
-	 *
-	 * Menus can optionally be given an `id` attribute which allows the app to
-	 * to get ahold of menu references. If no `id` is given then the menu
-	 * automatically receives an `id` created from the side it is on, such as
-	 * `leftMenu` or `rightMenu`. When using more than one menu it is always
-	 * recommended to give each menu a unique `id`. Additionally menuToggle and
-	 * menuClose directives should be given menu id values of their respective
-	 * menu.
-	 *
-	 * Menu supports two display styles: overlay, and reveal. Overlay
-	 * is the traditional Android drawer style, and Reveal is the traditional iOS
-	 * style. By default, Menu will adjust to the correct style for the platform,
-	 * but this can be overriden using the `type` property:
-	 * ```html
-	 * <ion-menu [content]="mycontent" type="overlay"></ion-menu>
-	 * ```
-	 *
-	 * To programatically interact with the menu, you first get the menu component.
-	 *
-	 * ```ts
-	 * @Page({
-	 * `<ion-menu [content]="mycontent" id="leftMenu"></ion-menu>
-	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>`
-	 * )}
-	 * export class MyClass{
-	 *  constructor(app: IonicApp){
-	 *    this.app = app;
-	 *    this.menu;
-	 *  }
-	 *
-	 *  // Wait until the page is ready
-	 *  ngAfterViewInit(){
-	 *    this.menu = this.app.getComponent('leftMenu');
-	 *  }
-	 *
-	 *  // Open the menu programatically
-	 *  openMenu(){
-	 *    this.menu.open();
-	 *  }
-	 *
-	 * }
-	 * ```
-	 *
-	 * If you want to use any of the APIs down below, make sure to grabe the menu component by it's ID
-	 *
-	 * @demo /docs/v2/demos/menu/
-	 *
-	 * @see {@link /docs/v2/components#menus Menu Component Docs}
-	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
-	 * @see {@link ../../nav/Nav Nav API Docs}
-	 *
-	 */
-	var Menu = (function (_super) {
-	    __extends(Menu, _super);
-	    function Menu(elementRef, config, app, platform, keyboard, zone) {
-	        _super.call(this, elementRef, config);
-	        this.app = app;
-	        this.platform = platform;
-	        this.keyboard = keyboard;
-	        this.zone = zone;
-	        this.opening = new core_1.EventEmitter('opening');
-	        this.isOpen = false;
-	        this._preventTime = 0;
-	        this.isEnabled = true;
-	    }
-	    /**
-	     * @private
-	     */
-	    Menu.prototype.ngOnInit = function () {
-	        _super.prototype.ngOnInit.call(this);
-	        var self = this;
-	        var content = self.content;
-	        self._cntEle = (content instanceof Node) ? content : content && content.getNativeElement && content.getNativeElement();
-	        if (!self._cntEle) {
-	            return console.error('Menu: must have a [content] element to listen for drag events on. Example:\n\n<ion-menu [content]="content"></ion-menu>\n\n<ion-nav #content></ion-nav>');
-	        }
-	        if (self.side !== 'left' && self.side !== 'right') {
-	            self.side = 'left';
-	        }
-	        if (!self.id) {
-	            // Auto register
-	            self.id = self.side + 'Menu';
-	            if (self.app.getComponent(self.id)) {
-	                // id already exists, make sure this one is unique
-	                self.id += (++menuIds);
-	            }
-	            self.app.register(self.id, self);
-	        }
-	        self._initGesture();
-	        self._initType(self.type);
-	        self._cntEle.classList.add('menu-content');
-	        self._cntEle.classList.add('menu-content-' + self.type);
-	        self.onContentClick = function (ev) {
-	            if (self.isEnabled) {
-	                ev.preventDefault();
-	                ev.stopPropagation();
-	                self.close();
-	            }
-	        };
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype._initGesture = function () {
-	        var _this = this;
-	        this.zone.runOutsideAngular(function () {
-	            switch (_this.side) {
-	                case 'right':
-	                    _this._gesture = new gestures.RightMenuGesture(_this);
-	                    break;
-	                case 'left':
-	                    _this._gesture = new gestures.LeftMenuGesture(_this);
-	                    break;
-	            }
-	            _this._targetGesture = new gestures.TargetGesture(_this);
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype._initType = function (type) {
-	        type = type && type.trim().toLowerCase();
-	        if (!type) {
-	            type = this.config.get('menuType');
-	        }
-	        this.type = type;
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype._getType = function () {
-	        if (!this._type) {
-	            this._type = new menuTypes[this.type](this);
-	            if (this.config.get('animate') === false) {
-	                this._type.open.duration(33);
-	                this._type.close.duration(33);
-	            }
-	        }
-	        return this._type;
-	    };
-	    /**
-	     * Sets the state of the Menu to open or not.
-	     * @param {boolean} isOpen  If the Menu is open or not.
-	     * @return {Promise} returns a promise once set
-	     */
-	    Menu.prototype.setOpen = function (shouldOpen) {
-	        var _this = this;
-	        // _isPrevented is used to prevent unwanted opening/closing after swiping open/close
-	        // or swiping open the menu while pressing down on the menuToggle button
-	        if (shouldOpen === this.isOpen || this._isPrevented()) {
-	            return Promise.resolve();
-	        }
-	        this._before();
-	        return this._getType().setOpen(shouldOpen).then(function () {
-	            _this._after(shouldOpen);
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype.setProgressStart = function () {
-	        // user started swiping the menu open/close
-	        if (this._isPrevented() || !this.isEnabled)
-	            return;
-	        this._before();
-	        this._getType().setProgressStart(this.isOpen);
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype.setProgess = function (value) {
-	        // user actively dragging the menu
-	        if (this.isEnabled) {
-	            this._prevent();
-	            this._getType().setProgess(value);
-	            this.opening.next(value);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype.setProgressEnd = function (shouldComplete) {
-	        var _this = this;
-	        // user has finished dragging the menu
-	        if (this.isEnabled) {
-	            this._prevent();
-	            this._getType().setProgressEnd(shouldComplete).then(function (isOpen) {
-	                _this._after(isOpen);
-	            });
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype._before = function () {
-	        // this places the menu into the correct location before it animates in
-	        // this css class doesn't actually kick off any animations
-	        if (this.isEnabled) {
-	            this.getNativeElement().classList.add('show-menu');
-	            this.getBackdropElement().classList.add('show-backdrop');
-	            this._prevent();
-	            this.keyboard.close();
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype._after = function (isOpen) {
-	        // keep opening/closing the menu disabled for a touch more yet
-	        // only add listeners/css if it's enabled and isOpen
-	        // and only remove listeners/css if it's not open
-	        if ((this.isEnabled && isOpen) || !isOpen) {
-	            this._prevent();
-	            this.isOpen = isOpen;
-	            this._cntEle.classList[isOpen ? 'add' : 'remove']('menu-content-open');
-	            this._cntEle.removeEventListener('click', this.onContentClick);
-	            if (isOpen) {
-	                this._cntEle.addEventListener('click', this.onContentClick);
-	            }
-	            else {
-	                this.getNativeElement().classList.remove('show-menu');
-	                this.getBackdropElement().classList.remove('show-backdrop');
-	            }
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype._prevent = function () {
-	        // used to prevent unwanted opening/closing after swiping open/close
-	        // or swiping open the menu while pressing down on the menuToggle
-	        this._preventTime = Date.now() + 20;
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype._isPrevented = function () {
-	        return this._preventTime > Date.now();
-	    };
-	    /**
-	     * Progamatically open the Menu
-	     * @return {Promise} returns a promise when the menu is fully opened
-	     */
-	    Menu.prototype.open = function () {
-	        return this.setOpen(true);
-	    };
-	    /**
-	     * Progamatically close the Menu
-	     * @return {Promise} returns a promise when the menu is fully closed
-	     */
-	    Menu.prototype.close = function () {
-	        return this.setOpen(false);
-	    };
-	    /**
-	     * Toggle the menu. If it's closed, it will open, and if opened, it will close
-	     * @return {Promise} returns a promise when the menu has been toggled
-	     */
-	    Menu.prototype.toggle = function () {
-	        return this.setOpen(!this.isOpen);
-	    };
-	    /**
-	     * Used to enable or disable a menu. For example, there could be multiple
-	     * left menus, but only one of them should be able to be dragged open.
-	     * @param {boolean} shouldEnable  True if it should be enabled, false if not.
-	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
-	     */
-	    Menu.prototype.enable = function (shouldEnable) {
-	        this.isEnabled = shouldEnable;
-	        if (!shouldEnable) {
-	            this.close();
-	        }
-	        return this;
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype.getMenuElement = function () {
-	        return this.getNativeElement();
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype.getContentElement = function () {
-	        return this._cntEle;
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype.getBackdropElement = function () {
-	        return this.backdrop.elementRef.nativeElement;
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.register = function (name, cls) {
-	        menuTypes[name] = cls;
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype.ngOnDestroy = function () {
-	        this.app.unregister(this.id);
-	        this._gesture && this._gesture.destroy();
-	        this._targetGesture && this._targetGesture.destroy();
-	        this._type && this._type.ngOnDestroy();
-	        this._cntEle = null;
-	    };
-	    Menu.getById = function (app, menuId) {
-	        var menu = null;
-	        if (menuId) {
-	            menu = app.getComponent(menuId);
-	            if (!menu) {
-	                console.error('Menu with id "' + menuId + '" cannot be found for menuToggle');
-	                return;
-	            }
-	        }
-	        else {
-	            menu = app.getComponent('leftMenu');
-	            if (!menu) {
-	                menu = app.getComponent('rightMenu');
-	            }
-	            if (!menu) {
-	                console.error('Menu with id "leftMenu" or "rightMenu" cannot be found for menuToggle');
-	                return;
-	            }
-	        }
-	        return menu;
-	    };
-	    Menu = __decorate([
-	        core_1.Component({
-	            selector: 'ion-menu',
-	            inputs: [
-	                'content',
-	                'id',
-	                'side',
-	                'type'
-	            ],
-	            defaultInputs: {
-	                'side': 'left',
-	                'menuType': 'reveal'
-	            },
-	            outputs: ['opening'],
-	            host: {
-	                'role': 'navigation',
-	                '[attr.side]': 'side',
-	                '[attr.type]': 'type'
-	            },
-	            template: '<ng-content></ng-content><div tappable disable-activated class="backdrop"></div>',
-	            directives: [core_1.forwardRef(function () { return MenuBackdrop; })]
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _c) || Object, (typeof (_d = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _d) || Object, (typeof (_e = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _e) || Object, (typeof (_f = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _f) || Object])
-	    ], Menu);
-	    return Menu;
-	    var _a, _b, _c, _d, _e, _f;
-	})(ion_1.Ion);
-	exports.Menu = Menu;
-	var menuTypes = {};
-	var menuIds = 0;
-	var MenuBackdrop = (function () {
-	    function MenuBackdrop(menu, elementRef) {
-	        this.menu = menu;
-	        this.elementRef = elementRef;
-	        menu.backdrop = this;
-	    }
-	    /**
-	     * @private
-	     */
-	    MenuBackdrop.prototype.clicked = function (ev) {
-	        console.debug('backdrop clicked');
-	        ev.preventDefault();
-	        ev.stopPropagation();
-	        this.menu.close();
-	    };
-	    MenuBackdrop = __decorate([
-	        core_1.Directive({
-	            selector: '.backdrop',
-	            host: {
-	                '(click)': 'clicked($event)'
-	            }
-	        }),
-	        __param(0, core_1.Host()), 
-	        __metadata('design:paramtypes', [Menu, (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
-	    ], MenuBackdrop);
-	    return MenuBackdrop;
-	    var _a;
-	})();
-
-/***/ },
-/* 305 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var slide_edge_gesture_1 = __webpack_require__(287);
-	var util = __webpack_require__(276);
-	var MenuContentGesture = (function (_super) {
-	    __extends(MenuContentGesture, _super);
-	    function MenuContentGesture(menu, targetEl, options) {
-	        if (options === void 0) { options = {}; }
-	        _super.call(this, targetEl, util.extend({
-	            direction: (menu.side === 'left' || menu.side === 'right') ? 'x' : 'y',
-	            edge: menu.side,
-	            threshold: 75
-	        }, options));
-	        this.menu = menu;
-	        this.listen();
-	    }
-	    MenuContentGesture.prototype.canStart = function (ev) {
-	        return this.menu.isOpen && this.menu.isEnabled ? true : _super.prototype.canStart.call(this, ev);
-	    };
-	    // Set CSS, then wait one frame for it to apply before sliding starts
-	    MenuContentGesture.prototype.onSlideBeforeStart = function (slide, ev) {
-	        this.menu.setProgressStart();
-	    };
-	    MenuContentGesture.prototype.onSlide = function (slide, ev) {
-	        this.menu.setProgess(slide.distance / slide.max);
-	    };
-	    MenuContentGesture.prototype.onSlideEnd = function (slide, ev) {
-	        var shouldComplete = (Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
-	        this.menu.setProgressEnd(shouldComplete);
-	    };
-	    MenuContentGesture.prototype.getElementStartPos = function (slide, ev) {
-	        return this.menu.isOpen ? slide.max : slide.min;
-	    };
-	    MenuContentGesture.prototype.getSlideBoundaries = function () {
-	        return {
-	            min: 0,
-	            max: this.menu.width()
-	        };
-	    };
-	    return MenuContentGesture;
-	})(slide_edge_gesture_1.SlideEdgeGesture);
-	exports.MenuContentGesture = MenuContentGesture;
-	/**
-	 * Support dragging the target menu as well as the content.
-	 */
-	var TargetGesture = (function (_super) {
-	    __extends(TargetGesture, _super);
-	    function TargetGesture(menu) {
-	        _super.call(this, menu, menu.getNativeElement(), {
-	            threshold: 0
-	        });
-	    }
-	    return TargetGesture;
-	})(MenuContentGesture);
-	exports.TargetGesture = TargetGesture;
-	var LeftMenuGesture = (function (_super) {
-	    __extends(LeftMenuGesture, _super);
-	    function LeftMenuGesture(menu) {
-	        _super.call(this, menu, menu.getContentElement());
-	    }
-	    return LeftMenuGesture;
-	})(MenuContentGesture);
-	exports.LeftMenuGesture = LeftMenuGesture;
-	var RightMenuGesture = (function (_super) {
-	    __extends(RightMenuGesture, _super);
-	    function RightMenuGesture(menu) {
-	        _super.call(this, menu, menu.getContentElement());
-	    }
-	    RightMenuGesture.prototype.onSlide = function (slide, ev) {
-	        this.menu.setProgess(slide.distance / slide.min);
-	    };
-	    RightMenuGesture.prototype.getElementStartPos = function (slide, ev) {
-	        return this.menu.isOpen ? slide.min : slide.max;
-	    };
-	    RightMenuGesture.prototype.getSlideBoundaries = function () {
-	        return {
-	            min: -this.menu.width(),
-	            max: 0
-	        };
-	    };
-	    return RightMenuGesture;
-	})(MenuContentGesture);
-	exports.RightMenuGesture = RightMenuGesture;
-
-/***/ },
-/* 306 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -49212,9 +46236,9 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var app_1 = __webpack_require__(165);
-	var view_controller_1 = __webpack_require__(285);
-	var navbar_1 = __webpack_require__(307);
-	var menu_1 = __webpack_require__(304);
+	var view_controller_1 = __webpack_require__(297);
+	var navbar_1 = __webpack_require__(301);
+	var menu_1 = __webpack_require__(287);
 	/**
 	* @name MenuToggle
 	* @description
@@ -49285,7 +46309,1858 @@
 	exports.MenuToggle = MenuToggle;
 
 /***/ },
-/* 307 */
+/* 297 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var nav_controller_1 = __webpack_require__(298);
+	/**
+	 * @name ViewController
+	 * @description
+	 * Access various features and information about the current view
+	 * @usage
+	 *  ```ts
+	 *  import {Page, ViewController} from 'ionic/ionic';
+	 *  @Page....
+	 *  export class MyPage{
+	 *   constructor(viewCtrl: ViewController){
+	 *     this.viewCtrl = viewCtrl;
+	 *   }
+	 *  }
+	 *  ```
+	 */
+	var ViewController = (function () {
+	    function ViewController(componentType, data) {
+	        if (data === void 0) { data = {}; }
+	        this._emitter = new core_1.EventEmitter();
+	        this.componentType = componentType;
+	        this.data = data;
+	        this.instance = {};
+	        this.state = 0;
+	        this._destroys = [];
+	        this._loaded = false;
+	        this.shouldDestroy = false;
+	        this.shouldCache = false;
+	        this.viewType = '';
+	        this._leavingOpts = null;
+	        this._onDismiss = null;
+	    }
+	    ViewController.prototype.subscribe = function (callback) {
+	        this._emitter.subscribe(callback);
+	    };
+	    ViewController.prototype.emit = function (data) {
+	        this._emitter.emit(data);
+	    };
+	    ViewController.prototype.onDismiss = function (callback) {
+	        this._onDismiss = callback;
+	    };
+	    ViewController.prototype.dismiss = function (data) {
+	        this._onDismiss && this._onDismiss(data);
+	        return this._nav.remove(this._nav.indexOf(this), this._leavingOpts);
+	    };
+	    ViewController.prototype.setNav = function (navCtrl) {
+	        this._nav = navCtrl;
+	    };
+	    ViewController.prototype.getTransitionName = function (direction) {
+	        return this._nav && this._nav.config.get('pageTransition');
+	    };
+	    ViewController.prototype.getNavParams = function () {
+	        return new nav_controller_1.NavParams(this.data);
+	    };
+	    ViewController.prototype.setLeavingOpts = function (opts) {
+	        this._leavingOpts = opts;
+	    };
+	    /**
+	     * Check to see if you can go back in the navigation stack
+	     * @param {boolean} Check whether or not you can go back from this page
+	     * @returns {boolean} Returns if it's possible to go back from this Page.
+	     */
+	    ViewController.prototype.enableBack = function () {
+	        // update if it's possible to go back from this nav item
+	        if (this._nav) {
+	            var previousItem = this._nav.getPrevious(this);
+	            // the previous view may exist, but if it's about to be destroyed
+	            // it shouldn't be able to go back to
+	            return !!(previousItem && !previousItem.shouldDestroy);
+	        }
+	        return false;
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.setInstance = function (instance) {
+	        this.instance = instance;
+	    };
+	    Object.defineProperty(ViewController.prototype, "name", {
+	        /**
+	         * @private
+	         */
+	        get: function () {
+	            return this.componentType ? this.componentType.name : '';
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(ViewController.prototype, "index", {
+	        /**
+	         * You can find out the index of the current view is in the current navigation stack
+	         *
+	         * ```typescript
+	         *  export class Page1 {
+	         *    constructor(view: ViewController){
+	         *      this.view = view;
+	         *      // Just log out the index
+	         *      console.log(this.view.index);
+	         *    }
+	         *  }
+	         * ```
+	         *
+	         * @returns {Number} Returns the index of this page within its NavController.
+	         */
+	        get: function () {
+	            return (this._nav ? this._nav.indexOf(this) : -1);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @returns {boolean} Returns if this Page is the root page of the NavController.
+	     */
+	    ViewController.prototype.isRoot = function () {
+	        return (this.index === 0);
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.addDestroy = function (destroyFn) {
+	        this._destroys.push(destroyFn);
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.destroy = function () {
+	        for (var i = 0; i < this._destroys.length; i++) {
+	            this._destroys[i]();
+	        }
+	        this._destroys = [];
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.setNavbarTemplateRef = function (templateRef) {
+	        this._nbTmpRef = templateRef;
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.getNavbarTemplateRef = function () {
+	        return this._nbTmpRef;
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.getNavbarViewRef = function () {
+	        return this._nbVwRef;
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.setNavbarViewRef = function (viewContainerRef) {
+	        this._nbVwRef = viewContainerRef;
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.setPageRef = function (elementRef) {
+	        this._pgRef = elementRef;
+	    };
+	    /**
+	     * @private
+	     * @returns {ElementRef} Returns the Page's ElementRef
+	     */
+	    ViewController.prototype.pageRef = function () {
+	        return this._pgRef;
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.setContentRef = function (elementRef) {
+	        this._cntRef = elementRef;
+	    };
+	    /**
+	     * @private
+	     * @returns {ElementRef} Returns the Page's Content ElementRef
+	     */
+	    ViewController.prototype.contentRef = function () {
+	        return this._cntRef;
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.setContent = function (directive) {
+	        this._cntDir = directive;
+	    };
+	    /**
+	     * @private
+	     * @returns {Component} Returns the Page's Content component reference.
+	     */
+	    ViewController.prototype.getContent = function () {
+	        return this._cntDir;
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.setNavbar = function (directive) {
+	        this._nbDir = directive;
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.getNavbar = function () {
+	        return this._nbDir;
+	    };
+	    /**
+	     * You can find out of the current view has a Navbar or not. Be sure to wrap this in an `onPageWillEnter` method in order to make sure the view has rendered fully.
+	     *
+	     * ```typescript
+	     * export class Page1 {
+	     *  constructor(view: ViewController) {
+	     *    this.view = view
+	     *  }
+	     *  onPageWillEnter(){
+	     *    console.log('Do we have a Navbar?', this.view.hasNavbar());
+	     *  }
+	     *}
+	     * ```
+	     *
+	     * @returns {boolean} Returns a boolean if this Page has a navbar or not.
+	     */
+	    ViewController.prototype.hasNavbar = function () {
+	        return !!this.getNavbar();
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.navbarRef = function () {
+	        var navbar = this.getNavbar();
+	        return navbar && navbar.getElementRef();
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.titleRef = function () {
+	        var navbar = this.getNavbar();
+	        return navbar && navbar.getTitleRef();
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.navbarItemRefs = function () {
+	        var navbar = this.getNavbar();
+	        return navbar && navbar.getItemRefs();
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.backBtnRef = function () {
+	        var navbar = this.getNavbar();
+	        return navbar && navbar.getBackButtonRef();
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.backBtnTextRef = function () {
+	        var navbar = this.getNavbar();
+	        return navbar && navbar.getBackButtonTextRef();
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.navbarBgRef = function () {
+	        var navbar = this.getNavbar();
+	        return navbar && navbar.getBackgroundRef();
+	    };
+	    /**
+	     * You can change the text of the back button on a view-by-view basis.
+	     *
+	     * ```ts
+	     * export class MyClass{
+	     *  constructor(viewCtrl: ViewController){
+	     *    this.viewCtrl = viewCtrl
+	     *  }
+	     *  onPageWillEnter() {
+	     *    this.viewCtrl.setBackButtonText('Previous');
+	     *  }
+	     * }
+	     * ```
+	     * Make sure you use the view events when calling this method, otherwise the back-button will not have been created
+	     *
+	     * @param {string} backButtonText Set the back button text.
+	     */
+	    ViewController.prototype.setBackButtonText = function (val) {
+	        var navbar = this.getNavbar();
+	        if (navbar) {
+	            navbar.bbText = val;
+	        }
+	    };
+	    /**
+	     * Set if the back button for the current view is visible or not. Be sure to wrap this in `onPageWillEnter` to make sure the has been compleltly rendered.
+	     * @param {boolean} Set if this Page's back button should show or not.
+	     */
+	    ViewController.prototype.showBackButton = function (shouldShow) {
+	        var navbar = this.getNavbar();
+	        if (navbar) {
+	            navbar.hideBackButton = !shouldShow;
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.isLoaded = function () {
+	        return this._loaded;
+	    };
+	    /**
+	     * @private
+	     * The view has loaded. This event only happens once per view being
+	     * created. If a view leaves but is cached, then this will not
+	     * fire again on a subsequent viewing. This method is a good place
+	     * to put your setup code for the view; however, it is not the
+	     * recommended method to use when a view becomes active.
+	     */
+	    ViewController.prototype.loaded = function () {
+	        this._loaded = true;
+	        if (!this.shouldDestroy) {
+	            ctrlFn(this, 'onPageLoaded');
+	        }
+	    };
+	    /**
+	     * @private
+	     * The view is about to enter and become the active view.
+	     */
+	    ViewController.prototype.willEnter = function () {
+	        if (!this.shouldDestroy) {
+	            ctrlFn(this, 'onPageWillEnter');
+	        }
+	    };
+	    /**
+	     * @private
+	     * The view has fully entered and is now the active view. This
+	     * will fire, whether it was the first load or loaded from the cache.
+	     */
+	    ViewController.prototype.didEnter = function () {
+	        var navbar = this.getNavbar();
+	        navbar && navbar.didEnter();
+	        ctrlFn(this, 'onPageDidEnter');
+	    };
+	    /**
+	     * @private
+	     * The view has is about to leave and no longer be the active view.
+	     */
+	    ViewController.prototype.willLeave = function () {
+	        ctrlFn(this, 'onPageWillLeave');
+	    };
+	    /**
+	     * @private
+	     * The view has finished leaving and is no longer the active view. This
+	     * will fire, whether it is cached or unloaded.
+	     */
+	    ViewController.prototype.didLeave = function () {
+	        ctrlFn(this, 'onPageDidLeave');
+	    };
+	    /**
+	     * @private
+	     * The view is about to be destroyed and have its elements removed.
+	     */
+	    ViewController.prototype.willUnload = function () {
+	        ctrlFn(this, 'onPageWillUnload');
+	    };
+	    /**
+	     * @private
+	     * The view has been destroyed and its elements have been removed.
+	     */
+	    ViewController.prototype.didUnload = function () {
+	        ctrlFn(this, 'onPageDidUnload');
+	    };
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	    ], ViewController.prototype, "_emitter");
+	    return ViewController;
+	    var _a;
+	})();
+	exports.ViewController = ViewController;
+	function ctrlFn(viewCtrl, fnName) {
+	    if (viewCtrl.instance && viewCtrl.instance[fnName]) {
+	        try {
+	            viewCtrl.instance[fnName]();
+	        }
+	        catch (e) {
+	            console.error(fnName + ': ' + e.message);
+	        }
+	    }
+	}
+
+/***/ },
+/* 298 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var core_1 = __webpack_require__(8);
+	var instrumentation_1 = __webpack_require__(299);
+	var ion_1 = __webpack_require__(288);
+	var view_controller_1 = __webpack_require__(297);
+	var animation_1 = __webpack_require__(284);
+	var swipe_back_1 = __webpack_require__(300);
+	var util_1 = __webpack_require__(272);
+	var dom_1 = __webpack_require__(273);
+	/**
+	 * _For examples on the basic usage of NavController, check out the
+	 * [Navigation section](../../../../components/#navigation) of the Component
+	 * docs._
+	 *
+	 * NavController is the base class for navigation controller components like
+	 * [`Nav`](../Nav/) and [`Tab`](../../Tabs/Tab/). You use navigation controllers
+	 * to navigate to [pages](#creating_pages) in your app. At a basic level, a
+	 * navigation controller is an array of pages representing a particular history
+	 * (of a Tab for example). This array can be manipulated to navigate throughout
+	 * an app by pushing and popping pages or inserting and removing them at
+	 * arbitrary locations in history.
+	 *
+	 * The current page is the last one in the array, or the top of the stack if we
+	 * think of it that way.  [Pushing](#push) a new page onto the top of the
+	 * navigation stack causes the new page to be animated in, while [popping](#pop)
+	 * the current page will navigate to the previous page in the stack.
+	 *
+	 * Unless you are using a directive like [NavPush](../NavPush/), or need a
+	 * specific NavController, most times you will inject and use a reference to the
+	 * nearest NavController to manipulate the navigation stack.
+	 *
+	 * <h3 id="injecting_nav_controller">Injecting NavController</h3>
+	 * Injecting NavController will always get you an instance of the nearest
+	 * NavController, regardless of whether it is a Tab or a Nav.
+	 *
+	 * Behind the scenes, when Ionic instantiates a new NavController, it creates an
+	 * injector with NavController bound to that instance (usually either a Nav or
+	 * Tab) and adds the injector to its own providers.  For more information on
+	 * providers and dependency injection, see [Providers and DI]().
+	 *
+	 * Instead, you can inject NavController and know that it is the correct
+	 * navigation controller for most situations (for more advanced situations, see
+	 * [Menu](../../Menu/Menu/) and [Tab](../../Tab/Tab/)).
+	 *
+	 * ```ts
+	 *  class MyComponent {
+	 *    constructor(nav: NavController) {
+	 *      this.nav = nav;
+	 *    }
+	 *  }
+	 * ```
+	 *
+	 * <h2 id="creating_pages">Page creation</h2>
+	 * _For more information on the `@Page` decorator see the [@Page API
+	 * reference](../../../decorators/Page/)._
+	 *
+	 * Pages are created when they are added to the navigation stack.  For methods
+	 * like [push()](#push), the NavController takes any component class that is
+	 * decorated with `@Page` as its first argument.  The NavController then
+	 * compiles that component, adds it to the app and animates it into view.
+	 *
+	 * By default, pages are cached and left in the DOM if they are navigated away
+	 * from but still in the navigation stack (the exiting page on a `push()` for
+	 * example).  They are destroyed when removed from the navigation stack (on
+	 * [pop()](#pop) or [setRoot()](#setRoot)).
+	 *
+	 *
+	 * <h2 id="Lifecycle">Lifecycle events</h2>
+	 * Lifecycle events are fired during various stages of navigation.  They can be
+	 * defined in any `@Page` decorated component class.
+	 *
+	 * ```ts
+	 * @Page({
+	 *   template: 'Hello World'
+	 * })
+	 * class HelloWorld {
+	 *   onPageLoaded() {
+	 *     console.log("I'm alive!");
+	 *   }
+	 *   onPageWillLeave() {
+	 *     console.log("Looks like I'm about to leave :(");
+	 *   }
+	 * }
+	 * ```
+	 *
+	 *
+	 *
+	 * - `onPageLoaded` - Runs when the page has loaded. This event only happens once per page being created and added to the DOM. If a page leaves but is cached, then this event will not fire again on a subsequent viewing. The `onPageLoaded` event is good place to put your setup code for the page.
+	 * - `onPageWillEnter` - Runs when the page is about to enter and become the active page.
+	 * - `onPageDidEnter` - Runs when the page has fully entered and is now the active page. This event will fire, whether it was the first load or a cached page.
+	 * - `onPageWillLeave` - Runs when the page is about to leave and no longer be the active page.
+	 * - `onPageDidLeave` - Runs when the page has finished leaving and is no longer the active page.
+	 * - `onPageWillUnload` - Runs when the page is about to be destroyed and have its elements removed.
+	 * - `onPageDidUnload` - Runs after the page has been destroyed and its elements have been removed.
+	 *
+	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+	 */
+	var NavController = (function (_super) {
+	    __extends(NavController, _super);
+	    function NavController(parentnavCtrl, app, config, keyboard, elementRef, anchorName, compiler, viewManager, zone, renderer, cd) {
+	        _super.call(this, elementRef, config);
+	        this.parent = parentnavCtrl;
+	        this.app = app;
+	        this.config = config;
+	        this.keyboard = keyboard;
+	        this._anchorName = anchorName;
+	        this._compiler = compiler;
+	        this._viewManager = viewManager;
+	        this._zone = zone;
+	        this._renderer = renderer;
+	        this._cd = cd;
+	        this._views = [];
+	        this._trnsTime = 0;
+	        this._trnsDelay = config.get('pageTransitionDelay');
+	        this._sbTrans = null;
+	        this._sbEnabled = config.get('swipeBackEnabled') || false;
+	        this._sbThreshold = config.get('swipeBackThreshold') || 40;
+	        this.initZIndex = 10;
+	        this.id = ++ctrlIds;
+	        this._ids = -1;
+	        // build a new injector for child ViewControllers to use
+	        this.providers = core_1.Injector.resolve([
+	            core_1.provide(NavController, { useValue: this })
+	        ]);
+	    }
+	    /**
+	     * Boolean if the nav controller is actively transitioning or not.
+	     * @private
+	     * @return {bool}
+	     */
+	    NavController.prototype.isTransitioning = function () {
+	        return (this._trnsTime > Date.now());
+	    };
+	    /**
+	     * Boolean if the nav controller is actively transitioning or not.
+	     * @private
+	     * @return {bool}
+	     */
+	    NavController.prototype.setTransitioning = function (isTransitioning, fallback) {
+	        if (fallback === void 0) { fallback = 700; }
+	        this._trnsTime = (isTransitioning ? Date.now() + fallback : 0);
+	    };
+	    /**
+	     * Push is how we can pass components and navigate to them. We push the component we want to navigate to on to the navigation stack.
+	     *
+	     * ```typescript
+	     * class MyClass{
+	     *    constructor(nav:NavController){
+	     *      this.nav = nav;
+	     *    }
+	     *
+	     *    pushPage(){
+	     *      this.nav.push(SecondView);
+	     *    }
+	     * }
+	     * ```
+	     *
+	     * We can also pass along parameters to the next view, such as data that we have on the current view. This is a similar concept to to V1 apps with `$stateParams`.
+	     *
+	     * ```typescript
+	     * class MyClass{
+	     *    constructor(nav:NavController){
+	     *      this.nav = nav;
+	     *    }
+	     *
+	     *    pushPage(user){
+	     *      this.nav.push(SecondView,{
+	     *       // user is an object we have in our view
+	     *       // typically this comes from an ngFor or some array
+	     *       // here we can create an object with a property of
+	     *       // paramUser, and set it's value to the user object we passed in
+	     *       paramUser: user
+	     *      });
+	     *    }
+	     * }
+	     * ```
+	     *
+	     * We'll look at how we can access that data in the `SecondView` in the navParam docs
+	     *
+	     * We can also pass any options to the transtion from that same method
+	     *
+	     * ```typescript
+	     * class MyClass{
+	     *    constructor(nav: NavController){
+	     *      this.nav = nav;
+	     *    }
+	     *
+	     *    pushPage(user){
+	     *      this.nav.push(SecondView,{
+	     *       // user is an object we have in our view
+	     *       // typically this comes from an ngFor or some array
+	     *       // here we can create an object with a property of
+	     *       // paramUser, and set it's value to the user object we passed in
+	     *       paramUser: user
+	     *      },{
+	     *       // here we can configure things like the animations direction or
+	     *       // or if the view should animate at all.
+	     *       direction: 'back'
+	     *      });
+	     *    }
+	     * }
+	     * ```
+	     * @param {Any} component The page component class you want to push on to the navigation stack
+	     * @param {Object} [params={}] Any nav-params you want to pass along to the next view
+	     * @param {Object} [opts={}] Any options you want to use pass to transtion
+	     * @returns {Promise} Returns a promise, which resolves when the transition has completed
+	     */
+	    NavController.prototype.push = function (componentType, params, opts, callback) {
+	        if (params === void 0) { params = {}; }
+	        if (opts === void 0) { opts = {}; }
+	        if (!componentType) {
+	            var errMsg = 'invalid componentType to push';
+	            console.error(errMsg);
+	            return Promise.reject(errMsg);
+	        }
+	        if (typeof componentType !== 'function') {
+	            throw 'Loading component must be a component class, not "' + componentType.toString() + '"';
+	        }
+	        if (this.isTransitioning()) {
+	            return Promise.reject('nav controller actively transitioning');
+	        }
+	        this.setTransitioning(true, 500);
+	        var promise = null;
+	        if (!callback) {
+	            promise = new Promise(function (res) { callback = res; });
+	        }
+	        // do not animate if this is the first in the stack
+	        if (!this._views.length && !opts.animateFirst) {
+	            opts.animate = false;
+	        }
+	        // the active view is going to be the leaving one (if one exists)
+	        var leavingView = this.getActive() || new view_controller_1.ViewController();
+	        leavingView.shouldCache = (util_1.isBoolean(opts.cacheLeavingView) ? opts.cacheLeavingView : true);
+	        leavingView.shouldDestroy = !leavingView.shouldCache;
+	        if (leavingView.shouldDestroy) {
+	            leavingView.willUnload();
+	        }
+	        // create a new ViewController
+	        var enteringView = new view_controller_1.ViewController(componentType, params);
+	        enteringView.setNav(this);
+	        // default the direction to "forward"
+	        opts.direction = opts.direction || 'forward';
+	        if (!opts.animation) {
+	            opts.animation = enteringView.getTransitionName(opts.direction);
+	        }
+	        // add the view to the stack
+	        this._add(enteringView);
+	        if (this.router) {
+	            // notify router of the state change
+	            this.router.stateChange('push', enteringView, params);
+	        }
+	        // start the transition
+	        this._transition(enteringView, leavingView, opts, callback);
+	        return promise;
+	    };
+	    /**
+	     * Present is how we display overlays on top of the content, from within the
+	     * root level `NavController`. The `present` method is used by overlays, such
+	     * as `ActionSheet`, `Alert`, and `Modal`. The main difference between `push`
+	     * and `present`, is that `present` takes a `ViewController` instance, whereas
+	     * `push` takes a `Page` component class. Additionally, `present` will place
+	     * the overlay in the root NavController's stack.
+	     *
+	     * ```typescript
+	     * class MyClass{
+	     *    constructor(nav: NavController) {
+	     *      this.nav = nav;
+	     *    }
+	     *
+	     *    presentModal() {
+	     *      let modal = Modal.create(ProfilePage);
+	     *      this.nav.present(modal);
+	     *    }
+	     * }
+	     * ```
+	     *
+	     * @param {ViewController} enteringView The name of the component you want to push on the navigation stack
+	     * @param {Object} [opts={}] Any options you want to use pass to transtion
+	     * @returns {Promise} Returns a promise, which resolves when the transition has completed
+	     */
+	    NavController.prototype.present = function (enteringView, opts) {
+	        if (opts === void 0) { opts = {}; }
+	        var rootNav = this.rootNav;
+	        enteringView.setNav(rootNav);
+	        var resolve;
+	        var promise = new Promise(function (res) { resolve = res; });
+	        opts.keyboardClose = false;
+	        opts.skipCache = true;
+	        opts.direction = 'forward';
+	        if (!opts.animation) {
+	            opts.animation = enteringView.getTransitionName('forward');
+	        }
+	        enteringView.setLeavingOpts({
+	            keyboardClose: false,
+	            skipCache: true,
+	            direction: 'back',
+	            animation: enteringView.getTransitionName('back')
+	        });
+	        // the active view is going to be the leaving one (if one exists)
+	        var leavingView = rootNav.getActive() || new view_controller_1.ViewController();
+	        leavingView.shouldCache = (util_1.isBoolean(opts.cacheLeavingView) ? opts.cacheLeavingView : true);
+	        leavingView.shouldDestroy = !leavingView.shouldCache;
+	        if (leavingView.shouldDestroy) {
+	            leavingView.willUnload();
+	        }
+	        // add the view to the stack
+	        rootNav._add(enteringView);
+	        // start the transition
+	        rootNav._transition(enteringView, leavingView, opts, resolve);
+	        return promise;
+	    };
+	    /**
+	     * If you wanted to navigate back from a current view, you can use the back-button or programatically call `pop()`
+	     * Similar to `push()`, you can pass animation options.
+	     *
+	     * ```typescript
+	     * class SecondView{
+	     *    constructor(nav:NavController){
+	     *      this.nav = nav;
+	     *    }
+	     *    goBack(){
+	     *      this.nav.pop();
+	     *    }
+	     * }
+	     * ```
+	     *
+	     * @param {Object} [opts={}] Any options you want to use pass to transtion
+	     * @returns {Promise} Returns a promise when the transition is completed
+	     */
+	    NavController.prototype.pop = function (opts) {
+	        if (opts === void 0) { opts = {}; }
+	        if (!opts.animateFirst && !this.canGoBack()) {
+	            return Promise.reject('pop cannot go back');
+	        }
+	        if (this.isTransitioning()) {
+	            return Promise.reject('nav controller actively transitioning');
+	        }
+	        this.setTransitioning(true, 500);
+	        var resolve = null;
+	        var promise = new Promise(function (res) { resolve = res; });
+	        // get the active view and set that it is staged to be leaving
+	        // was probably the one popped from the stack
+	        var leavingView = this.getActive() || new view_controller_1.ViewController();
+	        leavingView.shouldCache = (util_1.isBoolean(opts.cacheLeavingView) ? opts.cacheLeavingView : false);
+	        leavingView.shouldDestroy = !leavingView.shouldCache;
+	        if (leavingView.shouldDestroy) {
+	            leavingView.willUnload();
+	        }
+	        // the entering view is now the new last view
+	        // Note: we might not have an entering view if this is the
+	        // only view on the history stack.
+	        var enteringView = this.getPrevious(leavingView);
+	        if (this.router) {
+	            // notify router of the state change
+	            this.router.stateChange('pop', enteringView);
+	        }
+	        // default the direction to "back"
+	        opts.direction = opts.direction || 'back';
+	        if (!opts.animation) {
+	            opts.animation = leavingView.getTransitionName(opts.direction);
+	        }
+	        // start the transition
+	        this._transition(enteringView, leavingView, opts, resolve);
+	        return promise;
+	    };
+	    /**
+	     * @private
+	     * Pop to a specific view in the history stack
+	     * @param view {ViewController} to pop to
+	     * @param {Object} [opts={}] Any options you want to use pass to transtion
+	     */
+	    NavController.prototype.popTo = function (viewCtrl, opts) {
+	        if (opts === void 0) { opts = {}; }
+	        // Get the target index of the view to pop to
+	        var viewIndex = this._views.indexOf(viewCtrl);
+	        var targetIndex = viewIndex + 1;
+	        // Don't pop to the view if it wasn't found, or the target is beyond the view list
+	        if (viewIndex < 0 || targetIndex > this._views.length - 1) {
+	            return Promise.resolve();
+	        }
+	        // ensure the entering view is shown
+	        this._cachePage(viewCtrl, true);
+	        var resolve = null;
+	        var promise = new Promise(function (res) { resolve = res; });
+	        opts.direction = opts.direction || 'back';
+	        if (!opts.animation) {
+	            opts.animation = viewCtrl.getTransitionName(opts.direction);
+	        }
+	        var leavingView = this.getActive() || new view_controller_1.ViewController();
+	        // get the views to auto remove without having to do a transiton for each
+	        // the last view (the currently active one) will do a normal transition out
+	        if (this._views.length > 1) {
+	            var autoRemoveItems = this._views.slice(targetIndex, this._views.length);
+	            var popView;
+	            for (var i = 0; i < autoRemoveItems.length; i++) {
+	                popView = autoRemoveItems[i];
+	                popView.shouldDestroy = true;
+	                popView.shouldCache = false;
+	                popView.willUnload();
+	                // only the leaving view should be shown, all others hide
+	                this._cachePage(popView, (popView === leavingView));
+	            }
+	        }
+	        if (this.router) {
+	            this.router.stateChange('pop', viewCtrl);
+	        }
+	        this._transition(viewCtrl, leavingView, opts, resolve);
+	        return promise;
+	    };
+	    /**
+	     * Similar to `pop()`, this method let's you navigate back to the root of the stack, no matter how many views that is
+	     * @param {Object} [opts={}] Any options you want to use pass to transtion
+	     */
+	    NavController.prototype.popToRoot = function (opts) {
+	        if (opts === void 0) { opts = {}; }
+	        return this.popTo(this.first(), opts);
+	    };
+	    /**
+	     * Inserts a view into the nav stack at the specified index.
+	     * This is useful if you need to add a view at any point in your navigation stack
+	     *
+	     * ```typescript
+	     * export class Detail {
+	     *    constructor(nav: NavController) {
+	     *      this.nav = nav;
+	     *    }
+	     *    insertView(){
+	     *      this.nav.insert(1,Info)
+	     *    }
+	     *  }
+	     * ```
+	     *
+	     * This will insert the `Info` view into the second slot of our navigation stack
+	     *
+	     * @param {Number} index The index where you want to insert the view
+	     * @param {Any} component The name of the component you want to insert into the nav stack
+	     * @returns {Promise} Returns a promise when the view has been inserted into the navigation stack
+	     */
+	    NavController.prototype.insert = function (index, componentType, params, opts) {
+	        if (params === void 0) { params = {}; }
+	        if (opts === void 0) { opts = {}; }
+	        if (!componentType || index < 0) {
+	            return Promise.reject('invalid insert');
+	        }
+	        // push it onto the end
+	        if (index >= this._views.length) {
+	            return this.push(componentType, params, opts);
+	        }
+	        // create new ViewController, but don't render yet
+	        var viewCtrl = new view_controller_1.ViewController(componentType, params);
+	        viewCtrl.setNav(this);
+	        viewCtrl.state = CACHED_STATE;
+	        viewCtrl.shouldDestroy = false;
+	        viewCtrl.shouldCache = false;
+	        this._incId(viewCtrl);
+	        this._views.splice(index, 0, viewCtrl);
+	        this._cleanup();
+	        return Promise.resolve();
+	    };
+	    /**
+	     * Removes a view from the nav stack at the specified index.
+	     *
+	     * ```typescript
+	     * export class Detail {
+	     *    constructor(nav: NavController) {
+	     *      this.nav = nav;
+	     *    }
+	     *    removeView(){
+	     *      this.nav.remove(1)
+	     *    }
+	     *  }
+	     * ```
+	     *
+	     * @param {Number} index Remove the view from the nav stack at that index
+	     * @param {Object} [opts={}] Any options you want to use pass to transtion
+	     * @returns {Promise} Returns a promise when the view has been removed
+	     */
+	    NavController.prototype.remove = function (index, opts) {
+	        if (opts === void 0) { opts = {}; }
+	        if (index < 0 || index >= this._views.length) {
+	            return Promise.reject("index out of range");
+	        }
+	        var viewToRemove = this._views[index];
+	        if (this.isActive(viewToRemove)) {
+	            return this.pop(opts);
+	        }
+	        viewToRemove.shouldDestroy = true;
+	        this._cleanup();
+	        return Promise.resolve();
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype.setViews = function (components, opts) {
+	        if (opts === void 0) { opts = {}; }
+	        console.warn('setViews() deprecated, use setPages() instead');
+	        return this.setPages(components, opts);
+	    };
+	    /**
+	     * You can set the views of the current navigation stack and navigate to the last view past
+	     *
+	     *
+	     *```typescript
+	     * import {Page, NavController} from 'ionic/ionic'
+	     * import {Detail} from '../detail/detail'
+	     * import {Info} from '../info/info'
+	     *
+	     *  export class Home {
+	     *    constructor(nav: NavController) {
+	     *      this.nav = nav;
+	     *    }
+	     *    setPages() {
+	     *      this.nav.setPages([List,Detail, Info]);
+	     *    }
+	     *  }
+	     *```
+	     *
+	     *
+	     *In this example, we're giving the current nav stack an array of pages. Then the navigation stack will navigate to the last view in the array and remove the orignal view you came from.
+	     *
+	     *By default, animations are disabled, but they can be enabled by passing options to the navigation controller
+	     *
+	     *
+	     *```typescript
+	     * import {Page, NavController} from 'ionic/ionic'
+	     * import {Detail} from '../detail/detail'
+	     * import {Info} from '../info/info'
+	     *
+	     *  export class Home {
+	     *    constructor(nav: NavController) {
+	     *      this.nav = nav;
+	     *    }
+	     *    setPages() {
+	     *      this.nav.setPages([List,Detail, Info],{
+	     *        animate: true
+	     *      });
+	     *    }
+	     *  }
+	     *```
+	     *
+	     *
+	     *You can also pass any navigation params to the individual pages in the array.
+	     *
+	     *
+	     *```typescript
+	     * import {Page, NavController} from 'ionic/ionic'
+	     * import {Detail} from '../detail/detail'
+	     * import {Info} from '../info/info'
+	     *
+	     *  export class Home {
+	     *    constructor(nav: NavController) {
+	     *      this.nav = nav;
+	     *    }
+	     *    setPages() {
+	     *      this.nav.setPages([{
+	     *        componentType: List,
+	     *        params: {id: 43}
+	     *      }, {
+	     *        componentType: Detail,
+	     *        params: {id: 45}
+	     *      },{
+	     *        componentType: Info,
+	     *        params: {id: 5}
+	     *      }]);
+	     *    }
+	     *  }
+	     *```
+	     *
+	     * @param {Array} component an arry of components to load in the stack
+	     * @param {Object} [opts={}] Any options you want to use pass
+	     * @returns {Promise} Returns a promise when the pages are set
+	     */
+	    NavController.prototype.setPages = function (components, opts) {
+	        if (opts === void 0) { opts = {}; }
+	        if (!components || !components.length) {
+	            return Promise.resolve();
+	        }
+	        var leavingView = this.getActive() || new view_controller_1.ViewController();
+	        // if animate has not been set then default to false
+	        opts.animate = opts.animate || false;
+	        // ensure leaving views are not cached, and should be destroyed
+	        opts.cacheLeavingView = false;
+	        // get the views to auto remove without having to do a transiton for each
+	        // the last view (the currently active one) will do a normal transition out
+	        if (this._views.length > 1) {
+	            var autoRemoveItems = this._views.slice(0, this._views.length - 1);
+	            var popView;
+	            for (var i = 0; i < autoRemoveItems.length; i++) {
+	                popView = autoRemoveItems[i];
+	                popView.shouldDestroy = true;
+	                popView.shouldCache = false;
+	                popView.willUnload();
+	                if (opts.animate) {
+	                    // only the leaving view should be shown, all others hide
+	                    this._cachePage(popView, (popView === leavingView));
+	                }
+	            }
+	        }
+	        var componentObj = null;
+	        var componentType = null;
+	        var viewCtrl = null;
+	        // create the ViewControllers that go before the new active ViewController
+	        // in the stack, but the previous views shouldn't render yet
+	        if (components.length > 1) {
+	            var newBeforeItems = components.slice(0, components.length - 1);
+	            for (var j = 0; j < newBeforeItems.length; j++) {
+	                componentObj = newBeforeItems[j];
+	                if (componentObj) {
+	                    // could be an object with a componentType property, or it is a componentType
+	                    componentType = componentObj.componentType || componentObj;
+	                    viewCtrl = new view_controller_1.ViewController(componentType, componentObj.params);
+	                    viewCtrl.setNav(this);
+	                    viewCtrl.state = CACHED_STATE;
+	                    viewCtrl.shouldDestroy = false;
+	                    viewCtrl.shouldCache = false;
+	                    // add the item to the stack
+	                    this._add(viewCtrl);
+	                }
+	            }
+	        }
+	        // get the component that will become the active item
+	        // it'll be the last one in the given components array
+	        componentObj = components[components.length - 1];
+	        componentType = componentObj.componentType || componentObj;
+	        // transition the leaving and entering
+	        return this.push(componentType, componentObj.params, opts);
+	    };
+	    /**
+	     * Set the root for the current navigation stack
+	     * @param {Component} The name of the component you want to push on the navigation stack
+	     * @param {Object} [params={}] Any nav-params you want to pass along to the next view
+	     * @param {Object} [opts={}] Any options you want to use pass to transtion
+	     * @returns {Promise} Returns a promise when done
+	     */
+	    NavController.prototype.setRoot = function (componentType, params, opts) {
+	        if (params === void 0) { params = {}; }
+	        if (opts === void 0) { opts = {}; }
+	        return this.setPages([{
+	                componentType: componentType,
+	                params: params
+	            }], opts);
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._transition = function (enteringView, leavingView, opts, done) {
+	        if (enteringView === leavingView) {
+	            // if the entering view and leaving view are the same thing don't continue
+	            return done(enteringView);
+	        }
+	        if (this.config.get('animate') === false) {
+	            opts.animate = false;
+	        }
+	        if (!enteringView) {
+	            // if no entering view then create a bogus one
+	            // already consider this bogus one loaded
+	            enteringView = new view_controller_1.ViewController();
+	            enteringView.loaded();
+	        }
+	        var wtfScope = instrumentation_1.wtfStartTimeRange('ionic.NavController#_transition ' + enteringView.name);
+	        /* Async steps to complete a transition
+	          1. _render: compile the view and render it in the DOM. Load page if it hasn't loaded already. When done call postRender
+	          2. _postRender: Run willEnter/willLeave, then wait a frame (change detection happens), then call beginTransition
+	          3. _beforeTrans: Create the transition's animation, play the animation, wait for it to end
+	          4. _afterTrans: Run didEnter/didLeave, call _transComplete()
+	          5. _transComplete: Cleanup, remove cache views, then call the final callback
+	        */
+	        // begin the multiple async process of transitioning to the entering view
+	        this._render(enteringView, leavingView, opts, function () {
+	            instrumentation_1.wtfEndTimeRange(wtfScope);
+	            done(enteringView);
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._render = function (enteringView, leavingView, opts, done) {
+	        // compile/load the view into the DOM
+	        var _this = this;
+	        if (enteringView.shouldDestroy) {
+	            // about to be destroyed, shouldn't continue
+	            done();
+	        }
+	        else if (enteringView.isLoaded()) {
+	            // already compiled this view, do not load again and continue
+	            this._postRender(enteringView, leavingView, opts, done);
+	        }
+	        else {
+	            // view has not been compiled/loaded yet
+	            // continue once the view has finished compiling
+	            // DOM WRITE
+	            this.loadPage(enteringView, null, opts, function () {
+	                if (enteringView.onReady) {
+	                    // this entering view needs to wait for it to be ready
+	                    // this is used by Tabs to wait for the first page of
+	                    // the first selected tab to be loaded
+	                    enteringView.onReady(function () {
+	                        enteringView.loaded();
+	                        _this._postRender(enteringView, leavingView, opts, done);
+	                    });
+	                }
+	                else {
+	                    enteringView.loaded();
+	                    _this._postRender(enteringView, leavingView, opts, done);
+	                }
+	            });
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._postRender = function (enteringView, leavingView, opts, done) {
+	        var _this = this;
+	        var wtfScope = instrumentation_1.wtfStartTimeRange('ionic.NavController#_postRender ' + enteringView.name);
+	        // called after _render has completed and the view is compiled/loaded
+	        if (enteringView.shouldDestroy) {
+	            // view already marked as a view that will be destroyed, don't continue
+	            instrumentation_1.wtfEndTimeRange(wtfScope);
+	            done();
+	        }
+	        else if (!opts.preload) {
+	            // the enteringView will become the active view, and is not being preloaded
+	            // call each view's lifecycle events
+	            // POSSIBLE DOM READ THEN DOM WRITE
+	            enteringView.willEnter();
+	            leavingView.willLeave();
+	            // set the correct zIndex for the entering and leaving views
+	            // DOM WRITE
+	            this._setZIndex(enteringView, leavingView, opts.direction);
+	            // make sure the entering and leaving views are showing
+	            // and all others are hidden, but don't remove the leaving view yet
+	            // DOM WRITE
+	            this._cleanup(enteringView, leavingView, true, opts.skipCache);
+	            // lifecycle events may have updated some data
+	            // wait one frame and allow the raf to do a change detection
+	            // before kicking off the transition and showing the new view
+	            dom_1.raf(function () {
+	                instrumentation_1.wtfEndTimeRange(wtfScope);
+	                _this._beforeTrans(enteringView, leavingView, opts, done);
+	            });
+	        }
+	        else {
+	            // this view is being preloaded, don't call lifecycle events
+	            // transition does not need to animate
+	            opts.animate = false;
+	            instrumentation_1.wtfEndTimeRange(wtfScope);
+	            this._beforeTrans(enteringView, leavingView, opts, done);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._beforeTrans = function (enteringView, leavingView, opts, done) {
+	        var _this = this;
+	        var wtfScope = instrumentation_1.wtfStartTimeRange('ionic.NavController#_beforeTrans ' + enteringView.name);
+	        // called after one raf from postRender()
+	        // create the transitions animation, play the animation
+	        // when the transition ends call wait for it to end
+	        // everything during the transition should runOutsideAngular
+	        this._zone.runOutsideAngular(function () {
+	            // ensure the entering view is not destroyed or cached
+	            enteringView.shouldDestroy = false;
+	            enteringView.shouldCache = false;
+	            // set that the new view pushed on the stack is staged to be entering/leaving
+	            // staged state is important for the transition to find the correct view
+	            enteringView.state = STAGED_ENTERING_STATE;
+	            leavingView.state = STAGED_LEAVING_STATE;
+	            // init the transition animation
+	            opts.renderDelay = opts.transitionDelay || self._trnsDelay;
+	            // set if this app is right-to-left or not
+	            opts.isRTL = _this.config.platform.isRTL();
+	            var transAnimation = animation_1.Animation.createTransition(enteringView, leavingView, opts);
+	            if (opts.animate === false) {
+	                // force it to not animate the elements, just apply the "to" styles
+	                transAnimation.clearDuration();
+	                transAnimation.duration(0);
+	            }
+	            var duration = transAnimation.duration();
+	            var enableApp = (duration < 64);
+	            // block any clicks during the transition and provide a
+	            // fallback to remove the clickblock if something goes wrong
+	            _this.app.setEnabled(enableApp, duration);
+	            _this.setTransitioning(!enableApp, duration);
+	            if (enteringView.viewType) {
+	                transAnimation.before.addClass(enteringView.viewType);
+	            }
+	            instrumentation_1.wtfEndTimeRange(wtfScope);
+	            // start the transition
+	            transAnimation.play(function () {
+	                // transition animation has ended
+	                // dispose the animation and it's element references
+	                transAnimation.dispose();
+	                _this._afterTrans(enteringView, leavingView, opts, done);
+	            });
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._afterTrans = function (enteringView, leavingView, opts, done) {
+	        var _this = this;
+	        var wtfScope = instrumentation_1.wtfStartTimeRange('ionic.NavController#_afterTrans ' + enteringView.name);
+	        // transition has completed, update each view's state
+	        // place back into the zone, run didEnter/didLeave
+	        // call the final callback when done
+	        enteringView.state = ACTIVE_STATE;
+	        leavingView.state = CACHED_STATE;
+	        // run inside of the zone again
+	        this._zone.run(function () {
+	            if (!opts.preload) {
+	                enteringView.didEnter();
+	                leavingView.didLeave();
+	            }
+	            if (opts.keyboardClose !== false && _this.keyboard.isOpen()) {
+	                // the keyboard is still open!
+	                // no problem, let's just close for them
+	                _this.keyboard.close();
+	                _this.keyboard.onClose(function () {
+	                    // keyboard has finished closing, transition complete
+	                    _this._transComplete();
+	                    instrumentation_1.wtfEndTimeRange(wtfScope);
+	                    done();
+	                }, 32);
+	            }
+	            else {
+	                // all good, transition complete
+	                _this._transComplete();
+	                instrumentation_1.wtfEndTimeRange(wtfScope);
+	                done();
+	            }
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._transComplete = function () {
+	        var wtfScope = instrumentation_1.wtfCreateScope('ionic.NavController#_transComplete')();
+	        this._views.forEach(function (view) {
+	            if (view) {
+	                if (view.shouldDestroy) {
+	                    view.didUnload();
+	                }
+	                else if (view.state === CACHED_STATE && view.shouldCache) {
+	                    view.shouldCache = false;
+	                }
+	            }
+	        });
+	        // allow clicks again, but still set an enable time
+	        // meaning nothing with this view controller can happen for XXms
+	        this.app.setEnabled(true);
+	        this.setTransitioning(false);
+	        this._sbComplete();
+	        this._cleanup();
+	        instrumentation_1.wtfLeave(wtfScope);
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype.loadPage = function (viewCtrl, navbarContainerRef, opts, done) {
+	        var _this = this;
+	        var wtfTimeRangeScope = instrumentation_1.wtfStartTimeRange('ionic.NavController#loadPage ' + viewCtrl.name);
+	        // guts of DynamicComponentLoader#loadIntoLocation
+	        this._compiler.compileInHost(viewCtrl.componentType).then(function (hostProtoViewRef) {
+	            var wtfScope = instrumentation_1.wtfCreateScope('ionic.NavController#loadPage_After_Compile')();
+	            var providers = _this.providers.concat(core_1.Injector.resolve([
+	                core_1.provide(view_controller_1.ViewController, { useValue: viewCtrl }),
+	                core_1.provide(NavParams, { useValue: viewCtrl.getNavParams() })
+	            ]));
+	            var location = _this.elementRef;
+	            if (_this._anchorName) {
+	                location = _this._viewManager.getNamedElementInComponentView(location, _this._anchorName);
+	            }
+	            var viewContainer = _this._viewManager.getViewContainer(location);
+	            var hostViewRef = viewContainer.createHostView(hostProtoViewRef, viewContainer.length, providers);
+	            var pageElementRef = _this._viewManager.getHostElement(hostViewRef);
+	            var component = _this._viewManager.getComponent(pageElementRef);
+	            // auto-add page css className created from component JS class name
+	            var cssClassName = util_1.pascalCaseToDashCase(viewCtrl.componentType.name);
+	            _this._renderer.setElementClass(pageElementRef, cssClassName, true);
+	            viewCtrl.addDestroy(function () {
+	                // ensure the element is cleaned up for when the view pool reuses this element
+	                _this._renderer.setElementAttribute(pageElementRef, 'class', null);
+	                _this._renderer.setElementAttribute(pageElementRef, 'style', null);
+	                // remove the page from its container
+	                var index = viewContainer.indexOf(hostViewRef);
+	                if (index !== -1) {
+	                    viewContainer.remove(index);
+	                }
+	            });
+	            // a new ComponentRef has been created
+	            // set the ComponentRef's instance to this ViewController
+	            viewCtrl.setInstance(component);
+	            // remember the ElementRef to the ion-page elementRef that was just created
+	            viewCtrl.setPageRef(pageElementRef);
+	            if (!navbarContainerRef) {
+	                navbarContainerRef = viewCtrl.getNavbarViewRef();
+	            }
+	            var navbarTemplateRef = viewCtrl.getNavbarTemplateRef();
+	            if (navbarContainerRef && navbarTemplateRef) {
+	                var navbarView = navbarContainerRef.createEmbeddedView(navbarTemplateRef);
+	                viewCtrl.addDestroy(function () {
+	                    var index = navbarContainerRef.indexOf(navbarView);
+	                    if (index > -1) {
+	                        navbarContainerRef.remove(index);
+	                    }
+	                });
+	            }
+	            opts.postLoad && opts.postLoad(viewCtrl);
+	            if (_this._views.length === 1) {
+	                _this._zone.runOutsideAngular(function () {
+	                    dom_1.rafFrames(38, function () {
+	                        _this._renderer.setElementClass(_this.elementRef, 'has-views', true);
+	                    });
+	                });
+	            }
+	            instrumentation_1.wtfEndTimeRange(wtfTimeRangeScope);
+	            instrumentation_1.wtfLeave(wtfScope);
+	            done(viewCtrl);
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._setZIndex = function (enteringView, leavingView, direction) {
+	        var enteringPageRef = enteringView && enteringView.pageRef();
+	        if (enteringPageRef) {
+	            if (!leavingView || !leavingView.isLoaded()) {
+	                enteringView.zIndex = this.initZIndex;
+	            }
+	            else if (direction === 'back') {
+	                // moving back
+	                enteringView.zIndex = leavingView.zIndex - 1;
+	            }
+	            else {
+	                // moving forward
+	                enteringView.zIndex = leavingView.zIndex + 1;
+	            }
+	            if (enteringView.zIndex !== enteringView._zIndex) {
+	                this._renderer.setElementStyle(enteringPageRef, 'z-index', enteringView.zIndex);
+	                enteringView._zIndex = enteringView.zIndex;
+	            }
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._cachePage = function (viewCtrl, shouldShow) {
+	        // using hidden element attribute to display:none and not render views
+	        // renderAttr of '' means the hidden attribute will be added
+	        // renderAttr of null means the hidden attribute will be removed
+	        // doing checks to make sure we only make an update to the element when needed
+	        if (shouldShow && viewCtrl._hdnAttr === '' ||
+	            !shouldShow && viewCtrl._hdnAttr !== '') {
+	            viewCtrl._hdnAttr = (shouldShow ? null : '');
+	            this._renderer.setElementAttribute(viewCtrl.pageRef(), 'hidden', viewCtrl._hdnAttr);
+	            var navbarRef = viewCtrl.navbarRef();
+	            if (navbarRef) {
+	                this._renderer.setElementAttribute(navbarRef, 'hidden', viewCtrl._hdnAttr);
+	            }
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._cleanup = function (activeView, previousView, skipDestroy, skipCache) {
+	        var _this = this;
+	        // the active page, and the previous page, should be rendered in dom and ready to go
+	        // all others, like a cached page 2 back, should be display: none and not rendered
+	        var destroys = [];
+	        activeView = activeView || this.getActive();
+	        previousView = previousView || this.getPrevious(activeView);
+	        this._views.forEach(function (view) {
+	            if (view) {
+	                if (view.shouldDestroy && !skipDestroy) {
+	                    destroys.push(view);
+	                }
+	                else if (view.isLoaded() && !skipCache) {
+	                    var shouldShow = (view === activeView) || (view === previousView);
+	                    _this._cachePage(view, shouldShow);
+	                }
+	            }
+	        });
+	        // all pages being destroyed should be removed from the list of pages
+	        // and completely removed from the dom
+	        destroys.forEach(function (view) {
+	            _this._remove(view);
+	            view.destroy();
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype.swipeBackStart = function () {
+	        var _this = this;
+	        return;
+	        if (!this.app.isEnabled() || !this.canSwipeBack()) {
+	            return;
+	        }
+	        // disables the app during the transition
+	        this.app.setEnabled(false);
+	        this.setTransitioning(true);
+	        // default the direction to "back"
+	        var opts = {
+	            direction: 'back'
+	        };
+	        // get the active view and set that it is staged to be leaving
+	        // was probably the one popped from the stack
+	        var leavingView = this.getActive() || new view_controller_1.ViewController();
+	        leavingView.shouldDestroy = true;
+	        leavingView.shouldCache = false;
+	        leavingView.willLeave();
+	        leavingView.willUnload();
+	        // the entering view is now the new last view
+	        var enteringView = this.getPrevious(leavingView);
+	        enteringView.shouldDestroy = false;
+	        enteringView.shouldCache = false;
+	        enteringView.willEnter();
+	        // wait for the new view to complete setup
+	        this._render(enteringView, {}, function () {
+	            _this._zone.runOutsideAngular(function () {
+	                // set that the new view pushed on the stack is staged to be entering/leaving
+	                // staged state is important for the transition to find the correct view
+	                enteringView.state = STAGED_ENTERING_STATE;
+	                leavingView.state = STAGED_LEAVING_STATE;
+	                // init the swipe back transition animation
+	                _this._sbTrans = Transition.create(_this, opts);
+	                _this._sbTrans.easing('linear').progressStart();
+	            });
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype.swipeBackProgress = function (value) {
+	        return;
+	        if (this._sbTrans) {
+	            // continue to disable the app while actively dragging
+	            this.app.setEnabled(false, 4000);
+	            this.setTransitioning(true, 4000);
+	            // set the transition animation's progress
+	            this._sbTrans.progress(value);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype.swipeBackEnd = function (completeSwipeBack, rate) {
+	        var _this = this;
+	        return;
+	        if (!this._sbTrans)
+	            return;
+	        // disables the app during the transition
+	        this.app.setEnabled(false);
+	        this.setTransitioning(true);
+	        this._sbTrans.progressEnd(completeSwipeBack, rate).then(function () {
+	            _this._zone.run(function () {
+	                // find the views that were entering and leaving
+	                var enteringView = _this._getStagedEntering();
+	                var leavingView = _this._getStagedLeaving();
+	                if (enteringView && leavingView) {
+	                    // finish up the animation
+	                    if (completeSwipeBack) {
+	                        // swipe back has completed navigating back
+	                        // update each view's state
+	                        enteringView.state = ACTIVE_STATE;
+	                        leavingView.state = CACHED_STATE;
+	                        enteringView.didEnter();
+	                        leavingView.didLeave();
+	                        if (_this.router) {
+	                            // notify router of the pop state change
+	                            _this.router.stateChange('pop', enteringView);
+	                        }
+	                    }
+	                    else {
+	                        // cancelled the swipe back, they didn't end up going back
+	                        // return views to their original state
+	                        leavingView.state = ACTIVE_STATE;
+	                        enteringView.state = CACHED_STATE;
+	                        leavingView.willEnter();
+	                        leavingView.didEnter();
+	                        enteringView.didLeave();
+	                        leavingView.shouldDestroy = false;
+	                        enteringView.shouldDestroy = false;
+	                    }
+	                }
+	                // empty out and dispose the swipe back transition animation
+	                _this._sbTrans && _this._sbTrans.dispose();
+	                _this._sbTrans = null;
+	                // all done!
+	                _this._transComplete();
+	            });
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._sbComplete = function () {
+	        return;
+	        if (this.canSwipeBack()) {
+	            // it is possible to swipe back
+	            if (this.sbGesture) {
+	                // this is already an active gesture, don't create another one
+	                return;
+	            }
+	            var opts = {
+	                edge: 'left',
+	                threshold: this._sbThreshold
+	            };
+	            this.sbGesture = new swipe_back_1.SwipeBackGesture(this.getNativeElement(), opts, this);
+	            console.debug('SwipeBackGesture listen');
+	            this.sbGesture.listen();
+	        }
+	        else if (this.sbGesture) {
+	            // it is not possible to swipe back and there is an
+	            // active sbGesture, so unlisten it
+	            console.debug('SwipeBackGesture unlisten');
+	            this.sbGesture.unlisten();
+	            this.sbGesture = null;
+	        }
+	    };
+	    /**
+	     * Check to see if swipe-to-go-back is enabled
+	     * @param {boolean=} isSwipeBackEnabled Set whether or not swipe-to-go-back is enabled
+	     * @returns {boolean} Whether swipe-to-go-back is enabled
+	     */
+	    NavController.prototype.isSwipeBackEnabled = function (val) {
+	        if (arguments.length) {
+	            this._sbEnabled = !!val;
+	        }
+	        return this._sbEnabled;
+	    };
+	    /**
+	     * If it's possible to use swipe back or not. If it's not possible
+	     * to go back, or swipe back is not enable then this will return false.
+	     * If it is possible to go back, and swipe back is enabled, then this
+	     * will return true.
+	     * @returns {boolean} Whether you can swipe to go back
+	     */
+	    NavController.prototype.canSwipeBack = function () {
+	        return (this._sbEnabled && this.canGoBack());
+	    };
+	    /**
+	     * Returns `true` if there's a valid previous page that we can pop back to.
+	     * Otherwise returns false.
+	     * @returns {boolean} Whether there is a page to go back to
+	     */
+	    NavController.prototype.canGoBack = function () {
+	        var activeView = this.getActive();
+	        if (activeView) {
+	            return activeView.enableBack();
+	        }
+	        return false;
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype.navbarViewContainer = function (nbContainer) {
+	        if (nbContainer) {
+	            this._nbContainer = nbContainer;
+	        }
+	        if (this._nbContainer) {
+	            return this._nbContainer;
+	        }
+	        if (this.parent) {
+	            return this.parent.navbarViewContainer();
+	        }
+	    };
+	    /**
+	     * @private
+	     * @returns {TODO} TODO
+	     */
+	    NavController.prototype.anchorElementRef = function () {
+	        if (arguments.length) {
+	            this._anchorER = arguments[0];
+	        }
+	        return this._anchorER;
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._add = function (viewCtrl) {
+	        this._incId(viewCtrl);
+	        this._views.push(viewCtrl);
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._incId = function (viewCtrl) {
+	        viewCtrl.id = this.id + '-' + (++this._ids);
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._remove = function (viewOrIndex) {
+	        util_1.array.remove(this._views, viewOrIndex);
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._getStagedEntering = function () {
+	        for (var i = 0, ii = this._views.length; i < ii; i++) {
+	            if (this._views[i].state === STAGED_ENTERING_STATE) {
+	                return this._views[i];
+	            }
+	        }
+	        return null;
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._getStagedLeaving = function () {
+	        for (var i = 0, ii = this._views.length; i < ii; i++) {
+	            if (this._views[i].state === STAGED_LEAVING_STATE) {
+	                return this._views[i];
+	            }
+	        }
+	        return null;
+	    };
+	    /**
+	     * @private
+	     * @returns {Component} TODO
+	     */
+	    NavController.prototype.getActive = function () {
+	        for (var i = this._views.length - 1; i >= 0; i--) {
+	            if (this._views[i].state === ACTIVE_STATE && !this._views[i].shouldDestroy) {
+	                return this._views[i];
+	            }
+	        }
+	        return null;
+	    };
+	    /**
+	     * @param {Index} The index of the page you want to get
+	     * @returns {Component} Returns the component that matches the index given
+	     */
+	    NavController.prototype.getByIndex = function (index) {
+	        if (index < this._views.length && index > -1) {
+	            return this._views[index];
+	        }
+	        return null;
+	    };
+	    /**
+	     * @private
+	     * @param {TODO} view  TODO
+	     * @returns {TODO} TODO
+	     */
+	    NavController.prototype.getPrevious = function (viewCtrl) {
+	        if (viewCtrl) {
+	            var viewIndex = this._views.indexOf(viewCtrl);
+	            for (var i = viewIndex - 1; i >= 0; i--) {
+	                if (!this._views[i].shouldDestroy) {
+	                    return this._views[i];
+	                }
+	            }
+	        }
+	        return null;
+	    };
+	    /**
+	     * First page in this nav controller's stack. This would not return a page which is about to be destroyed.
+	     * @returns {Component} Returns the first component page in the current stack
+	     */
+	    NavController.prototype.first = function () {
+	        for (var i = 0, l = this._views.length; i < l; i++) {
+	            if (!this._views[i].shouldDestroy) {
+	                return this._views[i];
+	            }
+	        }
+	        return null;
+	    };
+	    /**
+	     * Last page in this nav controller's stack. This would not return a page which is about to be destroyed.
+	     * @returns {Component} Returns the last component page in the current stack
+	     */
+	    NavController.prototype.last = function () {
+	        for (var i = this._views.length - 1; i >= 0; i--) {
+	            if (!this._views[i].shouldDestroy) {
+	                return this._views[i];
+	            }
+	        }
+	        return null;
+	    };
+	    /**
+	     * @private
+	     * @param {TODO} view  TODO
+	     * @returns {TODO} TODO
+	     */
+	    NavController.prototype.indexOf = function (viewCtrl) {
+	        return this._views.indexOf(viewCtrl);
+	    };
+	    /**
+	     * Number of sibling views in the nav controller. This does
+	     * not include views which are about to be destroyed.
+	     * @returns {Number} The number of views in stack, including the current view
+	     */
+	    NavController.prototype.length = function () {
+	        var len = 0;
+	        for (var i = 0, l = this._views.length; i < l; i++) {
+	            if (!this._views[i].shouldDestroy) {
+	                len++;
+	            }
+	        }
+	        return len;
+	    };
+	    /**
+	     * @private
+	     * @param {TODO} view  TODO
+	     * @returns {boolean}
+	     */
+	    NavController.prototype.isActive = function (viewCtrl) {
+	        return !!(viewCtrl && viewCtrl.state === ACTIVE_STATE);
+	    };
+	    Object.defineProperty(NavController.prototype, "rootNav", {
+	        /**
+	         * Returns the root NavController.
+	         * @returns {NavController}
+	         */
+	        get: function () {
+	            var nav = this;
+	            while (nav.parent) {
+	                nav = nav.parent;
+	            }
+	            return nav;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     * @param {TODO} router  TODO
+	     */
+	    NavController.prototype.registerRouter = function (router) {
+	        this.router = router;
+	    };
+	    return NavController;
+	})(ion_1.Ion);
+	exports.NavController = NavController;
+	var ACTIVE_STATE = 1;
+	var CACHED_STATE = 2;
+	var STAGED_ENTERING_STATE = 3;
+	var STAGED_LEAVING_STATE = 4;
+	var ctrlIds = -1;
+	/**
+	 * @name NavParams
+	 * @description
+	 * NavParams are an object that exists on a page and can contain data for that particular view.
+	 * Similar to how data was pass to a view in V1 with `$stateParams`, NavParams offer a much more flexible
+	 * option with a simple `get` method.
+	 *
+	 * @usage
+	 * ```ts
+	 * export class MyClass{
+	 *  constructor(params: NavParams){
+	 *    this.params = params;
+	 *    // userParams is an object we have in our nav-parameters
+	 *    this.params.get('userParams');
+	 *  }
+	 * }
+	 * ```
+	 * @demo /docs/v2/demos/nav-params/
+	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+	 * @see {@link ../NavController/ NavController API Docs}
+	 * @see {@link ../Nav/ Nav API Docs}
+	 * @see {@link ../NavPush/ NavPush API Docs}
+	 */
+	var NavParams = (function () {
+	    /**
+	     * @private
+	     * @param {TODO} data  TODO
+	     */
+	    function NavParams(data) {
+	        this.data = data || {};
+	    }
+	    /**
+	     * Get the value of a nav-parameter for the current view
+	     *
+	     * ```ts
+	     * export class MyClass{
+	     *  constructor(params: NavParams){
+	     *    this.params = params;
+	     *    // userParams is an object we have in our nav-parameters
+	     *    this.params.get('userParams');
+	     *  }
+	     * }
+	     * ```
+	     *
+	     *
+	     * @param {string} parameter Which param you want to look up
+	     */
+	    NavParams.prototype.get = function (param) {
+	        return this.data[param];
+	    };
+	    return NavParams;
+	})();
+	exports.NavParams = NavParams;
+
+/***/ },
+/* 299 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';var profile_1 = __webpack_require__(51);
+	exports.wtfCreateScope = profile_1.wtfCreateScope;
+	exports.wtfLeave = profile_1.wtfLeave;
+	exports.wtfStartTimeRange = profile_1.wtfStartTimeRange;
+	exports.wtfEndTimeRange = profile_1.wtfEndTimeRange;
+
+
+/***/ },
+/* 300 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var slide_edge_gesture_1 = __webpack_require__(290);
+	var SwipeBackGesture = (function (_super) {
+	    __extends(SwipeBackGesture, _super);
+	    function SwipeBackGesture(element, opts, navCtrl) {
+	        if (opts === void 0) { opts = {}; }
+	        _super.call(this, element, opts);
+	        // Can check corners through use of eg 'left top'
+	        this.edges = opts.edge.split(' ');
+	        this.threshold = opts.threshold;
+	        this.navCtrl = navCtrl;
+	    }
+	    SwipeBackGesture.prototype.onSlideStart = function () {
+	        this.navCtrl.swipeBackStart();
+	    };
+	    SwipeBackGesture.prototype.onSlide = function (slide, ev) {
+	        this.navCtrl.swipeBackProgress(slide.distance / slide.max);
+	    };
+	    SwipeBackGesture.prototype.onSlideEnd = function (slide, ev) {
+	        var shouldComplete = (Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
+	        // TODO: calculate a better playback rate depending on velocity and distance
+	        this.navCtrl.swipeBackEnd(shouldComplete, 1);
+	    };
+	    return SwipeBackGesture;
+	})(slide_edge_gesture_1.SlideEdgeGesture);
+	exports.SwipeBackGesture = SwipeBackGesture;
+
+/***/ },
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -49294,10 +48169,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -49306,13 +48183,13 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var ion_1 = __webpack_require__(284);
-	var icon_1 = __webpack_require__(280);
-	var toolbar_1 = __webpack_require__(308);
+	var ion_1 = __webpack_require__(288);
+	var icon_1 = __webpack_require__(302);
+	var toolbar_1 = __webpack_require__(303);
 	var config_1 = __webpack_require__(270);
 	var app_1 = __webpack_require__(165);
-	var view_controller_1 = __webpack_require__(285);
-	var nav_controller_1 = __webpack_require__(282);
+	var view_controller_1 = __webpack_require__(297);
+	var nav_controller_1 = __webpack_require__(298);
 	var BackButton = (function (_super) {
 	    __extends(BackButton, _super);
 	    function BackButton(navCtrl, elementRef, navbar) {
@@ -49529,7 +48406,140 @@
 	exports.NavbarTemplate = NavbarTemplate;
 
 /***/ },
-/* 308 */
+/* 302 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var config_1 = __webpack_require__(270);
+	/**
+	 * @name Icon
+	 * @description
+	 * Icons can be used on their own, or inside of a number of Ionic components. For a full list of available icons,
+	 * check out the [Ionicons resource docs](../../../../resources/ionicons).
+	 *
+	 * @usage
+	 * ```html
+	 * <!-- use the appropriate home icon for ios and md -->
+	 * <icon home></icon>
+	 *
+	 * <!-- explicity set the icon for each platform -->
+	 * <icon ios="ion-ios-home" md="ion-md-home"></icon>
+	 * ```
+	 *
+	 * @property {boolean} [isActive] - Whether or not the icon is active. Icons that are not active will use an outlined version of the icon.
+	 * If there is not an outlined version for the particular icon, it will use the default (full) version.
+	 * @property {string} [ios] - Explicitly set the icon to use on iOS.
+	 * @property {string} [md] - Explicitly set the icon to use on Android.
+	 * @see {@link /docs/v2/components#icons Icon Component Docs}
+	 *
+	 */
+	var Icon = (function () {
+	    function Icon(_elementRef, config, _renderer) {
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
+	        this.config = config;
+	        this.mode = config.get('iconMode');
+	    }
+	    /**
+	     * @private
+	     */
+	    Icon.prototype.ngOnInit = function () {
+	        var ele = this._elementRef.nativeElement;
+	        if (this.mode == 'ios' && this.ios) {
+	            this.name = this.ios;
+	        }
+	        else if (this.mode == 'md' && this.md) {
+	            this.name = this.md;
+	        }
+	        else if (!this.name) {
+	            // looping through native dom attributes, eww
+	            // https://github.com/angular/angular/issues/1818
+	            for (var i = 0, l = ele.attributes.length; i < l; i++) {
+	                if (ele.attributes[i].value === '' && /_|item-|isActive|large|small|class/.test(ele.attributes[i].name) !== true) {
+	                    this.name = ele.attributes[i].name;
+	                    break;
+	                }
+	            }
+	        }
+	        if (!this.name)
+	            return;
+	        if (!(/^ion-/.test(this.name))) {
+	            // not an exact icon being used
+	            // add mode specific prefix
+	            this.name = 'ion-' + this.mode + '-' + this.name;
+	        }
+	        this.update();
+	    };
+	    Object.defineProperty(Icon.prototype, "isActive", {
+	        get: function () {
+	            return (this._isActive === undefined || this._isActive === true || this._isActive === 'true');
+	        },
+	        /**
+	         * @private
+	         */
+	        set: function (val) {
+	            this._isActive = val;
+	            this.update();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     */
+	    Icon.prototype.update = function () {
+	        if (this.name && this.mode == 'ios') {
+	            if (this.isActive) {
+	                if (/-outline/.test(this.name)) {
+	                    this.name = this.name.replace('-outline', '');
+	                }
+	            }
+	            else if (!(/-outline/.test(this.name))) {
+	                this.name += '-outline';
+	            }
+	        }
+	        if (this._name !== this.name) {
+	            if (this._name) {
+	                this._renderer.setElementClass(this._elementRef, this._name, false);
+	            }
+	            this._name = this.name;
+	            this._renderer.setElementClass(this._elementRef, this.name, true);
+	            this._renderer.setElementAttribute(this._elementRef, 'aria-label', this.name.replace('ion-', '').replace('ios-', '').replace('md-', '').replace('-', ' '));
+	        }
+	    };
+	    Icon = __decorate([
+	        core_1.Directive({
+	            selector: 'icon',
+	            inputs: [
+	                'name',
+	                'ios',
+	                'md',
+	                'isActive'
+	            ],
+	            host: {
+	                'role': 'img'
+	            }
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
+	    ], Icon);
+	    return Icon;
+	    var _a, _b, _c;
+	})();
+	exports.Icon = Icon;
+
+/***/ },
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -49538,10 +48548,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -49550,10 +48562,10 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var ion_1 = __webpack_require__(284);
+	var ion_1 = __webpack_require__(288);
 	var config_1 = __webpack_require__(270);
-	var navbar_1 = __webpack_require__(307);
-	var button_1 = __webpack_require__(294);
+	var navbar_1 = __webpack_require__(301);
+	var button_1 = __webpack_require__(304);
 	/**
 	 * @private
 	 */
@@ -49723,11 +48735,12 @@
 	        enumerable: true,
 	        configurable: true
 	    });
-	    __decorate([
-	        core_1.ContentChildren(button_1.Button), 
-	        __metadata('design:type', Object), 
-	        __metadata('design:paramtypes', [Object])
-	    ], ToolbarItem.prototype, "_buttons", null);
+	    Object.defineProperty(ToolbarItem.prototype, "_buttons",
+	        __decorate([
+	            core_1.ContentChildren(button_1.Button), 
+	            __metadata('design:type', Object), 
+	            __metadata('design:paramtypes', [Object])
+	        ], ToolbarItem.prototype, "_buttons", Object.getOwnPropertyDescriptor(ToolbarItem.prototype, "_buttons")));
 	    ToolbarItem = __decorate([
 	        core_1.Directive({
 	            selector: 'ion-buttons,[menuToggle],ion-nav-items'
@@ -49743,21 +48756,228 @@
 	exports.ToolbarItem = ToolbarItem;
 
 /***/ },
-/* 309 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var config_1 = __webpack_require__(270);
+	/**
+	  * @name Button
+	  * @module ionic
+	  * @property [outline] - for an unfilled outline button
+	  * @property [clear] - for a transparent button that only shows text and icons
+	  * @property [round] - for a button with rounded corners
+	  * @property [block] - for a block button that fills it's parent container
+	  * @property [full] - for a full width button
+	  * @property [small] - sets button size to small
+	  * @property [large] - sets button size to large
+	  * @property [disabled] - disables the button
+	  * @property [fab] - for a floating action button
+	  * @property [fab-left] - position a fab button to the left
+	  * @property [fab-right] - position a fab button to the right
+	  * @property [fab-center] - position a fab button towards the center
+	  * @property [fab-top] - position a fab button towards the top
+	  * @property [fab-bottom] - position a fab button towards the bottom
+	  * @property [color] - Dynamically set which color attribute this button should use.
+	  * @description
+	  * Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.
+	  * @demo /docs/v2/demos/buttons/
+	  * @see {@link /docs/v2/components#buttons Button Component Docs}
+
+	 */
+	var Button = (function () {
+	    function Button(config, _elementRef, _renderer) {
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
+	        this._role = 'button'; // bar-button/item-button
+	        this._size = null; // large/small
+	        this._style = 'default'; // outline/clear/solid
+	        this._shape = null; // round/fab
+	        this._display = null; // block/full
+	        this._lastColor = null;
+	        this._colors = []; // primary/secondary
+	        this._icon = null; // left/right/only
+	        this._disabled = false; // disabled
+	        var element = _elementRef.nativeElement;
+	        if (config.get('hoverCSS') === false) {
+	            _renderer.setElementClass(_elementRef, 'disable-hover', true);
+	        }
+	        if (element.hasAttribute('ion-item')) {
+	            // no need to put on these classes for an ion-item
+	            this._role = null;
+	            return;
+	        }
+	        if (element.hasAttribute('disabled')) {
+	            this._disabled = true;
+	        }
+	        this._readAttrs(element);
+	        this._readIcon(element);
+	    }
+	    /**
+	     * @private
+	     */
+	    Button.prototype.ngAfterContentInit = function () {
+	        this._lastColor = this.color;
+	        if (this.color) {
+	            this._colors = [this.color];
+	        }
+	        this._assignCss(true);
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.prototype.ngAfterContentChecked = function () {
+	        if (this._lastColor !== this.color) {
+	            this._assignCss(false);
+	            this._lastColor = this.color;
+	            this._colors = [this.color];
+	            this._assignCss(true);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.prototype.setRole = function (val) {
+	        this._role = val;
+	    };
+	    Button.prototype._readIcon = function (element) {
+	        // figure out if and where the icon lives in the button
+	        var childNodes = element.childNodes;
+	        var childNode;
+	        var nodes = [];
+	        for (var i = 0, l = childNodes.length; i < l; i++) {
+	            childNode = childNodes[i];
+	            if (childNode.nodeType === 3) {
+	                // text node
+	                if (childNode.textContent.trim() !== '') {
+	                    nodes.push(TEXT);
+	                }
+	            }
+	            else if (childNode.nodeType === 1) {
+	                if (childNode.nodeName === 'ICON') {
+	                    // icon element node
+	                    nodes.push(ICON);
+	                }
+	                else {
+	                    // element other than an <icon>
+	                    nodes.push(TEXT);
+	                }
+	            }
+	        }
+	        if (nodes.length > 1) {
+	            if (nodes[0] === ICON && nodes[1] === TEXT) {
+	                this._icon = 'icon-left';
+	            }
+	            else if (nodes[0] === TEXT && nodes[1] === ICON) {
+	                this._icon = 'icon-right';
+	            }
+	        }
+	        else if (nodes.length === 1 && nodes[0] === ICON) {
+	            this._icon = 'icon-only';
+	        }
+	    };
+	    Button.prototype._readAttrs = function (element) {
+	        var elementAttrs = element.attributes;
+	        var attrName;
+	        for (var i = 0, l = elementAttrs.length; i < l; i++) {
+	            if (elementAttrs[i].value !== '')
+	                continue;
+	            attrName = elementAttrs[i].name;
+	            if (BUTTON_STYLE_ATTRS.indexOf(attrName) > -1) {
+	                this._style = attrName;
+	            }
+	            else if (BUTTON_DISPLAY_ATTRS.indexOf(attrName) > -1) {
+	                this._display = attrName;
+	            }
+	            else if (BUTTON_SHAPE_ATTRS.indexOf(attrName) > -1) {
+	                this._shape = attrName;
+	            }
+	            else if (BUTTON_SIZE_ATTRS.indexOf(attrName) > -1) {
+	                this._size = attrName;
+	            }
+	            else if (!(IGNORE_ATTRS.test(attrName))) {
+	                this._colors.push(attrName);
+	            }
+	        }
+	    };
+	    Button.prototype._assignCss = function (assignCssClass) {
+	        var _this = this;
+	        var role = this._role;
+	        if (role) {
+	            this._renderer.setElementClass(this._elementRef, role, assignCssClass); // button
+	            this._setClass(this._style, assignCssClass); // button-clear
+	            this._setClass(this._shape, assignCssClass); // button-round
+	            this._setClass(this._display, assignCssClass); // button-full
+	            this._setClass(this._size, assignCssClass); // button-small
+	            this._setClass(this._icon, assignCssClass); // button-icon-left
+	            var colorStyle = (this._style !== 'default' ? this._style + '-' : '');
+	            this._colors.forEach(function (colorName) {
+	                _this._setClass(colorStyle + colorName, assignCssClass); // button-secondary, button-clear-secondary
+	            });
+	        }
+	    };
+	    Button.prototype._setClass = function (type, assignCssClass) {
+	        if (type) {
+	            this._renderer.setElementClass(this._elementRef, this._role + '-' + type, assignCssClass);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.setRoles = function (contentButtonChildren, role) {
+	        var buttons = contentButtonChildren.toArray();
+	        buttons.forEach(function (button) {
+	            button.setRole(role);
+	        });
+	    };
+	    Button = __decorate([
+	        core_1.Directive({
+	            selector: 'button,[button]',
+	            inputs: ['color']
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
+	    ], Button);
+	    return Button;
+	    var _a, _b, _c;
+	})();
+	exports.Button = Button;
+	var BUTTON_SIZE_ATTRS = ['large', 'small'];
+	var BUTTON_STYLE_ATTRS = ['clear', 'outline', 'solid'];
+	var BUTTON_SHAPE_ATTRS = ['round', 'fab'];
+	var BUTTON_DISPLAY_ATTRS = ['block', 'full'];
+	var IGNORE_ATTRS = /_ng|button|left|right/;
+	var TEXT = 1;
+	var ICON = 2;
+
+/***/ },
+/* 305 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
 	var app_1 = __webpack_require__(165);
-	var menu_1 = __webpack_require__(304);
+	var menu_1 = __webpack_require__(287);
 	/**
 	* @name MenuClose
 	* @description
@@ -49809,14 +49029,16 @@
 	exports.MenuClose = MenuClose;
 
 /***/ },
-/* 310 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -49855,7 +49077,7 @@
 	exports.Blur = Blur;
 
 /***/ },
-/* 311 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -49864,10 +49086,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -49876,12 +49100,12 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var ion_1 = __webpack_require__(284);
+	var ion_1 = __webpack_require__(288);
+	var app_1 = __webpack_require__(165);
 	var config_1 = __webpack_require__(270);
 	var dom_1 = __webpack_require__(273);
-	var keyboard_1 = __webpack_require__(278);
-	var view_controller_1 = __webpack_require__(285);
-	var scroll_to_1 = __webpack_require__(312);
+	var view_controller_1 = __webpack_require__(297);
+	var scroll_to_1 = __webpack_require__(308);
 	/**
 	 * @name Content
 	 * @description
@@ -49905,11 +49129,12 @@
 	     * @param {ElementRef} elementRef  A reference to the component's DOM element.
 	     * @param {Config} config  The config object to change content's default settings.
 	     */
-	    function Content(elementRef, config, keyboard, viewCtrl, _zone) {
-	        _super.call(this, elementRef, config);
+	    function Content(elementRef, _config, viewCtrl, _app, _zone) {
+	        _super.call(this, elementRef, _config);
+	        this._config = _config;
+	        this._app = _app;
 	        this._zone = _zone;
 	        this.scrollPadding = 0;
-	        this.keyboard = keyboard;
 	        if (viewCtrl) {
 	            viewCtrl.setContent(this);
 	            viewCtrl.setContentRef(elementRef);
@@ -49920,7 +49145,19 @@
 	     */
 	    Content.prototype.ngOnInit = function () {
 	        _super.prototype.ngOnInit.call(this);
-	        this.scrollElement = this.getNativeElement().children[0];
+	        var self = this;
+	        self.scrollElement = self.getNativeElement().children[0];
+	        self._scroll = function (ev) {
+	            self._app.setScrolling();
+	        };
+	        if (self._config.get('tapPolyfill') === true) {
+	            self._zone.runOutsideAngular(function () {
+	                self.scrollElement.addEventListener('scroll', self._scroll);
+	            });
+	        }
+	    };
+	    Content.prototype.ngOnDestroy = function () {
+	        this.scrollElement.removeEventListener('scroll', this._scroll);
 	    };
 	    /**
 	     * Adds the specified scroll handler to the content' scroll element.
@@ -50142,8 +49379,8 @@
 	                '<ng-content></ng-content>' +
 	                '</scroll-content>'
 	        }),
-	        __param(3, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _c) || Object, (typeof (_d = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object])
+	        __param(2, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object])
 	    ], Content);
 	    return Content;
 	    var _a, _b, _c, _d, _e;
@@ -50151,7 +49388,7 @@
 	exports.Content = Content;
 
 /***/ },
-/* 312 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var dom_1 = __webpack_require__(273);
@@ -50247,7 +49484,7 @@
 	}
 
 /***/ },
-/* 313 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -50256,16 +49493,18 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var ion_1 = __webpack_require__(284);
+	var ion_1 = __webpack_require__(288);
 	var config_1 = __webpack_require__(270);
 	/**
 	 * @name Scroll
@@ -50341,14 +49580,16 @@
 	exports.Scroll = Scroll;
 
 /***/ },
-/* 314 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -50358,8 +49599,8 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(169);
-	var content_1 = __webpack_require__(311);
-	var util = __webpack_require__(276);
+	var content_1 = __webpack_require__(307);
+	var util = __webpack_require__(294);
 	var dom_1 = __webpack_require__(273);
 	/**
 	 * @name Refresher
@@ -50766,7 +50007,7 @@
 	exports.Refresher = Refresher;
 
 /***/ },
-/* 315 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -50775,10 +50016,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -50788,14 +50031,14 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(169);
-	var ion_1 = __webpack_require__(284);
-	var animation_1 = __webpack_require__(281);
-	var gesture_1 = __webpack_require__(290);
+	var ion_1 = __webpack_require__(288);
+	var animation_1 = __webpack_require__(284);
+	var gesture_1 = __webpack_require__(293);
 	var config_1 = __webpack_require__(270);
-	var util_1 = __webpack_require__(276);
+	var util_1 = __webpack_require__(294);
 	var dom_1 = __webpack_require__(273);
-	var util = __webpack_require__(276);
-	var swiper_widget_1 = __webpack_require__(316);
+	var util = __webpack_require__(294);
+	var swiper_widget_1 = __webpack_require__(312);
 	/**
 	 * @name Slides
 	 * @description
@@ -51246,7 +50489,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Slides.prototype, "change", void 0);
+	    ], Slides.prototype, "change");
 	    Slides = __decorate([
 	        core_1.Component({
 	            selector: 'ion-slides',
@@ -51321,7 +50564,7 @@
 	exports.SlideLazy = SlideLazy;
 
 /***/ },
-/* 316 */
+/* 312 */
 /***/ function(module, exports) {
 
 	/**
@@ -55259,7 +54502,7 @@
 	}
 
 /***/ },
-/* 317 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -55268,10 +54511,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -55282,14 +54527,14 @@
 	var core_1 = __webpack_require__(8);
 	var core_2 = __webpack_require__(8);
 	var common_1 = __webpack_require__(169);
-	var ion_1 = __webpack_require__(284);
-	var id_1 = __webpack_require__(318);
+	var ion_1 = __webpack_require__(288);
+	var id_1 = __webpack_require__(314);
 	var config_1 = __webpack_require__(270);
 	var platform_1 = __webpack_require__(271);
-	var nav_controller_1 = __webpack_require__(282);
-	var view_controller_1 = __webpack_require__(285);
-	var config_component_1 = __webpack_require__(319);
-	var icon_1 = __webpack_require__(280);
+	var nav_controller_1 = __webpack_require__(298);
+	var view_controller_1 = __webpack_require__(297);
+	var config_component_1 = __webpack_require__(315);
+	var icon_1 = __webpack_require__(302);
 	var dom_1 = __webpack_require__(273);
 	/**
 	 * @name Tabs
@@ -55487,7 +54732,7 @@
 	    __decorate([
 	        core_2.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_2.EventEmitter !== 'undefined' && core_2.EventEmitter) === 'function' && _a) || Object)
-	    ], Tabs.prototype, "change", void 0);
+	    ], Tabs.prototype, "change");
 	    Tabs = __decorate([
 	        config_component_1.ConfigComponent({
 	            selector: 'ion-tabs',
@@ -55550,12 +54795,13 @@
 	    TabButton.prototype.onClick = function () {
 	        this.tabs.select(this.tab);
 	    };
-	    __decorate([
-	        core_1.HostListener('click'), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', []), 
-	        __metadata('design:returntype', void 0)
-	    ], TabButton.prototype, "onClick", null);
+	    Object.defineProperty(TabButton.prototype, "onClick",
+	        __decorate([
+	            core_1.HostListener('click'), 
+	            __metadata('design:type', Function), 
+	            __metadata('design:paramtypes', []), 
+	            __metadata('design:returntype', void 0)
+	        ], TabButton.prototype, "onClick", Object.getOwnPropertyDescriptor(TabButton.prototype, "onClick")));
 	    TabButton = __decorate([
 	        core_1.Directive({
 	            selector: '.tab-button',
@@ -55628,14 +54874,16 @@
 	})();
 
 /***/ },
-/* 318 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -55742,7 +54990,7 @@
 	exports.Attr = Attr;
 
 /***/ },
-/* 319 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(8);
@@ -55777,7 +55025,7 @@
 	}
 
 /***/ },
-/* 320 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -55786,10 +55034,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -55801,9 +55051,9 @@
 	var core_2 = __webpack_require__(8);
 	var app_1 = __webpack_require__(165);
 	var config_1 = __webpack_require__(270);
-	var keyboard_1 = __webpack_require__(278);
-	var nav_controller_1 = __webpack_require__(282);
-	var tabs_1 = __webpack_require__(317);
+	var keyboard_1 = __webpack_require__(276);
+	var nav_controller_1 = __webpack_require__(298);
+	var tabs_1 = __webpack_require__(313);
 	/**
 	 * @name Tab
 	 * @usage
@@ -55847,8 +55097,9 @@
 	 * }
 	 * ```
 	 *
-	 * In other cases, you may not want to navigate to a new component, but just call a method.
-	 * You can use the `(select)` event to call a method on your class.
+	 * In other cases, you may not want to navigate to a new component, but just
+	 * call a method. You can use the `(select)` event to call a method on your
+	 * class. Below is an example of presenting a modal from one of the tabs.
 	 *
 	 * ```html
 	 * <ion-tabs preloadTabs="false">
@@ -55858,15 +55109,15 @@
 	 *
 	 * ```ts
 	 * export class Tabs {
-	 *   constructor(modal: Modal){
-	 *     this.modal = modal;
+	 *   constructor(nav: NavController){
+	 *     this.nav = nav;
 	 *   }
 	 *   chat() {
-	 *      this.modal.open(ChatPage);
+	 *     let modal = Modal.create(ChatPage);
+	 *     this.nav.present(modal);
 	 *   }
 	 * }
 	 * ```
-	 * In this case, when we tap on the tab, we'll open a modal instead of loading a new component.
 	 *
 	 *
 	 * @property {any} [root] - set the root page for this tab
@@ -55991,7 +55242,7 @@
 	    __decorate([
 	        core_2.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_2.EventEmitter !== 'undefined' && core_2.EventEmitter) === 'function' && _a) || Object)
-	    ], Tab.prototype, "select", void 0);
+	    ], Tab.prototype, "select");
 	    Tab = __decorate([
 	        core_1.Component({
 	            selector: 'ion-tab',
@@ -56017,7 +55268,7 @@
 	exports.Tab = Tab;
 
 /***/ },
-/* 321 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -56026,10 +55277,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -56038,11 +55291,11 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var ion_1 = __webpack_require__(284);
+	var ion_1 = __webpack_require__(288);
 	var config_1 = __webpack_require__(270);
-	var virtual_1 = __webpack_require__(322);
-	var item_sliding_gesture_1 = __webpack_require__(323);
-	var util_1 = __webpack_require__(276);
+	var virtual_1 = __webpack_require__(318);
+	var item_sliding_gesture_1 = __webpack_require__(319);
+	var util_1 = __webpack_require__(294);
 	/**
 	 * The List is a widely used interface element in almost any mobile app, and can include
 	 * content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.
@@ -56200,7 +55453,7 @@
 	exports.ListHeader = ListHeader;
 
 /***/ },
-/* 322 */
+/* 318 */
 /***/ function(module, exports) {
 
 	var ListVirtualScroll = (function () {
@@ -56293,7 +55546,7 @@
 	})();
 
 /***/ },
-/* 323 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -56301,8 +55554,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var hammer_1 = __webpack_require__(291);
-	var drag_gesture_1 = __webpack_require__(289);
+	var hammer_1 = __webpack_require__(295);
+	var drag_gesture_1 = __webpack_require__(292);
 	var dom_1 = __webpack_require__(273);
 	var ItemSlidingGesture = (function (_super) {
 	    __extends(ItemSlidingGesture, _super);
@@ -56510,14 +55763,16 @@
 	var DRAG_THRESHOLD = 20;
 
 /***/ },
-/* 324 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -56589,14 +55844,16 @@
 	exports.Item = Item;
 
 /***/ },
-/* 325 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -56605,7 +55862,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var list_1 = __webpack_require__(321);
+	var list_1 = __webpack_require__(317);
 	/**
 	 * @name ItemSliding
 	 *
@@ -56623,7 +55880,7 @@
 	 *       <button (click)="favorite(item)">Favorite</button>
 	 *       <button (click)="share(item)">Share</button>
 	 *     </ion-item-options>
-	 *   </ion-item>
+	 *   </ion-item-sliding>
 	 * </ion-list>
 	 * ```
 	 * @see {@link /docs/v2/components#lists List Component Docs}
@@ -56657,14 +55914,16 @@
 	var slideIds = 0;
 
 /***/ },
-/* 326 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -56674,7 +55933,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(169);
-	var form_1 = __webpack_require__(277);
+	var form_1 = __webpack_require__(275);
 	/**
 	 * The checkbox is no different than the HTML checkbox input, except it's styled differently.
 	 *
@@ -56799,14 +56058,16 @@
 	exports.Checkbox = Checkbox;
 
 /***/ },
-/* 327 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -56816,7 +56077,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(169);
-	var form_1 = __webpack_require__(277);
+	var form_1 = __webpack_require__(275);
 	var config_1 = __webpack_require__(270);
 	var dom_1 = __webpack_require__(273);
 	/**
@@ -57065,14 +56326,16 @@
 	exports.Toggle = Toggle;
 
 /***/ },
-/* 328 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -57082,21 +56345,27 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(169);
-	var nav_controller_1 = __webpack_require__(282);
+	var nav_controller_1 = __webpack_require__(298);
 	var config_1 = __webpack_require__(270);
-	var form_1 = __webpack_require__(277);
+	var form_1 = __webpack_require__(275);
 	var app_1 = __webpack_require__(165);
-	var content_1 = __webpack_require__(311);
+	var content_1 = __webpack_require__(307);
 	var dom = __webpack_require__(273);
 	var platform_1 = __webpack_require__(271);
+	var button_1 = __webpack_require__(304);
 	/**
 	 * @name Input
 	 * @module ionic
 	 * @description
-	 * `ionInput` is a generic wrapper for both inputs and textareas. You can give `ion-input` to tell it how to handle a chile `ion-label` component
-	 * @property [fixed-labels] - a persistant label that sits next the the input
-	 * @property [floating-labels] - a label that will float about the input if the input is empty of looses focus
-	 * @property [stacked-labels] - A stacked label will always appear on top of the input
+	 *
+	 * `ion-input` is a generic wrapper for both inputs and textareas. You can give `ion-input` attributes to tell it how to handle a child `ion-label` component.
+	 *
+	 * @property [fixed-label] - a persistant label that sits next the the input
+	 * @property [floating-label] - a label that will float about the input if the input is empty of looses focus
+	 * @property [stacked-label] - A stacked label will always appear on top of the input
+	 * @property [inset] - The input will be inset
+	 * @property [clearInput] - A clear icon will appear in the input which clears it
+	 *
 	 * @usage
 	 * ```html
 	 *  <ion-input>
@@ -57104,7 +56373,7 @@
 	 *    <input type="text" value="">
 	 *  </ion-input>
 	 *
-	 *  <ion-input>
+	 *  <ion-input clearInput>
 	 *    <input type="text" placeholder="Username">
 	 *  </ion-input>
 	 *
@@ -57122,6 +56391,7 @@
 	 */
 	var TextInput = (function () {
 	    function TextInput(form, elementRef, config, renderer, app, platform, scrollView, navCtrl, isFloating, isStacked, isFixed, isInset) {
+	        this.value = '';
 	        this.renderer = renderer;
 	        this.form = form;
 	        form.register(this);
@@ -57165,11 +56435,21 @@
 	    };
 	    /**
 	     * @private
+	     * On Initialization check for attributes
+	     */
+	    TextInput.prototype.ngOnInit = function () {
+	        var clearInput = this.clearInput;
+	        if (typeof clearInput === 'string') {
+	            this.clearInput = (clearInput === '' || clearInput === 'true');
+	        }
+	    };
+	    /**
+	     * @private
 	     */
 	    TextInput.prototype.ngAfterViewInit = function () {
 	        var _this = this;
 	        if (this.input && this.label) {
-	            // if there is an input and an label
+	            // if there is an input and a label
 	            // then give the label an ID
 	            // and tell the input the ID of who it's labelled by
 	            this.input.labelledBy(this.label.id);
@@ -57189,6 +56469,13 @@
 	                }
 	            }
 	        };
+	    };
+	    /**
+	      * @private
+	     */
+	    TextInput.prototype.clearTextInput = function () {
+	        console.log("Should clear input");
+	        console.log(this.textInputElement.value);
 	    };
 	    /**
 	     * @private
@@ -57395,6 +56682,7 @@
 	     */
 	    TextInput.prototype.hasValue = function (inputValue) {
 	        this.renderer.setElementClass(this.elementRef, 'input-has-value', inputValue && inputValue !== '');
+	        this.value = inputValue;
 	    };
 	    /**
 	     * @private
@@ -57443,6 +56731,14 @@
 	        this.deregMove();
 	        this.form.deregister(this);
 	    };
+	    __decorate([
+	        core_1.ContentChild(core_1.forwardRef(function () { return TextInputElement; })), 
+	        __metadata('design:type', Object)
+	    ], TextInput.prototype, "textInputElement");
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], TextInput.prototype, "clearInput");
 	    TextInput = __decorate([
 	        core_1.Component({
 	            selector: 'ion-input',
@@ -57461,8 +56757,9 @@
 	            template: '<div class="item-inner">' +
 	                '<ng-content></ng-content>' +
 	                '<input [type]="type" aria-hidden="true" scroll-assist *ngIf="scrollAssist">' +
+	                '<button clear *ngIf="clearInput && value" class="text-input-clear-icon" (click)="clearTextInput()" (mousedown)="clearTextInput()"></button>' +
 	                '</div>',
-	            directives: [common_1.NgIf, core_1.forwardRef(function () { return InputScrollAssist; })]
+	            directives: [common_1.NgIf, core_1.forwardRef(function () { return InputScrollAssist; }), core_1.forwardRef(function () { return TextInputElement; }), button_1.Button]
 	        }),
 	        __param(6, core_1.Optional()),
 	        __param(6, core_1.Host()),
@@ -57621,14 +56918,16 @@
 	}
 
 /***/ },
-/* 329 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -57638,9 +56937,9 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var config_1 = __webpack_require__(270);
-	var text_input_1 = __webpack_require__(328);
+	var text_input_1 = __webpack_require__(324);
 	var dom_1 = __webpack_require__(273);
-	var form_1 = __webpack_require__(277);
+	var form_1 = __webpack_require__(275);
 	/**
 	 * @name Label
 	 * @description
@@ -57729,14 +57028,16 @@
 	exports.Label = Label;
 
 /***/ },
-/* 330 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -57800,7 +57101,7 @@
 	     */
 	    SegmentButton.prototype.onClick = function (ev) {
 	        console.debug('SegmentButton, select', this.value);
-	        this.select.emit(ev, this.value);
+	        this.select.emit(this);
 	    };
 	    SegmentButton.prototype.ngOnInit = function () {
 	        if (!util_1.isDefined(this.value)) {
@@ -57818,17 +57119,18 @@
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)
-	    ], SegmentButton.prototype, "value", void 0);
+	    ], SegmentButton.prototype, "value");
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], SegmentButton.prototype, "select", void 0);
-	    __decorate([
-	        core_1.HostListener('click', ['$event']), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', [Object]), 
-	        __metadata('design:returntype', void 0)
-	    ], SegmentButton.prototype, "onClick", null);
+	    ], SegmentButton.prototype, "select");
+	    Object.defineProperty(SegmentButton.prototype, "onClick",
+	        __decorate([
+	            core_1.HostListener('click', ['$event']), 
+	            __metadata('design:type', Function), 
+	            __metadata('design:paramtypes', [Object]), 
+	            __metadata('design:returntype', void 0)
+	        ], SegmentButton.prototype, "onClick", Object.getOwnPropertyDescriptor(SegmentButton.prototype, "onClick")));
 	    SegmentButton = __decorate([
 	        core_1.Directive({
 	            selector: 'ion-segment-button',
@@ -57919,10 +57221,10 @@
 	        var buttons = this._buttons.toArray();
 	        for (var _i = 0; _i < buttons.length; _i++) {
 	            var button = buttons[_i];
-	            button.select.subscribe(function () {
-	                _this.writeValue(button.value);
-	                _this.onChange(button.value);
-	                _this.change.emit(_this.value);
+	            button.select.subscribe(function (selectedButton) {
+	                _this.writeValue(selectedButton.value);
+	                _this.onChange(selectedButton.value);
+	                _this.change.emit(selectedButton);
 	            });
 	            if (util_1.isDefined(this.value)) {
 	                button.isActive = (button.value === this.value);
@@ -57940,13 +57242,13 @@
 	     */
 	    Segment.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
 	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Segment.prototype, "change", void 0);
-	    __decorate([
 	        core_1.ContentChildren(SegmentButton), 
 	        __metadata('design:type', Object)
-	    ], Segment.prototype, "_buttons", void 0);
+	    ], Segment.prototype, "_buttons");
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	    ], Segment.prototype, "change");
 	    Segment = __decorate([
 	        core_1.Directive({
 	            selector: 'ion-segment'
@@ -57960,14 +57262,16 @@
 	exports.Segment = Segment;
 
 /***/ },
-/* 331 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -57977,8 +57281,8 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(169);
-	var list_1 = __webpack_require__(321);
-	var form_1 = __webpack_require__(277);
+	var list_1 = __webpack_require__(317);
+	var form_1 = __webpack_require__(275);
 	var util_1 = __webpack_require__(272);
 	/**
 	 * @description
@@ -58006,8 +57310,8 @@
 	        this.checked = false;
 	        this.disabled = false;
 	        this.select = new core_1.EventEmitter();
-	        this.isChecked = this.checked;
-	        _renderer.setElementAttribute(_elementRef, 'checked', null);
+	        this._renderer = _renderer;
+	        this._elementRef = _elementRef;
 	    }
 	    /**
 	     * @private
@@ -58017,13 +57321,19 @@
 	            this.id = 'rb-' + this._form.nextId();
 	        }
 	        this.labelId = 'lbl-' + this.id;
+	        var checked = this.checked;
+	        if (typeof checked === 'string') {
+	            this.checked = (checked === '' || checked === 'true');
+	        }
+	        this.isChecked = this.checked;
+	        this._renderer.setElementAttribute(this._elementRef, 'checked', null);
 	    };
 	    /**
 	     * @private
 	     */
 	    RadioButton.prototype.onClick = function (ev) {
 	        console.debug('RadioButton, select', this.value);
-	        this.select.emit(ev, this.value);
+	        this.select.emit(this);
 	    };
 	    Object.defineProperty(RadioButton.prototype, "isChecked", {
 	        set: function (isChecked) {
@@ -58035,29 +57345,30 @@
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)
-	    ], RadioButton.prototype, "value", void 0);
+	    ], RadioButton.prototype, "value");
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], RadioButton.prototype, "checked");
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Boolean)
-	    ], RadioButton.prototype, "checked", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean)
-	    ], RadioButton.prototype, "disabled", void 0);
+	    ], RadioButton.prototype, "disabled");
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)
-	    ], RadioButton.prototype, "id", void 0);
+	    ], RadioButton.prototype, "id");
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], RadioButton.prototype, "select", void 0);
-	    __decorate([
-	        core_1.HostListener('click', ['$event']), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', [Object]), 
-	        __metadata('design:returntype', void 0)
-	    ], RadioButton.prototype, "onClick", null);
+	    ], RadioButton.prototype, "select");
+	    Object.defineProperty(RadioButton.prototype, "onClick",
+	        __decorate([
+	            core_1.HostListener('click', ['$event']), 
+	            __metadata('design:type', Function), 
+	            __metadata('design:paramtypes', [Object]), 
+	            __metadata('design:returntype', void 0)
+	        ], RadioButton.prototype, "onClick", Object.getOwnPropertyDescriptor(RadioButton.prototype, "onClick")));
 	    RadioButton = __decorate([
 	        core_1.Component({
 	            selector: 'ion-radio',
@@ -58133,13 +57444,14 @@
 	*/
 	var RadioGroup = (function () {
 	    function RadioGroup(ngControl, _renderer, _elementRef) {
+	        this.ngControl = ngControl;
 	        this._renderer = _renderer;
 	        this._elementRef = _elementRef;
 	        this.change = new core_1.EventEmitter();
+	        this.onChange = function (_) { };
+	        this.onTouched = function () { };
 	        this.ngControl = ngControl;
 	        this.id = ++radioGroupIds;
-	        this.onChange = function (_) { };
-	        this.onTouched = function (_) { };
 	        if (ngControl) {
 	            this.ngControl.valueAccessor = this;
 	        }
@@ -58166,6 +57478,21 @@
 	    };
 	    /**
 	     * @private
+	     * Angular2 Forms API method called by the view (NgControl) to register the
+	     * onChange event handler that updates the model (Control).
+	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L27
+	     * @param {Function} fn  the onChange event handler.
+	     */
+	    RadioGroup.prototype.registerOnChange = function (fn) { this.onChange = fn; };
+	    /**
+	     * @private
+	     * Angular2 Forms API method called by the the view (NgControl) to register
+	     * the onTouched event handler that marks the model (Control) as touched.
+	     * @param {Function} fn  onTouched event handler.
+	     */
+	    RadioGroup.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+	    /**
+	     * @private
 	     */
 	    RadioGroup.prototype.ngAfterContentInit = function () {
 	        var _this = this;
@@ -58182,44 +57509,31 @@
 	            button.select.subscribe(function () {
 	                _this.writeValue(button.value);
 	                _this.onChange(button.value);
-	                _this.change.emit(_this.value);
+	                _this.change.emit(_this);
 	            });
 	            if (util_1.isDefined(this.value)) {
 	                var isChecked = (button.value === this.value) || button.checked;
 	                button.isChecked = isChecked;
 	                if (isChecked) {
+	                    this.writeValue(button.value);
+	                    this.onChange(button.value);
 	                    this._renderer.setElementAttribute(this._elementRef, 'aria-activedescendant', button.id);
 	                }
 	            }
 	        }
 	    };
-	    /**
-	     * @private
-	     * Angular2 Forms API method called by the view (NgControl) to register the
-	     * onChange event handler that updates the model (Control).
-	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L27
-	     * @param {Function} fn  the onChange event handler.
-	     */
-	    RadioGroup.prototype.registerOnChange = function (fn) { this.onChange = fn; };
-	    /**
-	     * @private
-	     * Angular2 Forms API method called by the the view (NgControl) to register
-	     * the onTouched event handler that marks the model (Control) as touched.
-	     * @param {Function} fn  onTouched event handler.
-	     */
-	    RadioGroup.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], RadioGroup.prototype, "change", void 0);
+	    ], RadioGroup.prototype, "change");
 	    __decorate([
 	        core_1.ContentChildren(RadioButton), 
 	        __metadata('design:type', Object)
-	    ], RadioGroup.prototype, "_buttons", void 0);
+	    ], RadioGroup.prototype, "_buttons");
 	    __decorate([
 	        core_1.ContentChild(list_1.ListHeader), 
 	        __metadata('design:type', Object)
-	    ], RadioGroup.prototype, "_header", void 0);
+	    ], RadioGroup.prototype, "_header");
 	    RadioGroup = __decorate([
 	        core_1.Directive({
 	            selector: '[radio-group]',
@@ -58238,7 +57552,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 332 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -58247,10 +57561,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -58260,28 +57576,29 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(169);
-	var ion_1 = __webpack_require__(284);
+	var ion_1 = __webpack_require__(288);
 	var config_1 = __webpack_require__(270);
-	var icon_1 = __webpack_require__(280);
-	var button_1 = __webpack_require__(294);
+	var icon_1 = __webpack_require__(302);
+	var button_1 = __webpack_require__(304);
 	var util_1 = __webpack_require__(272);
 	/**
 	* @private
 	*/
 	var SearchbarInput = (function () {
-	    function SearchbarInput(elementRef) {
-	        this.elementRef = elementRef;
+	    function SearchbarInput(_elementRef) {
+	        this._elementRef = _elementRef;
 	    }
 	    SearchbarInput.prototype.stopInput = function (ev) {
 	        event.preventDefault();
 	        event.stopPropagation();
 	    };
-	    __decorate([
-	        core_1.HostListener('input', ['$event']), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', [Object]), 
-	        __metadata('design:returntype', void 0)
-	    ], SearchbarInput.prototype, "stopInput", null);
+	    Object.defineProperty(SearchbarInput.prototype, "stopInput",
+	        __decorate([
+	            core_1.HostListener('input', ['$event']), 
+	            __metadata('design:type', Function), 
+	            __metadata('design:paramtypes', [Object]), 
+	            __metadata('design:returntype', void 0)
+	        ], SearchbarInput.prototype, "stopInput", Object.getOwnPropertyDescriptor(SearchbarInput.prototype, "stopInput")));
 	    SearchbarInput = __decorate([
 	        core_1.Directive({
 	            selector: '.searchbar-input',
@@ -58307,18 +57624,42 @@
 	 * @property {boolean} [hideCancelButton=false] - Hides the cancel button
 	 * @property {string} [placeholder=Search] - Sets input placeholder to the value passed in
 	 *
-	 * @property {Any} [input] - Expression to evaluate when the Searchbar input has changed
-	 * @property {Any} [cancel] - Expression to evaluate when the cancel button is clicked.
-	 * @property {Any} [clear] - Expression to evaluate when the clear input button is clicked.
+	 * @property {Any} [input] - Expression to evaluate when the Searchbar input has changed including cleared
+	 * @property {Any} [keydown] - Expression to evaluate when a key is pushed down in the Searchbar input
+	 * @property {Any} [keypress] - Expression to evaluate when a character is inserted in the Searchbar input
+	 * @property {Any} [keyup] - Expression to evaluate when a key is released in the Searchbar input
+	 * @property {Any} [blur] - Expression to evaluate when the Searchbar input has blurred
+	 * @property {Any} [focus] - Expression to evaluate when the Searchbar input has focused
+	 * @property {Any} [cancel] - Expression to evaluate when the cancel button is clicked
+	 * @property {Any} [clear] - Expression to evaluate when the clear input button is clicked
 	 *
-	 * @see {@link /docs/v2/components#search Search Component Docs}
+	 * @see {@link /docs/v2/components#searchbar Searchbar Component Docs}
 	 */
 	var Searchbar = (function (_super) {
 	    __extends(Searchbar, _super);
-	    function Searchbar(elementRef, config, ngControl) {
-	        _super.call(this, elementRef, config);
+	    function Searchbar(_elementRef, _config, ngControl) {
+	        _super.call(this, _elementRef, _config);
+	        this._elementRef = _elementRef;
+	        this._config = _config;
+	        /**
+	         * @private
+	         */
 	        this.input = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
+	        this.blur = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
+	        this.focus = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.cancel = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.clear = new core_1.EventEmitter();
 	        this.value = '';
 	        this.blurInput = true;
@@ -58329,16 +57670,12 @@
 	            ngControl.valueAccessor = this;
 	        }
 	    }
-	    Searchbar.prototype.inputChanged = function (ev) {
-	        this.value = ev.target.value;
-	        this.onChange(this.value);
-	        this.input.emit(this);
-	    };
 	    /**
 	     * @private
 	     * On Initialization check for attributes
 	     */
 	    Searchbar.prototype.ngOnInit = function () {
+	        this.mode = this._config.get('mode');
 	        var hideCancelButton = this.hideCancelButton;
 	        if (typeof hideCancelButton === 'string') {
 	            this.hideCancelButton = (hideCancelButton === '' || hideCancelButton === 'true');
@@ -58349,6 +57686,10 @@
 	            this.value = this.ngModel;
 	        this.onChange(this.value);
 	        this.shouldLeftAlign = this.value && this.value.trim() != '';
+	        // Using querySelector instead of searchbarInput because at this point it doesn't exist
+	        this.inputElement = this._elementRef.nativeElement.querySelector('.searchbar-input');
+	        this.searchIconElement = this._elementRef.nativeElement.querySelector('.searchbar-search-icon');
+	        this.setElementLeft();
 	    };
 	    /**
 	     * @private
@@ -58365,11 +57706,58 @@
 	    };
 	    /**
 	     * @private
+	     * Determines whether or not to add style to the element
+	     * to center it properly (ios only)
+	     */
+	    Searchbar.prototype.setElementLeft = function () {
+	        if (this.mode !== 'ios')
+	            return;
+	        if (this.shouldLeftAlign) {
+	            this.inputElement.removeAttribute("style");
+	            this.searchIconElement.removeAttribute("style");
+	        }
+	        else {
+	            this.addElementLeft();
+	        }
+	    };
+	    /**
+	     * @private
+	     * Calculates the amount of padding/margin left for the elements
+	     * in order to center them based on the placeholder width
+	     */
+	    Searchbar.prototype.addElementLeft = function () {
+	        // Create a dummy span to get the placeholder width
+	        var tempSpan = document.createElement('span');
+	        tempSpan.innerHTML = this.placeholder;
+	        document.body.appendChild(tempSpan);
+	        // Get the width of the span then remove it
+	        var textWidth = tempSpan.offsetWidth;
+	        tempSpan.remove();
+	        // Set the input padding left
+	        var inputLeft = "calc(50% - " + (textWidth / 2) + "px)";
+	        this.inputElement.style.paddingLeft = inputLeft;
+	        // Set the icon margin left
+	        var iconLeft = "calc(50% - " + ((textWidth / 2) + this.searchIconElement.offsetWidth + 15) + "px)";
+	        this.searchIconElement.style.marginLeft = iconLeft;
+	    };
+	    /**
+	     * @private
+	     * Update the Searchbar input value when the input changes
+	     */
+	    Searchbar.prototype.inputChanged = function (ev) {
+	        this.value = ev.target.value;
+	        this.onChange(this.value);
+	        this.input.emit(this);
+	    };
+	    /**
+	     * @private
 	     * Sets the Searchbar to focused and aligned left on input focus.
 	     */
 	    Searchbar.prototype.inputFocused = function () {
+	        this.focus.emit(this);
 	        this.isFocused = true;
 	        this.shouldLeftAlign = true;
+	        this.setElementLeft();
 	    };
 	    /**
 	     * @private
@@ -58380,12 +57768,14 @@
 	        // blurInput determines if it should blur
 	        // if we are clearing the input we still want to stay focused in the input
 	        if (this.blurInput == false) {
-	            this.searchbarInput.elementRef.nativeElement.focus();
+	            this.searchbarInput._elementRef.nativeElement.focus();
 	            this.blurInput = true;
 	            return;
 	        }
+	        this.blur.emit(this);
 	        this.isFocused = false;
 	        this.shouldLeftAlign = this.value && this.value.trim() != '';
+	        this.setElementLeft();
 	    };
 	    /**
 	     * @private
@@ -58395,6 +57785,7 @@
 	        this.clear.emit(this);
 	        this.value = '';
 	        this.onChange(this.value);
+	        this.input.emit(this);
 	        this.blurInput = false;
 	    };
 	    /**
@@ -58432,49 +57823,51 @@
 	    __decorate([
 	        core_1.ViewChild(SearchbarInput), 
 	        __metadata('design:type', Object)
-	    ], Searchbar.prototype, "searchbarInput", void 0);
+	    ], Searchbar.prototype, "searchbarInput");
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)
-	    ], Searchbar.prototype, "cancelButtonText", void 0);
+	    ], Searchbar.prototype, "cancelButtonText");
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
-	    ], Searchbar.prototype, "hideCancelButton", void 0);
+	    ], Searchbar.prototype, "hideCancelButton");
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)
-	    ], Searchbar.prototype, "placeholder", void 0);
+	    ], Searchbar.prototype, "placeholder");
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
-	    ], Searchbar.prototype, "ngModel", void 0);
+	    ], Searchbar.prototype, "ngModel");
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Searchbar.prototype, "input", void 0);
+	    ], Searchbar.prototype, "input");
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], Searchbar.prototype, "cancel", void 0);
+	    ], Searchbar.prototype, "blur");
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
-	    ], Searchbar.prototype, "clear", void 0);
+	    ], Searchbar.prototype, "focus");
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_d = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _d) || Object)
+	    ], Searchbar.prototype, "cancel");
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_e = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _e) || Object)
+	    ], Searchbar.prototype, "clear");
 	    __decorate([
 	        core_1.HostBinding('class.searchbar-focused'), 
 	        __metadata('design:type', Object)
-	    ], Searchbar.prototype, "isFocused", void 0);
+	    ], Searchbar.prototype, "isFocused");
 	    __decorate([
 	        core_1.HostBinding('class.searchbar-left-aligned'), 
 	        __metadata('design:type', Object)
-	    ], Searchbar.prototype, "shouldLeftAlign", void 0);
-	    __decorate([
-	        core_1.HostListener('keyup', ['$event']), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', [Object]), 
-	        __metadata('design:returntype', void 0)
-	    ], Searchbar.prototype, "inputChanged", null);
+	    ], Searchbar.prototype, "shouldLeftAlign");
 	    Searchbar = __decorate([
 	        core_1.Component({
 	            selector: 'ion-searchbar',
@@ -58490,15 +57883,15 @@
 	            directives: [common_1.FORM_DIRECTIVES, common_1.NgIf, common_1.NgClass, icon_1.Icon, button_1.Button, SearchbarInput]
 	        }),
 	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _f) || Object])
+	        __metadata('design:paramtypes', [(typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _g) || Object, (typeof (_h = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _h) || Object])
 	    ], Searchbar);
 	    return Searchbar;
-	    var _a, _b, _c, _d, _e, _f;
+	    var _a, _b, _c, _d, _e, _f, _g, _h;
 	})(ion_1.Ion);
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 333 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -58507,10 +57900,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -58521,10 +57916,10 @@
 	var core_1 = __webpack_require__(8);
 	var app_1 = __webpack_require__(165);
 	var config_1 = __webpack_require__(270);
-	var keyboard_1 = __webpack_require__(278);
-	var config_component_1 = __webpack_require__(319);
-	var nav_controller_1 = __webpack_require__(282);
-	var view_controller_1 = __webpack_require__(285);
+	var keyboard_1 = __webpack_require__(276);
+	var config_component_1 = __webpack_require__(315);
+	var nav_controller_1 = __webpack_require__(298);
+	var view_controller_1 = __webpack_require__(297);
 	/**
 	 * @name Nav
 	 * @description
@@ -58664,14 +58059,16 @@
 	exports.Nav = Nav;
 
 /***/ },
-/* 334 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -58680,8 +58077,8 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var nav_controller_1 = __webpack_require__(282);
-	var nav_registry_1 = __webpack_require__(296);
+	var nav_controller_1 = __webpack_require__(298);
+	var nav_registry_1 = __webpack_require__(278);
 	/**
 	 * @name NavPush
 	 * @description
@@ -58826,7 +58223,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 335 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -58835,10 +58232,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -58848,7 +58247,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var router_1 = __webpack_require__(125);
-	var nav_1 = __webpack_require__(333);
+	var nav_1 = __webpack_require__(329);
 	/**
 	 * @private
 	 */
@@ -58909,7 +58308,7 @@
 	        var pathRecognizer = this.getPathRecognizerByComponent(viewCtrl.componentType);
 	        if (pathRecognizer) {
 	            // generate a componentInstruction from the view's PathRecognizer and params
-	            var componentInstruction = pathRecognizer.generate(viewCtrl.params.data);
+	            var componentInstruction = pathRecognizer.generate(viewCtrl.data);
 	            // create a ResolvedInstruction from the componentInstruction
 	            var instruction = new ResolvedInstruction(componentInstruction, null);
 	            this._parentRouter.navigateByInstruction(instruction);
@@ -58959,7 +58358,7 @@
 	})(router_1.Instruction);
 
 /***/ },
-/* 336 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -58968,10 +58367,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -59109,14 +58510,14 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 337 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(8);
 	var browser_1 = __webpack_require__(166);
-	var tap_click_1 = __webpack_require__(299);
+	var tap_click_1 = __webpack_require__(281);
 	var bootstrap_1 = __webpack_require__(7);
-	var directives_1 = __webpack_require__(302);
+	var directives_1 = __webpack_require__(285);
 	/**
 	* @name App
 	* @description
@@ -59168,11 +58569,11 @@
 	exports.App = App;
 
 /***/ },
-/* 338 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(8);
-	var directives_1 = __webpack_require__(302);
+	var directives_1 = __webpack_require__(285);
 	/**
 	 * @name Page
 	 * @description
@@ -59257,53 +58658,53 @@
 	exports.Page = Page;
 
 /***/ },
-/* 339 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(165));
-	__export(__webpack_require__(318));
-	__export(__webpack_require__(279));
-	__export(__webpack_require__(310));
-	__export(__webpack_require__(294));
-	__export(__webpack_require__(326));
-	__export(__webpack_require__(311));
-	__export(__webpack_require__(280));
+	__export(__webpack_require__(314));
+	__export(__webpack_require__(336));
+	__export(__webpack_require__(337));
+	__export(__webpack_require__(306));
+	__export(__webpack_require__(304));
+	__export(__webpack_require__(322));
+	__export(__webpack_require__(307));
+	__export(__webpack_require__(302));
+	__export(__webpack_require__(320));
+	__export(__webpack_require__(321));
+	__export(__webpack_require__(287));
+	__export(__webpack_require__(338));
+	__export(__webpack_require__(296));
+	__export(__webpack_require__(305));
 	__export(__webpack_require__(324));
 	__export(__webpack_require__(325));
-	__export(__webpack_require__(304));
-	__export(__webpack_require__(340));
-	__export(__webpack_require__(306));
-	__export(__webpack_require__(309));
-	__export(__webpack_require__(328));
-	__export(__webpack_require__(329));
-	__export(__webpack_require__(321));
-	__export(__webpack_require__(336));
-	__export(__webpack_require__(292));
-	__export(__webpack_require__(333));
-	__export(__webpack_require__(282));
-	__export(__webpack_require__(285));
-	__export(__webpack_require__(334));
-	__export(__webpack_require__(335));
-	__export(__webpack_require__(307));
-	__export(__webpack_require__(303));
-	__export(__webpack_require__(293));
-	__export(__webpack_require__(315));
-	__export(__webpack_require__(331));
-	__export(__webpack_require__(313));
-	__export(__webpack_require__(314));
-	__export(__webpack_require__(332));
-	__export(__webpack_require__(330));
 	__export(__webpack_require__(317));
-	__export(__webpack_require__(320));
-	__export(__webpack_require__(299));
+	__export(__webpack_require__(332));
+	__export(__webpack_require__(339));
+	__export(__webpack_require__(329));
+	__export(__webpack_require__(298));
+	__export(__webpack_require__(297));
+	__export(__webpack_require__(330));
+	__export(__webpack_require__(331));
+	__export(__webpack_require__(301));
+	__export(__webpack_require__(286));
+	__export(__webpack_require__(311));
 	__export(__webpack_require__(327));
-	__export(__webpack_require__(308));
+	__export(__webpack_require__(309));
+	__export(__webpack_require__(310));
+	__export(__webpack_require__(328));
+	__export(__webpack_require__(326));
+	__export(__webpack_require__(313));
+	__export(__webpack_require__(316));
+	__export(__webpack_require__(281));
+	__export(__webpack_require__(323));
+	__export(__webpack_require__(303));
 
 /***/ },
-/* 340 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59311,8 +58712,667 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var menu_1 = __webpack_require__(304);
-	var animation_1 = __webpack_require__(281);
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var common_1 = __webpack_require__(169);
+	var nav_controller_1 = __webpack_require__(298);
+	var view_controller_1 = __webpack_require__(297);
+	var config_1 = __webpack_require__(270);
+	var icon_1 = __webpack_require__(302);
+	var animation_1 = __webpack_require__(284);
+	/**
+	 * @name ActionSheet
+	 * @description
+	 * An Action Sheet is a dialog that lets the user choose from a set of
+	 * options. It appears on top of the app's content, and must be manually
+	 * dismissed by the user before they can resume interaction with the app.
+	 * Dangerous (destructive) options are made obvious. There are easy
+	 * ways to cancel out of the action sheet, such as tapping the backdrop or
+	 * hitting the escape key on desktop.
+	 *
+	 * An action sheet is created from an array of `buttons`, with each button
+	 * including properties for its `text`, and optionally a `style` and `handler`.
+	 * If a handler returns `false` then the action sheet will not be dismissed. An
+	 * action sheet can also optionally have a `title` and a `subTitle`.
+	 *
+	 * A button's `style` property can either be `destructive` or `cancel`. Buttons
+	 * without a style property will have a default style for its platform. Buttons
+	 * with the `cancel` style will always load as the bottom button, no matter where
+	 * it shows up in the array. All other buttons will show up in the order they
+	 * have been added to the `buttons` array. Note: We recommend that `destructive`
+	 * buttons show be the first button in the array, making it the button on top.
+	 *
+	 * Its shorthand is to add all the action sheet's options from within the
+	 * `ActionSheet.create(opts)` first argument. Otherwise the action sheet's
+	 * instance has methods to add options, such as `setTitle()` or `addButton()`.
+	 *
+	 * @usage
+	 * ```ts
+	 * constructor(nav: NavController) {
+	 *   this.nav = nav;
+	 * }
+	 *
+	 * presentActionSheet() {
+	 *   let actionSheet = ActionSheet.create({
+	 *     title: 'Modify your album',
+	 *     buttons: [
+	 *       {
+	 *         text: 'Destructive',
+	 *         style: 'destructive',
+	 *         handler: () => {
+	 *           console.log('Destructive clicked');
+	 *         }
+	 *       },
+	 *       {
+	 *         text: 'Archive',
+	 *         handler: () => {
+	 *           console.log('Archive clicked');
+	 *         }
+	 *       },
+	 *       {
+	 *         text: 'Cancel',
+	 *         style: 'cancel',
+	 *         handler: () => {
+	 *           console.log('Cancel clicked');
+	 *         }
+	 *       }
+	 *     ]
+	 *   });
+	 *
+	 *   this.nav.present(actionSheet);
+	 * }
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/action-sheet/
+	 * @see {@link /docs/v2/components#action-sheets ActionSheet Component Docs}
+	 */
+	var ActionSheet = (function (_super) {
+	    __extends(ActionSheet, _super);
+	    function ActionSheet(opts) {
+	        if (opts === void 0) { opts = {}; }
+	        opts.buttons = opts.buttons || [];
+	        _super.call(this, ActionSheetCmp, opts);
+	        this.viewType = 'action-sheet';
+	    }
+	    /**
+	    * @private
+	    */
+	    ActionSheet.prototype.getTransitionName = function (direction) {
+	        var key = 'actionSheet' + (direction === 'back' ? 'Leave' : 'Enter');
+	        return this._nav && this._nav.config.get(key);
+	    };
+	    /**
+	     * @param {string} title Action sheet title
+	     */
+	    ActionSheet.prototype.setTitle = function (title) {
+	        this.data.title = title;
+	    };
+	    /**
+	     * @param {string} subTitle Action sheet subtitle
+	     */
+	    ActionSheet.prototype.setSubTitle = function (subTitle) {
+	        this.data.subTitle = subTitle;
+	    };
+	    /**
+	     * @param {Object} button Action sheet button
+	     */
+	    ActionSheet.prototype.addButton = function (button) {
+	        this.data.buttons.push(button);
+	    };
+	    /**
+	     * @param {Object} opts Action sheet options
+	     */
+	    ActionSheet.create = function (opts) {
+	        if (opts === void 0) { opts = {}; }
+	        return new ActionSheet(opts);
+	    };
+	    return ActionSheet;
+	})(view_controller_1.ViewController);
+	exports.ActionSheet = ActionSheet;
+	/**
+	* @private
+	*/
+	var ActionSheetCmp = (function () {
+	    function ActionSheetCmp(_viewCtrl, _config, params, renderer) {
+	        this._viewCtrl = _viewCtrl;
+	        this._config = _config;
+	        this.d = params.data;
+	        if (this.d.cssClass) {
+	            renderer.setElementClass(elementRef, this.d.cssClass, true);
+	        }
+	    }
+	    ActionSheetCmp.prototype.click = function (button) {
+	        var _this = this;
+	        var shouldDismiss = true;
+	        if (button.handler) {
+	            // a handler has been provided, execute it
+	            if (button.handler() === false) {
+	                // if the return value of the handler is false then do not dismiss
+	                shouldDismiss = false;
+	            }
+	        }
+	        if (shouldDismiss) {
+	            setTimeout(function () {
+	                _this.dismiss();
+	            }, this._config.get('pageTransitionDelay'));
+	        }
+	    };
+	    ActionSheetCmp.prototype.dismiss = function () {
+	        this._viewCtrl.dismiss();
+	    };
+	    ActionSheetCmp.prototype.onPageLoaded = function () {
+	        var _this = this;
+	        // normalize the data
+	        var buttons = [];
+	        this.d.buttons.forEach(function (button) {
+	            if (typeof button === 'string') {
+	                button = { text: button };
+	            }
+	            if (!button.cssClass) {
+	                button.cssClass = '';
+	            }
+	            if (button.style === 'cancel') {
+	                _this.d.cancelButton = button;
+	            }
+	            else {
+	                if (button.style === 'destructive') {
+	                    button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-destructive';
+	                }
+	                buttons.push(button);
+	            }
+	        });
+	        this.d.buttons = buttons;
+	        var self = this;
+	        self.keyUp = function (ev) {
+	            if (ev.keyCode === 27) {
+	                console.debug('actionsheet escape');
+	                self.dismiss();
+	            }
+	        };
+	        document.addEventListener('keyup', this.keyUp);
+	    };
+	    ActionSheetCmp.prototype.onPageDidLeave = function () {
+	        document.removeEventListener('keyup', this.keyUp);
+	    };
+	    ActionSheetCmp = __decorate([
+	        core_1.Component({
+	            selector: 'ion-action-sheet',
+	            template: '<div (click)="dismiss()" tappable disable-activated class="backdrop" role="presentation"></div>' +
+	                '<div class="action-sheet-wrapper">' +
+	                '<div class="action-sheet-container">' +
+	                '<div class="action-sheet-group">' +
+	                '<div class="action-sheet-title" *ngIf="d.title">{{d.title}}</div>' +
+	                '<div class="action-sheet-sub-title" *ngIf="d.subTitle">{{d.subTitle}}</div>' +
+	                '<button (click)="click(b)" *ngFor="#b of d.buttons" class="action-sheet-button disable-hover" [ngClass]="b.cssClass">' +
+	                '<icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></icon> ' +
+	                '{{b.text}}' +
+	                '</button>' +
+	                '</div>' +
+	                '<div class="action-sheet-group" *ngIf="d.cancelButton">' +
+	                '<button (click)="click(d.cancelButton)" class="action-sheet-button action-sheet-cancel disable-hover" [ngClass]="d.cancelButton.cssClass">' +
+	                '<icon [name]="d.cancelButton.icon" *ngIf="d.cancelButton.icon" class="action-sheet-icon"></icon> ' +
+	                '{{d.cancelButton.text}}' +
+	                '</button>' +
+	                '</div>' +
+	                '</div>' +
+	                '</div>',
+	            host: {
+	                'role': 'dialog'
+	            },
+	            directives: [common_1.NgFor, common_1.NgIf, icon_1.Icon]
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof nav_controller_1.NavParams !== 'undefined' && nav_controller_1.NavParams) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object])
+	    ], ActionSheetCmp);
+	    return ActionSheetCmp;
+	    var _a, _b, _c, _d;
+	})();
+	var ActionSheetSlideIn = (function (_super) {
+	    __extends(ActionSheetSlideIn, _super);
+	    function ActionSheetSlideIn(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
+	        backdrop.fromTo('opacity', 0.01, 0.4);
+	        wrapper.fromTo('translateY', '100%', '0%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add([backdrop, wrapper]);
+	    }
+	    return ActionSheetSlideIn;
+	})(animation_1.Animation);
+	animation_1.Animation.register('action-sheet-slide-in', ActionSheetSlideIn);
+	var ActionSheetSlideOut = (function (_super) {
+	    __extends(ActionSheetSlideOut, _super);
+	    function ActionSheetSlideOut(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
+	        backdrop.fromTo('opacity', 0.4, 0);
+	        wrapper.fromTo('translateY', '0%', '100%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(300).add([backdrop, wrapper]);
+	    }
+	    return ActionSheetSlideOut;
+	})(animation_1.Animation);
+	animation_1.Animation.register('action-sheet-slide-out', ActionSheetSlideOut);
+	var ActionSheetMdSlideIn = (function (_super) {
+	    __extends(ActionSheetMdSlideIn, _super);
+	    function ActionSheetMdSlideIn(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
+	        backdrop.fromTo('opacity', 0.01, 0.26);
+	        wrapper.fromTo('translateY', '100%', '0%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add([backdrop, wrapper]);
+	    }
+	    return ActionSheetMdSlideIn;
+	})(animation_1.Animation);
+	animation_1.Animation.register('action-sheet-md-slide-in', ActionSheetMdSlideIn);
+	var ActionSheetMdSlideOut = (function (_super) {
+	    __extends(ActionSheetMdSlideOut, _super);
+	    function ActionSheetMdSlideOut(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
+	        backdrop.fromTo('opacity', 0.26, 0);
+	        wrapper.fromTo('translateY', '0%', '100%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add([backdrop, wrapper]);
+	    }
+	    return ActionSheetMdSlideOut;
+	})(animation_1.Animation);
+	animation_1.Animation.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
+
+/***/ },
+/* 337 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var common_1 = __webpack_require__(169);
+	var nav_controller_1 = __webpack_require__(298);
+	var view_controller_1 = __webpack_require__(297);
+	var config_1 = __webpack_require__(270);
+	var animation_1 = __webpack_require__(284);
+	var util_1 = __webpack_require__(272);
+	/**
+	 * @name Alert
+	 * @description
+	 * An Alert is a dialog that presents users with either information, or used
+	 * to receive information from the user using inputs. An alert appears on top
+	 * of the app's content, and must be manually dismissed by the user before
+	 * they can resume interaction with the app.
+	 *
+	 * An alert is created from an array of `buttons` and optionally an array of
+	 * `inputs`. Each button includes properties for its `text`, and optionally a
+	 * `handler`. If a handler returns `false` then the alert will not be dismissed.
+	 * An alert can also optionally have a `title`, `subTitle` and `body`.
+	 *
+	 * All buttons will show up in the order they have been added to the `buttons`
+	 * array, from left to right. Note: The right most button (the last one in the
+	 * array) is the main button.
+	 *
+	 * Alerts can also include inputs whos data can be passed back to the app.
+	 * Inputs can be used to prompt users for information.
+	 *
+	 * Its shorthand is to add all the alert's options from within the
+	 * `Alert.create(opts)` first argument. Otherwise the alert's
+	 * instance has methods to add options, such as `setTitle()` or `addButton()`.
+	 *
+	 * @usage
+	 * ```ts
+	 * constructor(nav: NavController) {
+	 *   this.nav = nav;
+	 * }
+	 *
+	 * presentAlert() {
+	 *   let alert = Alert.create({
+	 *     title: 'Low battery',
+	 *     subTitle: '10% of battery remaining',
+	 *     buttons: ['Dismiss']
+	 *   });
+	 *   this.nav.present(alert);
+	 * }
+	 *
+	 * presentConfirm() {
+	 *   let alert = Alert.create({
+	 *     title: 'Confirm purchase',
+	 *     body: 'Do you want to buy this book?',
+	 *     buttons: [
+	 *       {
+	 *         text: 'Cancel',
+	 *         handler: () => {
+	 *           console.log('Cancel clicked');
+	 *         }
+	 *       },
+	 *       {
+	 *         text: 'Buy',
+	 *         handler: () => {
+	 *           console.log('Buy clicked');
+	 *         }
+	 *       }
+	 *     ]
+	 *   });
+	 *   this.nav.present(alert);
+	 * }
+	 *
+	 * presentPrompt() {
+	 *   let alert = Alert.create({
+	 *     title: 'Login',
+	 *     inputs: [
+	 *       {
+	 *         name: 'username',
+	 *         placeholder: 'Username'
+	 *       },
+	 *       {
+	 *         name: 'password',
+	 *         placeholder: 'Password',
+	 *         type: 'password'
+	 *       }
+	 *     ],
+	 *     buttons: [
+	 *       {
+	 *         text: 'Cancel',
+	 *         handler: data => {
+	 *           console.log('Cancel clicked');
+	 *         }
+	 *       },
+	 *       {
+	 *         text: 'Login',
+	 *         handler: data => {
+	 *           if (User.isValid(data.username, data.password)) {
+	 *             // logged in!
+	 *           } else {
+	 *             // invalid login
+	 *             return false;
+	 *           }
+	 *         }
+	 *       }
+	 *     ]
+	 *   });
+	 *   this.nav.present(alert);
+	 * }
+	 * ```
+	 *
+	 */
+	var Alert = (function (_super) {
+	    __extends(Alert, _super);
+	    function Alert(opts) {
+	        if (opts === void 0) { opts = {}; }
+	        opts.inputs = opts.inputs || [];
+	        opts.buttons = opts.buttons || [];
+	        _super.call(this, AlertCmp, opts);
+	        this.viewType = 'alert';
+	    }
+	    /**
+	    * @private
+	    */
+	    Alert.prototype.getTransitionName = function (direction) {
+	        var key = (direction === 'back' ? 'alertLeave' : 'alertEnter');
+	        return this._nav && this._nav.config.get(key);
+	    };
+	    /**
+	     * @param {string} title Alert title
+	     */
+	    Alert.prototype.setTitle = function (title) {
+	        this.data.title = title;
+	    };
+	    /**
+	     * @param {string} subTitle Alert subtitle
+	     */
+	    Alert.prototype.setSubTitle = function (subTitle) {
+	        this.data.subTitle = subTitle;
+	    };
+	    /**
+	     * @param {string} body Alert body content
+	     */
+	    Alert.prototype.setBody = function (body) {
+	        this.data.body = body;
+	    };
+	    /**
+	     * @param {Object} input Alert input
+	     */
+	    Alert.prototype.addInput = function (input) {
+	        this.data.inputs.push(input);
+	    };
+	    /**
+	     * @param {Object} button Alert button
+	     */
+	    Alert.prototype.addButton = function (button) {
+	        this.data.buttons.push(button);
+	    };
+	    /**
+	     * @param {Object} opts Alert options
+	     */
+	    Alert.create = function (opts) {
+	        if (opts === void 0) { opts = {}; }
+	        return new Alert(opts);
+	    };
+	    return Alert;
+	})(view_controller_1.ViewController);
+	exports.Alert = Alert;
+	/**
+	* @private
+	*/
+	var AlertCmp = (function () {
+	    function AlertCmp(_viewCtrl, _elementRef, _config, params, renderer) {
+	        this._viewCtrl = _viewCtrl;
+	        this._elementRef = _elementRef;
+	        this._config = _config;
+	        this.d = params.data;
+	        if (this.d.cssClass) {
+	            renderer.setElementClass(_elementRef, this.d.cssClass, true);
+	        }
+	    }
+	    AlertCmp.prototype.click = function (button) {
+	        var _this = this;
+	        var shouldDismiss = true;
+	        if (button.handler) {
+	            // a handler has been provided, execute it
+	            // pass the handler the values from the inputs
+	            if (button.handler(this.getValues()) === false) {
+	                // if the return value of the handler is false then do not dismiss
+	                shouldDismiss = false;
+	            }
+	        }
+	        if (shouldDismiss) {
+	            setTimeout(function () {
+	                _this.dismiss();
+	            }, this._config.get('pageTransitionDelay'));
+	        }
+	    };
+	    AlertCmp.prototype.dismiss = function () {
+	        this._viewCtrl.dismiss(this.getValues());
+	    };
+	    AlertCmp.prototype.getValues = function () {
+	        var values = {};
+	        this.d.inputs.forEach(function (input) {
+	            values[input.name] = input.value;
+	        });
+	        return values;
+	    };
+	    AlertCmp.prototype.onPageLoaded = function () {
+	        // normalize the data
+	        this.d.buttons = this.d.buttons.map(function (button) {
+	            if (typeof button === 'string') {
+	                return { text: button };
+	            }
+	            return button;
+	        });
+	        this.d.inputs = this.d.inputs.map(function (input, index) {
+	            return {
+	                name: util_1.isDefined(input.name) ? input.name : index,
+	                placeholder: util_1.isDefined(input.placeholder) ? input.placeholder : '',
+	                type: input.type || 'text',
+	                value: util_1.isDefined(input.value) ? input.value : ''
+	            };
+	        });
+	        var self = this;
+	        self.keyUp = function (ev) {
+	            if (ev.keyCode === 13) {
+	                // enter
+	                console.debug('alert enter');
+	                var button = self.d.buttons[self.d.buttons.length - 1];
+	                self.click(button);
+	            }
+	            else if (ev.keyCode === 27) {
+	                console.debug('alert escape');
+	                self.dismiss();
+	            }
+	        };
+	        document.addEventListener('keyup', this.keyUp);
+	    };
+	    AlertCmp.prototype.onPageDidEnter = function () {
+	        document.activeElement && document.activeElement.blur();
+	        if (this.d.inputs.length) {
+	            var firstInput = this._elementRef.nativeElement.querySelector('input');
+	            if (firstInput) {
+	                firstInput.focus();
+	            }
+	        }
+	    };
+	    AlertCmp.prototype.onPageDidLeave = function () {
+	        document.removeEventListener('keyup', this.keyUp);
+	    };
+	    AlertCmp = __decorate([
+	        core_1.Component({
+	            selector: 'ion-alert',
+	            template: '<div (click)="dismiss()" tappable disable-activated class="backdrop" role="presentation"></div>' +
+	                '<div class="alert-wrapper">' +
+	                '<div class="alert-head">' +
+	                '<h2 class="alert-title" *ngIf="d.title">{{d.title}}</h2>' +
+	                '<h3 class="alert-sub-title" *ngIf="d.subTitle">{{d.subTitle}}</h3>' +
+	                '</div>' +
+	                '<div class="alert-body" *ngIf="d.body">{{d.body}}</div>' +
+	                '<div class="alert-body alert-inputs" *ngIf="d.inputs.length">' +
+	                '<div class="alert-input-wrapper" *ngFor="#i of d.inputs">' +
+	                '<input [placeholder]="i.placeholder" [(ngModel)]="i.value" [type]="i.type" class="alert-input">' +
+	                '</div>' +
+	                '</div>' +
+	                '<div class="alert-buttons">' +
+	                '<button *ngFor="#b of d.buttons" (click)="click(b)" [ngClass]="b.cssClass" class="alert-button">' +
+	                '{{b.text}}' +
+	                '</button>' +
+	                '</div>' +
+	                '</div>',
+	            host: {
+	                'role': 'dialog'
+	            },
+	            directives: [common_1.NgClass, common_1.NgIf, common_1.NgFor]
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof nav_controller_1.NavParams !== 'undefined' && nav_controller_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
+	    ], AlertCmp);
+	    return AlertCmp;
+	    var _a, _b, _c, _d, _e;
+	})();
+	/**
+	 * Animations for alerts
+	 */
+	var AlertPopIn = (function (_super) {
+	    __extends(AlertPopIn, _super);
+	    function AlertPopIn(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
+	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
+	        backdrop.fromTo('opacity', '0.01', '0.3');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop, wrapper);
+	    }
+	    return AlertPopIn;
+	})(animation_1.Animation);
+	animation_1.Animation.register('alert-pop-in', AlertPopIn);
+	var AlertPopOut = (function (_super) {
+	    __extends(AlertPopOut, _super);
+	    function AlertPopOut(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
+	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
+	        backdrop.fromTo('opacity', '0.3', '0');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop, wrapper);
+	    }
+	    return AlertPopOut;
+	})(animation_1.Animation);
+	animation_1.Animation.register('alert-pop-out', AlertPopOut);
+	var AlertMdPopIn = (function (_super) {
+	    __extends(AlertMdPopIn, _super);
+	    function AlertMdPopIn(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
+	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
+	        backdrop.fromTo('opacity', '0.01', '0.5');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop, wrapper);
+	    }
+	    return AlertMdPopIn;
+	})(animation_1.Animation);
+	animation_1.Animation.register('alert-md-pop-in', AlertMdPopIn);
+	var AlertMdPopOut = (function (_super) {
+	    __extends(AlertMdPopOut, _super);
+	    function AlertMdPopOut(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
+	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
+	        backdrop.fromTo('opacity', '0.5', '0');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop, wrapper);
+	    }
+	    return AlertMdPopOut;
+	})(animation_1.Animation);
+	animation_1.Animation.register('alert-md-pop-out', AlertMdPopOut);
+
+/***/ },
+/* 338 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var menu_1 = __webpack_require__(287);
+	var animation_1 = __webpack_require__(284);
 	/**
 	 * Menu Type
 	 * Base class which is extended by the various types. Each
@@ -59489,18 +59549,188 @@
 	var TRANSLATE_X = 'translateX';
 
 /***/ },
-/* 341 */
+/* 339 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var view_controller_1 = __webpack_require__(297);
+	var animation_1 = __webpack_require__(284);
+	/**
+	 * @name Modal
+	 * @description
+	 * A Modal is a content pane that goes over the user's current page.
+	 * Usually it is used for making a choice or editing an item. A modal uses the
+	 * `NavController` to
+	 * {@link /docs/v2/api/components/nav/NavController/#present present}
+	 * itself in the root nav stack. It is added to the stack similar to how
+	 * {@link /docs/v2/api/components/nav/NavController/#push NavController.push}
+	 * works.
+	 *
+	 * When a modal (or any other overlay such as an alert or actionsheet) is
+	 * "presented" to a nav controller, the overlay is added to the app's root nav.
+	 * After the modal has been presented, from within the component instance The
+	 * modal can later be closed or "dimsissed" by using the ViewController's
+	 * `dismiss` method. Additinoally, you can dismiss any overlay by using `pop`
+	 * on the root nav controller.
+	 *
+	 * A modal can also emit data, which is useful when it is used to add or edit
+	 * data. For example, a profile page could slide up in a modal, and on submit,
+	 * the submit button could pass the updated profile data, then dismiss the
+	 * modal.
+	 *
+	 * @usage
+	 * ```ts
+	 * import {Modal, NavController} from 'ionic/ionic';
+	 *
+	 * @Page(...)
+	 * class HomePage {
+	 *
+	 *  constructor(nav: NavController) {
+	 *    this.nav = nav;
+	 *  }
+	 *
+	 *  presentContactModal() {
+	 *    let contactModal = Modal.create(ContactUs);
+	 *    this.nav.present(contactModal);
+	 *  }
+	 *
+	 *  presentProfileModal() {
+	 *    let profileModal = Modal.create(Profile, { userId: 8675309 });
+	 *    profileModal.onDismiss(data => {
+	 *      console.log(data);
+	 *    });
+	 *    this.nav.present(profileModal);
+	 *  }
+	 *
+	 * }
+	 *
+	 * @Page(...)
+	 * class Profile {
+	 *
+	 *  constructor(viewCtrl: ViewController) {
+	 *    this.viewCtrl = viewCtrl;
+	 *  }
+	 *
+	 *  dismiss() {
+	 *    let data = { 'foo': 'bar' };
+	 *    this.viewCtrl.dismiss(data);
+	 *  }
+	 *
+	 * }
+	 * ```
+	 * @demo /docs/v2/demos/modal/
+	 * @see {@link /docs/v2/components#modals Modal Component Docs}
+	 */
+	var Modal = (function (_super) {
+	    __extends(Modal, _super);
+	    function Modal(componentType, data) {
+	        if (data === void 0) { data = {}; }
+	        _super.call(this, componentType, data);
+	        this.viewType = 'modal';
+	    }
+	    /**
+	    * @private
+	    */
+	    Modal.prototype.getTransitionName = function (direction) {
+	        var key = (direction === 'back' ? 'modalLeave' : 'modalEnter');
+	        return this._nav && this._nav.config.get(key);
+	    };
+	    /**
+	     * @param {Any} componentType Modal
+	     * @param {Object} data Modal options
+	     */
+	    Modal.create = function (componentType, data) {
+	        if (data === void 0) { data = {}; }
+	        return new Modal(componentType, data);
+	    };
+	    return Modal;
+	})(view_controller_1.ViewController);
+	exports.Modal = Modal;
+	/**
+	 * Animations for modals
+	 */
+	var ModalSlideIn = (function (_super) {
+	    __extends(ModalSlideIn, _super);
+	    function ModalSlideIn(enteringView, leavingView, opts) {
+	        _super.call(this, enteringView.pageRef(), opts);
+	        this
+	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
+	            .duration(400)
+	            .fromTo('translateY', '100%', '0%')
+	            .before.addClass('show-page');
+	        if (enteringView.hasNavbar()) {
+	            // entering page has a navbar
+	            var enteringNavBar = new animation_1.Animation(enteringView.navbarRef());
+	            enteringNavBar.before.addClass('show-navbar');
+	            this.add(enteringNavBar);
+	        }
+	    }
+	    return ModalSlideIn;
+	})(animation_1.Animation);
+	animation_1.Animation.register('modal-slide-in', ModalSlideIn);
+	var ModalSlideOut = (function (_super) {
+	    __extends(ModalSlideOut, _super);
+	    function ModalSlideOut(enteringView, leavingView, opts) {
+	        _super.call(this, leavingView.pageRef(), opts);
+	        this
+	            .easing('ease-out')
+	            .duration(250)
+	            .fromTo('translateY', '0%', '100%');
+	    }
+	    return ModalSlideOut;
+	})(animation_1.Animation);
+	animation_1.Animation.register('modal-slide-out', ModalSlideOut);
+	var ModalMDSlideIn = (function (_super) {
+	    __extends(ModalMDSlideIn, _super);
+	    function ModalMDSlideIn(enteringView, leavingView, opts) {
+	        _super.call(this, enteringView.pageRef(), opts);
+	        this
+	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
+	            .duration(280)
+	            .fromTo('translateY', '40px', '0px')
+	            .fadeIn()
+	            .before.addClass('show-page');
+	        if (enteringView.hasNavbar()) {
+	            // entering page has a navbar
+	            var enteringNavBar = new animation_1.Animation(enteringView.navbarRef());
+	            enteringNavBar.before.addClass('show-navbar');
+	            this.add(enteringNavBar);
+	        }
+	    }
+	    return ModalMDSlideIn;
+	})(animation_1.Animation);
+	animation_1.Animation.register('modal-md-slide-in', ModalMDSlideIn);
+	var ModalMDSlideOut = (function (_super) {
+	    __extends(ModalMDSlideOut, _super);
+	    function ModalMDSlideOut(enteringView, leavingView, opts) {
+	        _super.call(this, leavingView.pageRef(), opts);
+	        this
+	            .duration(200)
+	            .easing('cubic-bezier(0.47,0,0.745,0.715)')
+	            .fromTo('translateY', '0px', '40px')
+	            .fadeOut();
+	    }
+	    return ModalMDSlideOut;
+	})(animation_1.Animation);
+	animation_1.Animation.register('modal-md-slide-out', ModalMDSlideOut);
+
+/***/ },
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
+	__export(__webpack_require__(341));
 	__export(__webpack_require__(342));
 	__export(__webpack_require__(343));
-	__export(__webpack_require__(344));
 
 /***/ },
-/* 342 */
+/* 341 */
 /***/ function(module, exports) {
 
 	/**
@@ -59566,7 +59796,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 343 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59574,7 +59804,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(342);
+	var storage_1 = __webpack_require__(341);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -59659,7 +59889,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 344 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59667,8 +59897,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(342);
-	var util = __webpack_require__(276);
+	var storage_1 = __webpack_require__(341);
+	var util = __webpack_require__(294);
 	var DB_NAME = '__ionicstorage';
 	/**
 	 * SqlStorage uses SQLite or WebSQL (development only!) to store data in a
@@ -59875,20 +60105,22 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 345 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
 	};
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var translate_1 = __webpack_require__(297);
+	var translate_1 = __webpack_require__(279);
 	/**
 	 * @private
 	 * The Translate pipe makes it easy to translate strings.
@@ -59923,7 +60155,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 346 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var config_1 = __webpack_require__(270);
@@ -59932,8 +60164,8 @@
 	    activator: 'highlight',
 	    actionSheetEnter: 'action-sheet-slide-in',
 	    actionSheetLeave: 'action-sheet-slide-out',
-	    actionSheetCancelIcon: '',
-	    actionSheetDestructiveIcon: '',
+	    alertEnter: 'alert-pop-in',
+	    alertLeave: 'alert-pop-out',
 	    backButtonText: 'Back',
 	    backButtonIcon: 'ion-ios-arrow-back',
 	    iconMode: 'ios',
@@ -59942,8 +60174,6 @@
 	    modalLeave: 'modal-slide-out',
 	    pageTransition: 'ios-transition',
 	    pageTransitionDelay: 16,
-	    popupEnter: 'popup-pop-in',
-	    popupLeave: 'popup-pop-out',
 	    tabbarPlacement: 'bottom',
 	});
 	// Material Design Mode Settings
@@ -59951,8 +60181,8 @@
 	    activator: 'ripple',
 	    actionSheetEnter: 'action-sheet-md-slide-in',
 	    actionSheetLeave: 'action-sheet-md-slide-out',
-	    actionSheetCancelIcon: 'ion-md-close',
-	    actionSheetDestructiveIcon: 'ion-md-trash',
+	    alertEnter: 'alert-md-pop-in',
+	    alertLeave: 'alert-md-pop-out',
 	    backButtonText: '',
 	    backButtonIcon: 'ion-md-arrow-back',
 	    iconMode: 'md',
@@ -59961,15 +60191,13 @@
 	    modalLeave: 'modal-md-slide-out',
 	    pageTransition: 'md-transition',
 	    pageTransitionDelay: 120,
-	    popupEnter: 'popup-md-pop-in',
-	    popupLeave: 'popup-md-pop-out',
 	    tabbarHighlight: true,
 	    tabbarPlacement: 'top',
 	    tabSubPages: true,
 	});
 
 /***/ },
-/* 347 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var platform_1 = __webpack_require__(271);
@@ -60129,7 +60357,7 @@
 	}
 
 /***/ },
-/* 348 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60137,7 +60365,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(281);
+	var animation_1 = __webpack_require__(284);
 	var SlideIn = (function (_super) {
 	    __extends(SlideIn, _super);
 	    function SlideIn(element) {
@@ -60188,7 +60416,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 349 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60196,7 +60424,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(281);
+	var animation_1 = __webpack_require__(284);
 	var DURATION = 400;
 	var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 	var OPACITY = 'opacity';
@@ -60360,7 +60588,7 @@
 	animation_1.Animation.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 350 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60368,7 +60596,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(281);
+	var animation_1 = __webpack_require__(284);
 	var TRANSLATEY = 'translateY';
 	var OFF_BOTTOM = '40px';
 	var CENTER = '0px';
@@ -60422,328 +60650,226 @@
 	animation_1.Animation.register('md-transition', MDTransition);
 
 /***/ },
+/* 350 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var shared_1 = __webpack_require__(351);
+	var SettingsPage = (function (_super) {
+	    __extends(SettingsPage, _super);
+	    //Setup my class defaults
+	    function SettingsPage(nav) {
+	        _super.call(this);
+	        this.nav = nav;
+	    }
+	    SettingsPage.prototype.onPageWillLeave = function () {
+	        shared_1.Shared.getSettings().storeSettings(this);
+	        console.log("Leaving page");
+	    };
+	    //Reset to the default state
+	    SettingsPage.prototype.resetTimer = function () {
+	        shared_1.Shared.getSettings().resetTimer();
+	    };
+	    SettingsPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: 'build/pages/settings/settings.html'
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _a) || Object])
+	    ], SettingsPage);
+	    return SettingsPage;
+	    var _a;
+	})(shared_1.Shared);
+	exports.SettingsPage = SettingsPage;
+
+
+/***/ },
 /* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _dec, _class;
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.SettingsPage = undefined;
-
-	var _ionic = __webpack_require__(6);
-
-	var _shared = __webpack_require__(352);
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var SettingsPage = exports.SettingsPage = (_dec = (0, _ionic.Page)({
-	  templateUrl: 'build/pages/settings/settings.html'
-	}), _dec(_class = (function (_Shared) {
-	  _inherits(SettingsPage, _Shared);
-
-	  //Setup my class defaults
-
-	  function SettingsPage(nav) {
-	    _classCallCheck(this, SettingsPage);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SettingsPage).call(this));
-
-	    _this.nav = nav;
-	    return _this;
-	  }
-
-	  _createClass(SettingsPage, [{
-	    key: 'onPageWillLeave',
-	    value: function onPageWillLeave() {
-	      _shared.Shared.getSettings().storeSettings(this);
-	      console.log("Leaving page");
+	/**
+	 * Created by ldupin on 1/4/16.
+	 */
+	var howler_1 = __webpack_require__(352);
+	var Shared = (function () {
+	    //Setup my class defaults
+	    function Shared() {
+	        Shared.TIMER_IDLE = 0;
+	        Shared.TIMER_RUNNING = 1;
+	        Shared.TIMER_ELAPSED = 2;
+	        Shared.LOSER_COUNTDOWN = 3;
+	        if (typeof Shared.instance == 'undefined') {
+	            this.minAlert = 5;
+	            this.maxAlert = 8;
+	            this.preAlert = 10;
+	            this.loserCountdown = 20;
+	            this._mode = Shared.TIMER_IDLE;
+	            this._func = null;
+	            this._scope = null;
+	            this._resetCount = 0;
+	            this._loserCount = 0;
+	            this._timerId = [];
+	        }
+	        else
+	            this.storeSettings(Shared.instance);
 	    }
+	    //return my settings
+	    Shared.getSettings = function () {
+	        if (typeof Shared.instance == 'undefined')
+	            Shared.instance = new Shared();
+	        return Shared.instance;
+	    };
+	    //Return the mode
+	    Shared.prototype.currentMode = function () { return Shared.instance._mode; };
+	    //Store my callback
+	    Shared.prototype.storeCallback = function (scope, func) {
+	        Shared.instance._func = func;
+	        Shared.instance._scope = scope;
+	    };
+	    //Call the user callback
+	    Shared.prototype._usrCallback = function (mode, param) {
+	        Shared.instance._scope[Shared.instance._func](mode, param);
+	    };
+	    //Store settings
+	    Shared.prototype.storeSettings = function (settings) {
+	        var _this = this;
+	        ['minAlert', 'maxAlert', 'preAlert', 'loserCountdown'].forEach(function (x) {
+	            _this[x] = settings[x];
+	        });
+	    };
+	    //User button click
+	    Shared.prototype.buttonClick = function () {
+	        var self = Shared.getSettings();
+	        //Quit if the user hasn't given us a callback
+	        if (self._func == null) {
+	            console.log("No function callback given");
+	            return;
+	        }
+	        //Handle user input
+	        switch (self._mode) {
+	            case Shared.TIMER_IDLE:
+	                self._mode = Shared.TIMER_RUNNING;
+	                self._resetCount = 0;
+	                self._startTimer();
+	                self._usrCallback(self._mode, 0);
+	                break;
+	            case Shared.TIMER_RUNNING:
+	                if ((++self._resetCount) >= 5) {
+	                    self._mode = Shared.TIMER_IDLE;
+	                    self._resetCount = 0;
+	                    self.resetTimer();
+	                }
+	                else
+	                    self._playWakaWaka();
+	                self._usrCallback(self._mode, self._resetCount);
+	                break;
+	            case Shared.TIMER_ELAPSED:
+	                self._startLoserCountdown();
+	                self._resetCount = 0;
+	                self._loserCount = self.loserCountdown;
+	                self._mode = Shared.LOSER_COUNTDOWN;
+	                self._usrCallback(self._mode, 0);
+	                break;
+	            case Shared.LOSER_COUNTDOWN:
+	                if ((++self._resetCount) >= 5) {
+	                    self._mode = Shared.TIMER_IDLE;
+	                    self._resetCount = 0;
+	                    self.resetTimer();
+	                    self._usrCallback_func(self._mode, 0);
+	                }
+	                else
+	                    self._playWakaWaka();
+	                break;
+	            default:
+	                console.log("Unknown mode: " + self._mode);
+	                break;
+	        }
+	    };
+	    //Reset my timers and put everything back into a normal state
+	    Shared.prototype.resetTimer = function () {
+	        var self = Shared.getSettings();
+	        //Reset my mode and timer
+	        self._mode = Shared.TIMER_IDLE;
+	        self._resetCount = 0;
+	        //Kill all timer
+	        self._timerId.forEach(function (x) { clearTimeout(x); });
+	        self._timerId = [];
+	    };
+	    //*** Private methods
+	    //Start the countdown timer
+	    Shared.prototype._startTimer = function () {
+	        var self = Shared.getSettings();
+	        //Get my ticks before this will go off
+	        var tick_span = (self.maxAlert - self.minAlert) * Math.random();
+	        var ticks = (tick_span + self.minAlert) * 60 * 1000;
+	        //Add the random timer in
+	        self._timerId.push(setTimeout(Shared.instance._timerElapsed, ticks));
+	        //Do we have a pre warning?
+	        if (self.preAlert > 0)
+	            self._timerId.push(setTimeout(Shared.instance._playPreAlert, ticks - self.preAlert * 1000));
+	    };
+	    //Timer has elapsed!
+	    Shared.prototype._timerElapsed = function () {
+	        var self = Shared.getSettings();
+	        //Play the boat craft alarm
+	        //Let the user know whats up
+	        self._mode = Shared.TIMER_ELAPSED;
+	        self._resetCount = 0;
+	        self._usrCallback(self._mode, 0);
+	    };
+	    //Loser countdown
+	    Shared.prototype._loserCountdown = function () {
+	        var self = Shared.getSettings();
+	        //Update my count down
+	        if (--self._loserCount <= 0) {
+	            //Reset everything back to a known state
+	            self.resetTimer();
+	            //Start my new timer
+	            self._mode = Shared.TIMER_RUNNING;
+	            self._resetCount = 0;
+	            self._startTimer();
+	        }
+	        //Update what we are doing
+	        self._usrCallback(self._mode, self._loserCount);
+	    };
+	    //Play a warning sound
+	    Shared.prototype._playerPreAlert = function () {
+	        //Play a pre alert
+	    };
+	    //Play a waka sound
+	    Shared.prototype._playWakaWaka = function () {
+	        var sound = new howler_1.Howl({
+	            urls: ['/android_asset/www/sounds/waka.mp3']
+	        }).play();
+	    };
+	    //Start the loser countdown
+	    Shared.prototype._startLoserCountdown = function () {
+	        //Add the random timer in
+	        self._timerId.push(setInterval(Shared.instance._loserCountdown, 1000));
+	    };
+	    return Shared;
+	})();
+	exports.Shared = Shared;
 
-	    //Reset to the default state
-
-	  }, {
-	    key: 'resetTimer',
-	    value: function resetTimer() {
-	      _shared.Shared.getSettings().resetTimer();
-	    }
-	  }]);
-
-	  return SettingsPage;
-	})(_shared.Shared)) || _class);
-	Reflect.defineMetadata('design:paramtypes', [_ionic.NavController], SettingsPage);
 
 /***/ },
 /* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })(); /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        * Created by ldupin on 1/4/16.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        */
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Shared = undefined;
-
-	var _howler = __webpack_require__(353);
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var Shared = exports.Shared = (function () {
-	  _createClass(Shared, null, [{
-	    key: 'getSettings',
-
-	    //return my settings
-	    value: function getSettings() {
-	      if (typeof Shared.instance == 'undefined') Shared.instance = new Shared();
-
-	      return Shared.instance;
-	    }
-
-	    //Setup my class defaults
-
-	  }]);
-
-	  function Shared() {
-	    _classCallCheck(this, Shared);
-
-	    Shared.TIMER_IDLE = 0;
-	    Shared.TIMER_RUNNING = 1;
-	    Shared.TIMER_ELAPSED = 2;
-	    Shared.LOSER_COUNTDOWN = 3;
-
-	    if (typeof Shared.instance == 'undefined') {
-	      this.minAlert = 5;
-	      this.maxAlert = 8;
-	      this.preAlert = 10;
-	      this.loserCountdown = 20;
-	      this._mode = Shared.TIMER_IDLE;
-	      this._func = null;
-	      this._scope = null;
-	      this._resetCount = 0;
-	      this._loserCount = 0;
-	      this._timerId = [];
-	    } else this.storeSettings(Shared.instance);
-	  }
-
-	  //Return the mode
-
-	  _createClass(Shared, [{
-	    key: 'currentMode',
-	    value: function currentMode() {
-	      return Shared.instance._mode;
-	    }
-
-	    //Store my callback
-
-	  }, {
-	    key: 'storeCallback',
-	    value: function storeCallback(scope, func) {
-	      Shared.instance._func = func;
-	      Shared.instance._scope = scope;
-	    }
-
-	    //Call the user callback
-
-	  }, {
-	    key: '_usrCallback',
-	    value: function _usrCallback(mode, param) {
-	      Shared.instance._scope[Shared.instance._func](mode, param);
-	    }
-
-	    //Store settings
-
-	  }, {
-	    key: 'storeSettings',
-	    value: function storeSettings(settings) {
-	      var _this = this;
-
-	      ['minAlert', 'maxAlert', 'preAlert', 'loserCountdown'].forEach(function (x) {
-	        _this[x] = settings[x];
-	      });
-	    }
-
-	    //User button click
-
-	  }, {
-	    key: 'buttonClick',
-	    value: function buttonClick() {
-	      var self = Shared.getSettings();
-
-	      //Quit if the user hasn't given us a callback
-	      if (self._func == null) {
-	        console.log("No function callback given");
-	        return;
-	      }
-
-	      //Handle user input
-	      switch (self._mode) {
-	        case Shared.TIMER_IDLE:
-	          self._mode = Shared.TIMER_RUNNING;
-	          self._resetCount = 0;
-	          self._startTimer();
-	          self._usrCallback(self._mode, 0);
-	          break;
-
-	        case Shared.TIMER_RUNNING:
-	          if (++self._resetCount >= 5) {
-	            self._mode = Shared.TIMER_IDLE;
-	            self._resetCount = 0;
-	            self.resetTimer();
-	          } else self._playWakaWaka();
-
-	          self._usrCallback(self._mode, self._resetCount);
-	          break;
-
-	        case Shared.TIMER_ELAPSED:
-	          self._startLoserCountdown();
-	          self._resetCount = 0;
-	          self._loserCount = self.loserCountdown;
-	          self._mode = Shared.LOSER_COUNTDOWN;
-	          self._usrCallback(self._mode, 0);
-	          break;
-
-	        case Shared.LOSER_COUNTDOWN:
-	          if (++self._resetCount >= 5) {
-	            self._mode = Shared.TIMER_IDLE;
-	            self._resetCount = 0;
-	            self.resetTimer();
-	            self._usrCallback_func(self._mode, 0);
-	          } else self._playWakaWaka();
-	          break;
-
-	        default:
-	          console.log("Unknown mode: " + self._mode);
-	          break;
-	      }
-	    }
-
-	    //Reset my timers and put everything back into a normal state
-
-	  }, {
-	    key: 'resetTimer',
-	    value: function resetTimer() {
-	      var self = Shared.getSettings();
-
-	      //Reset my mode and timer
-	      self._mode = Shared.TIMER_IDLE;
-	      self._resetCount = 0;
-
-	      //Kill all timer
-	      self._timerId.forEach(function (x) {
-	        clearTimeout(x);
-	      });
-	      self._timerId = [];
-	    }
-
-	    //*** Private methods
-
-	    //Start the countdown timer
-
-	  }, {
-	    key: '_startTimer',
-	    value: function _startTimer() {
-	      var self = Shared.getSettings();
-
-	      //Get my ticks before this will go off
-	      var tick_span = (self.maxAlert - self.minAlert) * Math.random();
-	      var ticks = (tick_span + self.minAlert) * 60 * 1000;
-
-	      //Add the random timer in
-	      self._timerId.push(setTimeout(Shared.instance._timerElapsed, ticks));
-
-	      //Do we have a pre warning?
-	      if (self.preAlert > 0) self._timerId.push(setTimeout(Shared.instance._playPreAlert, ticks - self.preAlert * 1000));
-	    }
-
-	    //Timer has elapsed!
-
-	  }, {
-	    key: '_timerElapsed',
-	    value: function _timerElapsed() {
-	      var self = Shared.getSettings();
-
-	      //Play the boat craft alarm
-
-	      //Let the user know whats up
-	      self._mode = Shared.TIMER_ELAPSED;
-	      self._resetCount = 0;
-	      self._usrCallback(self._mode, 0);
-	    }
-
-	    //Loser countdown
-
-	  }, {
-	    key: '_loserCountdown',
-	    value: function _loserCountdown() {
-	      var self = Shared.getSettings();
-
-	      //Update my count down
-	      if (--self._loserCount <= 0) {
-	        //Reset everything back to a known state
-	        self.resetTimer();
-
-	        //Start my new timer
-	        self._mode = Shared.TIMER_RUNNING;
-	        self._resetCount = 0;
-	        self._startTimer();
-	      }
-
-	      //Update what we are doing
-	      self._usrCallback(self._mode, self._loserCount);
-	    }
-
-	    //Play a warning sound
-
-	  }, {
-	    key: '_playerPreAlert',
-	    value: function _playerPreAlert() {}
-	    //Play a pre alert
-
-	    //Play a waka sound
-
-	  }, {
-	    key: '_playWakaWaka',
-	    value: function _playWakaWaka() {
-	      var sound = new _howler.Howl({
-	        urls: ['/android_asset/www/sounds/waka.mp3']
-	      }).play();
-	    }
-
-	    //Start the loser countdown
-
-	  }, {
-	    key: '_startLoserCountdown',
-	    value: function _startLoserCountdown() {
-	      //Add the random timer in
-	      self._timerId.push(setInterval(Shared.instance._loserCountdown, 1000));
-	    }
-	  }]);
-
-	  return Shared;
-	})();
-
-/***/ },
-/* 353 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
-
-	function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
-
-	/*!
+	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 *  howler.js v1.1.28
 	 *  howlerjs.com
 	 *
@@ -60752,1418 +60878,1211 @@
 	 *
 	 *  MIT License
 	 */
-
 	(function () {
-	  // setup
-	  var cache = {};
-
-	  // setup the audio context
-	  var ctx = null,
-	      usingWebAudio = true,
-	      noAudio = false;
-	  try {
-	    if (typeof AudioContext !== 'undefined') {
-	      ctx = new AudioContext();
-	    } else if (typeof webkitAudioContext !== 'undefined') {
-	      ctx = new webkitAudioContext();
-	    } else {
-	      usingWebAudio = false;
-	    }
-	  } catch (e) {
-	    usingWebAudio = false;
-	  }
-
-	  if (!usingWebAudio) {
-	    if (typeof Audio !== 'undefined') {
-	      try {
-	        new Audio();
-	      } catch (e) {
-	        noAudio = true;
-	      }
-	    } else {
-	      noAudio = true;
-	    }
-	  }
-
-	  // create a master gain node
-	  if (usingWebAudio) {
-	    var masterGain = typeof ctx.createGain === 'undefined' ? ctx.createGainNode() : ctx.createGain();
-	    masterGain.gain.value = 1;
-	    masterGain.connect(ctx.destination);
-	  }
-
-	  // create global controller
-	  var HowlerGlobal = function HowlerGlobal(codecs) {
-	    this._volume = 1;
-	    this._muted = false;
-	    this.usingWebAudio = usingWebAudio;
-	    this.ctx = ctx;
-	    this.noAudio = noAudio;
-	    this._howls = [];
-	    this._codecs = codecs;
-	    this.iOSAutoEnable = true;
-	  };
-	  HowlerGlobal.prototype = {
-	    /**
-	     * Get/set the global volume for all sounds.
-	     * @param  {Float} vol Volume from 0.0 to 1.0.
-	     * @return {Howler/Float}     Returns self or current volume.
-	     */
-	    volume: function volume(vol) {
-	      var self = this;
-
-	      // make sure volume is a number
-	      vol = parseFloat(vol);
-
-	      if (vol >= 0 && vol <= 1) {
-	        self._volume = vol;
-
-	        if (usingWebAudio) {
-	          masterGain.gain.value = vol;
+	    // setup
+	    var cache = {};
+	    // setup the audio context
+	    var ctx = null, usingWebAudio = true, noAudio = false;
+	    try {
+	        if (typeof AudioContext !== 'undefined') {
+	            ctx = new AudioContext();
 	        }
-
-	        // loop through cache and change volume of all nodes that are using HTML5 Audio
-	        for (var key in self._howls) {
-	          if (self._howls.hasOwnProperty(key) && self._howls[key]._webAudio === false) {
-	            // loop through the audio nodes
-	            for (var i = 0; i < self._howls[key]._audioNode.length; i++) {
-	              self._howls[key]._audioNode[i].volume = self._howls[key]._volume * self._volume;
+	        else if (typeof webkitAudioContext !== 'undefined') {
+	            ctx = new webkitAudioContext();
+	        }
+	        else {
+	            usingWebAudio = false;
+	        }
+	    }
+	    catch (e) {
+	        usingWebAudio = false;
+	    }
+	    if (!usingWebAudio) {
+	        if (typeof Audio !== 'undefined') {
+	            try {
+	                new Audio();
 	            }
-	          }
+	            catch (e) {
+	                noAudio = true;
+	            }
 	        }
-
-	        return self;
-	      }
-
-	      // return the current global volume
-	      return usingWebAudio ? masterGain.gain.value : self._volume;
-	    },
-
-	    /**
-	     * Mute all sounds.
-	     * @return {Howler}
-	     */
-	    mute: function mute() {
-	      this._setMuted(true);
-
-	      return this;
-	    },
-
-	    /**
-	     * Unmute all sounds.
-	     * @return {Howler}
-	     */
-	    unmute: function unmute() {
-	      this._setMuted(false);
-
-	      return this;
-	    },
-
-	    /**
-	     * Handle muting and unmuting globally.
-	     * @param  {Boolean} muted Is muted or not.
-	     */
-	    _setMuted: function _setMuted(muted) {
-	      var self = this;
-
-	      self._muted = muted;
-
-	      if (usingWebAudio) {
-	        masterGain.gain.value = muted ? 0 : self._volume;
-	      }
-
-	      for (var key in self._howls) {
-	        if (self._howls.hasOwnProperty(key) && self._howls[key]._webAudio === false) {
-	          // loop through the audio nodes
-	          for (var i = 0; i < self._howls[key]._audioNode.length; i++) {
-	            self._howls[key]._audioNode[i].muted = muted;
-	          }
+	        else {
+	            noAudio = true;
 	        }
-	      }
-	    },
-
-	    /**
-	     * Check for codec support.
-	     * @param  {String} ext Audio file extention.
-	     * @return {Boolean}
-	     */
-	    codecs: function codecs(ext) {
-	      return this._codecs[ext];
-	    },
-
-	    /**
-	     * iOS will only allow audio to be played after a user interaction.
-	     * Attempt to automatically unlock audio on the first user interaction.
-	     * Concept from: http://paulbakaus.com/tutorials/html5/web-audio-on-ios/
-	     * @return {Howler}
-	     */
-	    _enableiOSAudio: function _enableiOSAudio() {
-	      var self = this;
-
-	      // only run this on iOS if audio isn't already eanbled
-	      if (ctx && (self._iOSEnabled || !/iPhone|iPad|iPod/i.test(navigator.userAgent))) {
-	        return;
-	      }
-
-	      self._iOSEnabled = false;
-
-	      // call this method on touch start to create and play a buffer,
-	      // then check if the audio actually played to determine if
-	      // audio has now been unlocked on iOS
-	      var unlock = function unlock() {
-	        // create an empty buffer
-	        var buffer = ctx.createBuffer(1, 1, 22050);
-	        var source = ctx.createBufferSource();
-	        source.buffer = buffer;
-	        source.connect(ctx.destination);
-
-	        // play the empty buffer
-	        if (typeof source.start === 'undefined') {
-	          source.noteOn(0);
-	        } else {
-	          source.start(0);
-	        }
-
-	        // setup a timeout to check that we are unlocked on the next event loop
-	        setTimeout(function () {
-	          if (source.playbackState === source.PLAYING_STATE || source.playbackState === source.FINISHED_STATE) {
-	            // update the unlocked state and prevent this check from happening again
-	            self._iOSEnabled = true;
-	            self.iOSAutoEnable = false;
-
-	            // remove the touch start listener
-	            window.removeEventListener('touchend', unlock, false);
-	          }
-	        }, 0);
-	      };
-
-	      // setup a touch start listener to attempt an unlock in
-	      window.addEventListener('touchend', unlock, false);
-
-	      return self;
 	    }
-	  };
-
-	  // check for browser codec support
-	  var audioTest = null;
-	  var codecs = {};
-	  if (!noAudio) {
-	    audioTest = new Audio();
-	    codecs = {
-	      mp3: !!audioTest.canPlayType('audio/mpeg;').replace(/^no$/, ''),
-	      opus: !!audioTest.canPlayType('audio/ogg; codecs="opus"').replace(/^no$/, ''),
-	      ogg: !!audioTest.canPlayType('audio/ogg; codecs="vorbis"').replace(/^no$/, ''),
-	      wav: !!audioTest.canPlayType('audio/wav; codecs="1"').replace(/^no$/, ''),
-	      aac: !!audioTest.canPlayType('audio/aac;').replace(/^no$/, ''),
-	      m4a: !!(audioTest.canPlayType('audio/x-m4a;') || audioTest.canPlayType('audio/m4a;') || audioTest.canPlayType('audio/aac;')).replace(/^no$/, ''),
-	      mp4: !!(audioTest.canPlayType('audio/x-mp4;') || audioTest.canPlayType('audio/mp4;') || audioTest.canPlayType('audio/aac;')).replace(/^no$/, ''),
-	      weba: !!audioTest.canPlayType('audio/webm; codecs="vorbis"').replace(/^no$/, '')
+	    // create a master gain node
+	    if (usingWebAudio) {
+	        var masterGain = (typeof ctx.createGain === 'undefined') ? ctx.createGainNode() : ctx.createGain();
+	        masterGain.gain.value = 1;
+	        masterGain.connect(ctx.destination);
+	    }
+	    // create global controller
+	    var HowlerGlobal = function (codecs) {
+	        this._volume = 1;
+	        this._muted = false;
+	        this.usingWebAudio = usingWebAudio;
+	        this.ctx = ctx;
+	        this.noAudio = noAudio;
+	        this._howls = [];
+	        this._codecs = codecs;
+	        this.iOSAutoEnable = true;
 	    };
-	  }
-
-	  // allow access to the global audio controls
-	  var Howler = new HowlerGlobal(codecs);
-
-	  // setup the audio object
-	  var Howl = function Howl(o) {
-	    var self = this;
-
-	    // setup the defaults
-	    self._autoplay = o.autoplay || false;
-	    self._buffer = o.buffer || false;
-	    self._duration = o.duration || 0;
-	    self._format = o.format || null;
-	    self._loop = o.loop || false;
-	    self._loaded = false;
-	    self._sprite = o.sprite || {};
-	    self._src = o.src || '';
-	    self._pos3d = o.pos3d || [0, 0, -0.5];
-	    self._volume = o.volume !== undefined ? o.volume : 1;
-	    self._urls = o.urls || [];
-	    self._rate = o.rate || 1;
-
-	    // allow forcing of a specific panningModel ('equalpower' or 'HRTF'),
-	    // if none is specified, defaults to 'equalpower' and switches to 'HRTF'
-	    // if 3d sound is used
-	    self._model = o.model || null;
-
-	    // setup event functions
-	    self._onload = [o.onload || function () {}];
-	    self._onloaderror = [o.onloaderror || function () {}];
-	    self._onend = [o.onend || function () {}];
-	    self._onpause = [o.onpause || function () {}];
-	    self._onplay = [o.onplay || function () {}];
-
-	    self._onendTimer = [];
-
-	    // Web Audio or HTML5 Audio?
-	    self._webAudio = usingWebAudio && !self._buffer;
-
-	    // check if we need to fall back to HTML5 Audio
-	    self._audioNode = [];
-	    if (self._webAudio) {
-	      self._setupAudioNode();
-	    }
-
-	    // automatically try to enable audio on iOS
-	    if (typeof ctx !== 'undefined' && ctx && Howler.iOSAutoEnable) {
-	      Howler._enableiOSAudio();
-	    }
-
-	    // add this to an array of Howl's to allow global control
-	    Howler._howls.push(self);
-
-	    // load the track
-	    self.load();
-	  };
-
-	  // setup all of the methods
-	  Howl.prototype = {
-	    /**
-	     * Load an audio file.
-	     * @return {Howl}
-	     */
-	    load: function load() {
-	      var self = this,
-	          url = null;
-
-	      // if no audio is available, quit immediately
-	      if (noAudio) {
-	        self.on('loaderror');
-	        return;
-	      }
-
-	      // loop through source URLs and pick the first one that is compatible
-	      for (var i = 0; i < self._urls.length; i++) {
-	        var ext, urlItem;
-
-	        if (self._format) {
-	          // use specified audio format if available
-	          ext = self._format;
-	        } else {
-	          // figure out the filetype (whether an extension or base64 data)
-	          urlItem = self._urls[i];
-	          ext = /^data:audio\/([^;,]+);/i.exec(urlItem);
-	          if (!ext) {
-	            ext = /\.([^.]+)$/.exec(urlItem.split('?', 1)[0]);
-	          }
-
-	          if (ext) {
-	            ext = ext[1].toLowerCase();
-	          } else {
-	            self.on('loaderror');
-	            return;
-	          }
+	    HowlerGlobal.prototype = {
+	        /**
+	         * Get/set the global volume for all sounds.
+	         * @param  {Float} vol Volume from 0.0 to 1.0.
+	         * @return {Howler/Float}     Returns self or current volume.
+	         */
+	        volume: function (vol) {
+	            var self = this;
+	            // make sure volume is a number
+	            vol = parseFloat(vol);
+	            if (vol >= 0 && vol <= 1) {
+	                self._volume = vol;
+	                if (usingWebAudio) {
+	                    masterGain.gain.value = vol;
+	                }
+	                // loop through cache and change volume of all nodes that are using HTML5 Audio
+	                for (var key in self._howls) {
+	                    if (self._howls.hasOwnProperty(key) && self._howls[key]._webAudio === false) {
+	                        // loop through the audio nodes
+	                        for (var i = 0; i < self._howls[key]._audioNode.length; i++) {
+	                            self._howls[key]._audioNode[i].volume = self._howls[key]._volume * self._volume;
+	                        }
+	                    }
+	                }
+	                return self;
+	            }
+	            // return the current global volume
+	            return (usingWebAudio) ? masterGain.gain.value : self._volume;
+	        },
+	        /**
+	         * Mute all sounds.
+	         * @return {Howler}
+	         */
+	        mute: function () {
+	            this._setMuted(true);
+	            return this;
+	        },
+	        /**
+	         * Unmute all sounds.
+	         * @return {Howler}
+	         */
+	        unmute: function () {
+	            this._setMuted(false);
+	            return this;
+	        },
+	        /**
+	         * Handle muting and unmuting globally.
+	         * @param  {Boolean} muted Is muted or not.
+	         */
+	        _setMuted: function (muted) {
+	            var self = this;
+	            self._muted = muted;
+	            if (usingWebAudio) {
+	                masterGain.gain.value = muted ? 0 : self._volume;
+	            }
+	            for (var key in self._howls) {
+	                if (self._howls.hasOwnProperty(key) && self._howls[key]._webAudio === false) {
+	                    // loop through the audio nodes
+	                    for (var i = 0; i < self._howls[key]._audioNode.length; i++) {
+	                        self._howls[key]._audioNode[i].muted = muted;
+	                    }
+	                }
+	            }
+	        },
+	        /**
+	         * Check for codec support.
+	         * @param  {String} ext Audio file extention.
+	         * @return {Boolean}
+	         */
+	        codecs: function (ext) {
+	            return this._codecs[ext];
+	        },
+	        /**
+	         * iOS will only allow audio to be played after a user interaction.
+	         * Attempt to automatically unlock audio on the first user interaction.
+	         * Concept from: http://paulbakaus.com/tutorials/html5/web-audio-on-ios/
+	         * @return {Howler}
+	         */
+	        _enableiOSAudio: function () {
+	            var self = this;
+	            // only run this on iOS if audio isn't already eanbled
+	            if (ctx && (self._iOSEnabled || !/iPhone|iPad|iPod/i.test(navigator.userAgent))) {
+	                return;
+	            }
+	            self._iOSEnabled = false;
+	            // call this method on touch start to create and play a buffer,
+	            // then check if the audio actually played to determine if
+	            // audio has now been unlocked on iOS
+	            var unlock = function () {
+	                // create an empty buffer
+	                var buffer = ctx.createBuffer(1, 1, 22050);
+	                var source = ctx.createBufferSource();
+	                source.buffer = buffer;
+	                source.connect(ctx.destination);
+	                // play the empty buffer
+	                if (typeof source.start === 'undefined') {
+	                    source.noteOn(0);
+	                }
+	                else {
+	                    source.start(0);
+	                }
+	                // setup a timeout to check that we are unlocked on the next event loop
+	                setTimeout(function () {
+	                    if ((source.playbackState === source.PLAYING_STATE || source.playbackState === source.FINISHED_STATE)) {
+	                        // update the unlocked state and prevent this check from happening again
+	                        self._iOSEnabled = true;
+	                        self.iOSAutoEnable = false;
+	                        // remove the touch start listener
+	                        window.removeEventListener('touchend', unlock, false);
+	                    }
+	                }, 0);
+	            };
+	            // setup a touch start listener to attempt an unlock in
+	            window.addEventListener('touchend', unlock, false);
+	            return self;
 	        }
-
-	        if (codecs[ext]) {
-	          url = self._urls[i];
-	          break;
-	        }
-	      }
-
-	      if (!url) {
-	        self.on('loaderror');
-	        return;
-	      }
-
-	      self._src = url;
-
-	      if (self._webAudio) {
-	        loadBuffer(self, url);
-	      } else {
-	        var newNode = new Audio();
-
-	        // listen for errors with HTML5 audio (http://dev.w3.org/html5/spec-author-view/spec.html#mediaerror)
-	        newNode.addEventListener('error', function () {
-	          if (newNode.error && newNode.error.code === 4) {
-	            HowlerGlobal.noAudio = true;
-	          }
-
-	          self.on('loaderror', { type: newNode.error ? newNode.error.code : 0 });
-	        }, false);
-
-	        self._audioNode.push(newNode);
-
-	        // setup the new audio node
-	        newNode.src = url;
-	        newNode._pos = 0;
-	        newNode.preload = 'auto';
-	        newNode.volume = Howler._muted ? 0 : self._volume * Howler.volume();
-
-	        // setup the event listener to start playing the sound
-	        // as soon as it has buffered enough
-	        var listener = function listener() {
-	          // round up the duration when using HTML5 Audio to account for the lower precision
-	          self._duration = Math.ceil(newNode.duration * 10) / 10;
-
-	          // setup a sprite if none is defined
-	          if (Object.getOwnPropertyNames(self._sprite).length === 0) {
-	            self._sprite = { _default: [0, self._duration * 1000] };
-	          }
-
-	          if (!self._loaded) {
-	            self._loaded = true;
-	            self.on('load');
-	          }
-
-	          if (self._autoplay) {
-	            self.play();
-	          }
-
-	          // clear the event listener
-	          newNode.removeEventListener('canplaythrough', listener, false);
+	    };
+	    // check for browser codec support
+	    var audioTest = null;
+	    var codecs = {};
+	    if (!noAudio) {
+	        audioTest = new Audio();
+	        codecs = {
+	            mp3: !!audioTest.canPlayType('audio/mpeg;').replace(/^no$/, ''),
+	            opus: !!audioTest.canPlayType('audio/ogg; codecs="opus"').replace(/^no$/, ''),
+	            ogg: !!audioTest.canPlayType('audio/ogg; codecs="vorbis"').replace(/^no$/, ''),
+	            wav: !!audioTest.canPlayType('audio/wav; codecs="1"').replace(/^no$/, ''),
+	            aac: !!audioTest.canPlayType('audio/aac;').replace(/^no$/, ''),
+	            m4a: !!(audioTest.canPlayType('audio/x-m4a;') || audioTest.canPlayType('audio/m4a;') || audioTest.canPlayType('audio/aac;')).replace(/^no$/, ''),
+	            mp4: !!(audioTest.canPlayType('audio/x-mp4;') || audioTest.canPlayType('audio/mp4;') || audioTest.canPlayType('audio/aac;')).replace(/^no$/, ''),
+	            weba: !!audioTest.canPlayType('audio/webm; codecs="vorbis"').replace(/^no$/, '')
 	        };
-	        newNode.addEventListener('canplaythrough', listener, false);
-	        newNode.load();
-	      }
-
-	      return self;
-	    },
-
-	    /**
-	     * Get/set the URLs to be pulled from to play in this source.
-	     * @param  {Array} urls  Arry of URLs to load from
-	     * @return {Howl}        Returns self or the current URLs
-	     */
-	    urls: function urls(_urls) {
-	      var self = this;
-
-	      if (_urls) {
-	        self.stop();
-	        self._urls = typeof _urls === 'string' ? [_urls] : _urls;
+	    }
+	    // allow access to the global audio controls
+	    var Howler = new HowlerGlobal(codecs);
+	    // setup the audio object
+	    var Howl = function (o) {
+	        var self = this;
+	        // setup the defaults
+	        self._autoplay = o.autoplay || false;
+	        self._buffer = o.buffer || false;
+	        self._duration = o.duration || 0;
+	        self._format = o.format || null;
+	        self._loop = o.loop || false;
 	        self._loaded = false;
+	        self._sprite = o.sprite || {};
+	        self._src = o.src || '';
+	        self._pos3d = o.pos3d || [0, 0, -0.5];
+	        self._volume = o.volume !== undefined ? o.volume : 1;
+	        self._urls = o.urls || [];
+	        self._rate = o.rate || 1;
+	        // allow forcing of a specific panningModel ('equalpower' or 'HRTF'),
+	        // if none is specified, defaults to 'equalpower' and switches to 'HRTF'
+	        // if 3d sound is used
+	        self._model = o.model || null;
+	        // setup event functions
+	        self._onload = [o.onload || function () { }];
+	        self._onloaderror = [o.onloaderror || function () { }];
+	        self._onend = [o.onend || function () { }];
+	        self._onpause = [o.onpause || function () { }];
+	        self._onplay = [o.onplay || function () { }];
+	        self._onendTimer = [];
+	        // Web Audio or HTML5 Audio?
+	        self._webAudio = usingWebAudio && !self._buffer;
+	        // check if we need to fall back to HTML5 Audio
+	        self._audioNode = [];
+	        if (self._webAudio) {
+	            self._setupAudioNode();
+	        }
+	        // automatically try to enable audio on iOS
+	        if (typeof ctx !== 'undefined' && ctx && Howler.iOSAutoEnable) {
+	            Howler._enableiOSAudio();
+	        }
+	        // add this to an array of Howl's to allow global control
+	        Howler._howls.push(self);
+	        // load the track
 	        self.load();
-
-	        return self;
-	      } else {
-	        return self._urls;
-	      }
-	    },
-
-	    /**
-	     * Play a sound from the current time (0 by default).
-	     * @param  {String}   sprite   (optional) Plays from the specified position in the sound sprite definition.
-	     * @param  {Function} callback (optional) Returns the unique playback id for this sound instance.
-	     * @return {Howl}
-	     */
-	    play: function play(sprite, callback) {
-	      var self = this;
-
-	      // if no sprite was passed but a callback was, update the variables
-	      if (typeof sprite === 'function') {
-	        callback = sprite;
-	      }
-
-	      // use the default sprite if none is passed
-	      if (!sprite || typeof sprite === 'function') {
-	        sprite = '_default';
-	      }
-
-	      // if the sound hasn't been loaded, add it to the event queue
-	      if (!self._loaded) {
-	        self.on('load', function () {
-	          self.play(sprite, callback);
-	        });
-
-	        return self;
-	      }
-
-	      // if the sprite doesn't exist, play nothing
-	      if (!self._sprite[sprite]) {
-	        if (typeof callback === 'function') callback();
-	        return self;
-	      }
-
-	      // get the node to playback
-	      self._inactiveNode(function (node) {
-	        // persist the sprite being played
-	        node._sprite = sprite;
-
-	        // determine where to start playing from
-	        var pos = node._pos > 0 ? node._pos : self._sprite[sprite][0] / 1000;
-
-	        // determine how long to play for
-	        var duration = 0;
-	        if (self._webAudio) {
-	          duration = self._sprite[sprite][1] / 1000 - node._pos;
-	          if (node._pos > 0) {
-	            pos = self._sprite[sprite][0] / 1000 + pos;
-	          }
-	        } else {
-	          duration = self._sprite[sprite][1] / 1000 - (pos - self._sprite[sprite][0] / 1000);
-	        }
-
-	        // determine if this sound should be looped
-	        var loop = !!(self._loop || self._sprite[sprite][2]);
-
-	        // set timer to fire the 'onend' event
-	        var soundId = typeof callback === 'string' ? callback : Math.round(Date.now() * Math.random()) + '',
-	            timerId;
-	        (function () {
-	          var data = {
-	            id: soundId,
-	            sprite: sprite,
-	            loop: loop
-	          };
-	          timerId = setTimeout(function () {
-	            // if looping, restart the track
-	            if (!self._webAudio && loop) {
-	              self.stop(data.id).play(sprite, data.id);
+	    };
+	    // setup all of the methods
+	    Howl.prototype = {
+	        /**
+	         * Load an audio file.
+	         * @return {Howl}
+	         */
+	        load: function () {
+	            var self = this, url = null;
+	            // if no audio is available, quit immediately
+	            if (noAudio) {
+	                self.on('loaderror');
+	                return;
 	            }
-
-	            // set web audio node to paused at end
-	            if (self._webAudio && !loop) {
-	              self._nodeById(data.id).paused = true;
-	              self._nodeById(data.id)._pos = 0;
-
-	              // clear the end timer
-	              self._clearEndTimer(data.id);
+	            // loop through source URLs and pick the first one that is compatible
+	            for (var i = 0; i < self._urls.length; i++) {
+	                var ext, urlItem;
+	                if (self._format) {
+	                    // use specified audio format if available
+	                    ext = self._format;
+	                }
+	                else {
+	                    // figure out the filetype (whether an extension or base64 data)
+	                    urlItem = self._urls[i];
+	                    ext = /^data:audio\/([^;,]+);/i.exec(urlItem);
+	                    if (!ext) {
+	                        ext = /\.([^.]+)$/.exec(urlItem.split('?', 1)[0]);
+	                    }
+	                    if (ext) {
+	                        ext = ext[1].toLowerCase();
+	                    }
+	                    else {
+	                        self.on('loaderror');
+	                        return;
+	                    }
+	                }
+	                if (codecs[ext]) {
+	                    url = self._urls[i];
+	                    break;
+	                }
 	            }
-
-	            // end the track if it is HTML audio and a sprite
-	            if (!self._webAudio && !loop) {
-	              self.stop(data.id);
+	            if (!url) {
+	                self.on('loaderror');
+	                return;
 	            }
-
-	            // fire ended event
-	            self.on('end', soundId);
-	          }, duration * 1000);
-
-	          // store the reference to the timer
-	          self._onendTimer.push({ timer: timerId, id: data.id });
-	        })();
-
-	        if (self._webAudio) {
-	          var loopStart = self._sprite[sprite][0] / 1000,
-	              loopEnd = self._sprite[sprite][1] / 1000;
-
-	          // set the play id to this node and load into context
-	          node.id = soundId;
-	          node.paused = false;
-	          refreshBuffer(self, [loop, loopStart, loopEnd], soundId);
-	          self._playStart = ctx.currentTime;
-	          node.gain.value = self._volume;
-
-	          if (typeof node.bufferSource.start === 'undefined') {
-	            loop ? node.bufferSource.noteGrainOn(0, pos, 86400) : node.bufferSource.noteGrainOn(0, pos, duration);
-	          } else {
-	            loop ? node.bufferSource.start(0, pos, 86400) : node.bufferSource.start(0, pos, duration);
-	          }
-	        } else {
-	          if (node.readyState === 4 || !node.readyState && navigator.isCocoonJS) {
-	            node.readyState = 4;
-	            node.id = soundId;
-	            node.currentTime = pos;
-	            node.muted = Howler._muted || node.muted;
-	            node.volume = self._volume * Howler.volume();
-	            setTimeout(function () {
-	              node.play();
-	            }, 0);
-	          } else {
-	            self._clearEndTimer(soundId);
-
-	            (function () {
-	              var sound = self,
-	                  playSprite = sprite,
-	                  fn = callback,
-	                  newNode = node;
-	              var listener = function listener() {
-	                sound.play(playSprite, fn);
-
-	                // clear the event listener
-	                newNode.removeEventListener('canplaythrough', listener, false);
-	              };
-	              newNode.addEventListener('canplaythrough', listener, false);
-	            })();
-
+	            self._src = url;
+	            if (self._webAudio) {
+	                loadBuffer(self, url);
+	            }
+	            else {
+	                var newNode = new Audio();
+	                // listen for errors with HTML5 audio (http://dev.w3.org/html5/spec-author-view/spec.html#mediaerror)
+	                newNode.addEventListener('error', function () {
+	                    if (newNode.error && newNode.error.code === 4) {
+	                        HowlerGlobal.noAudio = true;
+	                    }
+	                    self.on('loaderror', { type: newNode.error ? newNode.error.code : 0 });
+	                }, false);
+	                self._audioNode.push(newNode);
+	                // setup the new audio node
+	                newNode.src = url;
+	                newNode._pos = 0;
+	                newNode.preload = 'auto';
+	                newNode.volume = (Howler._muted) ? 0 : self._volume * Howler.volume();
+	                // setup the event listener to start playing the sound
+	                // as soon as it has buffered enough
+	                var listener = function () {
+	                    // round up the duration when using HTML5 Audio to account for the lower precision
+	                    self._duration = Math.ceil(newNode.duration * 10) / 10;
+	                    // setup a sprite if none is defined
+	                    if (Object.getOwnPropertyNames(self._sprite).length === 0) {
+	                        self._sprite = { _default: [0, self._duration * 1000] };
+	                    }
+	                    if (!self._loaded) {
+	                        self._loaded = true;
+	                        self.on('load');
+	                    }
+	                    if (self._autoplay) {
+	                        self.play();
+	                    }
+	                    // clear the event listener
+	                    newNode.removeEventListener('canplaythrough', listener, false);
+	                };
+	                newNode.addEventListener('canplaythrough', listener, false);
+	                newNode.load();
+	            }
 	            return self;
-	          }
-	        }
-
-	        // fire the play event and send the soundId back in the callback
-	        self.on('play');
-	        if (typeof callback === 'function') callback(soundId);
-
-	        return self;
-	      });
-
-	      return self;
-	    },
-
-	    /**
-	     * Pause playback and save the current position.
-	     * @param {String} id (optional) The play instance ID.
-	     * @return {Howl}
-	     */
-	    pause: function pause(id) {
-	      var self = this;
-
-	      // if the sound hasn't been loaded, add it to the event queue
-	      if (!self._loaded) {
-	        self.on('play', function () {
-	          self.pause(id);
-	        });
-
-	        return self;
-	      }
-
-	      // clear 'onend' timer
-	      self._clearEndTimer(id);
-
-	      var activeNode = id ? self._nodeById(id) : self._activeNode();
-	      if (activeNode) {
-	        activeNode._pos = self.pos(null, id);
-
-	        if (self._webAudio) {
-	          // make sure the sound has been created
-	          if (!activeNode.bufferSource || activeNode.paused) {
-	            return self;
-	          }
-
-	          activeNode.paused = true;
-	          if (typeof activeNode.bufferSource.stop === 'undefined') {
-	            activeNode.bufferSource.noteOff(0);
-	          } else {
-	            activeNode.bufferSource.stop(0);
-	          }
-	        } else {
-	          activeNode.pause();
-	        }
-	      }
-
-	      self.on('pause');
-
-	      return self;
-	    },
-
-	    /**
-	     * Stop playback and reset to start.
-	     * @param  {String} id  (optional) The play instance ID.
-	     * @return {Howl}
-	     */
-	    stop: function stop(id) {
-	      var self = this;
-
-	      // if the sound hasn't been loaded, add it to the event queue
-	      if (!self._loaded) {
-	        self.on('play', function () {
-	          self.stop(id);
-	        });
-
-	        return self;
-	      }
-
-	      // clear 'onend' timer
-	      self._clearEndTimer(id);
-
-	      var activeNode = id ? self._nodeById(id) : self._activeNode();
-	      if (activeNode) {
-	        activeNode._pos = 0;
-
-	        if (self._webAudio) {
-	          // make sure the sound has been created
-	          if (!activeNode.bufferSource || activeNode.paused) {
-	            return self;
-	          }
-
-	          activeNode.paused = true;
-
-	          if (typeof activeNode.bufferSource.stop === 'undefined') {
-	            activeNode.bufferSource.noteOff(0);
-	          } else {
-	            activeNode.bufferSource.stop(0);
-	          }
-	        } else if (!isNaN(activeNode.duration)) {
-	          activeNode.pause();
-	          activeNode.currentTime = 0;
-	        }
-	      }
-
-	      return self;
-	    },
-
-	    /**
-	     * Mute this sound.
-	     * @param  {String} id (optional) The play instance ID.
-	     * @return {Howl}
-	     */
-	    mute: function mute(id) {
-	      var self = this;
-
-	      // if the sound hasn't been loaded, add it to the event queue
-	      if (!self._loaded) {
-	        self.on('play', function () {
-	          self.mute(id);
-	        });
-
-	        return self;
-	      }
-
-	      var activeNode = id ? self._nodeById(id) : self._activeNode();
-	      if (activeNode) {
-	        if (self._webAudio) {
-	          activeNode.gain.value = 0;
-	        } else {
-	          activeNode.muted = true;
-	        }
-	      }
-
-	      return self;
-	    },
-
-	    /**
-	     * Unmute this sound.
-	     * @param  {String} id (optional) The play instance ID.
-	     * @return {Howl}
-	     */
-	    unmute: function unmute(id) {
-	      var self = this;
-
-	      // if the sound hasn't been loaded, add it to the event queue
-	      if (!self._loaded) {
-	        self.on('play', function () {
-	          self.unmute(id);
-	        });
-
-	        return self;
-	      }
-
-	      var activeNode = id ? self._nodeById(id) : self._activeNode();
-	      if (activeNode) {
-	        if (self._webAudio) {
-	          activeNode.gain.value = self._volume;
-	        } else {
-	          activeNode.muted = false;
-	        }
-	      }
-
-	      return self;
-	    },
-
-	    /**
-	     * Get/set volume of this sound.
-	     * @param  {Float}  vol Volume from 0.0 to 1.0.
-	     * @param  {String} id  (optional) The play instance ID.
-	     * @return {Howl/Float}     Returns self or current volume.
-	     */
-	    volume: function volume(vol, id) {
-	      var self = this;
-
-	      // make sure volume is a number
-	      vol = parseFloat(vol);
-
-	      if (vol >= 0 && vol <= 1) {
-	        self._volume = vol;
-
-	        // if the sound hasn't been loaded, add it to the event queue
-	        if (!self._loaded) {
-	          self.on('play', function () {
-	            self.volume(vol, id);
-	          });
-
-	          return self;
-	        }
-
-	        var activeNode = id ? self._nodeById(id) : self._activeNode();
-	        if (activeNode) {
-	          if (self._webAudio) {
-	            activeNode.gain.value = vol;
-	          } else {
-	            activeNode.volume = vol * Howler.volume();
-	          }
-	        }
-
-	        return self;
-	      } else {
-	        return self._volume;
-	      }
-	    },
-
-	    /**
-	     * Get/set whether to loop the sound.
-	     * @param  {Boolean} loop To loop or not to loop, that is the question.
-	     * @return {Howl/Boolean}      Returns self or current looping value.
-	     */
-	    loop: function loop(_loop) {
-	      var self = this;
-
-	      if (typeof _loop === 'boolean') {
-	        self._loop = _loop;
-
-	        return self;
-	      } else {
-	        return self._loop;
-	      }
-	    },
-
-	    /**
-	     * Get/set sound sprite definition.
-	     * @param  {Object} sprite Example: {spriteName: [offset, duration, loop]}
-	     *                @param {Integer} offset   Where to begin playback in milliseconds
-	     *                @param {Integer} duration How long to play in milliseconds
-	     *                @param {Boolean} loop     (optional) Set true to loop this sprite
-	     * @return {Howl}        Returns current sprite sheet or self.
-	     */
-	    sprite: function sprite(_sprite) {
-	      var self = this;
-
-	      if ((typeof _sprite === 'undefined' ? 'undefined' : _typeof(_sprite)) === 'object') {
-	        self._sprite = _sprite;
-
-	        return self;
-	      } else {
-	        return self._sprite;
-	      }
-	    },
-
-	    /**
-	     * Get/set the position of playback.
-	     * @param  {Float}  pos The position to move current playback to.
-	     * @param  {String} id  (optional) The play instance ID.
-	     * @return {Howl/Float}      Returns self or current playback position.
-	     */
-	    pos: function pos(_pos, id) {
-	      var self = this;
-
-	      // if the sound hasn't been loaded, add it to the event queue
-	      if (!self._loaded) {
-	        self.on('load', function () {
-	          self.pos(_pos);
-	        });
-
-	        return typeof _pos === 'number' ? self : self._pos || 0;
-	      }
-
-	      // make sure we are dealing with a number for pos
-	      _pos = parseFloat(_pos);
-
-	      var activeNode = id ? self._nodeById(id) : self._activeNode();
-	      if (activeNode) {
-	        if (_pos >= 0) {
-	          self.pause(id);
-	          activeNode._pos = _pos;
-	          self.play(activeNode._sprite, id);
-
-	          return self;
-	        } else {
-	          return self._webAudio ? activeNode._pos + (ctx.currentTime - self._playStart) : activeNode.currentTime;
-	        }
-	      } else if (_pos >= 0) {
-	        return self;
-	      } else {
-	        // find the first inactive node to return the pos for
-	        for (var i = 0; i < self._audioNode.length; i++) {
-	          if (self._audioNode[i].paused && self._audioNode[i].readyState === 4) {
-	            return self._webAudio ? self._audioNode[i]._pos : self._audioNode[i].currentTime;
-	          }
-	        }
-	      }
-	    },
-
-	    /**
-	     * Get/set the 3D position of the audio source.
-	     * The most common usage is to set the 'x' position
-	     * to affect the left/right ear panning. Setting any value higher than
-	     * 1.0 will begin to decrease the volume of the sound as it moves further away.
-	     * NOTE: This only works with Web Audio API, HTML5 Audio playback
-	     * will not be affected.
-	     * @param  {Float}  x  The x-position of the playback from -1000.0 to 1000.0
-	     * @param  {Float}  y  The y-position of the playback from -1000.0 to 1000.0
-	     * @param  {Float}  z  The z-position of the playback from -1000.0 to 1000.0
-	     * @param  {String} id (optional) The play instance ID.
-	     * @return {Howl/Array}   Returns self or the current 3D position: [x, y, z]
-	     */
-	    pos3d: function pos3d(x, y, z, id) {
-	      var self = this;
-
-	      // set a default for the optional 'y' & 'z'
-	      y = typeof y === 'undefined' || !y ? 0 : y;
-	      z = typeof z === 'undefined' || !z ? -0.5 : z;
-
-	      // if the sound hasn't been loaded, add it to the event queue
-	      if (!self._loaded) {
-	        self.on('play', function () {
-	          self.pos3d(x, y, z, id);
-	        });
-
-	        return self;
-	      }
-
-	      if (x >= 0 || x < 0) {
-	        if (self._webAudio) {
-	          var activeNode = id ? self._nodeById(id) : self._activeNode();
-	          if (activeNode) {
-	            self._pos3d = [x, y, z];
-	            activeNode.panner.setPosition(x, y, z);
-	            activeNode.panner.panningModel = self._model || 'HRTF';
-	          }
-	        }
-	      } else {
-	        return self._pos3d;
-	      }
-
-	      return self;
-	    },
-
-	    /**
-	     * Fade a currently playing sound between two volumes.
-	     * @param  {Number}   from     The volume to fade from (0.0 to 1.0).
-	     * @param  {Number}   to       The volume to fade to (0.0 to 1.0).
-	     * @param  {Number}   len      Time in milliseconds to fade.
-	     * @param  {Function} callback (optional) Fired when the fade is complete.
-	     * @param  {String}   id       (optional) The play instance ID.
-	     * @return {Howl}
-	     */
-	    fade: function fade(from, to, len, callback, id) {
-	      var self = this,
-	          diff = Math.abs(from - to),
-	          dir = from > to ? 'down' : 'up',
-	          steps = diff / 0.01,
-	          stepTime = len / steps;
-
-	      // if the sound hasn't been loaded, add it to the event queue
-	      if (!self._loaded) {
-	        self.on('load', function () {
-	          self.fade(from, to, len, callback, id);
-	        });
-
-	        return self;
-	      }
-
-	      // set the volume to the start position
-	      self.volume(from, id);
-
-	      for (var i = 1; i <= steps; i++) {
-	        (function () {
-	          var change = self._volume + (dir === 'up' ? 0.01 : -0.01) * i,
-	              vol = Math.round(1000 * change) / 1000,
-	              toVol = to;
-
-	          setTimeout(function () {
-	            self.volume(vol, id);
-
-	            if (vol === toVol) {
-	              if (callback) callback();
+	        },
+	        /**
+	         * Get/set the URLs to be pulled from to play in this source.
+	         * @param  {Array} urls  Arry of URLs to load from
+	         * @return {Howl}        Returns self or the current URLs
+	         */
+	        urls: function (urls) {
+	            var self = this;
+	            if (urls) {
+	                self.stop();
+	                self._urls = (typeof urls === 'string') ? [urls] : urls;
+	                self._loaded = false;
+	                self.load();
+	                return self;
 	            }
-	          }, stepTime * i);
-	        })();
-	      }
-	    },
-
-	    /**
-	     * [DEPRECATED] Fade in the current sound.
-	     * @param  {Float}    to      Volume to fade to (0.0 to 1.0).
-	     * @param  {Number}   len     Time in milliseconds to fade.
-	     * @param  {Function} callback
-	     * @return {Howl}
-	     */
-	    fadeIn: function fadeIn(to, len, callback) {
-	      return this.volume(0).play().fade(0, to, len, callback);
-	    },
-
-	    /**
-	     * [DEPRECATED] Fade out the current sound and pause when finished.
-	     * @param  {Float}    to       Volume to fade to (0.0 to 1.0).
-	     * @param  {Number}   len      Time in milliseconds to fade.
-	     * @param  {Function} callback
-	     * @param  {String}   id       (optional) The play instance ID.
-	     * @return {Howl}
-	     */
-	    fadeOut: function fadeOut(to, len, callback, id) {
-	      var self = this;
-
-	      return self.fade(self._volume, to, len, function () {
-	        if (callback) callback();
-	        self.pause(id);
-
-	        // fire ended event
-	        self.on('end');
-	      }, id);
-	    },
-
-	    /**
-	     * Get an audio node by ID.
-	     * @return {Howl} Audio node.
-	     */
-	    _nodeById: function _nodeById(id) {
-	      var self = this,
-	          node = self._audioNode[0];
-
-	      // find the node with this ID
-	      for (var i = 0; i < self._audioNode.length; i++) {
-	        if (self._audioNode[i].id === id) {
-	          node = self._audioNode[i];
-	          break;
+	            else {
+	                return self._urls;
+	            }
+	        },
+	        /**
+	         * Play a sound from the current time (0 by default).
+	         * @param  {String}   sprite   (optional) Plays from the specified position in the sound sprite definition.
+	         * @param  {Function} callback (optional) Returns the unique playback id for this sound instance.
+	         * @return {Howl}
+	         */
+	        play: function (sprite, callback) {
+	            var self = this;
+	            // if no sprite was passed but a callback was, update the variables
+	            if (typeof sprite === 'function') {
+	                callback = sprite;
+	            }
+	            // use the default sprite if none is passed
+	            if (!sprite || typeof sprite === 'function') {
+	                sprite = '_default';
+	            }
+	            // if the sound hasn't been loaded, add it to the event queue
+	            if (!self._loaded) {
+	                self.on('load', function () {
+	                    self.play(sprite, callback);
+	                });
+	                return self;
+	            }
+	            // if the sprite doesn't exist, play nothing
+	            if (!self._sprite[sprite]) {
+	                if (typeof callback === 'function')
+	                    callback();
+	                return self;
+	            }
+	            // get the node to playback
+	            self._inactiveNode(function (node) {
+	                // persist the sprite being played
+	                node._sprite = sprite;
+	                // determine where to start playing from
+	                var pos = (node._pos > 0) ? node._pos : self._sprite[sprite][0] / 1000;
+	                // determine how long to play for
+	                var duration = 0;
+	                if (self._webAudio) {
+	                    duration = self._sprite[sprite][1] / 1000 - node._pos;
+	                    if (node._pos > 0) {
+	                        pos = self._sprite[sprite][0] / 1000 + pos;
+	                    }
+	                }
+	                else {
+	                    duration = self._sprite[sprite][1] / 1000 - (pos - self._sprite[sprite][0] / 1000);
+	                }
+	                // determine if this sound should be looped
+	                var loop = !!(self._loop || self._sprite[sprite][2]);
+	                // set timer to fire the 'onend' event
+	                var soundId = (typeof callback === 'string') ? callback : Math.round(Date.now() * Math.random()) + '', timerId;
+	                (function () {
+	                    var data = {
+	                        id: soundId,
+	                        sprite: sprite,
+	                        loop: loop
+	                    };
+	                    timerId = setTimeout(function () {
+	                        // if looping, restart the track
+	                        if (!self._webAudio && loop) {
+	                            self.stop(data.id).play(sprite, data.id);
+	                        }
+	                        // set web audio node to paused at end
+	                        if (self._webAudio && !loop) {
+	                            self._nodeById(data.id).paused = true;
+	                            self._nodeById(data.id)._pos = 0;
+	                            // clear the end timer
+	                            self._clearEndTimer(data.id);
+	                        }
+	                        // end the track if it is HTML audio and a sprite
+	                        if (!self._webAudio && !loop) {
+	                            self.stop(data.id);
+	                        }
+	                        // fire ended event
+	                        self.on('end', soundId);
+	                    }, duration * 1000);
+	                    // store the reference to the timer
+	                    self._onendTimer.push({ timer: timerId, id: data.id });
+	                })();
+	                if (self._webAudio) {
+	                    var loopStart = self._sprite[sprite][0] / 1000, loopEnd = self._sprite[sprite][1] / 1000;
+	                    // set the play id to this node and load into context
+	                    node.id = soundId;
+	                    node.paused = false;
+	                    refreshBuffer(self, [loop, loopStart, loopEnd], soundId);
+	                    self._playStart = ctx.currentTime;
+	                    node.gain.value = self._volume;
+	                    if (typeof node.bufferSource.start === 'undefined') {
+	                        loop ? node.bufferSource.noteGrainOn(0, pos, 86400) : node.bufferSource.noteGrainOn(0, pos, duration);
+	                    }
+	                    else {
+	                        loop ? node.bufferSource.start(0, pos, 86400) : node.bufferSource.start(0, pos, duration);
+	                    }
+	                }
+	                else {
+	                    if (node.readyState === 4 || !node.readyState && navigator.isCocoonJS) {
+	                        node.readyState = 4;
+	                        node.id = soundId;
+	                        node.currentTime = pos;
+	                        node.muted = Howler._muted || node.muted;
+	                        node.volume = self._volume * Howler.volume();
+	                        setTimeout(function () { node.play(); }, 0);
+	                    }
+	                    else {
+	                        self._clearEndTimer(soundId);
+	                        (function () {
+	                            var sound = self, playSprite = sprite, fn = callback, newNode = node;
+	                            var listener = function () {
+	                                sound.play(playSprite, fn);
+	                                // clear the event listener
+	                                newNode.removeEventListener('canplaythrough', listener, false);
+	                            };
+	                            newNode.addEventListener('canplaythrough', listener, false);
+	                        })();
+	                        return self;
+	                    }
+	                }
+	                // fire the play event and send the soundId back in the callback
+	                self.on('play');
+	                if (typeof callback === 'function')
+	                    callback(soundId);
+	                return self;
+	            });
+	            return self;
+	        },
+	        /**
+	         * Pause playback and save the current position.
+	         * @param {String} id (optional) The play instance ID.
+	         * @return {Howl}
+	         */
+	        pause: function (id) {
+	            var self = this;
+	            // if the sound hasn't been loaded, add it to the event queue
+	            if (!self._loaded) {
+	                self.on('play', function () {
+	                    self.pause(id);
+	                });
+	                return self;
+	            }
+	            // clear 'onend' timer
+	            self._clearEndTimer(id);
+	            var activeNode = (id) ? self._nodeById(id) : self._activeNode();
+	            if (activeNode) {
+	                activeNode._pos = self.pos(null, id);
+	                if (self._webAudio) {
+	                    // make sure the sound has been created
+	                    if (!activeNode.bufferSource || activeNode.paused) {
+	                        return self;
+	                    }
+	                    activeNode.paused = true;
+	                    if (typeof activeNode.bufferSource.stop === 'undefined') {
+	                        activeNode.bufferSource.noteOff(0);
+	                    }
+	                    else {
+	                        activeNode.bufferSource.stop(0);
+	                    }
+	                }
+	                else {
+	                    activeNode.pause();
+	                }
+	            }
+	            self.on('pause');
+	            return self;
+	        },
+	        /**
+	         * Stop playback and reset to start.
+	         * @param  {String} id  (optional) The play instance ID.
+	         * @return {Howl}
+	         */
+	        stop: function (id) {
+	            var self = this;
+	            // if the sound hasn't been loaded, add it to the event queue
+	            if (!self._loaded) {
+	                self.on('play', function () {
+	                    self.stop(id);
+	                });
+	                return self;
+	            }
+	            // clear 'onend' timer
+	            self._clearEndTimer(id);
+	            var activeNode = (id) ? self._nodeById(id) : self._activeNode();
+	            if (activeNode) {
+	                activeNode._pos = 0;
+	                if (self._webAudio) {
+	                    // make sure the sound has been created
+	                    if (!activeNode.bufferSource || activeNode.paused) {
+	                        return self;
+	                    }
+	                    activeNode.paused = true;
+	                    if (typeof activeNode.bufferSource.stop === 'undefined') {
+	                        activeNode.bufferSource.noteOff(0);
+	                    }
+	                    else {
+	                        activeNode.bufferSource.stop(0);
+	                    }
+	                }
+	                else if (!isNaN(activeNode.duration)) {
+	                    activeNode.pause();
+	                    activeNode.currentTime = 0;
+	                }
+	            }
+	            return self;
+	        },
+	        /**
+	         * Mute this sound.
+	         * @param  {String} id (optional) The play instance ID.
+	         * @return {Howl}
+	         */
+	        mute: function (id) {
+	            var self = this;
+	            // if the sound hasn't been loaded, add it to the event queue
+	            if (!self._loaded) {
+	                self.on('play', function () {
+	                    self.mute(id);
+	                });
+	                return self;
+	            }
+	            var activeNode = (id) ? self._nodeById(id) : self._activeNode();
+	            if (activeNode) {
+	                if (self._webAudio) {
+	                    activeNode.gain.value = 0;
+	                }
+	                else {
+	                    activeNode.muted = true;
+	                }
+	            }
+	            return self;
+	        },
+	        /**
+	         * Unmute this sound.
+	         * @param  {String} id (optional) The play instance ID.
+	         * @return {Howl}
+	         */
+	        unmute: function (id) {
+	            var self = this;
+	            // if the sound hasn't been loaded, add it to the event queue
+	            if (!self._loaded) {
+	                self.on('play', function () {
+	                    self.unmute(id);
+	                });
+	                return self;
+	            }
+	            var activeNode = (id) ? self._nodeById(id) : self._activeNode();
+	            if (activeNode) {
+	                if (self._webAudio) {
+	                    activeNode.gain.value = self._volume;
+	                }
+	                else {
+	                    activeNode.muted = false;
+	                }
+	            }
+	            return self;
+	        },
+	        /**
+	         * Get/set volume of this sound.
+	         * @param  {Float}  vol Volume from 0.0 to 1.0.
+	         * @param  {String} id  (optional) The play instance ID.
+	         * @return {Howl/Float}     Returns self or current volume.
+	         */
+	        volume: function (vol, id) {
+	            var self = this;
+	            // make sure volume is a number
+	            vol = parseFloat(vol);
+	            if (vol >= 0 && vol <= 1) {
+	                self._volume = vol;
+	                // if the sound hasn't been loaded, add it to the event queue
+	                if (!self._loaded) {
+	                    self.on('play', function () {
+	                        self.volume(vol, id);
+	                    });
+	                    return self;
+	                }
+	                var activeNode = (id) ? self._nodeById(id) : self._activeNode();
+	                if (activeNode) {
+	                    if (self._webAudio) {
+	                        activeNode.gain.value = vol;
+	                    }
+	                    else {
+	                        activeNode.volume = vol * Howler.volume();
+	                    }
+	                }
+	                return self;
+	            }
+	            else {
+	                return self._volume;
+	            }
+	        },
+	        /**
+	         * Get/set whether to loop the sound.
+	         * @param  {Boolean} loop To loop or not to loop, that is the question.
+	         * @return {Howl/Boolean}      Returns self or current looping value.
+	         */
+	        loop: function (loop) {
+	            var self = this;
+	            if (typeof loop === 'boolean') {
+	                self._loop = loop;
+	                return self;
+	            }
+	            else {
+	                return self._loop;
+	            }
+	        },
+	        /**
+	         * Get/set sound sprite definition.
+	         * @param  {Object} sprite Example: {spriteName: [offset, duration, loop]}
+	         *                @param {Integer} offset   Where to begin playback in milliseconds
+	         *                @param {Integer} duration How long to play in milliseconds
+	         *                @param {Boolean} loop     (optional) Set true to loop this sprite
+	         * @return {Howl}        Returns current sprite sheet or self.
+	         */
+	        sprite: function (sprite) {
+	            var self = this;
+	            if (typeof sprite === 'object') {
+	                self._sprite = sprite;
+	                return self;
+	            }
+	            else {
+	                return self._sprite;
+	            }
+	        },
+	        /**
+	         * Get/set the position of playback.
+	         * @param  {Float}  pos The position to move current playback to.
+	         * @param  {String} id  (optional) The play instance ID.
+	         * @return {Howl/Float}      Returns self or current playback position.
+	         */
+	        pos: function (pos, id) {
+	            var self = this;
+	            // if the sound hasn't been loaded, add it to the event queue
+	            if (!self._loaded) {
+	                self.on('load', function () {
+	                    self.pos(pos);
+	                });
+	                return typeof pos === 'number' ? self : self._pos || 0;
+	            }
+	            // make sure we are dealing with a number for pos
+	            pos = parseFloat(pos);
+	            var activeNode = (id) ? self._nodeById(id) : self._activeNode();
+	            if (activeNode) {
+	                if (pos >= 0) {
+	                    self.pause(id);
+	                    activeNode._pos = pos;
+	                    self.play(activeNode._sprite, id);
+	                    return self;
+	                }
+	                else {
+	                    return self._webAudio ? activeNode._pos + (ctx.currentTime - self._playStart) : activeNode.currentTime;
+	                }
+	            }
+	            else if (pos >= 0) {
+	                return self;
+	            }
+	            else {
+	                // find the first inactive node to return the pos for
+	                for (var i = 0; i < self._audioNode.length; i++) {
+	                    if (self._audioNode[i].paused && self._audioNode[i].readyState === 4) {
+	                        return (self._webAudio) ? self._audioNode[i]._pos : self._audioNode[i].currentTime;
+	                    }
+	                }
+	            }
+	        },
+	        /**
+	         * Get/set the 3D position of the audio source.
+	         * The most common usage is to set the 'x' position
+	         * to affect the left/right ear panning. Setting any value higher than
+	         * 1.0 will begin to decrease the volume of the sound as it moves further away.
+	         * NOTE: This only works with Web Audio API, HTML5 Audio playback
+	         * will not be affected.
+	         * @param  {Float}  x  The x-position of the playback from -1000.0 to 1000.0
+	         * @param  {Float}  y  The y-position of the playback from -1000.0 to 1000.0
+	         * @param  {Float}  z  The z-position of the playback from -1000.0 to 1000.0
+	         * @param  {String} id (optional) The play instance ID.
+	         * @return {Howl/Array}   Returns self or the current 3D position: [x, y, z]
+	         */
+	        pos3d: function (x, y, z, id) {
+	            var self = this;
+	            // set a default for the optional 'y' & 'z'
+	            y = (typeof y === 'undefined' || !y) ? 0 : y;
+	            z = (typeof z === 'undefined' || !z) ? -0.5 : z;
+	            // if the sound hasn't been loaded, add it to the event queue
+	            if (!self._loaded) {
+	                self.on('play', function () {
+	                    self.pos3d(x, y, z, id);
+	                });
+	                return self;
+	            }
+	            if (x >= 0 || x < 0) {
+	                if (self._webAudio) {
+	                    var activeNode = (id) ? self._nodeById(id) : self._activeNode();
+	                    if (activeNode) {
+	                        self._pos3d = [x, y, z];
+	                        activeNode.panner.setPosition(x, y, z);
+	                        activeNode.panner.panningModel = self._model || 'HRTF';
+	                    }
+	                }
+	            }
+	            else {
+	                return self._pos3d;
+	            }
+	            return self;
+	        },
+	        /**
+	         * Fade a currently playing sound between two volumes.
+	         * @param  {Number}   from     The volume to fade from (0.0 to 1.0).
+	         * @param  {Number}   to       The volume to fade to (0.0 to 1.0).
+	         * @param  {Number}   len      Time in milliseconds to fade.
+	         * @param  {Function} callback (optional) Fired when the fade is complete.
+	         * @param  {String}   id       (optional) The play instance ID.
+	         * @return {Howl}
+	         */
+	        fade: function (from, to, len, callback, id) {
+	            var self = this, diff = Math.abs(from - to), dir = from > to ? 'down' : 'up', steps = diff / 0.01, stepTime = len / steps;
+	            // if the sound hasn't been loaded, add it to the event queue
+	            if (!self._loaded) {
+	                self.on('load', function () {
+	                    self.fade(from, to, len, callback, id);
+	                });
+	                return self;
+	            }
+	            // set the volume to the start position
+	            self.volume(from, id);
+	            for (var i = 1; i <= steps; i++) {
+	                (function () {
+	                    var change = self._volume + (dir === 'up' ? 0.01 : -0.01) * i, vol = Math.round(1000 * change) / 1000, toVol = to;
+	                    setTimeout(function () {
+	                        self.volume(vol, id);
+	                        if (vol === toVol) {
+	                            if (callback)
+	                                callback();
+	                        }
+	                    }, stepTime * i);
+	                })();
+	            }
+	        },
+	        /**
+	         * [DEPRECATED] Fade in the current sound.
+	         * @param  {Float}    to      Volume to fade to (0.0 to 1.0).
+	         * @param  {Number}   len     Time in milliseconds to fade.
+	         * @param  {Function} callback
+	         * @return {Howl}
+	         */
+	        fadeIn: function (to, len, callback) {
+	            return this.volume(0).play().fade(0, to, len, callback);
+	        },
+	        /**
+	         * [DEPRECATED] Fade out the current sound and pause when finished.
+	         * @param  {Float}    to       Volume to fade to (0.0 to 1.0).
+	         * @param  {Number}   len      Time in milliseconds to fade.
+	         * @param  {Function} callback
+	         * @param  {String}   id       (optional) The play instance ID.
+	         * @return {Howl}
+	         */
+	        fadeOut: function (to, len, callback, id) {
+	            var self = this;
+	            return self.fade(self._volume, to, len, function () {
+	                if (callback)
+	                    callback();
+	                self.pause(id);
+	                // fire ended event
+	                self.on('end');
+	            }, id);
+	        },
+	        /**
+	         * Get an audio node by ID.
+	         * @return {Howl} Audio node.
+	         */
+	        _nodeById: function (id) {
+	            var self = this, node = self._audioNode[0];
+	            // find the node with this ID
+	            for (var i = 0; i < self._audioNode.length; i++) {
+	                if (self._audioNode[i].id === id) {
+	                    node = self._audioNode[i];
+	                    break;
+	                }
+	            }
+	            return node;
+	        },
+	        /**
+	         * Get the first active audio node.
+	         * @return {Howl} Audio node.
+	         */
+	        _activeNode: function () {
+	            var self = this, node = null;
+	            // find the first playing node
+	            for (var i = 0; i < self._audioNode.length; i++) {
+	                if (!self._audioNode[i].paused) {
+	                    node = self._audioNode[i];
+	                    break;
+	                }
+	            }
+	            // remove excess inactive nodes
+	            self._drainPool();
+	            return node;
+	        },
+	        /**
+	         * Get the first inactive audio node.
+	         * If there is none, create a new one and add it to the pool.
+	         * @param  {Function} callback Function to call when the audio node is ready.
+	         */
+	        _inactiveNode: function (callback) {
+	            var self = this, node = null;
+	            // find first inactive node to recycle
+	            for (var i = 0; i < self._audioNode.length; i++) {
+	                if (self._audioNode[i].paused && self._audioNode[i].readyState === 4) {
+	                    // send the node back for use by the new play instance
+	                    callback(self._audioNode[i]);
+	                    node = true;
+	                    break;
+	                }
+	            }
+	            // remove excess inactive nodes
+	            self._drainPool();
+	            if (node) {
+	                return;
+	            }
+	            // create new node if there are no inactives
+	            var newNode;
+	            if (self._webAudio) {
+	                newNode = self._setupAudioNode();
+	                callback(newNode);
+	            }
+	            else {
+	                self.load();
+	                newNode = self._audioNode[self._audioNode.length - 1];
+	                // listen for the correct load event and fire the callback
+	                var listenerEvent = navigator.isCocoonJS ? 'canplaythrough' : 'loadedmetadata';
+	                var listener = function () {
+	                    newNode.removeEventListener(listenerEvent, listener, false);
+	                    callback(newNode);
+	                };
+	                newNode.addEventListener(listenerEvent, listener, false);
+	            }
+	        },
+	        /**
+	         * If there are more than 5 inactive audio nodes in the pool, clear out the rest.
+	         */
+	        _drainPool: function () {
+	            var self = this, inactive = 0, i;
+	            // count the number of inactive nodes
+	            for (i = 0; i < self._audioNode.length; i++) {
+	                if (self._audioNode[i].paused) {
+	                    inactive++;
+	                }
+	            }
+	            // remove excess inactive nodes
+	            for (i = self._audioNode.length - 1; i >= 0; i--) {
+	                if (inactive <= 5) {
+	                    break;
+	                }
+	                if (self._audioNode[i].paused) {
+	                    // disconnect the audio source if using Web Audio
+	                    if (self._webAudio) {
+	                        self._audioNode[i].disconnect(0);
+	                    }
+	                    inactive--;
+	                    self._audioNode.splice(i, 1);
+	                }
+	            }
+	        },
+	        /**
+	         * Clear 'onend' timeout before it ends.
+	         * @param  {String} soundId  The play instance ID.
+	         */
+	        _clearEndTimer: function (soundId) {
+	            var self = this, index = 0;
+	            // loop through the timers to find the one associated with this sound
+	            for (var i = 0; i < self._onendTimer.length; i++) {
+	                if (self._onendTimer[i].id === soundId) {
+	                    index = i;
+	                    break;
+	                }
+	            }
+	            var timer = self._onendTimer[index];
+	            if (timer) {
+	                clearTimeout(timer.timer);
+	                self._onendTimer.splice(index, 1);
+	            }
+	        },
+	        /**
+	         * Setup the gain node and panner for a Web Audio instance.
+	         * @return {Object} The new audio node.
+	         */
+	        _setupAudioNode: function () {
+	            var self = this, node = self._audioNode, index = self._audioNode.length;
+	            // create gain node
+	            node[index] = (typeof ctx.createGain === 'undefined') ? ctx.createGainNode() : ctx.createGain();
+	            node[index].gain.value = self._volume;
+	            node[index].paused = true;
+	            node[index]._pos = 0;
+	            node[index].readyState = 4;
+	            node[index].connect(masterGain);
+	            // create the panner
+	            node[index].panner = ctx.createPanner();
+	            node[index].panner.panningModel = self._model || 'equalpower';
+	            node[index].panner.setPosition(self._pos3d[0], self._pos3d[1], self._pos3d[2]);
+	            node[index].panner.connect(node[index]);
+	            return node[index];
+	        },
+	        /**
+	         * Call/set custom events.
+	         * @param  {String}   event Event type.
+	         * @param  {Function} fn    Function to call.
+	         * @return {Howl}
+	         */
+	        on: function (event, fn) {
+	            var self = this, events = self['_on' + event];
+	            if (typeof fn === 'function') {
+	                events.push(fn);
+	            }
+	            else {
+	                for (var i = 0; i < events.length; i++) {
+	                    if (fn) {
+	                        events[i].call(self, fn);
+	                    }
+	                    else {
+	                        events[i].call(self);
+	                    }
+	                }
+	            }
+	            return self;
+	        },
+	        /**
+	         * Remove a custom event.
+	         * @param  {String}   event Event type.
+	         * @param  {Function} fn    Listener to remove.
+	         * @return {Howl}
+	         */
+	        off: function (event, fn) {
+	            var self = this, events = self['_on' + event], fnString = fn ? fn.toString() : null;
+	            if (fnString) {
+	                // loop through functions in the event for comparison
+	                for (var i = 0; i < events.length; i++) {
+	                    if (fnString === events[i].toString()) {
+	                        events.splice(i, 1);
+	                        break;
+	                    }
+	                }
+	            }
+	            else {
+	                self['_on' + event] = [];
+	            }
+	            return self;
+	        },
+	        /**
+	         * Unload and destroy the current Howl object.
+	         * This will immediately stop all play instances attached to this sound.
+	         */
+	        unload: function () {
+	            var self = this;
+	            // stop playing any active nodes
+	            var nodes = self._audioNode;
+	            for (var i = 0; i < self._audioNode.length; i++) {
+	                // stop the sound if it is currently playing
+	                if (!nodes[i].paused) {
+	                    self.stop(nodes[i].id);
+	                    self.on('end', nodes[i].id);
+	                }
+	                if (!self._webAudio) {
+	                    // remove the source if using HTML5 Audio
+	                    nodes[i].src = '';
+	                }
+	                else {
+	                    // disconnect the output from the master gain
+	                    nodes[i].disconnect(0);
+	                }
+	            }
+	            // make sure all timeouts are cleared
+	            for (i = 0; i < self._onendTimer.length; i++) {
+	                clearTimeout(self._onendTimer[i].timer);
+	            }
+	            // remove the reference in the global Howler object
+	            var index = Howler._howls.indexOf(self);
+	            if (index !== null && index >= 0) {
+	                Howler._howls.splice(index, 1);
+	            }
+	            // delete this sound from the cache
+	            delete cache[self._src];
+	            self = null;
 	        }
-	      }
-
-	      return node;
-	    },
-
-	    /**
-	     * Get the first active audio node.
-	     * @return {Howl} Audio node.
-	     */
-	    _activeNode: function _activeNode() {
-	      var self = this,
-	          node = null;
-
-	      // find the first playing node
-	      for (var i = 0; i < self._audioNode.length; i++) {
-	        if (!self._audioNode[i].paused) {
-	          node = self._audioNode[i];
-	          break;
-	        }
-	      }
-
-	      // remove excess inactive nodes
-	      self._drainPool();
-
-	      return node;
-	    },
-
-	    /**
-	     * Get the first inactive audio node.
-	     * If there is none, create a new one and add it to the pool.
-	     * @param  {Function} callback Function to call when the audio node is ready.
-	     */
-	    _inactiveNode: function _inactiveNode(callback) {
-	      var self = this,
-	          node = null;
-
-	      // find first inactive node to recycle
-	      for (var i = 0; i < self._audioNode.length; i++) {
-	        if (self._audioNode[i].paused && self._audioNode[i].readyState === 4) {
-	          // send the node back for use by the new play instance
-	          callback(self._audioNode[i]);
-	          node = true;
-	          break;
-	        }
-	      }
-
-	      // remove excess inactive nodes
-	      self._drainPool();
-
-	      if (node) {
-	        return;
-	      }
-
-	      // create new node if there are no inactives
-	      var newNode;
-	      if (self._webAudio) {
-	        newNode = self._setupAudioNode();
-	        callback(newNode);
-	      } else {
-	        self.load();
-	        newNode = self._audioNode[self._audioNode.length - 1];
-
-	        // listen for the correct load event and fire the callback
-	        var listenerEvent = navigator.isCocoonJS ? 'canplaythrough' : 'loadedmetadata';
-	        var listener = function listener() {
-	          newNode.removeEventListener(listenerEvent, listener, false);
-	          callback(newNode);
+	    };
+	    // only define these functions when using WebAudio
+	    if (usingWebAudio) {
+	        /**
+	         * Buffer a sound from URL (or from cache) and decode to audio source (Web Audio API).
+	         * @param  {Object} obj The Howl object for the sound to load.
+	         * @param  {String} url The path to the sound file.
+	         */
+	        var loadBuffer = function (obj, url) {
+	            // check if the buffer has already been cached
+	            if (url in cache) {
+	                // set the duration from the cache
+	                obj._duration = cache[url].duration;
+	                // load the sound into this object
+	                loadSound(obj);
+	                return;
+	            }
+	            if (/^data:[^;]+;base64,/.test(url)) {
+	                // Decode base64 data-URIs because some browsers cannot load data-URIs with XMLHttpRequest.
+	                var data = atob(url.split(',')[1]);
+	                var dataView = new Uint8Array(data.length);
+	                for (var i = 0; i < data.length; ++i) {
+	                    dataView[i] = data.charCodeAt(i);
+	                }
+	                decodeAudioData(dataView.buffer, obj, url);
+	            }
+	            else {
+	                // load the buffer from the URL
+	                var xhr = new XMLHttpRequest();
+	                xhr.open('GET', url, true);
+	                xhr.responseType = 'arraybuffer';
+	                xhr.onload = function () {
+	                    decodeAudioData(xhr.response, obj, url);
+	                };
+	                xhr.onerror = function () {
+	                    // if there is an error, switch the sound to HTML Audio
+	                    if (obj._webAudio) {
+	                        obj._buffer = true;
+	                        obj._webAudio = false;
+	                        obj._audioNode = [];
+	                        delete obj._gainNode;
+	                        delete cache[url];
+	                        obj.load();
+	                    }
+	                };
+	                try {
+	                    xhr.send();
+	                }
+	                catch (e) {
+	                    xhr.onerror();
+	                }
+	            }
 	        };
-	        newNode.addEventListener(listenerEvent, listener, false);
-	      }
-	    },
-
-	    /**
-	     * If there are more than 5 inactive audio nodes in the pool, clear out the rest.
-	     */
-	    _drainPool: function _drainPool() {
-	      var self = this,
-	          inactive = 0,
-	          i;
-
-	      // count the number of inactive nodes
-	      for (i = 0; i < self._audioNode.length; i++) {
-	        if (self._audioNode[i].paused) {
-	          inactive++;
-	        }
-	      }
-
-	      // remove excess inactive nodes
-	      for (i = self._audioNode.length - 1; i >= 0; i--) {
-	        if (inactive <= 5) {
-	          break;
-	        }
-
-	        if (self._audioNode[i].paused) {
-	          // disconnect the audio source if using Web Audio
-	          if (self._webAudio) {
-	            self._audioNode[i].disconnect(0);
-	          }
-
-	          inactive--;
-	          self._audioNode.splice(i, 1);
-	        }
-	      }
-	    },
-
-	    /**
-	     * Clear 'onend' timeout before it ends.
-	     * @param  {String} soundId  The play instance ID.
-	     */
-	    _clearEndTimer: function _clearEndTimer(soundId) {
-	      var self = this,
-	          index = 0;
-
-	      // loop through the timers to find the one associated with this sound
-	      for (var i = 0; i < self._onendTimer.length; i++) {
-	        if (self._onendTimer[i].id === soundId) {
-	          index = i;
-	          break;
-	        }
-	      }
-
-	      var timer = self._onendTimer[index];
-	      if (timer) {
-	        clearTimeout(timer.timer);
-	        self._onendTimer.splice(index, 1);
-	      }
-	    },
-
-	    /**
-	     * Setup the gain node and panner for a Web Audio instance.
-	     * @return {Object} The new audio node.
-	     */
-	    _setupAudioNode: function _setupAudioNode() {
-	      var self = this,
-	          node = self._audioNode,
-	          index = self._audioNode.length;
-
-	      // create gain node
-	      node[index] = typeof ctx.createGain === 'undefined' ? ctx.createGainNode() : ctx.createGain();
-	      node[index].gain.value = self._volume;
-	      node[index].paused = true;
-	      node[index]._pos = 0;
-	      node[index].readyState = 4;
-	      node[index].connect(masterGain);
-
-	      // create the panner
-	      node[index].panner = ctx.createPanner();
-	      node[index].panner.panningModel = self._model || 'equalpower';
-	      node[index].panner.setPosition(self._pos3d[0], self._pos3d[1], self._pos3d[2]);
-	      node[index].panner.connect(node[index]);
-
-	      return node[index];
-	    },
-
-	    /**
-	     * Call/set custom events.
-	     * @param  {String}   event Event type.
-	     * @param  {Function} fn    Function to call.
-	     * @return {Howl}
-	     */
-	    on: function on(event, fn) {
-	      var self = this,
-	          events = self['_on' + event];
-
-	      if (typeof fn === 'function') {
-	        events.push(fn);
-	      } else {
-	        for (var i = 0; i < events.length; i++) {
-	          if (fn) {
-	            events[i].call(self, fn);
-	          } else {
-	            events[i].call(self);
-	          }
-	        }
-	      }
-
-	      return self;
-	    },
-
-	    /**
-	     * Remove a custom event.
-	     * @param  {String}   event Event type.
-	     * @param  {Function} fn    Listener to remove.
-	     * @return {Howl}
-	     */
-	    off: function off(event, fn) {
-	      var self = this,
-	          events = self['_on' + event],
-	          fnString = fn ? fn.toString() : null;
-
-	      if (fnString) {
-	        // loop through functions in the event for comparison
-	        for (var i = 0; i < events.length; i++) {
-	          if (fnString === events[i].toString()) {
-	            events.splice(i, 1);
-	            break;
-	          }
-	        }
-	      } else {
-	        self['_on' + event] = [];
-	      }
-
-	      return self;
-	    },
-
-	    /**
-	     * Unload and destroy the current Howl object.
-	     * This will immediately stop all play instances attached to this sound.
-	     */
-	    unload: function unload() {
-	      var self = this;
-
-	      // stop playing any active nodes
-	      var nodes = self._audioNode;
-	      for (var i = 0; i < self._audioNode.length; i++) {
-	        // stop the sound if it is currently playing
-	        if (!nodes[i].paused) {
-	          self.stop(nodes[i].id);
-	          self.on('end', nodes[i].id);
-	        }
-
-	        if (!self._webAudio) {
-	          // remove the source if using HTML5 Audio
-	          nodes[i].src = '';
-	        } else {
-	          // disconnect the output from the master gain
-	          nodes[i].disconnect(0);
-	        }
-	      }
-
-	      // make sure all timeouts are cleared
-	      for (i = 0; i < self._onendTimer.length; i++) {
-	        clearTimeout(self._onendTimer[i].timer);
-	      }
-
-	      // remove the reference in the global Howler object
-	      var index = Howler._howls.indexOf(self);
-	      if (index !== null && index >= 0) {
-	        Howler._howls.splice(index, 1);
-	      }
-
-	      // delete this sound from the cache
-	      delete cache[self._src];
-	      self = null;
+	        /**
+	         * Decode audio data from an array buffer.
+	         * @param  {ArrayBuffer} arraybuffer The audio data.
+	         * @param  {Object} obj The Howl object for the sound to load.
+	         * @param  {String} url The path to the sound file.
+	         */
+	        var decodeAudioData = function (arraybuffer, obj, url) {
+	            // decode the buffer into an audio source
+	            ctx.decodeAudioData(arraybuffer, function (buffer) {
+	                if (buffer) {
+	                    cache[url] = buffer;
+	                    loadSound(obj, buffer);
+	                }
+	            }, function (err) {
+	                obj.on('loaderror');
+	            });
+	        };
+	        /**
+	         * Finishes loading the Web Audio API sound and fires the loaded event
+	         * @param  {Object}  obj    The Howl object for the sound to load.
+	         * @param  {Objecct} buffer The decoded buffer sound source.
+	         */
+	        var loadSound = function (obj, buffer) {
+	            // set the duration
+	            obj._duration = (buffer) ? buffer.duration : obj._duration;
+	            // setup a sprite if none is defined
+	            if (Object.getOwnPropertyNames(obj._sprite).length === 0) {
+	                obj._sprite = { _default: [0, obj._duration * 1000] };
+	            }
+	            // fire the loaded event
+	            if (!obj._loaded) {
+	                obj._loaded = true;
+	                obj.on('load');
+	            }
+	            if (obj._autoplay) {
+	                obj.play();
+	            }
+	        };
+	        /**
+	         * Load the sound back into the buffer source.
+	         * @param  {Object} obj   The sound to load.
+	         * @param  {Array}  loop  Loop boolean, pos, and duration.
+	         * @param  {String} id    (optional) The play instance ID.
+	         */
+	        var refreshBuffer = function (obj, loop, id) {
+	            // determine which node to connect to
+	            var node = obj._nodeById(id);
+	            // setup the buffer source for playback
+	            node.bufferSource = ctx.createBufferSource();
+	            node.bufferSource.buffer = cache[obj._src];
+	            node.bufferSource.connect(node.panner);
+	            node.bufferSource.loop = loop[0];
+	            if (loop[0]) {
+	                node.bufferSource.loopStart = loop[1];
+	                node.bufferSource.loopEnd = loop[1] + loop[2];
+	            }
+	            node.bufferSource.playbackRate.value = obj._rate;
+	        };
 	    }
-
-	  };
-
-	  // only define these functions when using WebAudio
-	  if (usingWebAudio) {
-
 	    /**
-	     * Buffer a sound from URL (or from cache) and decode to audio source (Web Audio API).
-	     * @param  {Object} obj The Howl object for the sound to load.
-	     * @param  {String} url The path to the sound file.
+	     * Add support for AMD (Asynchronous Module Definition) libraries such as require.js.
 	     */
-	    var loadBuffer = function loadBuffer(obj, url) {
-	      // check if the buffer has already been cached
-	      if (url in cache) {
-	        // set the duration from the cache
-	        obj._duration = cache[url].duration;
-
-	        // load the sound into this object
-	        loadSound(obj);
-	        return;
-	      }
-
-	      if (/^data:[^;]+;base64,/.test(url)) {
-	        // Decode base64 data-URIs because some browsers cannot load data-URIs with XMLHttpRequest.
-	        var data = atob(url.split(',')[1]);
-	        var dataView = new Uint8Array(data.length);
-	        for (var i = 0; i < data.length; ++i) {
-	          dataView[i] = data.charCodeAt(i);
-	        }
-
-	        decodeAudioData(dataView.buffer, obj, url);
-	      } else {
-	        // load the buffer from the URL
-	        var xhr = new XMLHttpRequest();
-	        xhr.open('GET', url, true);
-	        xhr.responseType = 'arraybuffer';
-	        xhr.onload = function () {
-	          decodeAudioData(xhr.response, obj, url);
-	        };
-	        xhr.onerror = function () {
-	          // if there is an error, switch the sound to HTML Audio
-	          if (obj._webAudio) {
-	            obj._buffer = true;
-	            obj._webAudio = false;
-	            obj._audioNode = [];
-	            delete obj._gainNode;
-	            delete cache[url];
-	            obj.load();
-	          }
-	        };
-	        try {
-	          xhr.send();
-	        } catch (e) {
-	          xhr.onerror();
-	        }
-	      }
-	    };
-
+	    if (true) {
+	        !(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
+	            return {
+	                Howler: Howler,
+	                Howl: Howl
+	            };
+	        }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    }
 	    /**
-	     * Decode audio data from an array buffer.
-	     * @param  {ArrayBuffer} arraybuffer The audio data.
-	     * @param  {Object} obj The Howl object for the sound to load.
-	     * @param  {String} url The path to the sound file.
+	     * Add support for CommonJS libraries such as browserify.
 	     */
-	    var decodeAudioData = function decodeAudioData(arraybuffer, obj, url) {
-	      // decode the buffer into an audio source
-	      ctx.decodeAudioData(arraybuffer, function (buffer) {
-	        if (buffer) {
-	          cache[url] = buffer;
-	          loadSound(obj, buffer);
-	        }
-	      }, function (err) {
-	        obj.on('loaderror');
-	      });
-	    };
-
-	    /**
-	     * Finishes loading the Web Audio API sound and fires the loaded event
-	     * @param  {Object}  obj    The Howl object for the sound to load.
-	     * @param  {Objecct} buffer The decoded buffer sound source.
-	     */
-	    var loadSound = function loadSound(obj, buffer) {
-	      // set the duration
-	      obj._duration = buffer ? buffer.duration : obj._duration;
-
-	      // setup a sprite if none is defined
-	      if (Object.getOwnPropertyNames(obj._sprite).length === 0) {
-	        obj._sprite = { _default: [0, obj._duration * 1000] };
-	      }
-
-	      // fire the loaded event
-	      if (!obj._loaded) {
-	        obj._loaded = true;
-	        obj.on('load');
-	      }
-
-	      if (obj._autoplay) {
-	        obj.play();
-	      }
-	    };
-
-	    /**
-	     * Load the sound back into the buffer source.
-	     * @param  {Object} obj   The sound to load.
-	     * @param  {Array}  loop  Loop boolean, pos, and duration.
-	     * @param  {String} id    (optional) The play instance ID.
-	     */
-	    var refreshBuffer = function refreshBuffer(obj, loop, id) {
-	      // determine which node to connect to
-	      var node = obj._nodeById(id);
-
-	      // setup the buffer source for playback
-	      node.bufferSource = ctx.createBufferSource();
-	      node.bufferSource.buffer = cache[obj._src];
-	      node.bufferSource.connect(node.panner);
-	      node.bufferSource.loop = loop[0];
-	      if (loop[0]) {
-	        node.bufferSource.loopStart = loop[1];
-	        node.bufferSource.loopEnd = loop[1] + loop[2];
-	      }
-	      node.bufferSource.playbackRate.value = obj._rate;
-	    };
-	  }
-
-	  /**
-	   * Add support for AMD (Asynchronous Module Definition) libraries such as require.js.
-	   */
-	  if (true) {
-	    !(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
-	      return {
-	        Howler: Howler,
-	        Howl: Howl
-	      };
-	    }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	  }
-
-	  /**
-	   * Add support for CommonJS libraries such as browserify.
-	   */
-	  if (true) {
-	    exports.Howler = Howler;
-	    exports.Howl = Howl;
-	  }
-
-	  // define globally in case AMD is not available or available but not used
-
-	  if (typeof window !== 'undefined') {
-	    window.Howler = Howler;
-	    window.Howl = Howl;
-	  }
+	    if (true) {
+	        exports.Howler = Howler;
+	        exports.Howl = Howl;
+	    }
+	    // define globally in case AMD is not available or available but not used
+	    if (typeof window !== 'undefined') {
+	        window.Howler = Howler;
+	        window.Howl = Howl;
+	    }
 	})();
 
+
 /***/ },
-/* 354 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _dec, _class;
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.CountdownPage = undefined;
-
-	var _ionic = __webpack_require__(6);
-
-	var _shared = __webpack_require__(352);
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var CountdownPage = exports.CountdownPage = (_dec = (0, _ionic.Page)({
-	  templateUrl: 'build/pages/countdown/countdown.html'
-	}), _dec(_class = (function () {
-	  function CountdownPage(nav) {
-	    _classCallCheck(this, CountdownPage);
-
-	    this.nav = nav;
-	    this.headerText = "Waiting to start game";
-	    this.buttonText = "Press to start game";
-	  }
-
-	  _createClass(CountdownPage, [{
-	    key: 'ngAfterViewInit',
-	    value: function ngAfterViewInit() {
-	      _shared.Shared.getSettings().storeCallback(this, "_callback");
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var shared_1 = __webpack_require__(351);
+	var CountdownPage = (function () {
+	    function CountdownPage(nav) {
+	        this.nav = nav;
+	        this.headerText = "Waiting to start game";
+	        this.buttonText = "Press to start game";
 	    }
-	  }, {
-	    key: 'userClick',
-	    value: function userClick() {
-	      _shared.Shared.getSettings().buttonClick();
-	    }
-	  }, {
-	    key: '_callback',
-	    value: function _callback(mode, countdown) {
-	      switch (mode) {
-	        case _shared.Shared.TIMER_IDLE:
-	          this.headerText = "Waiting to start game";
-	          this.buttonText = "Press to start game";
-	          break;
+	    CountdownPage.prototype.ngAfterViewInit = function () {
+	        shared_1.Shared.getSettings().storeCallback(this, "_callback");
+	    };
+	    CountdownPage.prototype.userClick = function () {
+	        shared_1.Shared.getSettings().buttonClick();
+	    };
+	    CountdownPage.prototype._callback = function (mode, countdown) {
+	        switch (mode) {
+	            case shared_1.Shared.TIMER_IDLE:
+	                this.headerText = "Waiting to start game";
+	                this.buttonText = "Press to start game";
+	                break;
+	            case shared_1.Shared.TIMER_RUNNING:
+	                this.headerText = "Timer is running";
+	                this.buttonText = "Click to reset (" + (5 - countdown) + ")";
+	                break;
+	            case shared_1.Shared.TIMER_ELAPSED:
+	                this.headerText = "Boat craft time!!!!!!";
+	                this.buttonText = "Does nothing";
+	                break;
+	            default:
+	                console.log("Unknown mode: " + mode);
+	                break;
+	        }
+	    };
+	    CountdownPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: 'build/pages/countdown/countdown.html'
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _a) || Object])
+	    ], CountdownPage);
+	    return CountdownPage;
+	    var _a;
+	})();
+	exports.CountdownPage = CountdownPage;
 
-	        case _shared.Shared.TIMER_RUNNING:
-	          this.headerText = "Timer is running";
-	          this.buttonText = "Click to reset (" + (5 - countdown) + ")";
-	          break;
-
-	        case _shared.Shared.TIMER_ELAPSED:
-	          this.headerText = "Boat craft time!!!!!!";
-	          this.buttonText = "Does nothing";
-	          break;
-
-	        default:
-	          console.log("Unknown mode: " + mode);
-	          break;
-	      }
-	    }
-	  }]);
-
-	  return CountdownPage;
-	})()) || _class);
-	Reflect.defineMetadata('design:paramtypes', [_ionic.NavController], CountdownPage);
 
 /***/ }
 /******/ ]);
